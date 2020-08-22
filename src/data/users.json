@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "fname": "John",
+        "lname": "Doe",
+        "email": "john@john.com",
+        "pwd": "123",
+        "Living Area": "Center",
+        "City": "Tel-Aviv",
+        "Street Number": "20",
+        "Contact": "0976789661"
+    },
+    {
+        "id": 2,
+        "fname": "Sara",
+        "lname": "Doe",
+        "email": "sara@sara.com",
+        "pwd": "321",
+        "Living Area": "North",
+        "City": "Carmiel",
+        "Street Number": "13",
+        "Phone": "0545679117"
+    },
+    {
+        "id": 3,
+        "fname": "Hanna",
+        "lname": "Kantor",
+        "email": "hannakantor@gmail.com",
+        "pwd": "456",
+        "Living Area": "Center",
+        "City": "Rishon-Le-Zion",
+        "Street Number": "5",
+        "phone": "055678943"
+    },
+    {
+        "id": 4,
+        "fname": "Yulia",
+        "lname": "Choen",
+        "email": "yulia@gmail.com",
+        "pwd": "876",
+        "Living Area": "Center",
+        "City": "Rishon-Le-Zion",
+        "Street Number": "5",
+        "phone": "055678943"
+    },
+    {
+        "id": 5,
+        "fname": "Tal",
+        "lname": "Choen",
+        "email": "Tal@gmail.com",
+        "pwd": "992",
+        "Living Area": "Center",
+        "City": "Hulon",
+        "Street Number": "99",
+        "phone": "098345666"
+    },
+    {
+        "id": 6,
+        "fname": "Bar",
+        "lname": "Levi",
+        "email": "Bar@gmail.com",
+        "pwd": "555",
+        "Living Area": "Center",
+        "City": "Bat-Yam",
+        "Street Number": "44",
+        "phone": "050789543"
+    },
+    {
+        "id": 7,
+        "fname": "Mila",
+        "lname": "Brokes",
+        "email": "mila@gmail.com",
+        "pwd": "778",
+        "Living Area": "Center",
+        "City": "Tel-Aviv",
+        "Street Number": "33",
+        "phone": "0523274663"
+    }
+]
