@@ -12,6 +12,7 @@ class smartAgent extends Component {
             userArea:"Center",
             search: ""
 
+            
 
         };
 
