@@ -81,13 +81,13 @@ class smartAgent extends Component {
         const mainCategory = Object.keys(categories).map((key, i) => <option key={i} value={key}>{key}</option>)
         const subCategory = categories[this.state.value].map((sub, i) => <option key={i} value={sub}>{sub}</option>)
 
-        // const mainCondition = Object.keys(itemcondition).map((key, i) => <option key={i} itemcondition={key}>{key}</option>)
-        // const subCondition = itemcondition[this.state.value].map((cond, i) => <option key={i} itemcondition={cond}>{cond}</option>)
+        const mainCondition = Object.keys(itemcondition).map((key, i) => <option key={i} itemcondition={key}>{key}</option>)
+        const subCondition = itemcondition[this.state.value].map((cond, i) => <option key={i} itemcondition={cond}>{cond}</option>)
 
-        // const mainArea = Object.keys(userArea).map((key, i) => <option key={i} userArea={key}>{key}</option>)
-        // const subArea = userArea[this.state.value].map((area, i) => <option key={i} userArea={area}>{area}</option>)
+        const mainArea = Object.keys(userArea).map((key, i) => <option key={i} userArea={key}>{key}</option>)
+        const subArea = userArea[this.state.value].map((area, i) => <option key={i} userArea={area}>{area}</option>)
 
-        // const smartSearch = ads.filter(ad => ad.CategoryId === Object.keys(categories))
+        const smartSearch = ads.filter(ad => ad.CategoryId === Object.keys(categories))
 
         const searchUpdated = ads.filter(ad => ad.Category || ad.SubCategory || ad.details === search)
         const searchUpdatedUi = searchUpdated.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
