@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, FormControl, Button, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AdCard from '../../components/AdCard/AdCard'
+
 
 
 class smartAgent extends Component {
@@ -28,7 +30,7 @@ class smartAgent extends Component {
     
         this.setState({
           search: e.target.value
-        })
+        });
         console.log(search);
     
     }
@@ -37,12 +39,16 @@ class smartAgent extends Component {
         this.setState({
             value: event.target.value
         });
+        console.log(event);
+
     }
 
     handleChangeItem(event) {
         this.setState({
             itemcondition: event.target.value
         });
+        console.log(event.target.value);
+
     }
     
     handleChangeArea(event) {
@@ -82,6 +88,9 @@ class smartAgent extends Component {
         // const subArea = userArea[this.state.value].map((area, i) => <option key={i} userArea={area}>{area}</option>)
 
         // const smartSearch = ads.filter(ad => ad.CategoryId === Object.keys(categories))
+
+        const searchUpdated = ads.filter(ad => ad.Category || ad.SubCategory || ad.details === search)
+        const searchUpdatedUi = searchUpdated.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
         // const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
 

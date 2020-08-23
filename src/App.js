@@ -62,7 +62,7 @@ class App extends Component {
 
       <div className="App">
         <HashRouter>
-          <AdNavbar ads={ads} activeUser={activeUser} />
+          <AdNavbar ads={ads} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
 
           <Switch>
             <Route exact path="/">
