@@ -77,98 +77,98 @@ class App extends Component {
               <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
-            <Route exact path="/CoatsAndJackets">
-              <CoatsAndJackets ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>
+                  <Route exact path="/CoatsAndJackets">
+                    <CoatsAndJackets ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>
 
-            <Route exact path="/ClothingOther">
-              <ClothingOther ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>
+                  <Route exact path="/ClothingOther">
+                    <ClothingOther ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>
 
-            <Route exact path="/Shoes">
-              <Shoes ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>
+                  <Route exact path="/Shoes">
+                    <Shoes ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>
 
-            <Route exact path="/SpecialEvents">
-              <SpecialEvents ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>
+                  <Route exact path="/SpecialEvents">
+                    <SpecialEvents ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>
 
-            {/* <Route exact path="/Clothing">
-              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>  */}
+                  {/* <Route exact path="/Clothing">
+                    <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>  */}
 
             <Route exact path="/ToysAndGames">
               <ToysAndGames ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
-            {/* <Route exact path="/Clothing">
-              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>  */}
+                  {/* <Route exact path="/Clothing">
+                    <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>  */}
 
-            {/* <Route exact path="/Clothing">
-              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>  */}
+                  {/* <Route exact path="/Clothing">
+                    <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>  */}
 
-            {/* <Route exact path="/Clothing">
-              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>  */}
+                  {/* <Route exact path="/Clothing">
+                    <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>  */}
 
-            {/* <Route exact path="/Clothing">
-              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>  */}
+                  {/* <Route exact path="/Clothing">
+                    <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>  */}
 
-            {/* <Route exact path="/Clothing">
-              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>  */}
+                  {/* <Route exact path="/Clothing">
+                    <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>  */}
 
             <Route exact path="/ForTheBabys">
               <ForTheBabys ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
-            <Route exact path="/furniture">
-              <Furniture handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>
+                  <Route exact path="/furniture">
+                    <Furniture handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>
 
-            <Route exact path="/safety">
-              <Safety handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>
+                  <Route exact path="/safety">
+                    <Safety handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>
 
-            <Route exact path="/carriage">
-              <Carriage handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>
+                  <Route exact path="/carriage">
+                    <Carriage handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>
 
-            {/* <Route exact path="/Clothing">
-              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>  */}
+                  {/* <Route exact path="/Clothing">
+                    <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>  */}
 
-            {/* <Route exact path="/Clothing">
-              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>  */}
+                  {/* <Route exact path="/Clothing">
+                    <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route>  */}
 
 
             <Route exact path="/ForMoms">
               <ForMoms ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
-            {/* <Route exact path="/Clothing">
-              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>  */}
+                    {/* <Route exact path="/Clothing">
+                      <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                    </Route>  */}
 
-            {/* <Route exact path="/Clothing">
-              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>  */}
+                    {/* <Route exact path="/Clothing">
+                      <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                    </Route>  */}
 
-            {/* <Route exact path="/Clothing">
-              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>  */}
+                    {/* <Route exact path="/Clothing">
+                      <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                    </Route>  */}
 
-            {/* <Route exact path="/Clothing">
-              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>  */}
+                    {/* <Route exact path="/Clothing">
+                      <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                    </Route>  */}
 
-            {/* <Route exact path="/Clothing">
-              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>  */}
+                    {/* <Route exact path="/Clothing">
+                      <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                    </Route>  */}
 
             <Route exact path="/SmartAgent">
               <SmartAgent ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
