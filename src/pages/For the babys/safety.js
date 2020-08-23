@@ -6,21 +6,7 @@ class safety extends Component {
     render() {
         return (
             <div>
-                 <Nav
-                    // activeKey="/home"
-                    // onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-                >
-                    <Nav.Item>
-                        <Nav.Link href="/furniture">Furniture</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="/safety" eventKey="link-1">Safety!!!</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link  href="/carriage" eventKey="link-2">Carriage</Nav.Link>
-                    </Nav.Item>
-                  
-                </Nav>
+            
             </div>
         );
     }

@@ -15,6 +15,10 @@ import Signup from './pages/Signup/Signup';
 import Furniture from './pages/For the babys/furniture'
 import Safety from './pages/For the babys/safety'
 import Carriage from './pages/For the babys/carriage'
+import CoatsAndJackets from './pages/Clothing/Coats and Jackets'
+import ClothingOther from './pages/Clothing/ClothingOther'
+import Shoes from './pages/Clothing/Shoes'
+import SpecialEvents from './pages/Clothing/SpecialEvents'
 
 
 class App extends Component {
@@ -73,28 +77,52 @@ class App extends Component {
               <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
+            <Route exact path="/CoatsAndJackets">
+              <CoatsAndJackets ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>
+
+            <Route exact path="/ClothingOther">
+              <ClothingOther ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>
+
+            <Route exact path="/Shoes">
+              <Shoes ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>
+
+            <Route exact path="/SpecialEvents">
+              <SpecialEvents ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>
+
+            {/* <Route exact path="/Clothing">
+              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>  */}
+
             <Route exact path="/ToysAndGames">
               <ToysAndGames ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
+            {/* <Route exact path="/Clothing">
+              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>  */}
+
+            {/* <Route exact path="/Clothing">
+              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>  */}
+
+            {/* <Route exact path="/Clothing">
+              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>  */}
+
+            {/* <Route exact path="/Clothing">
+              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>  */}
+
+            {/* <Route exact path="/Clothing">
+              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>  */}
+
             <Route exact path="/ForTheBabys">
               <ForTheBabys ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>
-
-            <Route exact path="/ForMoms">
-              <ForMoms ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>
-
-            <Route exact path="/SmartAgent">
-              <SmartAgent  ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>
-
-            <Route exact path="/signup">
-              <Signup handlesignup={this.handlesignup} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>
-
-            <Route exact path="/Login">
-              <Login handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
             <Route exact path="/furniture">
@@ -109,7 +137,54 @@ class App extends Component {
               <Carriage handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
-         
+            {/* <Route exact path="/Clothing">
+              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>  */}
+
+            {/* <Route exact path="/Clothing">
+              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>  */}
+
+
+            <Route exact path="/ForMoms">
+              <ForMoms ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>
+
+            {/* <Route exact path="/Clothing">
+              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>  */}
+
+            {/* <Route exact path="/Clothing">
+              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>  */}
+
+            {/* <Route exact path="/Clothing">
+              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>  */}
+
+            {/* <Route exact path="/Clothing">
+              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>  */}
+
+            {/* <Route exact path="/Clothing">
+              <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>  */}
+
+            <Route exact path="/SmartAgent">
+              <SmartAgent ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>
+
+            <Route exact path="/signup">
+              <Signup handlesignup={this.handlesignup} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>
+
+            <Route exact path="/Login">
+              <Login handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>
+
+
+
+
 
           </Switch>
         </HashRouter>

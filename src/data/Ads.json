@@ -1,15 +1,14 @@
 [
     {
         "id": 1,
-        "CategoryId":2,
-        "Category": "Games And Toys",
-        "subCategoryId":20,
-        "Sub Category": "Other",
+        "categoryId":1,
+        "category": "Games And Toys",
+        "SubCategoryId":11,
+        "subCategory": "Other",
         "img": "https://www.toyhouse.co.il/images/itempics/11002_25082019172755.jpg",
         "Date": "23.07.20",
         "Details": "baby eating table, in a good condition",
         "Condition": "good",
-        "Size": " ",
         "userId":2
     },
     {
@@ -22,7 +21,6 @@
         "Date": "04.09.20",
         "Details": "a shirt",
         "Condition": "new",
-        "Size": "",
         "userId":4
     },
     {
@@ -35,7 +33,6 @@
         "Date": "01.03.20",
         "Details": "big lego",
         "Condition": "used-in a good condition",
-        "Size": "",
         "userId":4
     },
     {
@@ -48,7 +45,6 @@
         "Date": "08.05.20",
         "Details": "a big carriage, blue",
         "Condition": "excellent",
-        "Size": "",
         "userId":5
     },
     {
@@ -61,7 +57,6 @@
         "Date": "10.03.19",
         "Details": "piggie the pig",
         "Condition": "almost good",
-        "Size": "",
         "userId":6
     },
     {
@@ -69,12 +64,11 @@
         "CategoryId":3,
         "Category": "For Your Baby",
         "Sub Category": "Safety ",
-        "Sub CategoryId":22,
+        "SubCategoryId":14,
         "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
         "Date": "14.09.18",
         "Details": "chair",
         "Condition": "good",
-        "Size": " ",
         "userId":7
     },
     {
@@ -82,25 +76,23 @@
         "CategoryId":2,
         "Category": "Games And Toys",
         "Sub Category": "Other",
-        "subCategoryId":20,
+        "Sub CategoryId":20,
         "img": "https://www.toyhouse.co.il/images/itempics/11002_25082019172755.jpg",
         "Date": "23.07.20",
         "Details": "baby eating table, in a good condition",
         "Condition": "good",
-        "Size": " ",
         "userId":2
     },
     {
         "id": 8,
         "CategoryId":1,
         "Category": "Clothing",
-        "Sub Category": "casual",
-        "Sub CategoryId":13,
+        "SubCategory": "casual",
+        "SubCategoryId":15,
         "img": "https://images.saloona.co.il/files/2015/03/keds-suits.jpg",
         "Date": "04.09.20",
         "Details": "a shirt",
         "Condition": "new",
-        "Size": "",
         "userId":4
     },
     {
@@ -113,7 +105,6 @@
         "Date": "01.03.20",
         "Details": "big lego",
         "Condition": "used-in a good condition",
-        "Size": "",
         "userId":4
     },
     {
@@ -126,20 +117,18 @@
         "Date": "08.05.20",
         "Details": "a big carriage, blue",
         "Condition": "excellent",
-        "Size": "",
         "userId":5
     },
     {
         "id": 11,
-        "CategoryId":4,
-        "Category": "For Moms",
-        "Sub Category": "books",
-        "Sub CategoryId":28,
+        "categoryId":4,
+        "category": "For Moms",
+        "subCategory": "books",
+        "SubCategoryId":12,
         "img": "https://www.huggies.co.il/wp-content/uploads/2014/01/%D7%9E%D7%99%D7%9B%D7%9C-%D7%93%D7%9C%D7%99%D7%95%D7%AA-193x300.jpg",
         "Date": "10.03.19",
         "Details": "piggie the pig",
         "Condition": "almost good",
-        "Size": "",
         "userId":6
     },
     {
@@ -152,7 +141,6 @@
         "Date": "14.09.18",
         "Details": "chair",
         "Condition": "good",
-        "Size": " ",
         "userId":7
     }
 ]

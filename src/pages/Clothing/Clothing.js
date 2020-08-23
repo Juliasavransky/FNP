@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { ListGroup, Row , Col} from 'react-bootstrap';
 import AdCard from '../../components/AdCard/AdCard'
+import { Navbar, Nav, Form, FormControl,} from 'react-bootstrap';
+
 
 
 class Clothing extends Component {
@@ -13,9 +15,24 @@ class Clothing extends Component {
         const clothingAdsUi = clothingAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad}/></Col>)
 
         return (
-            <div>
+            <div className="c-adNavbar">
+            <Navbar bg="light" expand="lg">
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto cat">
+                   <Nav.Link className="mr-5" href="/#Coats">Coats and Jackets</Nav.Link>
+                   <Nav.Link className="mr-5" href="/#Casual">Casual</Nav.Link>
+                  <Nav.Link className="mr-5" href="/#Special Events">Special Events</Nav.Link>
+                   <Nav.Link className="mr-5" href="/#Shoes">Shoes</Nav.Link>
+                   <Nav.Link className="mr-5" href="/#Other">Other</Nav.Link>
+                 </Nav>
+                 <Row>{clothingAdsUi}</Row> 
+                 <Form inline>
+                 </Form>
+               </Navbar.Collapse>
                 
-               <Row>{clothingAdsUi}</Row> 
+               </Navbar>
+
                
             </div>
         );
@@ -23,4 +40,5 @@ class Clothing extends Component {
 }
 
 export default Clothing;
+
 
