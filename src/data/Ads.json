@@ -2,145 +2,510 @@
     {
         "id": 1,
         "categoryId":1,
-        "category": "Games And Toys",
+        "category": "Clothing",
         "SubCategoryId":11,
-        "subCategory": "Other",
+        "subCategory": "Coats and Jackets",
         "img": "https://www.toyhouse.co.il/images/itempics/11002_25082019172755.jpg",
         "Date": "23.07.20",
-        "Details": "baby eating table, in a good condition",
-        "Condition": "good",
+        "Details": "Lego Classic, in a good condition",
+        "Condition": "Good",
         "userId":2
     },
     {
         "id": 2,
         "CategoryId":1,
         "Category": "Clothing",
-        "Sub CategoryId":13,
-        "Sub Category": "casual",
+        "SubCategoryId":11,
+        "Sub Category": "Coats and Jackets",
         "img": "https://images.saloona.co.il/files/2015/03/keds-suits.jpg",
         "Date": "04.09.20",
         "Details": "a shirt",
-        "Condition": "new",
+        "Condition": "New",
         "userId":4
     },
     {
         "id": 3,
-        "CategoryId":2,
-        "Category": "Games and Toys",
-        "Sub Category": "lego",
-        "Sub CategoryId":19,
+        "CategoryId":1,
+        "Category": "Clothing",
+        "Sub Category": "Special Events",
+        "SubCategoryId":12,
         "img": "https://d3hb4faco7nbjh.cloudfront.net/media/catalog/product/cache/1/image/300x/9df78eab33525d08d6e5fb8d27136e95/1/0/106910029.jpg",
         "Date": "01.03.20",
         "Details": "big lego",
-        "Condition": "used-in a good condition",
+        "Condition": "Used-In A Good Condition",
         "userId":4
     },
     {
         "id": 4,
-        "CategoryId":3,
-        "Category": "For Your Baby",
-        "Sub Category": "carriage",
-        "Sub CategoryId":23,
+        "CategoryId":1,
+        "Category": "Clothing",
+        "Sub Category": "Special Events",
+        "SubCategoryId":12,
         "img": "https://www.mbaby.co.il/wp-content/uploads/2012/09/canstockphoto2371769.jpg",
         "Date": "08.05.20",
         "Details": "a big carriage, blue",
-        "Condition": "excellent",
+        "Condition": "New",
         "userId":5
     },
     {
         "id": 5,
-        "CategoryId":4,
-        "Category": "For Moms",
-        "Sub Category": "books",
-        "Sub CategoryId":28,
+        "CategoryId":1,
+        "Category": "Clothing",
+        "Sub Category": "Casual",
+        "SubCategoryId":13,
         "img": "https://www.huggies.co.il/wp-content/uploads/2014/01/%D7%9E%D7%99%D7%9B%D7%9C-%D7%93%D7%9C%D7%99%D7%95%D7%AA-193x300.jpg",
         "Date": "10.03.19",
         "Details": "piggie the pig",
-        "Condition": "almost good",
+        "Condition": "Used-In A Good Condition",
         "userId":6
     },
     {
         "id": 6,
-        "CategoryId":3,
-        "Category": "For Your Baby",
-        "Sub Category": "Safety ",
-        "SubCategoryId":14,
+        "CategoryId":1,
+        "Category": "Clothing",
+        "Sub Category": "Casual",
+        "SubCategoryId":13,
         "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
         "Date": "14.09.18",
         "Details": "chair",
-        "Condition": "good",
+        "Condition": "New",
         "userId":7
     },
     {
         "id": 7,
-        "CategoryId":2,
-        "Category": "Games And Toys",
-        "Sub Category": "Other",
-        "Sub CategoryId":20,
+        "CategoryId":1,
+        "Category": "Clothing",
+        "Sub Category": "Shoes",
+        "SubCategoryId":14,
         "img": "https://www.toyhouse.co.il/images/itempics/11002_25082019172755.jpg",
         "Date": "23.07.20",
         "Details": "baby eating table, in a good condition",
-        "Condition": "good",
+        "Condition": "Used-In A Good Condition",
         "userId":2
     },
     {
         "id": 8,
         "CategoryId":1,
         "Category": "Clothing",
-        "SubCategory": "casual",
-        "SubCategoryId":15,
+        "SubCategory": "Shoes",
+        "SubCategoryId":14,
         "img": "https://images.saloona.co.il/files/2015/03/keds-suits.jpg",
         "Date": "04.09.20",
         "Details": "a shirt",
-        "Condition": "new",
+        "Condition": "Used-In A Good Condition",
         "userId":4
     },
     {
         "id": 9,
-        "CategoryId":2,
-        "Category": "Games and Toys",
-        "Sub Category": "lego",
-        "Sub CategoryId":19,
+        "CategoryId":1,
+        "Category": "Clothing",
+        "Sub Category": "Clothing-Other",
+        "SubCategoryId":15,
         "img": "https://d3hb4faco7nbjh.cloudfront.net/media/catalog/product/cache/1/image/300x/9df78eab33525d08d6e5fb8d27136e95/1/0/106910029.jpg",
         "Date": "01.03.20",
         "Details": "big lego",
-        "Condition": "used-in a good condition",
+        "Condition": "New",
         "userId":4
     },
     {
         "id": 10,
-        "CategoryId":3,
-        "Category": "For Your Baby",
-        "Sub Category": "carriage",
-        "Sub CategoryId":23,
+        "CategoryId":1,
+        "Category": "Clothing",
+        "Sub Category": "Clothing-Other",
+        "SubCategoryId":15,
         "img": "https://www.mbaby.co.il/wp-content/uploads/2012/09/canstockphoto2371769.jpg",
         "Date": "08.05.20",
         "Details": "a big carriage, blue",
-        "Condition": "excellent",
+        "Condition": "Used-In A Good Condition",
         "userId":5
     },
     {
         "id": 11,
-        "categoryId":4,
-        "category": "For Moms",
-        "subCategory": "books",
-        "SubCategoryId":12,
+        "categoryId":2,
+        "category": "Toys and Games",
+        "sub Category": "Dolls",
+        "SubCategoryId":16,
         "img": "https://www.huggies.co.il/wp-content/uploads/2014/01/%D7%9E%D7%99%D7%9B%D7%9C-%D7%93%D7%9C%D7%99%D7%95%D7%AA-193x300.jpg",
         "Date": "10.03.19",
         "Details": "piggie the pig",
-        "Condition": "almost good",
+        "Condition": "New",
         "userId":6
     },
     {
         "id": 12,
+        "CategoryId":2,
+        "Category": "Toys and Games",
+        "Sub Category": "Dolls",
+        "SubCategoryId":16,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 13,
+        "CategoryId":2,
+        "Category": "Toys and Games",
+        "Sub Category": "Board Games",
+        "SubCategoryId":17,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "New",
+        "userId":7
+    },
+
+    {
+        "id": 14,
+        "CategoryId":2,
+        "Category": "Toys and Games",
+        "Sub Category": "Board Games",
+        "SubCategoryId":17,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 15,
+        "CategoryId":2,
+        "Category": "Toys and Games",
+        "Sub Category": "Books",
+        "SubCategoryId":18,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "New",
+        "userId":7
+    },
+
+    {
+        "id": 16,
+        "CategoryId":2,
+        "Category": "Toys and Games",
+        "Sub Category": "Books",
+        "SubCategoryId":18,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 17,
+        "CategoryId":2,
+        "Category": "Toys and Games",
+        "Sub Category": "Lego",
+        "SubCategoryId":19,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "New",
+        "userId":7
+    },
+
+    {
+        "id": 18,
+        "CategoryId":2,
+        "Category": "Toys and Games",
+        "Sub Category": "Lego",
+        "SubCategoryId":19,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 19,
+        "CategoryId":2,
+        "Category": "Toys and Games",
+        "Sub Category": "ToysAndGames-Other ",
+        "SubCategoryId":20,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Good",
+        "userId":7
+    },
+
+    {
+        "id": 20,
+        "CategoryId":2,
+        "Category": "Toys and Games",
+        "Sub Category": "ToysAndGames-Other",
+        "SubCategoryId":20,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 21,
         "CategoryId":3,
-        "Category": "For Your Baby",
+        "Category": "For The Babys",
+        "Sub Category": "Furniture",
+        "SubCategoryId":21,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Good",
+        "userId":7
+    },
+
+    {
+        "id": 22,
+        "CategoryId":3,
+        "Category": "For The Babys",
+        "Sub Category": "Furniture",
+        "SubCategoryId":21,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 23,
+        "CategoryId":3,
+        "Category": "For The Babys",
         "Sub Category": "Safety ",
-        "Sub CategoryId":22,
+        "SubCategoryId":22,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Good",
+        "userId":7
+    },
+
+    {
+        "id": 24,
+        "CategoryId":3,
+        "Category": "For The Babys",
+        "Sub Category": "Safety ",
+        "SubCategoryId":22,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 25,
+        "CategoryId":3,
+        "Category": "For The Babys",
+        "Sub Category": "Carriage",
+        "SubCategoryId":23,
         "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
         "Date": "14.09.18",
         "Details": "chair",
         "Condition": "good",
         "userId":7
+    },
+
+    {
+        "id": 26,
+        "CategoryId":3,
+        "Category": "For The Babys",
+        "Sub Category": "Carriage",
+        "SubCategoryId":23,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 27,
+        "CategoryId":3,
+        "Category": "For The Babys",
+        "Sub Category": "Playpen Cradle",
+        "SubCategoryId":24,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Good",
+        "userId":7
+    },
+
+    {
+        "id": 28,
+        "CategoryId":3,
+        "Category": "For The Babys",
+        "Sub Category": "Playpen Cradle",
+        "SubCategoryId":24,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 29,
+        "CategoryId":3,
+        "Category": "For The Babys",
+        "Sub Category": "ForTheBaybys-Other",
+        "SubCategoryId":25,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 30,
+        "CategoryId":3,
+        "Category": "For The Babys",
+        "Sub Category": "ForTheBaybys-Other",
+        "SubCategoryId":25,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Good",
+        "userId":7
+    },
+
+    {
+        "id": 31,
+        "CategoryId":4,
+        "Category": "For Moms",
+        "Sub Category": "pregnancy clothes",
+        "SubCategoryId":26,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 32,
+        "CategoryId":4,
+        "Category": "For Moms",
+        "Sub Category": "pregnancy clothes",
+        "SubCategoryId":26,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Good",
+        "userId":7
+    },
+
+    {
+        "id": 33,
+        "CategoryId":4,
+        "Category": "For Moms",
+        "Sub Category": "Breast Pumps",
+        "SubCategoryId":27,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 34,
+        "CategoryId":4,
+        "Category": "For Moms",
+        "Sub Category": "Breast Pumps",
+        "SubCategoryId":27,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 35,
+        "CategoryId":4,
+        "Category": "For Moms",
+        "Sub Category": " ",
+        "SubCategoryId":28,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Good",
+        "userId":7
+    },
+
+    {
+        "id": 36,
+        "CategoryId":4,
+        "Category": "For Moms",
+        "Sub Category": " ",
+        "SubCategoryId":28,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Good",
+        "userId":7
+    },
+
+    {
+        "id": 37,
+        "CategoryId":4,
+        "Category": "For Moms",
+        "Sub Category": "Supplements",
+        "SubCategoryId":29,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Good",
+        "userId":7
+    },
+
+    {
+        "id": 38,
+        "CategoryId":4,
+        "Category": "For Moms",
+        "Sub Category": "Supplements",
+        "SubCategoryId":29,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
+    },
+
+    {
+        "id": 39,
+        "CategoryId":4,
+        "Category": "For Moms",
+        "Sub Category": "ForMoms-Other",
+        "SubCategoryId":30,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Good",
+        "userId":7
+    },
+
+    {
+        "id": 40,
+        "CategoryId":4,
+        "Category": "For Moms",
+        "Sub Category": "ForMoms-Other ",
+        "SubCategoryId":30,
+        "img": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2018/01/21/8296655/82966487921691980551no.jpg",
+        "Date": "14.09.18",
+        "Details": "chair",
+        "Condition": "Used-In A Good Condition",
+        "userId":7
     }
+
 ]
