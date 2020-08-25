@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  Card, CardColumns } from 'react-bootstrap';
+import {  Card, CardColumns, Col } from 'react-bootstrap';
 
 
 class AdCard extends Component {
@@ -12,16 +12,17 @@ class AdCard extends Component {
     render() {
 
         const {ad}= this.props;
-
+       
         
         return (
             <div>
                 
                     <Card>
-                        <Card.Img variant="top" src={ad.img} />
+                        <Card.Img variant="top" href="#/zoomInAd" src={ad.img} />
                         <Card.Body>
                             <Card.Title>{ad.Category}</Card.Title>
-                            <Card.Text> Details: {ad.Details}</Card.Text>
+                            <Card.Link  href="#/zoomInAd" >
+                                 Details: {ad.Details}</Card.Link>
                            
                             <Card.Text>Condition: {ad.Condition} </Card.Text>
                             
@@ -29,6 +30,8 @@ class AdCard extends Component {
                             
                         </Card.Body>
                     </Card>
+                    
+                    
             </div>
         );
     }
