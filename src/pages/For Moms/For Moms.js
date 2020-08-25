@@ -23,7 +23,7 @@ class ForMoms extends Component {
                         <Nav className="mr-auto cat">
                             <Nav.Link className="mr-5" href="/#Pregnancy Clothes">Pregnancy Clothes</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Breast Pumps">Breast Pumps</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Books">Books</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#BooksForMoms">Books For Moms</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Supplements">Supplements</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Other">Other</Nav.Link>
                         </Nav>
