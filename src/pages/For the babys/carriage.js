@@ -22,7 +22,7 @@ class Carriage extends Component {
                             <Nav.Link className="mr-5" href="/#Furniture">Furniture</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Safety">Safety</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Carriages">Carriages</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Shoes">Shoes</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#ForTheBabysOther">Other</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Playpen Cradle">Playpen Cradle</Nav.Link>
                         </Nav>
                         <Form inline>

@@ -10,7 +10,7 @@ class ToysAndGames extends Component {
         const ToysAndGamesPage = 2
         const ToysAndGamesAds = ads.filter(ad => ad.CategoryId === ToysAndGamesPage)
 
-        const clothingAdsUi = ToysAndGamesAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const ToysAndGamesAdsUi = ToysAndGamesAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
         return (
             <div className="c-adNavbar">
@@ -28,9 +28,9 @@ class ToysAndGames extends Component {
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-                      ToysAndGames
+                     
                 <ListGroup variant="flush">
-                    <Row>{clothingAdsUi}</Row>
+                    <Row>{ToysAndGamesAdsUi}</Row>
                 </ListGroup>
             </div>
         );

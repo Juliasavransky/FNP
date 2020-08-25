@@ -40,4 +40,4 @@ class PregnancyClothes extends Component {
     }
 }
 
-export default ForMoms;
+export default PregnancyClothes;

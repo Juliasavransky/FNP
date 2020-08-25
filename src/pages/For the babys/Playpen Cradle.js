@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ListGroup, Col, Row, Nav } from 'react-bootstrap';
-
+import { ListGroup, Col, Row, Nav, Form, Navbar } from 'react-bootstrap';
+import AdCard from '../../components/AdCard/AdCard';
 
 class PlaypenCradle extends Component {
     render() {
@@ -20,8 +20,8 @@ class PlaypenCradle extends Component {
                             <Nav.Link className="mr-5" href="/#Furniture">Furniture</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Safety">Safety</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Carriages">Carriages</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Shoes">Shoes</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Playpen Cradle">Playpen Cradle</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#ForTheBabysOther">Other</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#PlaypenCradle">Playpen Cradle</Nav.Link>
                         </Nav>
                         <Form inline>
                         </Form>

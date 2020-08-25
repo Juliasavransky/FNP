@@ -9,7 +9,7 @@ class ForTheBabys extends Component {
 
         const { ads } = this.props;
         const ForTheBabysPage = 3
-        const ForTheBabysAds = ads.filter(ad => ad.SubCategoryId === ForTheBabysPage)
+        const ForTheBabysAds = ads.filter(ad => ad.CategoryId === ForTheBabysPage)
 
         const ForTheBabysAdsUi = ForTheBabysAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
@@ -22,14 +22,14 @@ class ForTheBabys extends Component {
                             <Nav.Link className="mr-5" href="/#Furniture">Furniture</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Safety">Safety</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Carriages">Carriages</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Shoes">Shoes</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#ForTheBabysOther">Other</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Playpen Cradle">Playpen Cradle</Nav.Link>
                         </Nav>
                         <Form inline>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-                
+
                 <Row>{ForTheBabysAdsUi}</Row>
                 <ListGroup variant="flush">
                 </ListGroup>
