@@ -137,22 +137,6 @@
 //     }
 //     subCategoryChange
 
-<<<<<<< HEAD
-
-//     categoryChange = (event) => {
-//         const category = event.target.value;
-//         const subCategorys= ads.filter(ad=> SubCategoryId === category);
-
-
-//         this.setState({
-//             categorys: category,
-//             subCategorys: subCategorys,
-
-//              });
-//         console.log(event);
-
-//     }
-=======
 const ItemCategory = { categoryName: 'Select Category ...' };
 const ItemsubCategory = { SubCategoryName: 'Select Category ...' };
 const ItemCondition = { ConditionName: 'Select condition ...' };
@@ -181,32 +165,19 @@ class smartAgent extends Component {
 
     }
 
->>>>>>> 7a13c506cdd7c1a7ad759f53f2acecb19ec0aadb
 
 //     subCategoryChange = (event) => {
 //         const subCategory = event.target.value;
 //         const subCategorys= ads.filter(ad=> SubCategoryId === category);
 
-<<<<<<< HEAD
-=======
     categoryChange = (event) => {
         const category = event.target.value;
         // const subCategorys = dataSubCategorys.filter(SubCategory => SubCategory.Categoryid === Category.CategoryId);
->>>>>>> 7a13c506cdd7c1a7ad759f53f2acecb19ec0aadb
 
 //         this.setState({
 //             categorys: category,
 //             subCategorys: subCategorys,
 
-<<<<<<< HEAD
-//              });
-//         console.log(event);
-
-//     }
-//     //     productChange = (event) => {
-// //         const product = event.target.value;
-// //         const orders = dataOrders.filter(order => order.productId === product.productId);
-=======
         this.setState({
             category: category,
             // subCategorys: subCategorys,
@@ -218,7 +189,6 @@ class smartAgent extends Component {
 
     subCategoryChange = (event) => {
         const subCategory = event.target.value;
->>>>>>> 7a13c506cdd7c1a7ad759f53f2acecb19ec0aadb
 
 // //         this.setState({
 // //             product: product,
@@ -227,52 +197,6 @@ class smartAgent extends Component {
 // //         });
 // //     }
 
-<<<<<<< HEAD
-//     handleChangeItem(event) {
-//         const { ads } = this.props
-
-//         console.log();
-
-//     }
-
-//     handleChangeArea(event) {
-//         this.setState({
-//             userArea: event.target.value
-//         });
-//     }
-//     search = (e) => {
-//         const { search } = this.state;
-
-//         this.setState({
-//             search: e.target.value
-//         });
-//         console.log(search);
-
-//     }
-
-//     render() {
-
-//         const { ads, search, activeUser, allUsers } = this.props;
-
-
-//         const categories = {
-//             Clothing: ["Coats and jackets", "Casual", "Special Events", "Shoes", "Other"],
-//             "Toys And Games": ["Dolls", "board games", "books", "lego", "Other"],
-//             "For Your Baby": ["Safety", "carriage", "playpen cradle", "Other"],
-//             "For Moms": ["pregnancy clothes", " Breast pumps", "books", "Supplements", "Other"],
-//         }
-//         const itemcondition = {
-//             "Item condition": ["New", "Good", "used-in a good condition"]
-
-//         }
-//         // const userArea = {
-//         //     area: ["Center", "North", "Jerusalem", "South", "West"]
-
-//         // }
-
-//         const mainCategory = Object.keys(categories).map((key, i) => <option key={i} value={key}>{key}</option>)
-//         const subCategory = categories[this.state.value].map((sub, i) => <option key={i} value={sub}>{sub}</option>)
-=======
         this.setState({
             subCategory: event.target.value,
 
@@ -314,65 +238,10 @@ class smartAgent extends Component {
 
         // const ??? = ???.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
->>>>>>> 7a13c506cdd7c1a7ad759f53f2acecb19ec0aadb
 
 //         const mainCondition = Object.keys(itemcondition).map((key, i) => <option key={i} itemcondition={key}>{key}</option>)
 //         // const subCondition = itemcondition[this.state.value].map((cond, i) => <option key={i} itemcondition={cond}>{cond}</option>)
 
-<<<<<<< HEAD
-//         // const mainArea = Object.keys(userArea).map((key, i) => <option key={i} userArea={key}>{key}</option>)
-//         // const subArea = userArea[this.state.value].map((area, i) => <option key={i} userArea={area}>{area}</option>)
-
-//         // const smartSearch = ads.filter(ad => ad.CategoryId === Object.keys(categories))
-
-//         // const searchUpdated = ads.filter(ad => ad.Category && ad.SubCategory && ad.details === search)
-//         // const searchUpdatedUi = searchUpdated.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
-
-//         const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
-
-//         const filteredDropdown = ads.filter(ad => ad.CategoryId && ad.SubCategoryId === ad);
-//         console.log(filteredDropdown)
-
-//         return (
-//             <div>
-
-//                 <Form inline className="m-4" >
-//                     <Form.Group as={Col} controlId="formGridState">
-//                         <Form.Label className="mr-2">Category</Form.Label>
-//                         <Form.Control className="m-3" as="select" value={this.state.value} onChange={this.categoryChange}>
-//                             {mainCategory}
-//                         </Form.Control>
-
-
-//                         <Form.Label className="m-3">Sub-Category</Form.Label>
-//                         <Form.Control onChange={this.subCategoryChange} value={this.state.value} className="mr-2" as="select" >
-//                             {subCategory}
-//                             {filteredDropdown}
-//                         </Form.Control>
-
-//                         {/* 
-//                        <Form.Label className="mr-2">{mainCondition}</Form.Label>
-//                         <Form.Control className="m-2" as="select"  itemcondition={this.state.value} onChange={this.handleChangeItem}>
-//                             {subCondition}
-//                         </Form.Control> */}
-
-//                         {/* <Form.Label className="mr-2">{mainArea}</Form.Label>
-//                         <Form.Control className="m-2 " as="select"  userArea={this.state.value} onChange={this.handleChangeArea}>
-//                             {subArea}
-//                         </Form.Control>  */}
-
-
-//                     </Form.Group >
-//                     <FormControl
-//                         value={search} type="submit" value="Submit" onChange={(e) => this.setState({ search: e.target.value })}
-//                         className="mr-2" type="text" placeholder="Search for item" className="mr-sm-2" />
-//                     <Button onClick={this.search} type="submit" value="Submit" className="mr-2" variant="outline-success">Search</Button>
-//                 </Form>
-//             </div>
-//         );
-//     }
-// }
-=======
 
                 <Dropdown>
                     <Dropdown.Toggle className="mt-4 mb-4" variant="success"  id="dropdown-basic">
@@ -441,6 +310,5 @@ class smartAgent extends Component {
         );
     }
 }
->>>>>>> 7a13c506cdd7c1a7ad759f53f2acecb19ec0aadb
 
 // export default smartAgent;
