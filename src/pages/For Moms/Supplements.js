@@ -6,14 +6,14 @@ import { Navbar, Nav, Form, FormControl, } from 'react-bootstrap';
 
 
 
-class ForMoms extends Component {
+class Supplements extends Component {
     render() {
         const { ads } = this.props;
 
-        const ForMomsPage = 4
-        const ForMomsAds = ads.filter(ad => ad.CategoryId === ForMomsPage)
+        const SupplementsPage = 44
+        const SupplementsAds = ads.filter(ad => ad.SubCategoryId === SupplementsPage)
 
-        const ForMomsAdsUi = ForMomsAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const SupplementsAdsUi = SupplementsAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
         return (
             <div className="c-adNavbar">
@@ -21,23 +21,23 @@ class ForMoms extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto cat">
-                            <Nav.Link className="mr-5" href="/#Pregnancy Clothes">Pregnancy Clothes</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Breast Pumps">Breast Pumps</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#PregnancyClothes">Pregnancy Clothes</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#BreastPumps">Breast Pumps</Nav.Link>
                             <Nav.Link className="mr-5" href="/#BooksForMoms">Books For Moms</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Supplements">Supplements</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Other">Other</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#ForMomsOther">Other</Nav.Link>
                         </Nav>
                         <Form inline>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-                ForMoms
+              
                 <ListGroup variant="flush">
-                    <Row>{ForMomsAdsUi}</Row>
+                    <Row>{SupplementsAdsUi}</Row>
                 </ListGroup>
             </div>
         );
     }
 }
 
-export default ForMoms;
+export default Supplements;
