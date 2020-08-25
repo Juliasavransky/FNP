@@ -1,0 +1,26 @@
+[
+    {
+      
+
+    }
+]
+
+
+const itemcondition = {
+    "Item condition": ["New", "Good", "used-in a good condition"]
+
+}
+// const userArea = {
+//     area: ["Center", "North", "Jerusalem", "South", "West"]
+
+// }
+"id": 1,
+"categoryId":1,
+"category": "Clothing",
+"SubCategoryId":11,
+"subCategory": "Coats and Jackets",
+"img": "https://www.toyhouse.co.il/images/itempics/11002_25082019172755.jpg",
+"Date": "23.07.20",
+"Details": "Lego Classic, in a good condition",
+"Condition": "Good",
+"userId":2

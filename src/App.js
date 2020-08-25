@@ -171,7 +171,7 @@ class App extends Component {
                     </Route>  */}
 
             <Route exact path="/SmartAgent">
-              <SmartAgent ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+              <SmartAgent ads={ads} handleLogout={this.handleLogout} allUsers={allUsers} activeUser={activeUser} />
             </Route>
 
             <Route exact path="/signup">
