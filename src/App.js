@@ -104,6 +104,8 @@ class App extends Component {
               <ToysAndGames ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
+
+
                   {/* <Route exact path="/Clothing">
                     <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
                   </Route>  */}

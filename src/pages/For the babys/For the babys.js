@@ -8,10 +8,10 @@ class ForTheBabys extends Component {
     render() {
 
         const { ads } = this.props;
-        const forthebabysPage = 3
-        const forthebabysAds = ads.filter(ad => ad.CategoryId === forthebabysPage)
+        const ForTheBabysPage = 3
+        const ForTheBabysAds = ads.filter(ad => ad.SubCategoryId === ForTheBabysPage)
 
-        const forthebabysUi = forthebabysAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const ForTheBabysAdsUi = ForTheBabysAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
         return (
             <div className="c-adNavbar">
@@ -29,8 +29,8 @@ class ForTheBabys extends Component {
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-                ForTheBabys
-                <Row>{forthebabysUi}</Row>
+                
+                <Row>{ForTheBabysAdsUi}</Row>
                 <ListGroup variant="flush">
                 </ListGroup>
             </div>
