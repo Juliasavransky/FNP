@@ -1,7 +1,7 @@
 // import jsonUsers from '../src/data/users.json';
 // import jsonAds from '../src/data/Ads.json';
 
-const dataCategories = [
+const dataCategoriess = [
     { categoryName: "Clothing", CategoryId: 1 },
     { categoryName: "Toys and Games", CategoryId: 2 },
     { categoryName: "For The Babys", CategoryId: 3 },
@@ -9,7 +9,7 @@ const dataCategories = [
 
 ];
 
-const dataSubCategory = [
+const dataSubCategorys = [
     { SubCategoryName: "Coats and Jackets", SubCategoryId: 11, CategoryId: 1 },
     { SubCategoryName: "Special Events", SubCategoryId: 12, CategoryId: 1 },
     { SubCategoryName: "Casual", SubCategoryId: 13, CategoryId: 1 },
@@ -36,19 +36,20 @@ const dataSubCategory = [
 
 ];
 
-const dataCondition = [
+const dataConditions = [
     { ConditionName: "New", ConditionId: 1 },
     { ConditionName: "Good", ConditionId: 2 },
     { ConditionName: "used-in a good condition", ConditionId: 3 }
    
-    
 ];
 
-const dataLivingArea = [
+const dataLivingAreas = [
     { LivingAreaName: "Center", LivingAreaId: 1 },
     { LivingAreaName: "North", LivingAreaId: 2 },
     { LivingAreaName: "Jerusalem", LivingAreaId: 3 },
     { LivingAreaName: "South", LivingAreaId: 4 },
-    { LivingAreaName: "West", LivingAreaId: 4 },
+    { LivingAreaName: "West", LivingAreaId: 5 },
 
 ];
+
+export { dataLivingAreas, dataConditions, dataSubCategorys, dataCategoriess};
