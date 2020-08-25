@@ -100,7 +100,7 @@ class smartAgent extends Component {
 
 
                 <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    <Dropdown.Toggle className="mt-4 mb-4" variant="success"  id="dropdown-basic">
                         Categorys
                             </Dropdown.Toggle>
 
@@ -116,7 +116,7 @@ class smartAgent extends Component {
 
 
                 <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    <Dropdown.Toggle className="mt-4 mb-4" variant="success" id="dropdown-basic">
                         Sub-Categorys
                             </Dropdown.Toggle>
 
@@ -131,7 +131,7 @@ class smartAgent extends Component {
                 </Dropdown>
 
                 <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    <Dropdown.Toggle className="mt-4 mb-4"variant="success" id="dropdown-basic">
                         Item Condition
                      </Dropdown.Toggle>
 
@@ -151,7 +151,7 @@ class smartAgent extends Component {
 
 
                 <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    <Dropdown.Toggle className="mt-4 mb-4" variant="success" id="dropdown-basic">
                         Areas
                             </Dropdown.Toggle>
                     <Dropdown.Menu
