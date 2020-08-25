@@ -17,17 +17,17 @@ class SpecialEvents extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto cat">
-                            <Nav.Link className="mr-5" href="/#coats">Coats and Jackets</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#casual">Casual</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#special Events">Special Events</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#shoes">Shoes</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#other">Other</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#CoatsAndJackets">Coats and Jackets</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#Casual">Casual</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#SpecialEvents">Special Events</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#Shoes">Shoes</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#ClothingOther">Other</Nav.Link>
                         </Nav>
                         <Form inline>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-               Special Events
+              
                 <Row>{SpecialEventsAdsUi}</Row>
                 <ListGroup variant="flush">
                 </ListGroup>

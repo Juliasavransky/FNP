@@ -20,11 +20,11 @@ class Clothing extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat">
-              <Nav.Link className="mr-5" href="/#Coats">Coats and Jackets</Nav.Link>
+              <Nav.Link className="mr-5" href="/#CoatsAndJackets">Coats and Jackets</Nav.Link>
               <Nav.Link className="mr-5" href="/#Casual">Casual</Nav.Link>
-              <Nav.Link className="mr-5" href="/#Special Events">Special Events</Nav.Link>
+              <Nav.Link className="mr-5" href="/#SpecialEvents">Special Events</Nav.Link>
               <Nav.Link className="mr-5" href="/#Shoes">Shoes</Nav.Link>
-              <Nav.Link className="mr-5" href="/#Other">Other</Nav.Link>
+              <Nav.Link className="mr-5" href="/#ClothingOther">Other</Nav.Link>
             </Nav>
             <Form inline>
             </Form>

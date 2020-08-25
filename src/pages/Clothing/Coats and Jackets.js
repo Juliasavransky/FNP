@@ -7,22 +7,22 @@ class CoatsAndJackets extends Component {
 
         const { ads, activeUser, allUsers, handleLogin, handleLogout } = this.props;
 
-        const coatsAndJacketsPage = 11
-        const coatsAndJacketsAds = ads.filter(ad => ad.SubCategoryId === coatsAndJacketsPage)
+        const CoatsAndJacketsPage = 11
+        const CoatsAndJacketsAds = ads.filter(ad => ad.SubCategoryId === CoatsAndJacketsPage)
 
-        const coatsAndJacketsAdsUi = coatsAndJacketsAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const CoatsAndJacketsAdsUi = CoatsAndJacketsAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
         return (
             <div className="c-adNavbar">
-                CoatsAndJackets
+                
                 <Navbar bg="light" expand="lg">
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto cat">
-                            <Nav.Link className="mr-5" href="/#CoatsandJackets">Coats and Jackets</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#CoatsAndJackets">Coats and Jackets</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Casual">Casual</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Special Events">Special Events</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#SpecialEvents">Special Events</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Shoes">Shoes</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Other">Other</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#ClothingOther">Other</Nav.Link>
                         </Nav>
                         <Form inline>
                         </Form>
@@ -33,7 +33,7 @@ class CoatsAndJackets extends Component {
 
                 <ListGroup variant="flush">
                     <Form.Label className="mr-2">Category</Form.Label>
-                    <Row>{coatsAndJacketsAdsUi}</Row>
+                    <Row>{CoatsAndJacketsAdsUi}</Row>
                 </ListGroup>
             </div>
         );

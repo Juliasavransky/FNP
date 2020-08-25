@@ -19,6 +19,9 @@ import CoatsAndJackets from './pages/Clothing/Coats and Jackets'
 import ClothingOther from './pages/Clothing/ClothingOther'
 import Shoes from './pages/Clothing/Shoes'
 import SpecialEvents from './pages/Clothing/SpecialEvents'
+import Casual from './pages/Clothing/Casual'
+
+
 
 
 class App extends Component {
@@ -93,9 +96,9 @@ class App extends Component {
                     <SpecialEvents ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
                   </Route>
 
-                  {/* <Route exact path="/Clothing">
-                    <Clothing ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
-                  </Route>  */}
+                  <Route exact path="/Casual">
+                    <Casual ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  </Route> 
 
             <Route exact path="/ToysAndGames">
               <ToysAndGames ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
