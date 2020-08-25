@@ -137,6 +137,7 @@
 //     }
 //     subCategoryChange
 
+<<<<<<< HEAD
 
 //     categoryChange = (event) => {
 //         const category = event.target.value;
@@ -151,16 +152,53 @@
 //         console.log(event);
 
 //     }
+=======
+const ItemCategory = { categoryName: 'Select Category ...' };
+const ItemsubCategory = { SubCategoryName: 'Select Category ...' };
+const ItemCondition = { ConditionName: 'Select condition ...' };
+const ItemLivingArea = { LivingAreaName: 'Select Area ...' };
+
+class smartAgent extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            category: null,
+            subCategorys: null,
+            Conditions: null,
+            LivingAreas: null,
+            subCategorys: dataSubCategorys,
+
+        };
+        console.log(this.state)
+
+        this.categoryChange = this.categoryChange.bind(this);
+        this.subCategoryChange = this.subCategoryChange.bind(this);
+        this.changeItemConditions = this.changeItemConditions.bind(this);
+        this.changeItemLivingArea = this.changeItemLivingArea.bind(this);
+        // this.search = this.search.bind(this);
+
+    }
+
+>>>>>>> 7a13c506cdd7c1a7ad759f53f2acecb19ec0aadb
 
 //     subCategoryChange = (event) => {
 //         const subCategory = event.target.value;
 //         const subCategorys= ads.filter(ad=> SubCategoryId === category);
 
+<<<<<<< HEAD
+=======
+    categoryChange = (event) => {
+        const category = event.target.value;
+        // const subCategorys = dataSubCategorys.filter(SubCategory => SubCategory.Categoryid === Category.CategoryId);
+>>>>>>> 7a13c506cdd7c1a7ad759f53f2acecb19ec0aadb
 
 //         this.setState({
 //             categorys: category,
 //             subCategorys: subCategorys,
 
+<<<<<<< HEAD
 //              });
 //         console.log(event);
 
@@ -168,6 +206,19 @@
 //     //     productChange = (event) => {
 // //         const product = event.target.value;
 // //         const orders = dataOrders.filter(order => order.productId === product.productId);
+=======
+        this.setState({
+            category: category,
+            // subCategorys: subCategorys,
+
+        });
+        console.log(event);
+
+    }
+
+    subCategoryChange = (event) => {
+        const subCategory = event.target.value;
+>>>>>>> 7a13c506cdd7c1a7ad759f53f2acecb19ec0aadb
 
 // //         this.setState({
 // //             product: product,
@@ -176,6 +227,7 @@
 // //         });
 // //     }
 
+<<<<<<< HEAD
 //     handleChangeItem(event) {
 //         const { ads } = this.props
 
@@ -220,10 +272,54 @@
 
 //         const mainCategory = Object.keys(categories).map((key, i) => <option key={i} value={key}>{key}</option>)
 //         const subCategory = categories[this.state.value].map((sub, i) => <option key={i} value={sub}>{sub}</option>)
+=======
+        this.setState({
+            subCategory: event.target.value,
+
+        });
+        console.log(event);
+
+    }
+
+    changeItemConditions = (event) => {
+        this.setState({
+            Conditions: event.target.value
+        })
+        console.log(event);
+
+    }
+
+
+    changeItemLivingArea = (event) => {
+        this.setState({
+            LivingAreas: event.target.value
+        });
+        console.log(this.setState)
+
+    }
+    // search = (e) => {
+    //     const { search } = this.state;
+
+    //     this.setState({
+    //         search: e.target.value
+    //     });
+    //     console.log(search);
+
+    // }
+
+    render() {
+
+        const { ads, search, activeUser, allUsers } = this.props;
+        const { category, subCategory, Conditions, LivingAreas } = this.state;
+
+        // const ??? = ???.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+
+>>>>>>> 7a13c506cdd7c1a7ad759f53f2acecb19ec0aadb
 
 //         const mainCondition = Object.keys(itemcondition).map((key, i) => <option key={i} itemcondition={key}>{key}</option>)
 //         // const subCondition = itemcondition[this.state.value].map((cond, i) => <option key={i} itemcondition={cond}>{cond}</option>)
 
+<<<<<<< HEAD
 //         // const mainArea = Object.keys(userArea).map((key, i) => <option key={i} userArea={key}>{key}</option>)
 //         // const subArea = userArea[this.state.value].map((area, i) => <option key={i} userArea={area}>{area}</option>)
 
@@ -276,5 +372,75 @@
 //         );
 //     }
 // }
+=======
+
+                <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        Categorys
+                            </Dropdown.Toggle>
+
+                    <Dropdown.Menu
+                        data={dataCategoriess}
+                        textField="categoryName"
+                        onChange={this.categoryChange}
+                        value={category}
+                    >
+                        <Dropdown.Item defaultItem={ItemCategory} href="#/action-1"></Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+
+
+                <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        Sub-Categorys
+                            </Dropdown.Toggle>
+
+                    <Dropdown.Menu
+                        data={dataSubCategorys}
+                        textField="SubCategoryName"
+                        onChange={this.subCategoryChange}
+                        value={subCategory}
+                    >
+                        <Dropdown.Item defaultItem={ItemsubCategory} href="#/action-1"></Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+
+                <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        Item Condition
+                     </Dropdown.Toggle>
+
+                    <Dropdown.Menu
+                        data={dataConditions}
+                        onChange={this.changeItemConditions}
+                        value={Conditions}
+                    >
+                        <Dropdown.Item textField="ConditionName"
+                            defaultItem={ItemCondition}
+                            href="#/action-1"></Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+
+
+
+
+
+                <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        Areas
+                            </Dropdown.Toggle>
+                    <Dropdown.Menu
+                        data={dataLivingAreas}
+                        textField="LivingAreaName"
+                        onChange={this.changeItemLivingArea}
+                        value={LivingAreas}>
+                        <Dropdown.Item defaultItem={ItemLivingArea} href="#/action-1"></Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+            </div>
+        );
+    }
+}
+>>>>>>> 7a13c506cdd7c1a7ad759f53f2acecb19ec0aadb
 
 // export default smartAgent;
