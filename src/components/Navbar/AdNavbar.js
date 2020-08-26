@@ -44,7 +44,7 @@ class adNavbar extends Component {
 
     console.log(searchUpdated);
 
-    const SmartAgentIn = activeUser ? <Nav.Link className="mr-5" href="/#SmartAgent">Smart Agent</Nav.Link> : null
+    // const SmartAgentIn = activeUser ? <Nav.Link className="mr-5" href="/#SmartAgent">Smart Agent</Nav.Link> : null
 
     return (
       <div className="c-adNavbar">
@@ -52,13 +52,14 @@ class adNavbar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat">
-              {SmartAgentIn}
+              {/* {SmartAgentIn} */}
               {/* <Row>{searchUpdatedUi}</Row>  */}
               <Nav.Link className="mr-5" href="/">Home</Nav.Link>
               <Nav.Link className="mr-5" href="/#Clothing">Clothing</Nav.Link>
               <Nav.Link className="mr-5" href="/#ToysAndGames">Toys and games</Nav.Link>
               <Nav.Link className="mr-5" href="/#ForTheBabys">For the baby's</Nav.Link>
               <Nav.Link className="mr-5" href="/#ForMoms">For Mom's</Nav.Link>
+              <Nav.Link className="mr-5" href="/#SmartAgent">Smart Agent</Nav.Link>
               {LogOutUser}
               {signupUser}
               {LogInUser}

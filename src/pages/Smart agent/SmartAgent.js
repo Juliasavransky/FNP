@@ -15,6 +15,7 @@ class smartAgent extends Component {
             SubCategoryId: null,
             condition: null,
             LivingArea: null,
+            search:""
 
         };
 
@@ -66,6 +67,8 @@ class smartAgent extends Component {
     }
 
     search = (e) => {
+        const { search } = this.state;
+
         this.setState({
             search: e.target.value
 
@@ -75,8 +78,8 @@ class smartAgent extends Component {
     }
 
     render() {
-        const { ads, search, activeUser, allUsers } = this.props;
-        const { category, subCategory, Conditions, LivingAreas } = this.state;
+        const { ads, activeUser, allUsers } = this.props;
+        const { search, category, subCategory, Conditions, LivingAreas } = this.state;
 
         const categoryOption = dataCategoriess.map(itencategorys => <option value={this.state.value} onChange={() => this.categoryChange(itencategorys)}> {itencategorys.categoryName} </option>)
         const filterdcategorys = ads.filter(ad => ad.categoryName === this.state.condition);
@@ -90,6 +93,10 @@ class smartAgent extends Component {
 
         const dataLivingAreasOption = dataLivingAreas.map(LivingAreasOption => <option value={this.state.value} onChange={() => this.changeItemLivingArea(LivingAreasOption)}> {LivingAreasOption.LivingAreaName} </option>)
         const filterdLivingArea = allUsers.filter(allUser => allUser.LivingArea === this.state.condition);
+
+        const searchUpdated = ads.filter(ad => ad.Category || ad.SubCategory || ad.details === search)
+        const searchUpdatedUi = searchUpdated.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        console.log(searchUpdated);
 
         // const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
         // const ??? = ???.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
@@ -108,7 +115,6 @@ class smartAgent extends Component {
                         value={this.state.value}
                     >
                         {categoryOption}
-                        
                     </Form.Control>
                 </Form>
 
@@ -121,10 +127,7 @@ class smartAgent extends Component {
                         className="my-1 mr-sm-2"
                         id="inlineFormCustomSelectPref"
                         value={this.state.value}
-                        
                     >
-                                                
-
                         {subCategoryOption}
                     </Form.Control>
                 </Form>
@@ -138,7 +141,6 @@ class smartAgent extends Component {
                         className="my-1 mr-sm-2"
                         id="inlineFormCustomSelectPref"
                         value={this.state.value}
-                        
                     >
                         {itemConditionOption}
                     </Form.Control>
@@ -153,7 +155,6 @@ class smartAgent extends Component {
                         className="my-1 mr-sm-2"
                         id="inlineFormCustomSelectPref"
                         value={this.state.value}
-                        
                     >
                         {dataLivingAreasOption}
                     </Form.Control>
@@ -162,8 +163,9 @@ class smartAgent extends Component {
                 <FormControl
                     value={search} onChange={(e) => this.setState({ search: e.target.value })}
                     type="text" placeholder="Search" className="mr-sm-2" />
-                <Button onClick={this.state.search} variant="outline-success">Search</Button>
+                <Button onClick={this.search} variant="outline-success">Search</Button>
                 </Container>
+                
             </div>
         );
     }
