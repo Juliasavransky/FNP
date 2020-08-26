@@ -11,9 +11,9 @@ import jsonUsers from '../src/data/users.json';
 import jsonAds from '../src/data/Ads.json';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
-import Furniture from './pages/For the babys/Furniture'
-import Safety from './pages/For the babys/Safety'
-import Carriage from './pages/For the babys/Carriage'
+import Furniture from './pages/For the babys/furniture'
+import Safety from './pages/For the babys/safety'
+import Carriage from './pages/For the babys/carriage'
 import CoatsAndJackets from './pages/Clothing/Coats and Jackets'
 import ClothingOther from './pages/Clothing/ClothingOther'
 import Shoes from './pages/Clothing/Shoes'
@@ -31,7 +31,7 @@ import ToysAndGamesOther from './pages/Toys and games/ToysAndGamesOther';
 import PlaypenCradle from './pages/For the babys/Playpen Cradle';
 import ForTheBabysOther from './pages/For the babys/ForTheBabysOther';
 import ForTheBabys from './pages/For the babys/For the babys';
-import PregnancyClothes from './pages/For Moms/Pregnancy Clothes';
+import PregnancyClothes from './pages/For Moms/pregnancy clothes';
 
 
 
