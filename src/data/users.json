@@ -7,7 +7,7 @@
         "pwd": "123",
         "LivingArea": "Center",
         "City": "Tel-Aviv",
-        "Street Number": "20",
+        "StreetNumber": "20",
         "Contact": "0976789661"
     },
     {
@@ -18,8 +18,8 @@
         "pwd": "321",
         "LivingArea": "North",
         "City": "Carmiel",
-        "Street Number": "13",
-        "Phone": "0545679117"
+        "StreetNumber": "13",
+        "Contact": "0545679117"
     },
     {
         "id": 3,
@@ -29,8 +29,8 @@
         "pwd": "456",
         "LivingArea": "Center",
         "City": "Rishon-Le-Zion",
-        "Street Number": "5",
-        "phone": "055678943"
+        "StreetNumber": "5",
+        "Contact": "055678943"
     },
     {
         "id": 4,
@@ -40,8 +40,8 @@
         "pwd": "876",
         "LivingArea": "Center",
         "City": "Rishon-Le-Zion",
-        "Street Number": "5",
-        "phone": "055678943"
+        "StreetNumber": "5",
+        "Contact": "055678943"
     },
     {
         "id": 5,
@@ -51,8 +51,8 @@
         "pwd": "992",
         "LivingArea": "Center",
         "City": "Hulon",
-        "Street Number": "99",
-        "phone": "098345666"
+        "StreetNumber": "99",
+        "Contact": "098345666"
     },
     {
         "id": 6,
@@ -62,8 +62,8 @@
         "pwd": "555",
         "LivingArea": "Center",
         "City": "Bat-Yam",
-        "Street Number": "44",
-        "phone": "050789543"
+        "StreetNumber": "44",
+        "Contact": "050789543"
     },
     {
         "id": 7,
@@ -73,7 +73,7 @@
         "pwd": "778",
         "LivingArea": "Center",
         "City": "Tel-Aviv",
-        "Street Number": "33",
-        "phone": "0523274663"
+        "StreetNumber": "33",
+        "Contact": "0523274663"
     }
 ]

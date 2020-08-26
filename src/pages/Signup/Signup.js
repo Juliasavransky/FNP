@@ -18,7 +18,7 @@ class signup extends Component {
             LivingAreaInput: "",
             CityInput: "",
             StreetNumberInput: "",
-            phoneInput: "",
+            ContactInput: "",
             readed: false,
 
             // emailInputError: false,
@@ -28,13 +28,15 @@ class signup extends Component {
         }
         this.signup = this.signup.bind(this);
         this.validate = this.validate.bind(this);
+        this.handleCreatUser = this.handleCreatUser.bind(this);
+
 
     }
     validate = () => {
 
         const emailInputError = "";
         const pwdInputError = "";
-        
+
         this.state = {
             emailInputError: false,
             pwdInputError: false,
@@ -62,19 +64,46 @@ class signup extends Component {
         }
 
     }
-    signup = () => {
-
+    signup = (event) => {
         const { handlesignup } = this.props;
-        console.log(this.state);
+        this.setState({
+            [event.target.name]: event.target.value,
+        })
 
+        console.log(this.state);
+        console.log(event);
+        console.log("blabla");
     }
+
+    handleCreatUser() {
+        const {
+            fnameInput, lnameInput, emailInput, pwdInput, readed,
+            LivingAreaInput, CityInput, StreetNumberInput, ContactInput,
+        } = this.state;
+
+        const newUser = {
+            fname: fnameInput,
+            lname: lnameInput,
+            email: emailInput,
+            pwd: pwdInput,
+            LivingArea: LivingAreaInput,
+            City: CityInput,
+            StreetNumber: StreetNumberInput,
+            Contact: ContactInput,
+        };
+
+        this.props.handleNewUser(newUser);
+    }
+
+    // handelClose();
+
 
     render() {
 
         const {
             emailInputError, pwdInputError, redirectToHome,
             fnameInput, lnameInput, emailInput, pwdInput,
-            LivingAreaInput, CityInput, StreetNumberInput, ContactInput,
+            LivingAreaInput, CityInput, StreetNumberInput, ContactInput, readed,
         } = this.state;
 
         if (redirectToHome) {
@@ -90,21 +119,21 @@ class signup extends Component {
                         <Form.Group controlId="formGridPassword">
                             <Form.Label>First Name</Form.Label>
                             <Form.Control value={fnameInput}
-                                onChange={(e) => this.setState({ fnameInput: e.target.value })}
-                                type="text" placeholder="First Name" />
+                                onChange={this.signup}
+                                type="text" name="fnameInput" placeholder="First Name" />
                         </Form.Group>
                         <Form.Group controlId="formGridPassword">
                             <Form.Label>Last Name</Form.Label>
                             <Form.Control value={lnameInput}
-                                onChange={(e) => this.setState({ lnameInput: e.target.value })}
-                                type="text" placeholder="Last Name" />
+                                onChange={this.signup}
+                                type="text" name="lnameInput" placeholder="Last Name" />
                         </Form.Group>
 
                         <Form.Group controlId="formGridEmail">
                             <Form.Label>Email</Form.Label>
                             <Form.Control value={emailInput}
-                                onChange={(e) => this.setState({ emailInput: e.target.value })}
-                                type="email" placeholder="Enter email" />
+                                onChange={this.signup}
+                                type="email" name="emailInput" placeholder="Enter email" />
 
                             {emailInputError ? <Alert variant="danger">
                                 Invalid Credientails! incorrect email
@@ -114,8 +143,8 @@ class signup extends Component {
                         <Form.Group controlId="formGridPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control value={pwdInput}
-                                onChange={(e) => this.setState({ pwdInput: e.target.value })}
-                                type="password" placeholder="Password" />
+                                onChange={this.signup}
+                                type="password" name="pwdInput" placeholder="Password" />
 
                             {pwdInputError ? <Alert variant="danger">
                                 Invalid Credientails! incorrect password
@@ -126,39 +155,42 @@ class signup extends Component {
                     <Form.Group controlId="formGridPassword">
                         <Form.Label>Phone Number</Form.Label>
                         <Form.Control value={ContactInput}
-                            onChange={(e) => this.setState({ phoneInput: e.target.value })}
-                            type="text" placeholder="Phone Number" />
+                            onChange={this.signup}
+                            type="text" name="ContactInput" placeholder="Phone Number" />
                     </Form.Group>
 
                     <Form.Group controlId="formGridAddress1">
                         <Form.Label>Address</Form.Label>
                         <Form.Control value={StreetNumberInput}
-                            onChange={(e) => this.setState({ StreetNumberInput: e.target.value })}
-                            placeholder="Main St" />
+                            onChange={this.signup}
+                            placeholder="Main St" type="text" name="StreetNumberInput" />
                     </Form.Group>
 
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridCity">
                             <Form.Label>City</Form.Label>
                             <Form.Control value={CityInput}
-                                onChange={(e) => this.setState({ CityInput: e.target.value })} />
+                                onChange={this.signup}
+                                name="CityInput" type="text" />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridState">
                             <Form.Label>State</Form.Label>
                             <Form.Control value={LivingAreaInput}
-                                onChange={(e) => this.setState({ LivingAreaInput: e.target.value })}
+                                name="LivingAreaInput"
+                                // onChange={(e) => this.setState({ LivingAreaInput: e.target.value })}
+                                onChange={this.signup}
                                 as="select" >
-                                <option value="jerusalem">Jerusalem</option>
-                                <option value="center">Center</option>
-                                <option value="north">North</option>
-                                <option value="south">South</option>
-                                <option value="west">West</option>
+                                <option name="jerusalem" value="jerusalem">Jerusalem</option>
+                                <option name="center" value="center">Center</option>
+                                <option name="north" value="north">North</option>
+                                <option name="south" value="south">South</option>
+                                <option name="west" value="west">West</option>
                             </Form.Control>
                         </Form.Group>
 
                     </Form.Row>
-                    <Button onClick={this.signup} as={Col} variant="primary" type="button">
+                    <Button onClick={this.handleCreatUser} as={Col} variant="primary" type="button">
                         signup
                 </Button>
                     <Form.Group id="formGridCheckbox">

@@ -66,16 +66,29 @@ class App extends Component {
     })
   }
 
-  handlesignup(neweUser) {
+  handlesignup(newUser) {
     this.setState({
-      neweUser: neweUser
+      newUser: newUser
     })
 
     console.log(this.neweUser);
   }
 
+  handleNewUser(newUser){
+
+    const { allUsers }= this.state
+
+
+    allUsers.id = allUsers[allUsers.length -1].id +1;
+    console.log(newUser);
+    this.setState({
+      allUsers: allUsers.concat(newUser)
+    })
+  }
+
   render() {
     const { activeUser, allUsers, ads } = this.state;
+
     return (
 
       <div className="App">
@@ -189,7 +202,7 @@ class App extends Component {
             </Route>
 
             <Route exact path="/signup">
-              <Signup handlesignup={this.handlesignup} handleLogout={this.handleLogout} activeUser={activeUser} />
+              <Signup handleNewUser={this.handleNewUser} handlesignup={this.handlesignup} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
             <Route exact path="/Login">

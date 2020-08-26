@@ -82,7 +82,7 @@ class smartAgent extends Component {
         const { search, category, subCategory, Conditions, LivingAreas } = this.state;
 
         const categoryOption = dataCategoriess.map(itencategorys => <option value={this.state.value} onChange={() => this.categoryChange(itencategorys)}> {itencategorys.categoryName} </option>)
-        const filterdcategorys = ads.filter(ad => ad.categoryName === this.state.condition);
+        const filterdcategorys = ads.filter(ad => ad.categoryName === this.state.condition); 
 
         const fileredSubCategorys = dataSubCategorys.filter(dataSubCategory => dataSubCategory.CategoryId === this.state.CategoryId)
         const subCategoryOption = fileredSubCategorys.map(itenSubCategorys => <option value={this.state.value} onChange={() => this.subCategoryChange(itenSubCategorys)} > {itenSubCategorys.SubCategoryName} </option>)
@@ -96,7 +96,7 @@ class smartAgent extends Component {
 
         const searchUpdated = ads.filter(ad => ad.Category || ad.SubCategory || ad.details === search)
         const searchUpdatedUi = searchUpdated.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
-        console.log(searchUpdated);
+            console.log(searchUpdated);
 
         // const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
         // const ??? = ???.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
