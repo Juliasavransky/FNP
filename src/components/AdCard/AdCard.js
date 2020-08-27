@@ -17,10 +17,12 @@ class AdCard extends Component {
         return (
             <div>
                     <Card>
-                        <Card.Img variant="top" href="#/zoomInAd" src={ad.img} />
+                    <a href={'/#product/'+ad.id} target="_blank">
+              <Card.Img variant="top"  src={ad.img} />
+            </a>
                         <Card.Body>
                             <Card.Title>{ad.Category}</Card.Title>
-                            <Card.Link  href={"#/product/" + ad.id}>
+                            <Card.Link href={"#/product/" + ad.id}>
                                  Details: {ad.Details}</Card.Link>
                            
                             <Card.Text>Condition: {ad.Condition} </Card.Text>

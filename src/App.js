@@ -32,9 +32,9 @@ import PlaypenCradle from './pages/For the babys/Playpen Cradle';
 import ForTheBabysOther from './pages/For the babys/ForTheBabysOther';
 import ForTheBabys from './pages/For the babys/For the babys';
 import PregnancyClothes from './pages/For Moms/PregnancyClothes';
-import ZoomInAd from './components/zoomInAd/zoomInAd';
 import Emptypage from './pages/Footer/emptypage';
-import Footer from './pages/Footer/Footer';
+import Footer from './pages/Footer/footer';
+import ZoomInAd from './pages/ZoomInAd/ZoomInAd'
 
 
 
@@ -214,11 +214,10 @@ class App extends Component {
               <Login handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
-          
             <Route exact path="/product/:id">
-              <ZoomInAd ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
+              <ZoomInAd ads={ads}/> 
             </Route>
-          
+
 
             <Route exact path="/emptypage">
               <emptypage ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />

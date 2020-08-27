@@ -6,8 +6,8 @@ class footer extends Component {
         return (
             <div class="footer">
                
-               <a href="./emptypage" class="active"> Contact Us|</a>
-               <a href="./emptypage" class="active"> Publish In Our Site|</a>
+               <a href="./emptypage" > Contact Us|</a>
+               <a href="./emptypage" > Publish In Our Site|</a>
                <a href="./emptypage" class="active"> Site's Policy | </a>
                <a href="./emptypage" class="active"> Code of Ethics | </a>
                <a href="./emptypage" class="active"> Project Assistance|</a>
