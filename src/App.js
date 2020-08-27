@@ -11,9 +11,9 @@ import jsonUsers from '../src/data/users.json';
 import jsonAds from '../src/data/Ads.json';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
-import Furniture from './pages/For the babys/furniture'
-import Safety from './pages/For the babys/safety'
-import Carriage from './pages/For the babys/carriage'
+import Furniture from './pages/For the babys/Furniture'
+import Safety from './pages/For the babys/Safety'
+import Carriage from './pages/For the babys/Carriage'
 import CoatsAndJackets from './pages/Clothing/Coats and Jackets'
 import ClothingOther from './pages/Clothing/ClothingOther'
 import Shoes from './pages/Clothing/Shoes'
@@ -141,16 +141,16 @@ class App extends Component {
               <ForTheBabys ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
-            <Route exact path="/Furniture">
-              <Furniture ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            <Route exact path="/furniture">
+              <furniture ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
-                  <Route exact path="/Safety">
-                    <Safety ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  <Route exact path="/safety">
+                    <safety ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
                   </Route>
 
-                  <Route exact path="/Carriage">
-                    <Carriage ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
+                  <Route exact path="/carriage">
+                    <carriage ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
                   </Route>
 
                   <Route exact path="/PlaypenCradle">
