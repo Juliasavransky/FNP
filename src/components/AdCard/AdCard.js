@@ -16,7 +16,6 @@ class AdCard extends Component {
         
         return (
             <div>
-                
                     <Card>
                         <Card.Img variant="top" href="#/zoomInAd" src={ad.img} />
                         <Card.Body>
@@ -29,9 +28,7 @@ class AdCard extends Component {
                                <small className="text-muted">Published Date {ad.Date}</small>
                             
                         </Card.Body>
-                    </Card>
-                    
-                    
+                    </Card> 
             </div>
         );
     }

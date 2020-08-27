@@ -24,16 +24,14 @@ class login extends Component {
     login() {
 
         const { emailInput, pwdInput, } = this.state;
-
         const { allUsers, handleLogin } = this.props;
-
         const userFound = allUsers.find(user => emailInput === user.email && pwdInput === user.pwd)
 
         if (userFound) {
             handleLogin(userFound);
             this.setState({
                 redirectToHome: true
-            })
+            })           
             
         } else {
             this.setState({
@@ -63,7 +61,7 @@ class login extends Component {
 
                         <Form.Group controlId="formGridEmail">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control value={emailInput} onChange={(e) => this.setState({ emailInput: e.target.value, showLogInError: false})} type="email" placeholder="Enter email" />
+                            <Form.Control  value={emailInput}  onChange={(e) => this.setState({ emailInput: e.target.value, showLogInError: false})} type="email" placeholder="Enter email" />
                         </Form.Group>
 
                         <Form.Group controlId="formGridPassword">
@@ -80,5 +78,4 @@ class login extends Component {
         );
     }
 }
-
 export default login;

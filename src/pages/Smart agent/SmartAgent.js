@@ -3,19 +3,20 @@ import { Form, FormControl, Button, Col, Dropdown, Container } from 'react-boots
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdCard from '../../components/AdCard/AdCard'
 import { dataLivingAreas, dataConditions, dataSubCategorys, dataCategoriess } from '../../data/ddData'
+import Sorry from "../../components/Sorry we dnot find/sorry"
+
 
 class smartAgent extends Component {
 
     constructor(props) {
         super(props);
 
-
         this.state = {
-            CategoryId: null,
-            SubCategoryId: null,
-            condition: null,
-            LivingArea: null,
-            search:""
+            categorySelectedId: null,
+            subCategorySelectedId: null,
+            conditionSelected: null,
+            livingAreaSelected: null,
+            searchSelected: ""
 
         };
 
@@ -27,145 +28,165 @@ class smartAgent extends Component {
 
     }
 
-    categoryChange = (item) => {
-
-        const { ads } = this.props;
+    categoryChange = (event) => {
         this.setState({
-            CategoryId: item.CategoryId,
-            
+            categorySelectedId: event.target.value,
         })
-        console.log(this.setState);
+        console.log(event.target.value);
     }
 
-    subCategoryChange = (item) => {
-        const { ads } = this.props;
-
+    subCategoryChange = (event) => {
         this.setState({
-            SubCategoryId: item.SubCategoryId,
+            subCategorySelectedId: event.target.value,
         });
-    }
-
-
-    changeItemConditions = (item) => {
-        const { ads } = this.props;
-
-        this.setState({
-            condition: item.condition
-
-        })
-        console.log(item.condition);
+        console.log(event.target.value);
 
     }
 
-    changeItemLivingArea = (item) => {
-        const { allUsers } = this.props;
 
+    changeItemConditions = (event) => {
         this.setState({
-            LivingArea: item.LivingArea
+            conditionSelected: event.target.value
         })
+        console.log(event.target.value);
+
 
     }
 
-    search = (e) => {
-        const { search } = this.state;
-
+    changeItemLivingArea = (event) => {
         this.setState({
-            search: e.target.value
-
+            livingAreaSelected: event.target.value
         })
+        console.log(event.target.value);
+
+
+    }
+
+    search = (event) => {
+        const { ads, activeUser, allUsers } = this.props;
+        const { searchSelected, categorySelectedId, subCategorySelectedId, conditionSelected, livingAreaSelected } = this.state;
+
+
+        console.log(this.state.searchSelected);
+        console.log(this.state.livingAreaSelected);
+
+        const filterdcategorys = ads.filter(ad => ad.CategoryId == categorySelectedId);
+        const filterdSubCategorys = ads.filter(ad => ad.filterdcategorys == subCategorySelectedId);
+        const filterdConditions = ads.filter(ad => ad.filterdSubCategorys == conditionSelected);
+        const filterdLivingArea = allUsers.filter(allUser => allUser.LivingArea == livingAreaSelected);
+
+
+        console.log(this.state.filterdcategorys);
+
+
 
 
     }
 
     render() {
+
         const { ads, activeUser, allUsers } = this.props;
-        const { search, category, subCategory, Conditions, LivingAreas } = this.state;
+        const { searchSelected, categorySelectedId, subCategorySelectedId, conditionSelected, livingAreaSelected } = this.state;
 
-        const categoryOption = dataCategoriess.map(itencategorys => <option value={this.state.value} onChange={() => this.categoryChange(itencategorys)}> {itencategorys.categoryName} </option>)
-        const filterdcategorys = ads.filter(ad => ad.categoryName === this.state.condition);
+        const categoryOption = dataCategoriess.map(itencategorys => <option value={itencategorys.categoryId} > {itencategorys.categoryName} </option>)
+        console.log(dataSubCategorys);
 
-        const fileredSubCategorys = dataSubCategorys.filter(dataSubCategory => dataSubCategory.CategoryId === this.state.CategoryId)
-        const subCategoryOption = fileredSubCategorys.map(itenSubCategorys => <option value={this.state.value} onChange={() => this.subCategoryChange(itenSubCategorys)} > {itenSubCategorys.SubCategoryName} </option>)
-        const filterdSubCategorys = ads.filter(ad => ad.subCategoryName === this.state.condition);
+        const fileredSubCategorys = dataSubCategorys.filter(dataSubCategory => dataSubCategory.categoryId == this.state.categorySelectedId)
+        const subCategoryOption = fileredSubCategorys.map(itenSubCategorys => <option value={itenSubCategorys.subCategoryId} > {itenSubCategorys.subCategoryName} </option>)
 
-        const itemConditionOption = dataConditions.map(itemCondition => <option value={this.state.value} onChange={() => this.changeItemConditions(itemCondition)}> {itemCondition.ConditionName} </option>)
-        const filterdConditions = ads.filter(ad => ad.Condition === this.state.condition);
+        const itemConditionOption = dataConditions.map(itemCondition => <option value={itemCondition.conditionId} > {itemCondition.conditionName} </option>)
 
-        const dataLivingAreasOption = dataLivingAreas.map(LivingAreasOption => <option value={this.state.value} onChange={() => this.changeItemLivingArea(LivingAreasOption)}> {LivingAreasOption.LivingAreaName} </option>)
-        const filterdLivingArea = allUsers.filter(allUser => allUser.LivingArea === this.state.condition);
+        const dataLivingAreasOption = dataLivingAreas.map(livingAreasOption => <option value={livingAreasOption.livingAreaId} > {livingAreasOption.livingAreaName} </option>)
 
-        const searchUpdated = ads.filter(ad => ad.Category || ad.SubCategory || ad.details === search)
-        const searchUpdatedUi = searchUpdated.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
-        console.log(searchUpdated);
+        // const searchresolt = ads.filter(ad => ad.Category || ad.SubCategory || ad.details === search)
+        // const searchUpdatedUi = searchUpdated.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        // console.log(searchUpdated);
 
         // const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
-        // const ??? = ???.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+
+
+
+        //if 
+        // const searchresolt = searchresolt.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+
+        //else 
+        // const noResolts = !activeUser ? <Sorry/> : null
+
+
 
         return (
             <div>
                 <Container>
-                <Form inline>
-                    <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
-                        Categorys
+                    <Form inline>
+                        <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+                            Categorys
                      </Form.Label>
-                    <Form.Control
-                        as="select"
-                        className="my-1 mr-sm-2"
-                        id="inlineFormCustomSelectPref"
-                        value={this.state.value}
-                    >
-                        {categoryOption}
-                    </Form.Control>
-                </Form>
+                        <Form.Control
+                            onChange={this.categoryChange}
+                            as="select"
+                            className="my-1 mr-sm-2"
+                            id="inlineFormCustomSelectPref"
+                            value={this.state.categorySelectedId}
+                        >
+                            {categoryOption}
+                        </Form.Control>
+                    </Form>
 
-                <Form inline>
-                    <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
-                       Sub- Categorys
+                    <Form inline>
+                        <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+                            Sub- Categorys
                      </Form.Label>
-                    <Form.Control
-                        as="select"
-                        className="my-1 mr-sm-2"
-                        id="inlineFormCustomSelectPref"
-                        value={this.state.value}
-                    >
-                        {subCategoryOption}
-                    </Form.Control>
-                </Form>
+                        <Form.Control
+                            onChange={this.subCategoryChange}
+                            as="select"
+                            className="my-1 mr-sm-2"
+                            id="inlineFormCustomSelectPref"
+                            value={this.state.subCategorySelectedId}
+                        >
+                            {subCategoryOption}
+                        </Form.Control>
+                    </Form>
 
-                <Form inline>
-                    <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
-                    Condition
+                    <Form inline>
+                        <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+                            Condition
                      </Form.Label>
-                    <Form.Control
-                        as="select"
-                        className="my-1 mr-sm-2"
-                        id="inlineFormCustomSelectPref"
-                        value={this.state.value}
-                    >
-                        {itemConditionOption}
-                    </Form.Control>
-                </Form>
+                        <Form.Control
+                            onChange={this.changeItemConditions}
+                            as="select"
+                            className="my-1 mr-sm-2"
+                            id="inlineFormCustomSelectPref"
+                            value={this.state.conditionSelected}
+                        >
+                            {itemConditionOption}
+                        </Form.Control>
+                    </Form>
 
-                <Form inline>
-                    <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
-                    Living Areas
+                    <Form inline>
+                        <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+                            Living Areas
                      </Form.Label>
-                    <Form.Control
-                        as="select"
-                        className="my-1 mr-sm-2"
-                        id="inlineFormCustomSelectPref"
-                        value={this.state.value}
-                    >
-                        {dataLivingAreasOption}
-                    </Form.Control>
-                </Form>
+                        <Form.Control
+                            onChange={this.changeItemLivingArea}
+                            as="select"
+                            className="my-1 mr-sm-2"
+                            id="inlineFormCustomSelectPref"
+                            value={this.state.livingAreaSelected}
+                        >
+                            {dataLivingAreasOption}
+                        </Form.Control>
+                    </Form>
 
-                <FormControl
-                    value={search} onChange={(e) => this.setState({ search: e.target.value })}
-                    type="text" placeholder="Search" className="mr-sm-2" />
-                <Button onClick={this.search} variant="outline-success">Search</Button>
+                    <FormControl
+                        value={searchSelected} onChange={(event) => this.setState({ searchSelected: event.target.value })}
+                        type="text" placeholder="Search" className="mr-sm-2" />
+                    <Button onClick={this.search} variant="outline-success">Search</Button>
+
+
+                    <Sorry />
+
                 </Container>
-                
+
             </div>
         );
     }
