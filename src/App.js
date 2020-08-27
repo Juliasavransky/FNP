@@ -33,7 +33,9 @@ import ForTheBabysOther from './pages/For the babys/ForTheBabysOther';
 import ForTheBabys from './pages/For the babys/For the babys';
 import PregnancyClothes from './pages/For Moms/PregnancyClothes';
 import ZoomInAd from './components/zoomInAd/zoomInAd';
-// import Footer from './pages/Footer/Footer';
+import Emptypage from './pages/Footer/emptypage';
+import Footer from './pages/Footer/Footer';
+
 
 
 
@@ -96,7 +98,8 @@ class App extends Component {
       <div className="App">
         <HashRouter>
           <AdNavbar ads={ads} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
-
+            
+         
           <Switch>
             <Route exact path="/">
               <Homepage ads={ads} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
@@ -216,6 +219,10 @@ class App extends Component {
               <ZoomInAd ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
           
+
+            <Route exact path="/emptypage">
+              <emptypage ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
+            </Route>
           
 {/*           
             <Route exact path="/Footer">
@@ -226,6 +233,7 @@ class App extends Component {
 
 
           </Switch>
+          <Footer ads={ads} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
         </HashRouter>
       </div>
 

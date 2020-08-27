@@ -3,7 +3,7 @@ import { Form, FormControl, Button, Col, Dropdown, Container } from 'react-boots
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdCard from '../../components/AdCard/AdCard'
 import { dataLivingAreas, dataConditions, dataSubCategorys, dataCategoriess } from '../../data/ddData'
-import Sorry from "../../components/Sorry we dnot find/sorry"
+import Sorry from "../../components/Sorry we didnt find/sorry"
 
 
 class smartAgent extends Component {
