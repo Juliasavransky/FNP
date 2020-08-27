@@ -34,7 +34,7 @@ import ForTheBabys from './pages/For the babys/For the babys';
 import PregnancyClothes from './pages/For Moms/PregnancyClothes';
 import Emptypage from './pages/Footer/emptypage';
 import Footer from './pages/Footer/Footer';
-import ZoomInAd from './pages/ZoomInAd/ZoomInAd';
+import MoreInfoPage from './pages/MoreInfoPage/MoreInfoPage'
 
 
 
@@ -215,19 +215,15 @@ class App extends Component {
             </Route>
 
             <Route exact path="/product/:id">
-              <ZoomInAd ads={ads}/> 
+              <MoreInfoPage ads={ads}/> 
             </Route>
 
 
             <Route exact path="/emptypage">
-              <emptypage ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
+              <Emptypage ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
           
-{/*           
-            <Route exact path="/Footer">
-              <Footer ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
-            </Route>
-           */}
+
 
 
 

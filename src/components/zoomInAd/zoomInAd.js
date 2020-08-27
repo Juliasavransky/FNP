@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardColumns, Col } from 'react-bootstrap';
+import { Card, CardColumns, Col, Row, Container } from 'react-bootstrap';
 import AdCard from '../../components/AdCard/AdCard'
 
 class ZoomInAd extends Component {
@@ -10,15 +10,22 @@ class ZoomInAd extends Component {
   render() {
     const { ad } = this.props;
     return (
-      <Card style={{ width: '18rem' }} >
-        <Card.Img variant="top" src={ad.img} />
-        <Card.Body>
-          <Card.Title>{ad.Category}</Card.Title>
-          <Card.Text> Details: {ad.Details}</Card.Text>
-          <Card.Text> Condition: {ad.Condition} </Card.Text>
-          <small className="text-muted">Published Date {ad.Date}</small>
-        </Card.Body>
+      <Container className="d-flex ">
+      <Card className="mx-auto shadow p-3 mb-5 bg-white rounded  m-2"style={{ width: '26rem' }}>
+        
+        
+        <Card.Title className=" m-2">{ad.Category}</Card.Title>
+    
+      <Card.Text className="m-2">
+      Details: {ad.Details}</Card.Text>
+      <Card.Text></Card.Text>
+     <Card.Text>Condition: {ad.Condition} </Card.Text> 
+      
+    <Card.Img variant="bottom" src={ad.img} />
+    <small className=" m-2 text-muted">Published Date {ad.Date}</small>
+  
       </Card>
+      </Container>
     );
   }
 }

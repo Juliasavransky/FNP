@@ -38,9 +38,6 @@ class homepage extends Component {
                     <Row>{allAds}</Row>
 
                 </Container>
-                <Card.Footer>
-                    <Help />
-                </Card.Footer>
             </div>
         );
     }

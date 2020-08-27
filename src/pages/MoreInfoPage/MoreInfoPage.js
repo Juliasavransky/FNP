@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ZoomInAdComponent from '../../components/ZoomInAd/ZoomInAd'
+import ZoomInAdComponent from '../../components/ZoomInAd/zoomInAd'
 import {useParams} from "react-router-dom";
 
 
-function ZoomInAd({ads}){
+function MoreInfoPage({ads}){
   const { id } = useParams();
   let ad = ads.find((a) => a.id == id)
   return(
@@ -11,4 +11,4 @@ function ZoomInAd({ads}){
   );
 }
 
-export default ZoomInAd
+export default MoreInfoPage
