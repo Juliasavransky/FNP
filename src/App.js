@@ -11,11 +11,11 @@ import jsonUsers from '../src/data/users.json';
 import jsonAds from '../src/data/Ads.json';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
-import Furniture from './pages/For the babys/Furniture'
-import Safety from './pages/For the babys/Safety'
-import Carriage from './pages/For the babys/Carriage'
+import Furniture from './pages/For the babys/furniture'
+import Safety from './pages/For the babys/safety'
+import Carriage from './pages/For the babys/carriage'
 import CoatsAndJackets from './pages/Clothing/Coats and Jackets'
-import ClothingOther from './pages/Clothing/ClothingOther'
+import ClothingOther from './pages/Clothing/clothingOther'
 import Shoes from './pages/Clothing/Shoes'
 import SpecialEvents from './pages/Clothing/SpecialEvents'
 import Casual from './pages/Clothing/Casual'
@@ -33,8 +33,8 @@ import ForTheBabysOther from './pages/For the babys/ForTheBabysOther';
 import ForTheBabys from './pages/For the babys/For the babys';
 import PregnancyClothes from './pages/For Moms/PregnancyClothes';
 import Emptypage from './pages/Footer/emptypage';
-import Footer from './pages/Footer/footer';
-import ZoomInAd from './pages/ZoomInAd/ZoomInAd'
+import Footer from './pages/Footer/Footer';
+import ZoomInAd from './pages/ZoomInAd/ZoomInAd';
 
 
 
@@ -157,16 +157,16 @@ class App extends Component {
               <ForTheBabys ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
-            <Route exact path="/furniture">
-              <furniture ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
+            <Route exact path="/Furniture">
+              <Furniture ads={ads} handleLogout={this.handleLogout} activeUser={activeUser} />
             </Route>
 
                   <Route exact path="/safety">
-                    <safety ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
+                    <Safety ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
                   </Route>
 
                   <Route exact path="/carriage">
-                    <carriage ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
+                    <Carriage ads={ads} handleLogin={this.handleLogin} allUsers={allUsers} handleLogout={this.handleLogout} activeUser={activeUser} />
                   </Route>
 
                   <Route exact path="/PlaypenCradle">

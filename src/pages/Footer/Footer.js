@@ -4,7 +4,7 @@ import React, { Component, Navbar } from 'react';
 class footer extends Component {
     render() {
         return (
-            <div class="footer">
+            <div className="footer">
                
                <a href="./emptypage" > Contact Us|</a>
                <a href="./emptypage" > Publish In Our Site|</a>
