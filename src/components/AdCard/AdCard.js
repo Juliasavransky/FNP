@@ -21,7 +21,7 @@ class AdCard extends Component {
                         <Card.Img variant="top" href="#/zoomInAd" src={ad.img} />
                         <Card.Body>
                             <Card.Title>{ad.Category}</Card.Title>
-                            <Card.Link  href="#/zoomInAd" >
+                            <Card.Link  href={"#/product/" + ad.id}>
                                  Details: {ad.Details}</Card.Link>
                            
                             <Card.Text>Condition: {ad.Condition} </Card.Text>

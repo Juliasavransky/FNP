@@ -1,10 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, Navbar } from 'react';
+
 
 class help extends Component {
     render() {
         return (
             <div>
-                Help me!!!!!
+               
+               Contact Us | 
+               Publish In Our Site | 
+               Site's Policy | 
+               Code of Ethics | 
+               Project Assistance |
+               Privacy Policy |
+               
+                Help |
+              
+               Second-Hand Board For Mother And Baby Products For Free Delivery Only 
+              
             </div>
         );
     }

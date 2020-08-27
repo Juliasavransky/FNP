@@ -11,9 +11,10 @@ class Clothing extends Component {
 
     const ClothingPage = 1
     const clothingAds = ads.filter(ad => ad.CategoryId === ClothingPage)
-
+    //  console.log("ads", ads)
+    //  console.log("clothingAds", clothingAds)
     const clothingAdsUi = clothingAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
-
+    
     return (
       <div className="c-adNavbar">
         <Navbar bg="light" expand="lg">
