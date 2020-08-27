@@ -11,9 +11,9 @@ import jsonUsers from '../src/data/users.json';
 import jsonAds from '../src/data/Ads.json';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
-import Furniture from './pages/For the babys/Furniture'
-import Safety from './pages/For the babys/Safety'
-import Carriage from './pages/For the babys/Carriage'
+import Furniture from './pages/For the babys/furniture'
+import Safety from './pages/For the babys/safety'
+import Carriage from './pages/For the babys/carriage'
 import CoatsAndJackets from './pages/Clothing/Coats and Jackets'
 import ClothingOther from './pages/Clothing/ClothingOther'
 import Shoes from './pages/Clothing/Shoes'

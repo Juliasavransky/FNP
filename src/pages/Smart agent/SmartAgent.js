@@ -1,192 +1,174 @@
-// import React, { Component } from 'react';
-// import { Form, FormControl, Button, Col, Dropdown } from 'react-bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import AdCard from '../../components/AdCard/AdCard'
-// import { dataLivingAreas, dataConditions, dataSubCategorys, dataCategoriess } from '../../data/ddData'
+import React, { Component } from 'react';
+import { Form, FormControl, Button, Col, Dropdown, Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AdCard from '../../components/AdCard/AdCard'
+import { dataLivingAreas, dataConditions, dataSubCategorys, dataCategoriess } from '../../data/ddData'
+
+class smartAgent extends Component {
+
+    constructor(props) {
+        super(props);
 
 
-// const adscategorys = { category: 'Select Category ...' };
-// const adssubCategory = { subCategory: 'Select Category ...' };
-// const adsCondition = { Condition: 'Select Category ...' };
-// const allUsersLivingArea = { LivingArea: 'Select Category ...' };
+        this.state = {
+            CategoryId: null,
+            SubCategoryId: null,
+            condition: null,
+            LivingArea: null,
+            search:""
 
+        };
 
-// class smartAgent extends Component {
+        this.categoryChange = this.categoryChange.bind(this);
+        this.subCategoryChange = this.subCategoryChange.bind(this);
+        this.changeItemConditions = this.changeItemConditions.bind(this);
+        this.changeItemLivingArea = this.changeItemLivingArea.bind(this);
+        this.search = this.search.bind(this);
 
-//     constructor(props) {
-//         super(props);
+    }
 
-//         console.log(this.props)
+    categoryChange = (item) => {
 
-//         this.state = {
-//             category: null,
-//             subCategory: null,
-//             Condition: null,
-//             LivingArea: null,
-//             subCategorys: dataSubCategorys,
-//             categorys: dataCategoriess,
-//             Conditions: dataConditions,
-//             LivingAreas: dataLivingAreas
-
-//         };
-//         console.log(this.state)
-
-//         this.categoryChange = this.categoryChange.bind(this);
-//         this.subCategoryChange = this.subCategoryChange.bind(this);
-//         this.changeItemConditions = this.changeItemConditions.bind(this);
-//         this.changeItemLivingArea = this.changeItemLivingArea.bind(this);
-//         this.search = this.search.bind(this);
-
-//     }
-
-//     categoryChange = (event) => {
-//         const category = event.target.value;
-//         // const subCategorys = ads.filter(ad => SubCategoryId === category);
-//         // const subCategorys = dataSubCategorys.filter(SubCategory => SubCategory.Categoryid === Category.CategoryId);
-
-//         const category = event.target.value;
-//         const subCategorys = ads.filter(ad => SubCategoryId === category);
-//         const subCategorys = dataSubCategorys.filter(SubCategory => SubCategory.Categoryid === Category.CategoryId);
-
-//         this.setState({
-//             categorys: category,
-//             subCategorys: subCategorys,
-//             category: category,
-
-//         this.setState({
-//             categorys: category,
-//             subCategorys: subCategorys,
-//             category: category,
-
-//         })
-//         console.log(event);
-
-//     }
-
-//     }
-
-//     subCategoryChange = (event) => {
-//         const subCategory = event.target.value;
-//         // const subCategorys = ads.filter(ad => SubCategoryId === category);
-
-//     subCategoryChange = (event) => {
-//         const subCategory = event.target.value;
-//         const subCategorys = ads.filter(ad => SubCategoryId === category);
-
-//         this.setState({
-//             categorys: category,
-//             subCategorys: subCategorys,
-//             subCategory: event.target.value,
-
-//         });
-//         console.log(event);
-//     }
-
-//         });
-//         console.log(event);
-//     }
-
-//     changeItemConditions = (event) => {
-//         this.setState({
-//             Conditions: event.target.value
-//         })
-//         console.log(event);
-
-//     }
-//     changeItemLivingArea = (event) => {
-//         this.setState({
-//             search: event.target.value,
-//             LivingAreas: event.target.value
-//         })
-//         console.log(this.setState)
-
-//     }
-//     search = (event) => {
-//         this.setState({
-//             search: event.target.value
+        const { ads } = this.props;
+        this.setState({
+            CategoryId: item.CategoryId,
             
-//         })
-       
+        })
+        console.log(this.setState);
+    }
 
-//     }
+    subCategoryChange = (item) => {
+        const { ads } = this.props;
 
-//     render() {
-//         const { ads, search, activeUser, allUsers } = this.props;
-//         const { category, subCategory, Conditions, LivingAreas } = this.state;
-
-//         // const searchUpdated = ads.filter(ad => ad.Category && ad.SubCategory && ad.details === search)
-//         // const searchUpdatedUi = searchUpdated.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        this.setState({
+            SubCategoryId: item.SubCategoryId,
+        });
+    }
 
 
-//         // const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
-//         // const ??? = ???.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+    changeItemConditions = (item) => {
+        const { ads } = this.props;
 
-//         // const filteredDropdown = ads.filter(ad => ad.CategoryId && ad.SubCategoryId === ad);
-//         // console.log(filteredDropdown)
+        this.setState({
+            condition: item.condition
 
-//         return (
-//             <div>
+        })
+        console.log(item.condition);
 
-//                 <Dropdown>
-//                     <Dropdown.Toggle variant="success" id="dropdown-basic">
-//                         Categorys
-//                     </Dropdown.Toggle>
-//                     <Dropdown.Menu
-//                         data={dataCategoriess}
-//                         textField="categoryName"
-//                         onChange={this.categoryChange}
-//                         value={category}
-//                     >
-//                         <Dropdown.Item defaultItem={ItemCategory} href="#/action-1"></Dropdown.Item>
-//                     </Dropdown.Menu>
-//                 </Dropdown>
+    }
 
-//                 <Dropdown>
-//                     <Dropdown.Toggle variant="success" id="dropdown-basic">
-//                         Sub-Categorys
-//                             </Dropdown.Toggle>
+    changeItemLivingArea = (item) => {
+        const { allUsers } = this.props;
 
-//                     <Dropdown.Menu
-//                         data={dataSubCategorys}
-//                         textField="SubCategoryName"
-//                         onChange={this.subCategoryChange}
-//                         value={subCategory}
-//                     >
-//                         <Dropdown.Item defaultItem={ItemsubCategory} href="#/action-1"></Dropdown.Item>
-//                     </Dropdown.Menu>
-//                 </Dropdown>
+        this.setState({
+            LivingArea: item.LivingArea
+        })
 
-//                 <Dropdown>
-//                     <Dropdown.Toggle variant="success" id="dropdown-basic">
-//                         Item Condition
-//                      </Dropdown.Toggle>
+    }
 
-//                     <Dropdown.Menu
-//                         data={dataConditions}
-//                         onChange={this.changeItemConditions}
-//                         value={Conditions}
-//                     >
-//                         <Dropdown.Item textField="ConditionName"
-//                             defaultItem={ItemCondition}
-//                             href="#/action-1"></Dropdown.Item>
-//                     </Dropdown.Menu>
-//                 </Dropdown>
+    search = (e) => {
+        const { search } = this.state;
 
-//                 <Dropdown>
-//                     <Dropdown.Toggle variant="success" id="dropdown-basic">
-//                         Areas
-//                      </Dropdown.Toggle>
-//                     <Dropdown.Menu
-//                         data={dataLivingAreas}
-//                         textField="LivingAreaName"
-//                         onChange={this.changeItemLivingArea}
-//                         value={LivingAreas}>
-//                         <Dropdown.Item defaultItem={ItemLivingArea} href="#/action-1"></Dropdown.Item>
-//                     </Dropdown.Menu>
-//                 </Dropdown>
-//             </div>
-//         );
-//     }
-// }
+        this.setState({
+            search: e.target.value
 
-// export default smartAgent;
+        })
+
+
+    }
+
+    render() {
+        const { ads, activeUser, allUsers } = this.props;
+        const { search, category, subCategory, Conditions, LivingAreas } = this.state;
+
+        const categoryOption = dataCategoriess.map(itencategorys => <option value={this.state.value} onChange={() => this.categoryChange(itencategorys)}> {itencategorys.categoryName} </option>)
+        const filterdcategorys = ads.filter(ad => ad.categoryName === this.state.condition);
+
+        const fileredSubCategorys = dataSubCategorys.filter(dataSubCategory => dataSubCategory.CategoryId === this.state.CategoryId)
+        const subCategoryOption = fileredSubCategorys.map(itenSubCategorys => <option value={this.state.value} onChange={() => this.subCategoryChange(itenSubCategorys)} > {itenSubCategorys.SubCategoryName} </option>)
+        const filterdSubCategorys = ads.filter(ad => ad.subCategoryName === this.state.condition);
+
+        const itemConditionOption = dataConditions.map(itemCondition => <option value={this.state.value} onChange={() => this.changeItemConditions(itemCondition)}> {itemCondition.ConditionName} </option>)
+        const filterdConditions = ads.filter(ad => ad.Condition === this.state.condition);
+
+        const dataLivingAreasOption = dataLivingAreas.map(LivingAreasOption => <option value={this.state.value} onChange={() => this.changeItemLivingArea(LivingAreasOption)}> {LivingAreasOption.LivingAreaName} </option>)
+        const filterdLivingArea = allUsers.filter(allUser => allUser.LivingArea === this.state.condition);
+
+        const searchUpdated = ads.filter(ad => ad.Category || ad.SubCategory || ad.details === search)
+        const searchUpdatedUi = searchUpdated.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        console.log(searchUpdated);
+
+        // const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
+        // const ??? = ???.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+
+        return (
+            <div>
+                <Container>
+                <Form inline>
+                    <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+                        Categorys
+                     </Form.Label>
+                    <Form.Control
+                        as="select"
+                        className="my-1 mr-sm-2"
+                        id="inlineFormCustomSelectPref"
+                        value={this.state.value}
+                    >
+                        {categoryOption}
+                    </Form.Control>
+                </Form>
+
+                <Form inline>
+                    <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+                       Sub- Categorys
+                     </Form.Label>
+                    <Form.Control
+                        as="select"
+                        className="my-1 mr-sm-2"
+                        id="inlineFormCustomSelectPref"
+                        value={this.state.value}
+                    >
+                        {subCategoryOption}
+                    </Form.Control>
+                </Form>
+
+                <Form inline>
+                    <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+                    Condition
+                     </Form.Label>
+                    <Form.Control
+                        as="select"
+                        className="my-1 mr-sm-2"
+                        id="inlineFormCustomSelectPref"
+                        value={this.state.value}
+                    >
+                        {itemConditionOption}
+                    </Form.Control>
+                </Form>
+
+                <Form inline>
+                    <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+                    Living Areas
+                     </Form.Label>
+                    <Form.Control
+                        as="select"
+                        className="my-1 mr-sm-2"
+                        id="inlineFormCustomSelectPref"
+                        value={this.state.value}
+                    >
+                        {dataLivingAreasOption}
+                    </Form.Control>
+                </Form>
+
+                <FormControl
+                    value={search} onChange={(e) => this.setState({ search: e.target.value })}
+                    type="text" placeholder="Search" className="mr-sm-2" />
+                <Button onClick={this.search} variant="outline-success">Search</Button>
+                </Container>
+                
+            </div>
+        );
+    }
+}
+
+export default smartAgent;
