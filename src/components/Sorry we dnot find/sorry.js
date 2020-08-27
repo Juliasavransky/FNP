@@ -7,7 +7,7 @@ class sorry extends Component {
         return (
             <div>
                 Sorry we did not find what you're looking for
-                if u wont u can singup  
+                if u wont u can   
                 <Button type="button" href="/#signup">signup</Button>
 
             </div>

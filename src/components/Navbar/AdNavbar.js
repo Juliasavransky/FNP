@@ -54,12 +54,12 @@ class adNavbar extends Component {
             <Nav className="mr-auto cat">
               {/* {SmartAgentIn} */}
               {/* <Row>{searchUpdatedUi}</Row>  */}
-              <Nav.Link className="mr-5" href="/">Home</Nav.Link>
-              <Nav.Link className="mr-5" href="/#Clothing">Clothing</Nav.Link>
-              <Nav.Link className="mr-5" href="/#ToysAndGames">Toys and games</Nav.Link>
-              <Nav.Link className="mr-5" href="/#ForTheBabys">For the baby's</Nav.Link>
-              <Nav.Link className="mr-5" href="/#ForMoms">For Mom's</Nav.Link>
-              <Nav.Link className="mr-5" href="/#SmartAgent">Smart Agent</Nav.Link>
+              <Nav.Link className="mr-4" href="/">Home</Nav.Link>
+              <Nav.Link className="mr-4" href="/#Clothing">Clothing</Nav.Link>
+              <Nav.Link className="mr-4" href="/#ToysAndGames">Toys and games</Nav.Link>
+              <Nav.Link className="mr-4" href="/#ForTheBabys">For the baby's</Nav.Link>
+              <Nav.Link className="mr-4" href="/#ForMoms">For Mom's</Nav.Link>
+              <Nav.Link className="mr-4" href="/#SmartAgent">Smart Agent</Nav.Link>
               {LogOutUser}
               {signupUser}
               {LogInUser}

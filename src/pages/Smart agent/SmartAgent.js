@@ -5,11 +5,11 @@ import AdCard from '../../components/AdCard/AdCard'
 import { dataLivingAreas, dataConditions, dataSubCategorys, dataCategoriess } from '../../data/ddData'
 import Sorry from "../../components/Sorry we dnot find/sorry"
 
+
 class smartAgent extends Component {
 
     constructor(props) {
         super(props);
-
 
         this.state = {
             categorySelectedId: null,
@@ -29,26 +29,27 @@ class smartAgent extends Component {
     }
 
     categoryChange = (event) => {
-
         this.setState({
             categorySelectedId: event.target.value,
-
         })
-        console.log(this.setState);
+        console.log(event.target.value);
     }
 
     subCategoryChange = (event) => {
         this.setState({
             subCategorySelectedId: event.target.value,
         });
+        console.log(event.target.value);
+
     }
 
 
     changeItemConditions = (event) => {
         this.setState({
             conditionSelected: event.target.value
-
         })
+        console.log(event.target.value);
+
 
     }
 
@@ -56,45 +57,61 @@ class smartAgent extends Component {
         this.setState({
             livingAreaSelected: event.target.value
         })
+        console.log(event.target.value);
+
 
     }
 
     search = (event) => {
-        this.setState({
-            searchSelected: event.target.value
+        const { ads, activeUser, allUsers } = this.props;
+        const { searchSelected, categorySelectedId, subCategorySelectedId, conditionSelected, livingAreaSelected } = this.state;
 
-        })
+
+        console.log(this.state.searchSelected);
+        console.log(this.state.livingAreaSelected);
+
+        const filterdcategorys = ads.filter(ad => ad.CategoryId == categorySelectedId);
+        const filterdSubCategorys = ads.filter(ad => ad.filterdcategorys == subCategorySelectedId);
+        const filterdConditions = ads.filter(ad => ad.filterdSubCategorys == conditionSelected);
+        const filterdLivingArea = allUsers.filter(allUser => allUser.LivingArea == livingAreaSelected);
+
+
+        console.log(this.state.filterdcategorys);
+
+
+
 
     }
 
     render() {
+
         const { ads, activeUser, allUsers } = this.props;
         const { searchSelected, categorySelectedId, subCategorySelectedId, conditionSelected, livingAreaSelected } = this.state;
-       
-        const categoryOption = dataCategoriess.map(itencategorys => <option value={itencategorys.categoryId} > {itencategorys.categoryName} </option>)
-        const filterdcategorys = ads.filter(ad => ad.categoryName == this.state.condition);
 
-        const fileredSubCategorys = dataSubCategorys.filter(dataSubCategory => dataSubCategory.categoryId == this.state.categoryId)
+        const categoryOption = dataCategoriess.map(itencategorys => <option value={itencategorys.categoryId} > {itencategorys.categoryName} </option>)
+        console.log(dataSubCategorys);
+
+        const fileredSubCategorys = dataSubCategorys.filter(dataSubCategory => dataSubCategory.categoryId == this.state.categorySelectedId)
         const subCategoryOption = fileredSubCategorys.map(itenSubCategorys => <option value={itenSubCategorys.subCategoryId} > {itenSubCategorys.subCategoryName} </option>)
-        const filterdSubCategorys = ads.filter(ad => ad.subCategoryName == this.state.condition);
 
         const itemConditionOption = dataConditions.map(itemCondition => <option value={itemCondition.conditionId} > {itemCondition.conditionName} </option>)
-        const filterdConditions = ads.filter(ad => ad.Condition == this.state.condition);
 
         const dataLivingAreasOption = dataLivingAreas.map(livingAreasOption => <option value={livingAreasOption.livingAreaId} > {livingAreasOption.livingAreaName} </option>)
-        const filterdLivingArea = allUsers.filter(allUser => allUser.LivingArea == this.state.condition);
 
-        // const searchUpdated = ads.filter(ad => ad.Category || ad.SubCategory || ad.details === search)
+        // const searchresolt = ads.filter(ad => ad.Category || ad.SubCategory || ad.details === search)
         // const searchUpdatedUi = searchUpdated.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
         // console.log(searchUpdated);
 
         // const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
-        // const ??? = ???.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
 
-        //bla lba......searchresolt
-        //if  searchresolt.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
-        //else <Sorry/>
+
+        //if 
+        // const searchresolt = searchresolt.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+
+        //else 
+        // const noResolts = !activeUser ? <Sorry/> : null
+
 
 
         return (
@@ -166,7 +183,7 @@ class smartAgent extends Component {
                     <Button onClick={this.search} variant="outline-success">Search</Button>
 
 
-                    <Sorry/>
+                    <Sorry />
 
                 </Container>
 
