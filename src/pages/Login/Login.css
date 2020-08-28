@@ -1,6 +1,13 @@
-.c-login{
+.c-login {
   max-width: 500px;
   margin: 0 auto;
-  margin-top:20px;
+  margin-top: 20px;
+}
 
+.btn-login {
+  width: 100%;
+}
+
+.form-group {
+  width: 50%;
 }
