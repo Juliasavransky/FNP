@@ -72,7 +72,10 @@ class adNavbar extends Component {
       </Button>
     ) : null;
 
-    const UserAria = activeUser ? <Nav.Link className="mr-4" href="/#UserAria">User Aria</Nav.Link> : null
+    const UserArea = 
+    activeUser ? 
+    <Nav.Link className="mr-4" href="/#UserArea">User Area</Nav.Link>
+    : null
 
     return (
       <div className="c-adNavbar">
@@ -99,7 +102,7 @@ class adNavbar extends Component {
               <Nav.Link className="mr-4" href="/#SmartAgent">
                 Smart Agent
               </Nav.Link> 
-              {UserAria}
+              {UserArea}
               {signupUser}
               {LogInUser}
               {LogOutUser}
