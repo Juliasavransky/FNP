@@ -18,22 +18,43 @@ class adNavbar extends Component {
     this.state = {
       search: '',
     };
-    console.log(this.state);
+    // console.log(this.state);
     this.search = this.search.bind(this);
   }
 
-  search = e => {
-    const { search } = this.state;
+  search = (e) => {
+    const { searchSelected } = this.state;
+    const { ads } = this.props;
+
+    
+
+    const searchAds = searchSelected.filter(
+      ad =>
+        ad.Details.toLowerCase().includes(searchSelected.toLowerCase()) ||
+        ad.categoryName.toLowerCase().includes(searchSelected.toLowerCase()) ||
+        ad.subCategoryName
+          .toLowerCase()
+          .includes(searchSelected.toLowerCase()) ||
+        ad.Condition.toLowerCase().includes(searchSelected.toLowerCase())
+    );
+
+    const filteredAds = searchAds.map(ad => (
+      <Col key={ad.id} lg={3} md={4} sm={6}>
+        <AdCard ad={ad} />
+      </Col>
+    ));
 
     this.setState({
-      search: e.target.value,
-    });
-    console.log(search);
-  };
+      searchSelected: e.target.value
+    })
+    console.log('searchSelected', searchSelected);
+
+  }
 
   render() {
-    const { activeUser, ads, handleLogout, allUsers } = this.props;
-    const { search } = this.state;
+
+    const { activeUser, ads, handleLogout, allUsers, } = this.props;
+    const { searchSelected } = this.state;
 
     const LogOutUser = activeUser ? (
       <Button onClick={() => handleLogout()} href="#" variant="secondary">
@@ -51,21 +72,10 @@ class adNavbar extends Component {
       </Button>
     ) : null;
 
-    // const clothingAds = ads.filter(ad => ad.CategoryId === ClothingPage)
-    // const clothingAdsUi = clothingAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad}/></Col>)
-
-    const searchUpdated = ads.filter(
-      ad => ad.Category || ad.SubCategory || ad.details === search
-    );
-    const searchUpdatedUi = searchUpdated.map(ad => (
-      <Col key={ad.id} lg={3} md={4} sm={6}>
-        <AdCard ad={ad} />
-      </Col>
-    ));
-
-    console.log(searchUpdated);
-
-    // const SmartAgentIn = activeUser ? <Nav.Link className="mr-5" href="/#SmartAgent">Smart Agent</Nav.Link> : null
+    const UserArea = 
+    activeUser ? 
+    <Nav.Link className="mr-4" href="/#UserArea">User Area</Nav.Link>
+    : null
 
     return (
       <div className="c-adNavbar">
@@ -73,8 +83,7 @@ class adNavbar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat">
-              {/* {SmartAgentIn} */}
-              {/* <Row>{searchUpdatedUi}</Row>  */}
+         
               <Nav.Link className="mr-4" href="/">
                 Home
               </Nav.Link>
@@ -92,20 +101,23 @@ class adNavbar extends Component {
               </Nav.Link>
               <Nav.Link className="mr-4" href="/#SmartAgent">
                 Smart Agent
-              </Nav.Link>
-              {LogOutUser}
+              </Nav.Link> 
+              {UserArea}
               {signupUser}
               {LogInUser}
+              {LogOutUser}
             </Nav>
             <Form inline>
               <FormControl
-                value={search}
+               style={{ width: '6rem' }}
+                // value={search}
                 onChange={e => this.setState({ search: e.target.value })}
                 type="text"
                 placeholder="Search"
-                className="mr-sm-2"
+                className="mr-sm-2 "
+                
               />
-              <Button onClick={this.search} variant="outline-success">
+              <Button size="sm-2" onClick={this.search} variant="outline-success">
                 Search
               </Button>
             </Form>

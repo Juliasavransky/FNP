@@ -9,16 +9,16 @@ class AdCard extends Component {
     return (
       <div>
         <Card className="shadow p-3 mb-5 bg-white rounded">
-          <a href={'/#product/' + ad.id} target="_blank">
-            <Card.Img variant="top" src={ad.img} />
+          <a href={'/#product/' + ad.id} >
+            <Card.Img variant="top" src={ad.img} />{' '}
           </a>
           <Card.Body>
             <Card.Title>{ad.Category}</Card.Title>
             <Card.Link href={'#/product/' + ad.id}>
-              Details: {ad.Details}
+              Details: {ad.Details}{' '}
             </Card.Link>
 
-            <Card.Text>Condition: {ad.Condition} </Card.Text>
+            <Card.Text>Condition: {ad.Condition}{' '} </Card.Text>
 
             <small className="text-muted">Published Date {ad.Date}</small>
           </Card.Body>

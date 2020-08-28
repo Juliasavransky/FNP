@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Navbar } from 'react';
 import './footer.css';
+
 
 class Footer extends Component {
   render() {
     return (
-      <div className="footer">
+      <div className="footer position-fixed fixed-bottom">
         <a href="./#emptypage" className="active">
           Contact Us |{' '}
         </a>

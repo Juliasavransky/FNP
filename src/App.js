@@ -16,7 +16,7 @@ import Furniture from './pages/For the babys/furniture';
 import Safety from './pages/For the babys/safety';
 import Carriage from './pages/For the babys/carriage';
 import CoatsAndJackets from './pages/Clothing/Coats and Jackets';
-import ClothingOther from './pages/Clothing/ClothingOther';
+import ClothingOther from './pages/Clothing/clothingOther';
 import Shoes from './pages/Clothing/Shoes';
 import SpecialEvents from './pages/Clothing/SpecialEvents';
 import Casual from './pages/Clothing/Casual';
@@ -328,7 +328,14 @@ class App extends Component {
             </Route>
 
             <Route exact path="/product/:id">
-              <MoreInfoPage ads={ads} />
+              <MoreInfoPage 
+              ads={ads} 
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+              handlesignup={this.handlesignup}
+              />
             </Route>
 
             <Route exact path="/emptypage">
@@ -341,12 +348,12 @@ class App extends Component {
               />
             </Route>
           </Switch>
-          <Footer
+          {/* <Footer
             ads={ads}
             allUsers={allUsers}
             handleLogout={this.handleLogout}
             activeUser={activeUser}
-          />
+          /> */}
         </HashRouter>
       </div>
     );
