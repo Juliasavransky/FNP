@@ -16,7 +16,7 @@ import Furniture from './pages/For the babys/furniture';
 import Safety from './pages/For the babys/safety';
 import Carriage from './pages/For the babys/carriage';
 import CoatsAndJackets from './pages/Clothing/Coats and Jackets';
-import ClothingOther from './pages/Clothing/ClothingOther';
+import ClothingOther from './pages/Clothing/clothingOther';
 import Shoes from './pages/Clothing/Shoes';
 import SpecialEvents from './pages/Clothing/SpecialEvents';
 import Casual from './pages/Clothing/Casual';
