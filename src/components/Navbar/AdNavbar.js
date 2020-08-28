@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, Form, FormControl, Button, Col, Row } from 'react-bootstrap';
-import './adNavbar.css'
-import AdCard from '../../components/AdCard/AdCard'
-
-
+import {
+  Navbar,
+  Nav,
+  Form,
+  FormControl,
+  Button,
+  Col,
+  Row,
+} from 'react-bootstrap';
+import './adNavbar.css';
+import AdCard from '../../components/AdCard/AdCard';
 
 class adNavbar extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      searchSelected: ""
+      search: '',
     };
     // console.log(this.state);
     this.search = this.search.bind(this);
-
   }
 
   search = (e) => {
@@ -51,10 +56,22 @@ class adNavbar extends Component {
     const { activeUser, ads, handleLogout, allUsers, } = this.props;
     const { searchSelected } = this.state;
 
-    const LogOutUser = activeUser ? <Button onClick={() => handleLogout()} href="#" variant="secondary">LogOut</Button> : null
-    const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
-    const LogInUser = !activeUser ? <Button href="#/login" variant="secondary">LogIn</Button> : null
-    
+    const LogOutUser = activeUser ? (
+      <Button onClick={() => handleLogout()} href="#" variant="secondary">
+        LogOut
+      </Button>
+    ) : null;
+    const signupUser = !activeUser ? (
+      <Button href="#/signup" variant="secondary" className="btn-userLogin">
+        Signup
+      </Button>
+    ) : null;
+    const LogInUser = !activeUser ? (
+      <Button href="#/login" variant="secondary" className="btn-userLogin">
+        LogIn
+      </Button>
+    ) : null;
+
     // const clothingAds = ads.filter(ad => ad.CategoryId === ClothingPage)
     // const clothingAdsUi = clothingAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad}/></Col>)
 
@@ -70,31 +87,47 @@ class adNavbar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat">
-          
-              <Nav.Link className="mr-4" href="/">Home</Nav.Link>
-              <Nav.Link className="mr-4" href="/#Clothing">Clothing</Nav.Link>
-              <Nav.Link className="mr-4" href="/#ToysAndGames">Toys and games</Nav.Link>
-              <Nav.Link className="mr-4" href="/#ForTheBabys">For the baby's</Nav.Link>
-              <Nav.Link className="mr-4" href="/#ForMoms">For Mom's</Nav.Link>
-              <Nav.Link className="mr-4" href="/#SmartAgent">Smart Agent</Nav.Link>
+              {/* {SmartAgentIn} */}
+              {/* <Row>{searchUpdatedUi}</Row>  */}
+              <Nav.Link className="mr-4" href="/">
+                Home
+              </Nav.Link>
+              <Nav.Link className="mr-4" href="/#Clothing">
+                Clothing
+              </Nav.Link>
+              <Nav.Link className="mr-4" href="/#ToysAndGames">
+                Toys and games
+              </Nav.Link>
+              <Nav.Link className="mr-4" href="/#ForTheBabys">
+                For the baby's
+              </Nav.Link>
+              <Nav.Link className="mr-4" href="/#ForMoms">
+                For Mom's
+              </Nav.Link>
+              <Nav.Link className="mr-4" href="/#SmartAgent">
+                Smart Agent
+              </Nav.Link>
               {LogOutUser}
               {signupUser}
               {LogInUser}
             </Nav>
             <Form inline>
               <FormControl
-                value={searchSelected} onChange={(e) => this.setState({ searchSelected: e.target.value })}
-                type="text" placeholder="Search" className="mr-sm-2" />
-              <Button onClick={this.search} variant="outline-success">Search</Button>
+                value={search}
+                onChange={e => this.setState({ search: e.target.value })}
+                type="text"
+                placeholder="Search"
+                className="mr-sm-2"
+              />
+              <Button onClick={this.search} variant="outline-success">
+                Search
+              </Button>
             </Form>
           </Navbar.Collapse>
         </Navbar>
       </div>
     );
-
   }
-
 }
-
 
 export default adNavbar;

@@ -1,9 +1,11 @@
-.c-adNavbar{
-    display: flex;
-    width: 100%;
-    display: inline;
+.c-adNavbar {
+  display: inline;
 }
-.cat{
-justify-items: flex-end;
-padding: 10px;
+.cat {
+  justify-items: flex-end;
+  padding: 10px;
+}
+
+.btn-userLogin {
+  margin-left: 8px;
 }

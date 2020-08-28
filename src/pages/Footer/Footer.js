@@ -2,45 +2,38 @@ import React, { Component, Navbar } from 'react';
 import './footer.css';
 
 
-class footer extends Component {
+class Footer extends Component {
   render() {
     return (
       <div className="footer position-fixed fixed-bottom">
         <a href="./#emptypage" className="active">
-          {' '}
-          Contact Us|
+          Contact Us |{' '}
         </a>
         <a href="./#emptypage" className="active">
-          {' '}
-          Publish In Our Site|
+          Publish In Our Site |{' '}
         </a>
         <a href="./#emptypage" className="active">
-          {' '}
           Site's Policy |{' '}
         </a>
         <a href="./#emptypage" className="active">
-          {' '}
           Code of Ethics |{' '}
         </a>
         <a href="./#emptypage" className="active">
-          {' '}
-          Project Assistance|
+          Project Assistance |{' '}
         </a>
         <a href="./#emptypage" className="active">
-          {' '}
-          Privacy Policy|
+          Privacy Policy |{' '}
         </a>
         <a href="./#emptypage" className="active">
-          {' '}
-          Help|
+          Help
         </a>
+        <br />
         <a href="./#emptypage" className="active">
-          {' '}
-          Second-Hand Board For Mother And Baby Products For Free Delivery Only|{' '}
+          Second-Hand Board For Mother And Baby Products For Free Delivery Only
         </a>
       </div>
     );
   }
 }
 
-export default footer;
+export default Footer;

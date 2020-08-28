@@ -18,7 +18,7 @@ class login extends Component {
   }
 
   login(event) {
-    //event.preventDefault();
+    event.preventDefault();
     const { emailInput, pwdInput } = this.state;
     const { allUsers, handleLogin } = this.props;
     const userFound = allUsers.find(
@@ -47,15 +47,14 @@ class login extends Component {
     return (
       <div className="c-login">
         <h3> Happy to see u!</h3>
-        <a href="#/signup"></a>
-        <Form>
+        <Form onSubmit={this.login}>
           {showLogInError ? (
             <Alert variant="danger">
               Invalid Credientails! incorrect email or password
             </Alert>
           ) : null}
           <Form.Row>
-            <Form.Group controlId="formGridEmail">
+            <Form.Group controlId="formGridEmail" className="form-group">
               <Form.Label>Email</Form.Label>
               <Form.Control
                 value={emailInput}
@@ -70,7 +69,7 @@ class login extends Component {
               />
             </Form.Group>
 
-            <Form.Group controlId="formGridPassword">
+            <Form.Group controlId="formGridPassword" className="form-group">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 value={pwdInput}
@@ -85,10 +84,11 @@ class login extends Component {
               />
             </Form.Group>
           </Form.Row>
-
-          <Button onClick={this.login} as={Col} variant="primary" type="button">
-            LogIn
-          </Button>
+          <Form.Row>
+            <Button className="btn-login" variant="primary" type="submit">
+              LogIn
+            </Button>
+          </Form.Row>
         </Form>
       </div>
     );
