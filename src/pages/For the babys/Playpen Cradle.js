@@ -9,7 +9,7 @@ class PlaypenCradle extends Component {
         const PlaypenCradlePage = 34
         const PlaypenCradleAds = ads.filter(ad => ad.SubCategoryId === PlaypenCradlePage)
 
-        const PlaypenCradleAdsUi = PlaypenCradleAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const PlaypenCradleAdsUi = PlaypenCradleAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
         return (
             <div className="c-adNavbar">

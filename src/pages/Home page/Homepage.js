@@ -27,7 +27,7 @@ class HomePage extends Component {
 
           <p className= "par">
             <br></br>
-          Got stuff you don't need For mothers and/or babies? <br></br>
+          Got stuff you don't need For Mothers And/Or Babies? <br></br>
            We'll find someone to come and take it. <br></br>
            Looking for something? We'll pair you with someone giving it away. <br></br>
             All completely free.  

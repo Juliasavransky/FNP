@@ -13,7 +13,7 @@ class ToysAndGamesOther extends Component {
     const ToysAndGamesOtherPage = 25
     const ToysAndGamesOtherAds = ads.filter(ad => ad.SubCategoryId === ToysAndGamesOtherPage)
 
-    const ToysAndGamesOtherAdsUi = ToysAndGamesOtherAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+    const ToysAndGamesOtherAdsUi = ToysAndGamesOtherAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
     return(
       <div className="c-adNavbar">

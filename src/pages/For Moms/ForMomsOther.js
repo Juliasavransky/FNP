@@ -13,7 +13,7 @@ class ForMomsOther extends Component {
         const ForMomsOtherPage = 45
         const ForMomsOtherAds = ads.filter(ad => ad.SubCategoryId === ForMomsOtherPage)
 
-        const ForMomsOtherAdsUi = ForMomsOtherAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const ForMomsOtherAdsUi = ForMomsOtherAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
         return (
             <div className="c-adNavbar">

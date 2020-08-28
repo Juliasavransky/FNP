@@ -13,7 +13,7 @@ class Dolls extends Component {
     const DollsPage = 21
     const DollsAds = ads.filter(ad => ad.SubCategoryId === DollsPage)
 
-    const DollsAdsUi = DollsAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+    const DollsAdsUi = DollsAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
     return(
       <div className="c-adNavbar">

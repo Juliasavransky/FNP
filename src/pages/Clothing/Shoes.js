@@ -11,7 +11,7 @@ class Shoes extends Component {
         const ShoesPage = 14
         const shoesAds = ads.filter(ad => ad.SubCategoryId === ShoesPage)
 
-        const ShoesAdsUi = shoesAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const ShoesAdsUi = shoesAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
         return (
             <div className="c-adNavbar">

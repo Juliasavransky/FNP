@@ -10,7 +10,7 @@ class CoatsAndJackets extends Component {
         const CoatsAndJacketsPage = 11
         const CoatsAndJacketsAds = ads.filter(ad => ad.SubCategoryId === CoatsAndJacketsPage)
 
-        const CoatsAndJacketsAdsUi = CoatsAndJacketsAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const CoatsAndJacketsAdsUi = CoatsAndJacketsAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
         return (
             <div className="c-adNavbar">
                 

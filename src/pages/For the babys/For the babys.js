@@ -11,7 +11,7 @@ class ForTheBabys extends Component {
         const ForTheBabysPage = 3
         const ForTheBabysAds = ads.filter(ad => ad.CategoryId === ForTheBabysPage)
 
-        const ForTheBabysAdsUi = ForTheBabysAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const ForTheBabysAdsUi = ForTheBabysAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
         return (
             <div className="c-adNavbar">

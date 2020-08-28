@@ -13,7 +13,7 @@ class Lego extends Component {
     const LegoPage = 24
     const LegoAds = ads.filter(ad => ad.SubCategoryId === LegoPage)
 
-    const LegoAdsUi = LegoAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+    const LegoAdsUi = LegoAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
     return(
       <div className="c-adNavbar">

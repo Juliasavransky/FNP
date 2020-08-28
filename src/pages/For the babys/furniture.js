@@ -12,7 +12,7 @@ class Furniture extends Component {
         const FurniturePage = 31
         const FurnitureAds = ads.filter(ad => ad.SubCategoryId === FurniturePage)
 
-        const FurnitureAdsUi = FurnitureAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const FurnitureAdsUi = FurnitureAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
         return(
             <div className="c-adNavbar">

@@ -11,7 +11,7 @@ class Carriage extends Component {
         const CarriagePage = 33
         const CarriageAds = ads.filter(ad => ad.SubCategoryId === CarriagePage)
 
-        const CarriageAdsUi = CarriageAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const CarriageAdsUi = CarriageAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
         return (
             <div className="c-adNavbar">

@@ -13,7 +13,7 @@ class Supplements extends Component {
         const SupplementsPage = 44
         const SupplementsAds = ads.filter(ad => ad.SubCategoryId === SupplementsPage)
 
-        const SupplementsAdsUi = SupplementsAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const SupplementsAdsUi = SupplementsAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
         return (
             <div className="c-adNavbar">

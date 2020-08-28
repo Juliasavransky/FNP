@@ -10,7 +10,7 @@ class Safety extends Component {
         const SafetyPage = 32
         const SafetyAds = ads.filter(ad => ad.SubCategoryId === SafetyPage)
 
-        const SafetyAdsUi = SafetyAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const SafetyAdsUi = SafetyAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
         return (
 
        

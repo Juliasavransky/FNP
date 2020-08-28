@@ -13,7 +13,7 @@ class BooksForMoms extends Component {
         const BooksForMomsPage = 43
         const BooksForMomsAds = ads.filter(ad => ad.CategoryId === BooksForMomsPage)
 
-        const BooksForMomsAdsUi = BooksForMomsAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const BooksForMomsAdsUi = BooksForMomsAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
         return (
             <div className="c-adNavbar">

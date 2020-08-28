@@ -10,7 +10,7 @@ class SpecialEvents extends Component {
         const SpecialEventsPage = 12
         const SpecialEventsAds = ads.filter(ad => ad.SubCategoryId === SpecialEventsPage)
 
-        const SpecialEventsAdsUi = SpecialEventsAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const SpecialEventsAdsUi = SpecialEventsAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
         return (
             <div className="c-adNavbar">
                 <Navbar bg="light" expand="lg">

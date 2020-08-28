@@ -58,7 +58,7 @@ class adNavbar extends Component {
       ad => ad.Category || ad.SubCategory || ad.details === search
     );
     const searchUpdatedUi = searchUpdated.map(ad => (
-      <Col lg={3} md={4} sm={6}>
+      <Col key={ad.id} lg={3} md={4} sm={6}>
         <AdCard ad={ad} />
       </Col>
     ));
