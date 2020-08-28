@@ -72,14 +72,7 @@ class adNavbar extends Component {
       </Button>
     ) : null;
 
-    // const clothingAds = ads.filter(ad => ad.CategoryId === ClothingPage)
-    // const clothingAdsUi = clothingAds.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad}/></Col>)
-
-    // const searchUpdated = ads.filter(ad => ad.Category || ad.SubCategory || ad.details === search)
-    // const searchUpdatedUi = searchUpdated.map(ad => <Col lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
-
-
-    // const SmartAgentIn = activeUser ? <Nav.Link className="mr-5" href="/#SmartAgent">Smart Agent</Nav.Link> : null
+    const UserAria = activeUser ? <Nav.Link className="mr-4" href="/#UserAria">User Aria</Nav.Link> : null
 
     return (
       <div className="c-adNavbar">
@@ -87,8 +80,7 @@ class adNavbar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat">
-              {/* {SmartAgentIn} */}
-              {/* <Row>{searchUpdatedUi}</Row>  */}
+         
               <Nav.Link className="mr-4" href="/">
                 Home
               </Nav.Link>
@@ -106,20 +98,23 @@ class adNavbar extends Component {
               </Nav.Link>
               <Nav.Link className="mr-4" href="/#SmartAgent">
                 Smart Agent
-              </Nav.Link>
-              {LogOutUser}
+              </Nav.Link> 
+              {UserAria}
               {signupUser}
               {LogInUser}
+              {LogOutUser}
             </Nav>
             <Form inline>
               <FormControl
-                value={search}
+               style={{ width: '6rem' }}
+                // value={search}
                 onChange={e => this.setState({ search: e.target.value })}
                 type="text"
                 placeholder="Search"
-                className="mr-sm-2"
+                className="mr-sm-2 "
+                
               />
-              <Button onClick={this.search} variant="outline-success">
+              <Button size="sm-2" onClick={this.search} variant="outline-success">
                 Search
               </Button>
             </Form>
