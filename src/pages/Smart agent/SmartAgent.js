@@ -1,21 +1,8 @@
 import React, { Component } from 'react';
-import {
-  Form,
-  FormControl,
-  Button,
-  Col,
-  Dropdown,
-  Row,
-  Container,
-} from 'react-bootstrap';
+import {Form, FormControl, Button,Col, Dropdown,Row, Container,} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdCard from '../../components/AdCard/AdCard';
-import {
-  dataLivingAreas,
-  dataConditions,
-  dataSubCategorys,
-  dataCategoriess,
-} from '../../data/ddData';
+import {dataLivingAreas,dataConditions,dataSubCategorys,dataCategoriess,} from '../../data/ddData';
 import Sorry from '../../components/Sorry we didnt find/sorry';
 
 class SmartAgent extends Component {
