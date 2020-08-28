@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ListGroup, Row, Col } from 'react-bootstrap';
 import AdCard from '../../components/AdCard/AdCard';
-import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Container, } from 'react-bootstrap';
 
 class Clothing extends Component {
   render() {
@@ -42,9 +42,10 @@ class Clothing extends Component {
             <Form inline></Form>
           </Navbar.Collapse>
         </Navbar>
-
+        <Container>
         <Row>{clothingAdsUi}</Row>
         <ListGroup variant="flush"></ListGroup>
+        </Container>
       </div>
     );
   }

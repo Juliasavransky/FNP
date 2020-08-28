@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AdCard from '../../components/AdCard/AdCard'
-import { ListGroup, Row, Col, Navbar, Nav, Form, } from 'react-bootstrap';
+import { ListGroup, Row, Col, Navbar, Nav, Form, Container } from 'react-bootstrap';
 
 class SpecialEvents extends Component {
     render() {
@@ -27,10 +27,11 @@ class SpecialEvents extends Component {
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-              
+                <Container>
                 <Row>{SpecialEventsAdsUi}</Row>
                 <ListGroup variant="flush">
                 </ListGroup>
+                </Container>
             </div>
         );
     }
