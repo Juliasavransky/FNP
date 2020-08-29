@@ -147,7 +147,7 @@ class signup extends Component {
                                 type="password" name="pwdInput" placeholder="Password" />
 
                             {pwdInputError ? <Alert variant="danger">
-                                Invalid Credentials! Incorrect password
+                                Invalid Credentials! Incorrect Password
                  </Alert> : null}
                         </Form.Group>
                     </Form.Row>
