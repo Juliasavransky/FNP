@@ -34,9 +34,11 @@ import ForTheBabysOther from './pages/For the babys/ForTheBabysOther';
 import ForTheBabys from './pages/For the babys/For the babys';
 import PregnancyClothes from './pages/For Moms/PregnancyClothes';
 import Emptypage from './pages/Footer/emptypage';
-import Footer from './pages/Footer/Footer';
 import MoreInfoPage from './pages/MoreInfoPage/MoreInfoPage';
 import UserArea from './pages/Login/UserArea/UserArea';
+import SearchResults from './components/Navbar/SearchResults';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class App extends Component {
   constructor(props) {
@@ -46,14 +48,24 @@ class App extends Component {
       activeUser: null,
       allUsers: jsonUsers,
       ads: jsonAds,
+      searchResults: [],
     };
     this.handleLogout = this.handleLogout.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
-    this.handlesignup = this.handlesignup.bind(this);
     this.handleCreatNewAd = this.handleCreatNewAd.bind(this);
-    // this.handleNewUser = this.handleNewUser.bind(this);
+    this.handleNewUser = this.handleNewUser.bind(this);
+  }
 
+  componentDidMount() {
+    // will run only the first time the application is loading
+    // will display the all users from the JSON only
+    console.log('All Users', this.state.allUsers);
+  }
 
+  componentDidUpdate() {
+    // Will run every time the component is being updated
+    // Everytime you call 'this.setState' the component will render and this function will run again
+    console.log('All Users', this.state.allUsers);
   }
 
   handleLogout() {
@@ -68,48 +80,38 @@ class App extends Component {
     });
   }
 
-  handlesignup(newUser) {
-    this.setState({
-      newUser: newUser,
-    });
-
-    console.log(this.neweUser);
+  handleNewUser(newUser) {
+    newUser.id = this.state.allUsers.length + 1;
+    this.setState({ allUsers: [...this.state.allUsers, newUser] });
+    toast.success('New User Added');
   }
 
-  // handleNewUser(user) {
-  //   const { allUsers } = this.state;
-
-  //   allUsers.id = allUsers[allUsers.length - 1].id + 1;
-  //   console.log(newUser);
-  //   this.setState({
-  //     allUsers: allUsers.concat(newUser),
-  //   });
-  // }
-
   handleCreatNewAd(ad) {
-    const { allUsers, activeUser, ads } = this.state;
+    const { activeUser, ads } = this.state;
 
     ad.userId = activeUser.id;
     ad.id = ads[ads.length - 1].id + 1;
     console.log(ad);
-    this.setState({
+    this.setState({});
+  }
 
-    });
+  handleSearch = searchResults => {
+    this.setState({ searchResults: searchResults });
   };
 
-
   render() {
-
-    const { activeUser, allUsers, ads } = this.state;
+    const { activeUser, allUsers, ads, searchResults } = this.state;
 
     return (
       <div className="App">
+        <ToastContainer autoClose={3000} />
         <HashRouter>
           <AdNavbar
             ads={ads}
             allUsers={allUsers}
             handleLogout={this.handleLogout}
             activeUser={activeUser}
+            onSearch={this.handleSearch}
           />
 
           <Switch>
@@ -330,7 +332,7 @@ class App extends Component {
             <Route exact path="/signup">
               <Signup
                 handleNewUser={this.handleNewUser}
-                handlesignup={this.handlesignup}
+                //handlesignup={this.handlesignup}
                 handleLogout={this.handleLogout}
                 activeUser={activeUser}
               />
@@ -374,12 +376,13 @@ class App extends Component {
                 handleLogout={this.handleLogout}
                 activeUser={activeUser}
                 handleCreatNewAd={this.handleCreatNewAd}
-
               />
             </Route>
 
+            <Route path="/search-results">
+              <SearchResults searchResults={searchResults} />
+            </Route>
           </Switch>
-
         </HashRouter>
       </div>
     );

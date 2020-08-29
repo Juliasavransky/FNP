@@ -1,11 +1,26 @@
-import React, { Component, Navbar } from 'react';
+import React, { Component } from 'react';
 import './footer.css';
 
+// class MenuItem extends Component {
+//   render() {
+//     return (
+//       <a href="./#emptypage" className="active">
+//         {this.props.title} |{' '}
+//       </a>
+//     );
+//   }
+// }
 
 class Footer extends Component {
   render() {
     return (
       <div className="footer position-fixed fixed-bottom">
+        {/* <MenuItem title="Contact Us" />
+        <MenuItem title="Publish In Our Site" />
+        <MenuItem title="Site's Policy" />
+        <MenuItem title="Code of Ethics" />
+        <MenuItem title="" /> */}
+
         <a href="./#emptypage" className="active">
           Contact Us |{' '}
         </a>

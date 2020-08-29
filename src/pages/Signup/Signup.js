@@ -1,207 +1,260 @@
 import React, { Component } from 'react';
 import { Form, Button, Col, Alert } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
+import './SignUp.css';
 
+class SignUp extends Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      fnameInput: '',
+      lnameInput: '',
+      emailInput: '',
+      pwdInput: '',
+      LivingAreaInput: '',
+      CityInput: '',
+      StreetNumberInput: '',
+      ContactInput: '',
+      readed: false,
 
-class signup extends Component {
+      // emailInputError: false,
+      // pwdInputError: false,
+      redirectToHome: false,
+    };
+    //this.signup = this.signup.bind(this);
+    this.validate = this.validate.bind(this);
+    this.handleCreatUser = this.handleCreatUser.bind(this);
+  }
+  validate = () => {
+    const emailInputError = '';
+    const pwdInputError = '';
 
-    constructor(props) {
-        super(props);
+    this.setState = {
+      emailInputError: false,
+      pwdInputError: false,
+    };
 
-        this.state = {
-
-            fnameInput: "",
-            lnameInput: "",
-            emailInput: "",
-            pwdInput: "",
-            LivingAreaInput: "",
-            CityInput: "",
-            StreetNumberInput: "",
-            ContactInput: "",
-            readed: false,
-
-            // emailInputError: false,
-            // pwdInputError: false,
-            redirectToHome: false,
-
-        }
-        this.signup = this.signup.bind(this);
-        this.validate = this.validate.bind(this);
-        this.handleCreatUser = this.handleCreatUser.bind(this);
-
-
+    if (!this.state.pwdInput) {
+      pwdInputError = ' paswodr cannot be blank';
     }
-    validate = () => {
-
-        const emailInputError = "";
-        const pwdInputError = "";
-
-        this.state = {
-            emailInputError: false,
-            pwdInputError: false,
-        }
-
-        if (!this.state.pwdInput) {
-            pwdInputError = " paswodr cannot be blank"
-        }
-        if (pwdInputError) {
-            this.setState({
-                pwdInputError: true
-            });
-
-        }
-
-
-        if (!this.state.emailInput.includes("@")) {
-            emailInputError = "Invalid email"
-        }
-        if (emailInputError) {
-            this.setState({
-                emailInputError: true
-            });
-
-        }
-
-    }
-    signup = (event) => {
-        const { handlesignup } = this.props;
-        this.setState({
-            [event.target.name]: event.target.value,
-        })
-
+    if (pwdInputError) {
+      this.setState({
+        pwdInputError: true,
+      });
     }
 
-    handleCreatUser() {
-        const {
-            fnameInput, lnameInput, emailInput, pwdInput, readed,
-            LivingAreaInput, CityInput, StreetNumberInput, ContactInput,
-        } = this.state;
+    if (!this.state.emailInput.includes('@')) {
+      emailInputError = 'Invalid email';
+    }
+    if (emailInputError) {
+      this.setState({
+        emailInputError: true,
+      });
+    }
+  };
+  signup = event => {
+    // const { handlesignup } = this.props;
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
 
-        const newUser = {
-            fname: fnameInput,
-            lname: lnameInput,
-            email: emailInput,
-            pwd: pwdInput,
-            LivingArea: LivingAreaInput,
-            City: CityInput,
-            StreetNumber: StreetNumberInput,
-            Contact: ContactInput,
-        };
+  handleCreatUser(event) {
+    event.preventDefault();
 
-        this.props.handleNewUser(newUser);
+    const {
+      fnameInput,
+      lnameInput,
+      emailInput,
+      pwdInput,
+      readed,
+      LivingAreaInput,
+      CityInput,
+      StreetNumberInput,
+      ContactInput,
+    } = this.state;
+
+    const newUser = {
+      fname: fnameInput,
+      lname: lnameInput,
+      email: emailInput,
+      pwd: pwdInput,
+      LivingArea: LivingAreaInput,
+      City: CityInput,
+      StreetNumber: StreetNumberInput,
+      Contact: ContactInput,
+    };
+
+    this.props.handleNewUser(newUser);
+  }
+
+  // handelClose();
+
+  render() {
+    const {
+      emailInputError,
+      pwdInputError,
+      redirectToHome,
+      fnameInput,
+      lnameInput,
+      emailInput,
+      pwdInput,
+      LivingAreaInput,
+      CityInput,
+      StreetNumberInput,
+      ContactInput,
+      readed,
+    } = this.state;
+
+    if (redirectToHome) {
+      return <Redirect to="/" />;
     }
 
-    // handelClose();
+    return (
+      <div className="c-login">
+        <h3> NEW CUSTOMERS</h3>
+        <a href="#/signup"></a>
+        <Form onSubmit={this.handleCreatUser}>
+          <Form.Row>
+            <Form.Group controlId="formGridPassword">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                value={fnameInput}
+                onChange={this.signup}
+                type="text"
+                name="fnameInput"
+                placeholder="First Name"
+              />
+            </Form.Group>
+            <Form.Group controlId="formGridPassword">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                value={lnameInput}
+                onChange={this.signup}
+                type="text"
+                name="lnameInput"
+                placeholder="Last Name"
+              />
+            </Form.Group>
 
+            <Form.Group controlId="formGridEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                value={emailInput}
+                onChange={this.signup}
+                type="email"
+                name="emailInput"
+                placeholder="Enter email"
+              />
 
-    render() {
+              {emailInputError ? (
+                <Alert variant="danger">
+                  Invalid Credentials! Incorrect Email
+                </Alert>
+              ) : null}
+            </Form.Group>
 
-        const {
-            emailInputError, pwdInputError, redirectToHome,
-            fnameInput, lnameInput, emailInput, pwdInput,
-            LivingAreaInput, CityInput, StreetNumberInput, ContactInput, readed,
-        } = this.state;
+            <Form.Group controlId="formGridPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                value={pwdInput}
+                onChange={this.signup}
+                type="password"
+                name="pwdInput"
+                placeholder="Password"
+              />
 
-        if (redirectToHome) {
-            return <Redirect to="/" />
-        }
+              {pwdInputError ? (
+                <Alert variant="danger">
+                  Invalid Credentials! Incorrect Password
+                </Alert>
+              ) : null}
+            </Form.Group>
+          </Form.Row>
 
-        return (
-            <div className="c-login">
-                <h3> NEW CUSTOMERS</h3>
-                <a href="#/signup"></a>
-                <Form>
-                    <Form.Row>
-                        <Form.Group controlId="formGridPassword">
-                            <Form.Label>First Name</Form.Label>
-                            <Form.Control value={fnameInput}
-                                onChange={this.signup}
-                                type="text" name="fnameInput" placeholder="First Name" />
-                        </Form.Group>
-                        <Form.Group controlId="formGridPassword">
-                            <Form.Label>Last Name</Form.Label>
-                            <Form.Control value={lnameInput}
-                                onChange={this.signup}
-                                type="text" name="lnameInput" placeholder="Last Name" />
-                        </Form.Group>
+          <Form.Group controlId="formGridPassword">
+            <Form.Label>Phone Number</Form.Label>
+            <Form.Control
+              value={ContactInput}
+              onChange={this.signup}
+              type="text"
+              name="ContactInput"
+              placeholder="Phone Number"
+            />
+          </Form.Group>
 
-                        <Form.Group controlId="formGridEmail">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control value={emailInput}
-                                onChange={this.signup}
-                                type="email" name="emailInput" placeholder="Enter email" />
+          <Form.Group controlId="formGridAddress1">
+            <Form.Label>Address</Form.Label>
+            <Form.Control
+              value={StreetNumberInput}
+              onChange={this.signup}
+              placeholder="Main St"
+              type="text"
+              name="StreetNumberInput"
+            />
+          </Form.Group>
 
-                            {emailInputError ? <Alert variant="danger">
-                                Invalid Credentials! Incorrect Email
-                 </Alert> : null}
-                        </Form.Group>
+          <Form.Row>
+            <Form.Group as={Col} controlId="formGridCity">
+              <Form.Label>City</Form.Label>
+              <Form.Control
+                value={CityInput}
+                onChange={this.signup}
+                name="CityInput"
+                type="text"
+              />
+            </Form.Group>
 
-                        <Form.Group controlId="formGridPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control value={pwdInput}
-                                onChange={this.signup}
-                                type="password" name="pwdInput" placeholder="Password" />
+            <Form.Group as={Col} controlId="formGridState">
+              <Form.Label>State</Form.Label>
+              <Form.Control
+                value={LivingAreaInput}
+                name="LivingAreaInput"
+                // onChange={(e) => this.setState({ LivingAreaInput: e.target.value })}
+                onChange={this.signup}
+                as="select"
+              >
+                <option value="0">Select a Area...</option>
+                <option name="jerusalem" value="jerusalem">
+                  Jerusalem
+                </option>
+                <option name="center" value="center">
+                  Center
+                </option>
+                <option name="north" value="north">
+                  North
+                </option>
+                <option name="south" value="south">
+                  South
+                </option>
+                <option name="west" value="west">
+                  West
+                </option>
+              </Form.Control>
+            </Form.Group>
+          </Form.Row>
 
-                            {pwdInputError ? <Alert variant="danger">
-                                Invalid Credentials! Incorrect Password
-                 </Alert> : null}
-                        </Form.Group>
-                    </Form.Row>
+          <Button className="btn-register" variant="primary" type="submit">
+            REGISTER NOW
+          </Button>
 
-                    <Form.Group controlId="formGridPassword">
-                        <Form.Label>Phone Number</Form.Label>
-                        <Form.Control value={ContactInput}
-                            onChange={this.signup}
-                            type="text" name="ContactInput" placeholder="Phone Number" />
-                    </Form.Group>
-
-                    <Form.Group controlId="formGridAddress1">
-                        <Form.Label>Address</Form.Label>
-                        <Form.Control value={StreetNumberInput}
-                            onChange={this.signup}
-                            placeholder="Main St" type="text" name="StreetNumberInput" />
-                    </Form.Group>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="formGridCity">
-                            <Form.Label>City</Form.Label>
-                            <Form.Control value={CityInput}
-                                onChange={this.signup}
-                                name="CityInput" type="text" />
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="formGridState">
-                            <Form.Label>State</Form.Label>
-                            <Form.Control value={LivingAreaInput}
-                                name="LivingAreaInput"
-                                // onChange={(e) => this.setState({ LivingAreaInput: e.target.value })}
-                                onChange={this.signup}
-                                as="select" >
-                                <option value="0">Select a Area...</option>
-                                <option name="jerusalem" value="jerusalem">Jerusalem</option>
-                                <option name="center" value="center">Center</option>
-                                <option name="north" value="north">North</option>
-                                <option name="south" value="south">South</option>
-                                <option name="west" value="west">West</option>
-                            </Form.Control>
-                        </Form.Group>
-
-                    </Form.Row>
-                    <Button onClick={this.handleCreatUser} as={Col} variant="primary" type="button">
-                    REGISTER NOW
-
-                </Button>
-
-                    <Form.Group id="formGridCheckbox">
-                        
-                        <Form.Check onChange={(e) => this.setState({ readed: e.target.checked })} type="checkbox" label="Read and Understood" />
-                        <Form.Check onChange={(e) => this.setState({ readed: e.target.checked })} type="checkbox" label="Remember Me" />
-                    </Form.Group>
-                </Form>
-            </div>
-        );
-    }
+          <Form.Group id="formGridCheckbox">
+            <Form.Check
+              onChange={e => this.setState({ readed: e.target.checked })}
+              type="checkbox"
+              label="Read and Understood"
+            />
+            <Form.Check
+              onChange={e => this.setState({ readed: e.target.checked })}
+              type="checkbox"
+              label="Remember Me"
+            />
+          </Form.Group>
+        </Form>
+      </div>
+    );
+  }
 }
 
-export default signup;
+export default SignUp;

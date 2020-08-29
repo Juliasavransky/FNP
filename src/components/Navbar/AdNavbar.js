@@ -11,25 +11,25 @@ import {
 import './adNavbar.css';
 import AdCard from '../../components/AdCard/AdCard';
 import Sorry from '../../components/Sorry we didnt find/sorry';
+import { Redirect } from 'react-router-dom';
 
-
-class adNavbar extends Component {
+class AdNavbar extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       searchSelected: '',
       search: false,
-      filteredAds:[]
+      filteredAds: [],
     };
     this.search = this.search.bind(this);
   }
 
-  search = (e) => {
+  search = e => {
+    e.preventDefault();
+
     const { searchSelected } = this.state;
     const { ads } = this.props;
-
-    
 
     const searchAds = ads.filter(
       ad =>
@@ -46,19 +46,16 @@ class adNavbar extends Component {
         <AdCard ad={ad} />
       </Col>
     ));
+
     this.setState({ search: true });
     this.setState({ filteredAds: filteredAds });
 
-    console.log('searchSelected', searchSelected);
-    console.log('filteredAds', filteredAds);
-
-
-  }
+    this.props.onSearch(filteredAds);
+  };
 
   render() {
-
-    const { activeUser, ads, handleLogout, allUsers, } = this.props;
-    const { searchSelected, filteredAds, search,  } = this.state;
+    const { activeUser, ads, handleLogout, allUsers } = this.props;
+    const { searchSelected, filteredAds, search } = this.state;
 
     const LogOutUser = activeUser ? (
       <Button onClick={() => handleLogout()} href="#" variant="secondary">
@@ -76,11 +73,11 @@ class adNavbar extends Component {
       </Button>
     ) : null;
 
-    const UserArea = activeUser ? 
-    <Nav.Link className="mr-4" href="/#UserArea">
-      User Area
-    </Nav.Link>
-    : null;
+    const UserArea = activeUser ? (
+      <Nav.Link className="mr-4" href="/#UserArea">
+        User Area
+      </Nav.Link>
+    ) : null;
 
     return (
       <div className="c-adNavbar">
@@ -88,7 +85,6 @@ class adNavbar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat">
-         
               <Nav.Link className="mr-4" href="/">
                 Home
               </Nav.Link>
@@ -106,35 +102,34 @@ class adNavbar extends Component {
               </Nav.Link>
               <Nav.Link className="mr-4" href="/#SmartAgent">
                 Smart Agent
-              </Nav.Link> 
+              </Nav.Link>
               {UserArea}
               {signupUser}
               {LogInUser}
               {LogOutUser}
             </Nav>
-        
-            <Form inline>
+
+            <Form inline onSubmit={this.search}>
               <FormControl
-               style={{ width: '6rem' }}
+                style={{ width: '6rem' }}
                 value={searchSelected}
-                onChange={e => this.setState({ searchSelected: e.target.value })}
+                onChange={e =>
+                  this.setState({ searchSelected: e.target.value })
+                }
                 type="text"
                 placeholder="Search"
                 className="mr-sm-2 "
-                
               />
-              <Button size="sm-2" onClick={this.search} variant="outline-success">
+              <Button size="sm-2" type="submit" variant="outline-success">
                 Search
               </Button>
             </Form>
           </Navbar.Collapse>
         </Navbar>
-        {filteredAds && filteredAds.length > 0 ? 
-          (<Row>{filteredAds}</Row>)
-           : ( search && <Sorry />)}
+        {search && <Redirect to="search-results" />}
       </div>
     );
   }
 }
 
-export default adNavbar;
+export default AdNavbar;
