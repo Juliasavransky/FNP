@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListGroup, Col, Row, Form, Button, Modal, Container } from 'react-bootstrap';
+import { Form, Button, Modal, Container, Image } from 'react-bootstrap';
 
 
 
@@ -14,10 +14,10 @@ class NewAdModal extends Component {
             conditionSelected: null,
 
             DetailsInput: "",
-            imgInput: "",
+            imgInput: null,
 
             filteredAds: [],
-           
+
 
 
         }
@@ -33,6 +33,18 @@ class NewAdModal extends Component {
             showNewAdModal: false
         })
     }
+    handleFileChange(event) {
+        if (event.target.files[0]) {
+            this.setState({
+                imgInput: event.target.files[0]
+            });
+        } else {
+            this.setState({
+                imgInput: null
+            });
+
+        }
+    }
 
     handleInputChange = (event) => {
         this.setState({
@@ -45,14 +57,14 @@ class NewAdModal extends Component {
         const newAd = {
             // categoryName: categorySelectedId,
             // subCategoryName: subCategorySelectedId ,
-            img : imgInput,
-            Details: DetailsInput ,
+            img: imgInput,
+            Details: DetailsInput,
             // Condition: conditionSelected ,
-        
+
         };
 
 
-      
+
         this.props.handleCreatNewAd(newAd);
         this.handleModalClose();
     }
@@ -85,9 +97,11 @@ class NewAdModal extends Component {
         ));
         const itemConditionOption = ads.map(Condition => (
             <option value={Condition.Condition}>
-              {Condition.Condition}
+                {Condition.Condition}
             </option>
-          ));
+        ));
+
+        // const imgUTL= URL.createObjectURL(imgInput);
 
         return (
             <div>
@@ -99,12 +113,12 @@ class NewAdModal extends Component {
                     </Button>
 
                 <Modal
-                 size="lg justify-content-center"
+                    size="lg justify-content-center"
                     show={showNewAdModal}
                     onHide={this.handleModalClose}
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title 
+                        <Modal.Title
                         >New Ad</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
@@ -114,7 +128,7 @@ class NewAdModal extends Component {
 
                         <Form className="mx-auto d-flex justify-content-between w-50 p-3" inline>
 
-                            
+
                             <Form.Label
                                 htmlFor="inlineFormCustomSelectPref"
                             >
@@ -137,7 +151,7 @@ class NewAdModal extends Component {
                             <Form.Label
                                 htmlFor="inlineFormCustomSelectPref"
                             >
-                               Sub- Categories
+                                Sub- Categories
                             </Form.Label>
                             <Form.Control
                                 onChange={this.categoryChange}
@@ -147,7 +161,7 @@ class NewAdModal extends Component {
                                 className="justify-content-center"
                                 name="subCategorySelectedId"
                                 id="inlineFormCustomSelectPref"
-                                
+
                             >
                                 <option value="0">Select a Category...</option>
                                 {subCategoryOption}
@@ -167,32 +181,36 @@ class NewAdModal extends Component {
                                 className="justify-content-center"
                                 name="conditionSelected"
                                 id="inlineFormCustomSelectPref"
-                                
+
                             >
                                 <option value="0">Select a Category...</option>
                                 {itemConditionOption}
                             </Form.Control>
 
-                            <Form.Group 
-                            controlId="Details"
-                            className="justify-content-center">
-                            <Form.Label> Ad Details</Form.Label>
-                            <Form.Control value={DetailsInput}
-                                onChange={this.handleInputChange}
-                                type="text" name="DetailsInput" placeholder=" Details...." />
-                                
-                        </Form.Group>
-                        
+                            <Form.Group
+                                controlId="Details"
+                                className="justify-content-center">
+                                <Form.Label> Ad Details</Form.Label>
+                                <Form.Control
+                                    value={DetailsInput}
+                                    onChange={this.handleInputChange}
+                                    type="text" name="DetailsInput" placeholder=" Details...." />
 
-                        <Form.Group 
-                        controlId="img"
-                        className="justify-content-center">
-                            <Form.Label> Ad Image</Form.Label>
-                            <Form.Control value={imgInput}
-                                onChange={this.handleInputChange}
-                                type="text" name="imgInput" placeholder=" File" />
-                        </Form.Group>
-          
+                            </Form.Group>
+
+
+                            <Form.Group
+                                controlId="img"
+                                className="justify-content-center">
+                                <Form.Label></Form.Label>
+                                <Form.Control value={imgInput}
+                                    onChange={this.handleFileChange}
+                                    type="file" accept="image/*"
+                                    name="imgInput" />
+                            </Form.Group>
+                            <Image size="sm" 
+                            // src={imgURL} 
+                            className="preview" ></Image>
 
 
 
