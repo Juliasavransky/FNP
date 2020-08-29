@@ -86,10 +86,16 @@ class login extends Component {
             </Form.Group>
           </Form.Row>
           <Form.Row>
+            
+          <Form.Group id="formGridCheckbox">
+                        
+                        <Form.Check onChange={(e) => this.setState({ readed: e.target.checked })} type="checkbox" label="Remember Me" />
+                    </Form.Group>
             <Button className="btn-login" variant="primary" type="submit">
               LOGIN
             </Button>
           </Form.Row>
+
         </Form>
       </div>
     );

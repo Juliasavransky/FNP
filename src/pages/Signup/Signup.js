@@ -136,7 +136,7 @@ class signup extends Component {
                                 type="email" name="emailInput" placeholder="Enter email" />
 
                             {emailInputError ? <Alert variant="danger">
-                                Invalid Credientails! incorrect email
+                                Invalid Credentials! Incorrect Email
                  </Alert> : null}
                         </Form.Group>
 
@@ -147,7 +147,7 @@ class signup extends Component {
                                 type="password" name="pwdInput" placeholder="Password" />
 
                             {pwdInputError ? <Alert variant="danger">
-                                Invalid Credientails! incorrect password
+                                Invalid Credentials! Incorrect password
                  </Alert> : null}
                         </Form.Group>
                     </Form.Row>
@@ -197,7 +197,8 @@ class signup extends Component {
 
                     <Form.Group id="formGridCheckbox">
                         
-                        <Form.Check onChange={(e) => this.setState({ readed: e.target.checked })} type="checkbox" label="Read and understood" />
+                        <Form.Check onChange={(e) => this.setState({ readed: e.target.checked })} type="checkbox" label="Read and Understood" />
+                        <Form.Check onChange={(e) => this.setState({ readed: e.target.checked })} type="checkbox" label="Remember Me" />
                     </Form.Group>
                 </Form>
             </div>
