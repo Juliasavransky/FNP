@@ -22,6 +22,9 @@ class NewAdModal extends Component {
 
         }
         this.handleModalClose = this.handleModalClose.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleCreatAd = this.handleCreatAd.bind(this);
+
 
     }
 
@@ -31,24 +34,27 @@ class NewAdModal extends Component {
         })
     }
 
-    signup = (event) => {
+    handleInputChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value,
         })
     }
-    handleCreatNewAd() {
+    handleCreatAd() {
         const { categoryName, subCategoryName, imgInput, DetailsInput, Condition, } = this.state;
-       
-        // const newAd = {
-        //     categoryName: categorySelectedId,
-        //     subCategoryName:subCategorySelectedId ,
-        //     imgInput :"" ,
-        //     DetailsInput:"" ,
-        //     Condition:conditionSelected ,
-        
-        // };
 
-        // this.props.handleCreatNewAd(newAd);
+        const newAd = {
+            // categoryName: categorySelectedId,
+            // subCategoryName: subCategorySelectedId ,
+            img : imgInput,
+            Details: DetailsInput ,
+            // Condition: conditionSelected ,
+        
+        };
+
+
+      
+        this.props.handleCreatNewAd(newAd);
+        this.handleModalClose();
     }
 
 
@@ -58,7 +64,7 @@ class NewAdModal extends Component {
             filteredAds, imgInput, DetailsInput,
         } = this.state;
 
-        const { activeUser, ads, allUsers, handleLogin, handleLogout, } = this.props;
+        const { activeUser, ads, allUsers, handleLogin, handleLogout, handleCreatNewAd } = this.props;
         // console.log('handleLogin', handleLogin)
 
 
@@ -93,7 +99,7 @@ class NewAdModal extends Component {
                     </Button>
 
                 <Modal
-                 size="lg modal-90w"
+                 size="lg justify-content-center"
                     show={showNewAdModal}
                     onHide={this.handleModalClose}
                 >
@@ -106,7 +112,9 @@ class NewAdModal extends Component {
 
 
 
-                        <Form className="mx-auto  d-flex justify-content-between w-50 p-2" inline>
+                        <Form className="mx-auto d-flex justify-content-between w-50 p-3" inline>
+
+                            
                             <Form.Label
                                 htmlFor="inlineFormCustomSelectPref"
                             >
@@ -114,10 +122,12 @@ class NewAdModal extends Component {
                               </Form.Label>
                             <Form.Control
                                 onChange={this.categoryChange}
-                                as="select"
-                                className=""
-                                id="inlineFormCustomSelectPref"
+                                onChange={this.handleInputChange}
                                 value={this.state.categorySelectedId}
+                                as="select"
+                                name="categorySelectedId"
+                                className="justify-content-center "
+                                id="inlineFormCustomSelectPref"
                             >
                                 <option value="0">Select a Category...</option>
                                 {categoryOption}
@@ -131,10 +141,13 @@ class NewAdModal extends Component {
                             </Form.Label>
                             <Form.Control
                                 onChange={this.categoryChange}
-                                as="select"
-                                className=""
-                                id="inlineFormCustomSelectPref"
                                 value={this.state.categorySelectedId}
+                                onChange={this.handleInputChange}
+                                as="select"
+                                className="justify-content-center"
+                                name="subCategorySelectedId"
+                                id="inlineFormCustomSelectPref"
+                                
                             >
                                 <option value="0">Select a Category...</option>
                                 {subCategoryOption}
@@ -148,27 +161,35 @@ class NewAdModal extends Component {
                             </Form.Label>
                             <Form.Control
                                 onChange={this.categoryChange}
-                                as="select"
-                                className=""
-                                id="inlineFormCustomSelectPref"
+                                onChange={this.handleInputChange}
                                 value={this.state.categorySelectedId}
+                                as="select"
+                                className="justify-content-center"
+                                name="conditionSelected"
+                                id="inlineFormCustomSelectPref"
+                                
                             >
                                 <option value="0">Select a Category...</option>
                                 {itemConditionOption}
                             </Form.Control>
 
-                            <Form.Group controlId="formGridPassword">
+                            <Form.Group 
+                            controlId="Details"
+                            className="justify-content-center">
                             <Form.Label> Ad Details</Form.Label>
                             <Form.Control value={DetailsInput}
-                                onChange={this.signup}
+                                onChange={this.handleInputChange}
                                 type="text" name="DetailsInput" placeholder=" Details...." />
+                                
                         </Form.Group>
 
-                        <Form.Group controlId="formGridPassword">
+                        <Form.Group 
+                        controlId="img"
+                        className="justify-content-center">
                             <Form.Label> Ad Image</Form.Label>
                             <Form.Control value={imgInput}
-                                onChange={this.signup}
-                                type="url" name="imgInput" placeholder=" File" />
+                                onChange={this.handleInputChange}
+                                type="text" name="imgInput" placeholder=" File" />
                         </Form.Group>
 
           
@@ -186,8 +207,9 @@ class NewAdModal extends Component {
                         >
                             Cansel
                              </Button>
+
                         <Button variant="primary"
-                            onClick={this.handleModalClose}
+                            onClick={this.handleCreatAd}
                         >
                             Creat new Ad
                              </Button>

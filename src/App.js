@@ -16,7 +16,7 @@ import Furniture from './pages/For the babys/furniture';
 import Safety from './pages/For the babys/safety';
 import Carriage from './pages/For the babys/carriage';
 import CoatsAndJackets from './pages/Clothing/Coats and Jackets';
-import ClothingOther from './pages/Clothing/clothingOther';
+import ClothingOther from './pages/Clothing/ClothingOther';
 import Shoes from './pages/Clothing/Shoes';
 import SpecialEvents from './pages/Clothing/SpecialEvents';
 import Casual from './pages/Clothing/Casual';
@@ -50,8 +50,12 @@ class App extends Component {
     this.handleLogout = this.handleLogout.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handlesignup = this.handlesignup.bind(this);
-  }
+    this.handleCreatNewAd = this.handleCreatNewAd.bind(this);
+    // this.handleNewUser = this.handleNewUser.bind(this);
 
+
+  }
+  
   handleLogout() {
     this.setState({
       activeUser: null,
@@ -72,17 +76,30 @@ class App extends Component {
     console.log(this.neweUser);
   }
 
-  handleNewUser(newUser) {
+  // handleNewUser(user) {
+  //   const { allUsers } = this.state;
+
+  //   allUsers.id = allUsers[allUsers.length - 1].id + 1;
+  //   console.log(newUser);
+  //   this.setState({
+  //     allUsers: allUsers.concat(newUser),
+  //   });
+  // }
+
+  handleCreatNewAd(ad) {
+
     const { allUsers } = this.state;
 
     allUsers.id = allUsers[allUsers.length - 1].id + 1;
-    console.log(newUser);
+    console.log(ad);
     this.setState({
-      allUsers: allUsers.concat(newUser),
+      
     });
-  }
+  };
 
+ 
   render() {
+
     const { activeUser, allUsers, ads } = this.state;
 
     return (
@@ -356,16 +373,13 @@ class App extends Component {
                 allUsers={allUsers}
                 handleLogout={this.handleLogout}
                 activeUser={activeUser}
+                handleCreatNewAd={this.handleCreatNewAd}
+                
               />
             </Route>
             
           </Switch>
-          {/* <Footer
-            ads={ads}
-            allUsers={allUsers}
-            handleLogout={this.handleLogout}
-            activeUser={activeUser}
-          /> */}
+         
         </HashRouter>
       </div>
     );

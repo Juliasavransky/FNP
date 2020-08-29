@@ -15,7 +15,7 @@ class UserArea extends Component {
   
 
     render() {
-        const { activeUser, ads, allUsers } = this.props;
+        const { activeUser, ads, allUsers, handleCreatNewAd } = this.props;
 
         // const ads = userId
         // const activeUser = allUsers.id
@@ -38,6 +38,7 @@ class UserArea extends Component {
                 handleLogin={this.handleLogin}
                 allUsers={allUsers}
                 handleLogout={this.handleLogout}
+                handleCreatNewAd={this.handleCreatNewAd}
                 activeUser={activeUser}/>
             </div>
         );
