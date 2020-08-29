@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ListGroup, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdCard from '../../components/AdCard/AdCard';
-import { Navbar, Nav, Form, FormControl, } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Container, } from 'react-bootstrap';
 
 
 
@@ -11,7 +11,7 @@ class BooksForMoms extends Component {
         const { ads } = this.props;
 
         const BooksForMomsPage = 43
-        const BooksForMomsAds = ads.filter(ad => ad.CategoryId === BooksForMomsPage)
+        const BooksForMomsAds = ads.filter(ad => ad.SubCategoryId === BooksForMomsPage)
 
         const BooksForMomsAdsUi = BooksForMomsAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
 
@@ -23,7 +23,7 @@ class BooksForMoms extends Component {
                         <Nav className="mr-auto cat">
                             <Nav.Link className="mr-5" href="/#PregnancyClothes">Pregnancy Clothes</Nav.Link>
                             <Nav.Link className="mr-5" href="/#BreastPumps">Breast Pumps</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#BooksForMoms">Books For Moms</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#BooksForMoms">Books For Mom's</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Supplements">Supplements</Nav.Link>
                             <Nav.Link className="mr-5" href="/#ForMomsOther">Other</Nav.Link>
                         </Nav>
@@ -31,10 +31,11 @@ class BooksForMoms extends Component {
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-              
+                <Container>
                 <ListGroup variant="flush">
                     <Row>{BooksForMomsAdsUi}</Row>
                 </ListGroup>
+                </Container>
             </div>
         );
     }

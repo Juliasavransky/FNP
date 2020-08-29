@@ -31,17 +31,17 @@ this.handleSendEmail = this.handleSendEmail.bind(this);
 
     const sendAnEmail = activeUser ? (
       <Button onClick={() => handleSendEmail()} href="#/emailSending" variant="secondary">
-        Send an Email
+        Send an Email 
       </Button>
     ) : null;
     const signupUser = !activeUser ? (
       <Button href="#/signup" variant="secondary" className="btn-userLogin">
-        Signup
+        SINGUP
       </Button>
     ) : null;
     const LogInUser = !activeUser ? (
       <Button href="#/login" variant="secondary" className="btn-userLogin">
-        LogIn
+        LOGIN
       </Button>
     ) : null;
 
@@ -62,7 +62,7 @@ this.handleSendEmail = this.handleSendEmail.bind(this);
           <Button onSubmit={this.handleSendEmail} className="btn-login" variant="primary" type="submit">
           {signupUser}
           {LogInUser}
-            Send a Email
+          Send An Email 
             </Button>
         </Card>
 

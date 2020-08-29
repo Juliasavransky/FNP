@@ -169,7 +169,7 @@ class SmartAgent extends Component {
               id="inlineFormCustomSelectPref"
               value={this.state.categorySelectedId}
             >
-              <option value="0">Select a Category...</option>
+              <option value="0">Select A Category</option>
               {categoryOption}
             </Form.Control>
            
@@ -182,7 +182,7 @@ class SmartAgent extends Component {
               className=""
               htmlFor="inlineFormCustomSelectPref"
             >
-              Sub- Categories
+              Sub-Categories
             </Form.Label>
             <Form.Control
               onChange={this.subCategoryChange}
@@ -191,7 +191,7 @@ class SmartAgent extends Component {
               id="inlineFormCustomSelectPref"
               value={this.state.subCategorySelectedId}
             >
-            <option value="0">Select a Sub-Category...</option>
+            <option value="0">Select A Sub-Category</option>
               {subCategoryOption}
             </Form.Control>
           </Form>
@@ -210,7 +210,7 @@ class SmartAgent extends Component {
               id="inlineFormCustomSelectPref"
               value={this.state.conditionSelected}
             >
-              <option value="0">Select a Condition...</option>
+              <option value="0">Select A Condition</option>
               {itemConditionOption}
             </Form.Control>
           </Form>
@@ -220,7 +220,7 @@ class SmartAgent extends Component {
               className=""
               htmlFor="inlineFormCustomSelectPref"
             >
-              Living Areas
+              Living Area
             </Form.Label>
             <Form.Control
               onChange={this.changeItemLivingArea}
@@ -229,7 +229,7 @@ class SmartAgent extends Component {
               id="inlineFormCustomSelectPref"
               value={this.state.livingAreaSelected}
             >
-             <option value="0">Select a Area...</option>
+             <option value="0">Select An Area</option>
               {dataLivingAreasOption}
             </Form.Control>
           </Form>

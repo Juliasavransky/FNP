@@ -8,7 +8,7 @@ class AdCard extends Component {
 
     return (
       <div className="item well" >
-        <Card className="shadow  p-3 mb-5 bg-white rounded">
+        <Card className="shadow p-3 mb-5 bg-white rounded card text-center">
           <a href={'/#product/' + ad.id} >
             <Card.Img variant="top" src={ad.img} />
           </a>
@@ -17,10 +17,10 @@ class AdCard extends Component {
             <Card.Link href={'#/product/' + ad.id}>
               Details: {ad.Details}
             </Card.Link>
-
+             
             <Card.Text>Condition: {ad.Condition}{' '} </Card.Text>
 
-            <small className="text-muted">Published Date {ad.Date}</small>
+            <small className="text-muted card text-center">Published Date {ad.Date}</small>
           </Card.Body>
         </Card>
       </div>

@@ -62,12 +62,12 @@ class adNavbar extends Component {
 
     const LogOutUser = activeUser ? (
       <Button onClick={() => handleLogout()} href="#" variant="secondary">
-        LogOut
+        Log Out
       </Button>
     ) : null;
     const signupUser = !activeUser ? (
       <Button href="#/signup" variant="secondary" className="btn-userLogin">
-        Signup
+        Sign Up
       </Button>
     ) : null;
     const LogInUser = !activeUser ? (
@@ -96,10 +96,10 @@ class adNavbar extends Component {
                 Clothing
               </Nav.Link>
               <Nav.Link className="mr-4" href="/#ToysAndGames">
-                Toys and games
+                Toys And games
               </Nav.Link>
               <Nav.Link className="mr-4" href="/#ForTheBabys">
-                For the baby's
+                For The Baby's
               </Nav.Link>
               <Nav.Link className="mr-4" href="/#ForMoms">
                 For Mom's

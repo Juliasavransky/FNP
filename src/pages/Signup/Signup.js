@@ -109,7 +109,7 @@ class signup extends Component {
 
         return (
             <div className="c-login">
-                <h3> Welcom to....</h3>
+                <h3> NEW CUSTOMERS</h3>
                 <a href="#/signup"></a>
                 <Form>
                     <Form.Row>
@@ -133,7 +133,7 @@ class signup extends Component {
                                 type="email" name="emailInput" placeholder="Enter email" />
 
                             {emailInputError ? <Alert variant="danger">
-                                Invalid Credientails! incorrect email
+                                Invalid Credentials! Incorrect Email
                  </Alert> : null}
                         </Form.Group>
 
@@ -144,7 +144,7 @@ class signup extends Component {
                                 type="password" name="pwdInput" placeholder="Password" />
 
                             {pwdInputError ? <Alert variant="danger">
-                                Invalid Credientails! incorrect password
+                                Invalid Credentials! Incorrect Password
                  </Alert> : null}
                         </Form.Group>
                     </Form.Row>
@@ -189,10 +189,14 @@ class signup extends Component {
 
                     </Form.Row>
                     <Button onClick={this.handleCreatUser} as={Col} variant="primary" type="button">
-                        signup
+                    REGISTER NOW
+
                 </Button>
+
                     <Form.Group id="formGridCheckbox">
-                        <Form.Check onChange={(e) => this.setState({ readed: e.target.checked })} type="checkbox" label="Read and understood" />
+                        
+                        <Form.Check onChange={(e) => this.setState({ readed: e.target.checked })} type="checkbox" label="Read and Understood" />
+                        <Form.Check onChange={(e) => this.setState({ readed: e.target.checked })} type="checkbox" label="Remember Me" />
                     </Form.Group>
                 </Form>
             </div>

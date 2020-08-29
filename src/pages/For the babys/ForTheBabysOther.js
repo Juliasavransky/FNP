@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListGroup, Col, Row, Nav, Navbar, Form } from 'react-bootstrap';
+import { ListGroup, Col, Row, Nav, Navbar, Form, Container, } from 'react-bootstrap';
 import AdCard from '../../components/AdCard/AdCard';
 
 
@@ -23,16 +23,17 @@ class ForTheBabysOther extends Component {
                             <Nav.Link className="mr-5" href="/#Safety">Safety</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Carriages">Carriages</Nav.Link>
                             <Nav.Link className="mr-5" href="/#ForTheBabysOther">Other</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Playpen Cradle">Playpen Cradle</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#PlaypenCradle">Playpen Cradle</Nav.Link>
                         </Nav>
                         <Form inline>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-                
+                <Container>
                 <Row>{ForTheBabysOtherAdsUi}</Row>
                 <ListGroup variant="flush">
                 </ListGroup>
+               </Container>
             </div>
         );
     }

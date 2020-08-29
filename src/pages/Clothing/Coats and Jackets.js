@@ -32,7 +32,7 @@ class CoatsAndJackets extends Component {
                
                 <Container>
                 <ListGroup variant="flush">
-                    <Form.Label className="mr-2">Category</Form.Label>
+                    {/* <Form.Label className="mr-2">Category</Form.Label> */}
                  
                     <Row>{CoatsAndJacketsAdsUi}</Row>
                 </ListGroup>

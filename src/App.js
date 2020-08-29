@@ -14,7 +14,7 @@ import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import Furniture from './pages/For the babys/furniture';
 import Safety from './pages/For the babys/safety';
-import Carriage from './pages/For the babys/carriage';
+import Carriages from './pages/For the babys/carriages';
 import CoatsAndJackets from './pages/Clothing/Coats and Jackets';
 import ClothingOther from './pages/Clothing/ClothingOther';
 import Shoes from './pages/Clothing/Shoes';
@@ -244,8 +244,8 @@ class App extends Component {
               />
             </Route>
 
-            <Route exact path="/carriage">
-              <Carriage
+            <Route exact path="/carriages">
+              <Carriages
                 ads={ads}
                 handleLogin={this.handleLogin}
                 allUsers={allUsers}

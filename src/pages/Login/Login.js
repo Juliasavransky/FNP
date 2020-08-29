@@ -46,7 +46,8 @@ class login extends Component {
 
     return (
       <div className="c-login">
-        <h3> Happy to see u!</h3>
+        <h3> EXISTING CUSTOMERS</h3>
+        <h3>  Sign Into</h3><br></br>
         <Form onSubmit={this.login}>
           {showLogInError ? (
             <Alert variant="danger">
@@ -55,7 +56,7 @@ class login extends Component {
           ) : null}
           <Form.Row>
             <Form.Group controlId="formGridEmail" className="form-group">
-              <Form.Label>Email</Form.Label>
+              <Form.Label>EMAIL ADDRESS</Form.Label>
               <Form.Control
                 value={emailInput}
                 onChange={e =>
@@ -70,7 +71,7 @@ class login extends Component {
             </Form.Group>
 
             <Form.Group controlId="formGridPassword" className="form-group">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>YOUR PASSWORD</Form.Label>
               <Form.Control
                 value={pwdInput}
                 onChange={e =>
@@ -85,10 +86,16 @@ class login extends Component {
             </Form.Group>
           </Form.Row>
           <Form.Row>
+            
+          <Form.Group id="formGridCheckbox">
+                        
+                        <Form.Check onChange={(e) => this.setState({ readed: e.target.checked })} type="checkbox" label="Remember Me" />
+                    </Form.Group>
             <Button className="btn-login" variant="primary" type="submit">
-              LogIn
+              LOGIN
             </Button>
           </Form.Row>
+
         </Form>
       </div>
     );

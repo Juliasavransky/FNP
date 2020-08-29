@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { ListGroup, Row, Col } from 'react-bootstrap';
 import AdCard from '../../components/AdCard/AdCard'
-import { Navbar, Nav, Form, FormControl, } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Container, } from 'react-bootstrap';
 
 
 
 class Dolls extends Component {
 
   render() {
-    const { ads } = this.props;
+    const { ads, activeUser, allUsers, handleLogin, handleLogout } = this.props;
 
     const DollsPage = 21
     const DollsAds = ads.filter(ad => ad.SubCategoryId === DollsPage)
@@ -32,10 +32,11 @@ class Dolls extends Component {
           </Navbar.Collapse>
 
         </Navbar>
-
+        <Container>
         <Row>{DollsAdsUi}</Row>
         <ListGroup variant="flush">
         </ListGroup>
+        </Container>
       </div>
 
 

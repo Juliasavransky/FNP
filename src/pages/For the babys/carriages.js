@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import AdCard from '../../components/AdCard/AdCard'
-import { ListGroup, Row, Col, Navbar, Nav, Form, } from 'react-bootstrap';
+import { ListGroup, Row, Col, Navbar, Nav, Form, Container, } from 'react-bootstrap';
 
 
-class Carriage extends Component {
+class Carriages extends Component {
     render() {
 
         const { ads, activeUser, allUsers, handleLogin, handleLogout } = this.props;
@@ -23,19 +23,20 @@ class Carriage extends Component {
                             <Nav.Link className="mr-5" href="/#Safety">Safety</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Carriages">Carriages</Nav.Link>
                             <Nav.Link className="mr-5" href="/#ForTheBabysOther">Other</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Playpen Cradle">Playpen Cradle</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#PlaypenCradle">Playpen Cradle</Nav.Link>
                         </Nav>
                         <Form inline>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-             
+                <Container>
                 <Row>{CarriageAdsUi}</Row>
                 <ListGroup variant="flush">
                 </ListGroup>
+                </Container>
             </div>
         );
     }
 }
 
-export default Carriage;
+export default Carriages;

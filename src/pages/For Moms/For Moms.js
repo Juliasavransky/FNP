@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ListGroup, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdCard from '../../components/AdCard/AdCard';
-import { Navbar, Nav, Form, FormControl, } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Container, } from 'react-bootstrap';
 
 
 
@@ -23,7 +23,7 @@ class ForMoms extends Component {
                         <Nav className="mr-auto cat">
                             <Nav.Link className="mr-5" href="/#PregnancyClothes">Pregnancy Clothes</Nav.Link>
                             <Nav.Link className="mr-5" href="/#BreastPumps">Breast Pumps</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#BooksForMoms">Books For Moms</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#BooksForMoms">Books For Mom's</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Supplements">Supplements</Nav.Link>
                             <Nav.Link className="mr-5" href="/#ForMomsOther">Other</Nav.Link>
                         </Nav>
@@ -31,10 +31,11 @@ class ForMoms extends Component {
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-            
+                <Container>
                 <ListGroup variant="flush">
                     <Row>{ForMomsAdsUi}</Row>
                 </ListGroup>
+                </Container>
             </div>
         );
     }
