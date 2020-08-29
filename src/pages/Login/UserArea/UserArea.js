@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import { ListGroup, Col, Row, Nav, Form, Navbar } from 'react-bootstrap';
+import { ListGroup, Col, Row, Form, Button, Modal, Container } from 'react-bootstrap';
 import AdCard from '../../../components/AdCard/AdCard'
+import NewAdModal from '../../../components/New Ad Modal/NewAdModal';
 
 
 
 class UserArea extends Component {
     constructor(props) {
         super(props);
-        
+      
+
     }
-    
+
+  
+
     render() {
-        const { activeUser, ads, allUsers} = this.props;
+        const { activeUser, ads, allUsers } = this.props;
 
         // const ads = userId
         // const activeUser = allUsers.id
@@ -21,10 +25,20 @@ class UserArea extends Component {
 
         return (
             <div>
-                my ads/active/pause/delete<br/>
-                my smart agent<br/>
+                <Container>
+                my ads/active/pause/delete<br />
+                my smart agent<br />
+               creat new ad<br />
+
                 my meseges
                 <Row>{activeUserAdsUi}</Row>
+                </Container>
+                <NewAdModal 
+                ads={ads}
+                handleLogin={this.handleLogin}
+                allUsers={allUsers}
+                handleLogout={this.handleLogout}
+                activeUser={activeUser}/>
             </div>
         );
     }

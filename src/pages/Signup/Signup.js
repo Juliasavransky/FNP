@@ -70,9 +70,6 @@ class signup extends Component {
             [event.target.name]: event.target.value,
         })
 
-        console.log(this.state);
-        console.log(event);
-        console.log("blabla");
     }
 
     handleCreatUser() {
