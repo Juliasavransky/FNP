@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListGroup, Col, Row, Nav, Form, Navbar } from 'react-bootstrap';
+import { ListGroup, Col, Row, Nav, Form, Navbar, Container, } from 'react-bootstrap';
 import AdCard from '../../components/AdCard/AdCard';
 
 class PlaypenCradle extends Component {
@@ -27,10 +27,11 @@ class PlaypenCradle extends Component {
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-                
+                <Container>
                 <Row>{PlaypenCradleAdsUi}</Row>
                 <ListGroup variant="flush">
                 </ListGroup>
+                </Container>
             </div>
         );
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ListGroup, Row, Col } from 'react-bootstrap';
 import AdCard from '../../components/AdCard/AdCard'
-import { Navbar, Nav, Form, FormControl, } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Container, } from 'react-bootstrap';
 
 
 
@@ -32,10 +32,11 @@ class Dolls extends Component {
           </Navbar.Collapse>
 
         </Navbar>
-
+        <Container>
         <Row>{DollsAdsUi}</Row>
         <ListGroup variant="flush">
         </ListGroup>
+        </Container>
       </div>
 
 

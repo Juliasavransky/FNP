@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListGroup, Col, Row, Nav, Form, Navbar } from 'react-bootstrap';
+import { ListGroup, Col, Row, Nav, Form, Navbar, Container, } from 'react-bootstrap';
 import AdCard from '../../components/AdCard/AdCard';
 
 class Safety extends Component {
@@ -30,10 +30,11 @@ class Safety extends Component {
                 </Form>
             </Navbar.Collapse>
         </Navbar>
-        
+        <Container>
         <Row>{SafetyAdsUi}</Row>
         <ListGroup variant="flush">
         </ListGroup>
+        </Container>
     </div>
         );
     }

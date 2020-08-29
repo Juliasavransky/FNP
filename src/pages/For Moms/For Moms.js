@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ListGroup, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdCard from '../../components/AdCard/AdCard';
-import { Navbar, Nav, Form, FormControl, } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Container, } from 'react-bootstrap';
 
 
 
@@ -31,10 +31,11 @@ class ForMoms extends Component {
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-            
+                <Container>
                 <ListGroup variant="flush">
                     <Row>{ForMomsAdsUi}</Row>
                 </ListGroup>
+                </Container>
             </div>
         );
     }
