@@ -112,6 +112,7 @@ class adNavbar extends Component {
               {LogInUser}
               {LogOutUser}
             </Nav>
+        
             <Form inline>
               <FormControl
                style={{ width: '6rem' }}
@@ -125,14 +126,12 @@ class adNavbar extends Component {
               <Button size="sm-2" onClick={this.search} variant="outline-success">
                 Search
               </Button>
-
-              {filteredAds && filteredAds.length > 0 ? 
-          (<Row>{filteredAds}</Row>)
-           : ( search && <Sorry />)}
-
             </Form>
           </Navbar.Collapse>
         </Navbar>
+        {filteredAds && filteredAds.length > 0 ? 
+          (<Row>{filteredAds}</Row>)
+           : ( search && <Sorry />)}
       </div>
     );
   }
