@@ -181,6 +181,7 @@ class signup extends Component {
                                 // onChange={(e) => this.setState({ LivingAreaInput: e.target.value })}
                                 onChange={this.signup}
                                 as="select" >
+                                <option value="0">Select a Area...</option>
                                 <option name="jerusalem" value="jerusalem">Jerusalem</option>
                                 <option name="center" value="center">Center</option>
                                 <option name="north" value="north">North</option>
