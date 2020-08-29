@@ -182,7 +182,7 @@ class SmartAgent extends Component {
               className=""
               htmlFor="inlineFormCustomSelectPref"
             >
-              Sub- Categories
+              Sub-Categories
             </Form.Label>
             <Form.Control
               onChange={this.subCategoryChange}

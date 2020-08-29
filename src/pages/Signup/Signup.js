@@ -112,7 +112,7 @@ class signup extends Component {
 
         return (
             <div className="c-login">
-                <h3> Welcom to....</h3>
+                <h3> NEW CUSTOMERS</h3>
                 <a href="#/signup"></a>
                 <Form>
                     <Form.Row>
@@ -191,9 +191,12 @@ class signup extends Component {
 
                     </Form.Row>
                     <Button onClick={this.handleCreatUser} as={Col} variant="primary" type="button">
-                        signup
+                    REGISTER NOW
+
                 </Button>
+
                     <Form.Group id="formGridCheckbox">
+                        
                         <Form.Check onChange={(e) => this.setState({ readed: e.target.checked })} type="checkbox" label="Read and understood" />
                     </Form.Group>
                 </Form>

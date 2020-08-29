@@ -8,7 +8,7 @@ import { Navbar, Nav, Form, FormControl, Container, } from 'react-bootstrap';
 class Dolls extends Component {
 
   render() {
-    const { ads } = this.props;
+    const { ads, activeUser, allUsers, handleLogin, handleLogout } = this.props;
 
     const DollsPage = 21
     const DollsAds = ads.filter(ad => ad.SubCategoryId === DollsPage)
