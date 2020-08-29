@@ -72,10 +72,11 @@ class adNavbar extends Component {
       </Button>
     ) : null;
 
-    const UserArea = 
-    activeUser ? 
-    <Nav.Link className="mr-4" href="/#UserArea">User Area</Nav.Link>
-    : null
+    const UserArea = activeUser ? 
+    <Nav.Link className="mr-4" href="/#UserArea">
+      User Area
+    </Nav.Link>
+    : null;
 
     return (
       <div className="c-adNavbar">

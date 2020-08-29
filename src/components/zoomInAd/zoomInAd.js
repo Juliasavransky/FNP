@@ -6,9 +6,12 @@ class ZoomInAd extends Component {
   constructor(props) {
     super(props);
 
-
-  }
-  // this.hendelForm = this.hendelForm.bind(this);
+// this.state({
+//   showButton: true
+// })
+this.handleSendEmail = this.handleSendEmail.bind(this);
+  } 
+  
 
 
   handleSendEmail = event => {
@@ -17,19 +20,20 @@ class ZoomInAd extends Component {
     console.log("activeUser", activeUser)
 
 
-    // this.setState({
-    // });
+    this.setState({
+      showButton: false
+    });
   };
 
   render() {
-    const { activeUser, ad, handleLogout, allUsers, } = this.props;
+    const { activeUser, ad, handleLogout, allUsers, handleSendEmail } = this.props;
     console.log("activeUser", activeUser)
 
-    // const sendAnEmail = activeUser ? (
-    //   <Button onClick={() => handleSendEmail()} href="#/emailSending" variant="secondary">
-    //     Send an Email
-    //   </Button>
-    // ) : null;
+    const sendAnEmail = activeUser ? (
+      <Button onClick={() => handleSendEmail()} href="#/emailSending" variant="secondary">
+        Send an Email
+      </Button>
+    ) : null;
     const signupUser = !activeUser ? (
       <Button href="#/signup" variant="secondary" className="btn-userLogin">
         Signup

@@ -7,15 +7,15 @@ class AdCard extends Component {
     const { ad } = this.props;
 
     return (
-      <div>
-        <Card className="shadow p-3 mb-5 bg-white rounded">
+      <div className="item well" >
+        <Card className="shadow  p-3 mb-5 bg-white rounded">
           <a href={'/#product/' + ad.id} >
-            <Card.Img variant="top" src={ad.img} />{' '}
+            <Card.Img variant="top" src={ad.img} />
           </a>
           <Card.Body>
             <Card.Title>{ad.Category}</Card.Title>
             <Card.Link href={'#/product/' + ad.id}>
-              Details: {ad.Details}{' '}
+              Details: {ad.Details}
             </Card.Link>
 
             <Card.Text>Condition: {ad.Condition}{' '} </Card.Text>

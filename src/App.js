@@ -36,6 +36,7 @@ import PregnancyClothes from './pages/For Moms/PregnancyClothes';
 import Emptypage from './pages/Footer/emptypage';
 import Footer from './pages/Footer/Footer';
 import MoreInfoPage from './pages/MoreInfoPage/MoreInfoPage';
+import UserArea from './pages/Login/UserArea/UserArea';
 
 class App extends Component {
   constructor(props) {
@@ -347,6 +348,17 @@ class App extends Component {
                 activeUser={activeUser}
               />
             </Route>
+
+            <Route exact path="/userArea">
+              <UserArea
+                ads={ads}
+                handleLogin={this.handleLogin}
+                allUsers={allUsers}
+                handleLogout={this.handleLogout}
+                activeUser={activeUser}
+              />
+            </Route>
+            
           </Switch>
           {/* <Footer
             ads={ads}
