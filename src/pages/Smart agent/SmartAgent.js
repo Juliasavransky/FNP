@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
-import {Form, FormControl, Button,Col, Dropdown,Row, Container,} from 'react-bootstrap';
+import {
+  Form,
+  FormControl,
+  Button,
+  Col,
+  Dropdown,
+  Row,
+  Container,
+} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdCard from '../../components/AdCard/AdCard';
-import {dataLivingAreas,dataConditions,dataSubCategorys,dataCategoriess,} from '../../data/ddData';
+import {
+  dataLivingAreas,
+  dataConditions,
+  dataSubCategorys,
+  dataCategoriess,
+} from '../../data/ddData';
 import Sorry from '../../components/Sorry we didnt find/sorry';
 
 class SmartAgent extends Component {
@@ -147,19 +160,16 @@ class SmartAgent extends Component {
       </option>
     ));
 
-    
     // const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
 
-
     return (
-      <div >
-        <Container className=" d-flex  flex-column bd-highlight mb-3 mt-5" >
-
-          <Form  className="mx-auto  d-flex justify-content-between w-50 p-2" inline>
-            <Form.Label
-             
-              htmlFor="inlineFormCustomSelectPref"
-            >
+      <div>
+        <Container className=" d-flex  flex-column bd-highlight mb-3 mt-5">
+          <Form
+            className="mx-auto  d-flex justify-content-between w-50 p-2"
+            inline
+          >
+            <Form.Label htmlFor="inlineFormCustomSelectPref">
               Categories
             </Form.Label>
             <Form.Control
@@ -172,16 +182,13 @@ class SmartAgent extends Component {
               <option value="0">Select A Category</option>
               {categoryOption}
             </Form.Control>
-           
-         
-            
           </Form>
 
-          <Form  className="d-flex justify-content-between mx-auto w-50 p-2" inline>
-            <Form.Label
-              className=""
-              htmlFor="inlineFormCustomSelectPref"
-            >
+          <Form
+            className="d-flex justify-content-between mx-auto w-50 p-2"
+            inline
+          >
+            <Form.Label className="" htmlFor="inlineFormCustomSelectPref">
               Sub-Categories
             </Form.Label>
             <Form.Control
@@ -191,16 +198,16 @@ class SmartAgent extends Component {
               id="inlineFormCustomSelectPref"
               value={this.state.subCategorySelectedId}
             >
-            <option value="0">Select A Sub-Category</option>
+              <option value="0">Select A Sub-Category</option>
               {subCategoryOption}
             </Form.Control>
           </Form>
 
-          <Form className="d-flex justify-content-between mx-auto w-50 p-2 " inline>
-            <Form.Label
-              className=""
-              htmlFor="inlineFormCustomSelectPref"
-            >
+          <Form
+            className="d-flex justify-content-between mx-auto w-50 p-2 "
+            inline
+          >
+            <Form.Label className="" htmlFor="inlineFormCustomSelectPref">
               Condition
             </Form.Label>
             <Form.Control
@@ -215,11 +222,11 @@ class SmartAgent extends Component {
             </Form.Control>
           </Form>
 
-          <Form className="d-flex justify-content-between mx-auto w-50 p-2" inline>
-            <Form.Label
-              className=""
-              htmlFor="inlineFormCustomSelectPref"
-            >
+          <Form
+            className="d-flex justify-content-between mx-auto w-50 p-2"
+            inline
+          >
+            <Form.Label className="" htmlFor="inlineFormCustomSelectPref">
               Living Area
             </Form.Label>
             <Form.Control
@@ -229,36 +236,41 @@ class SmartAgent extends Component {
               id="inlineFormCustomSelectPref"
               value={this.state.livingAreaSelected}
             >
-             <option value="0">Select An Area</option>
+              <option value="0">Select An Area</option>
               {dataLivingAreasOption}
             </Form.Control>
           </Form>
-          
-          <Form className="d-flex justify-content-between mx-auto w-50 p-2" inline>
-            <Form.Label
-              className=""
-              htmlFor="inlineFormCustomSelectPref"
-            >
+
+          <Form
+            className="d-flex justify-content-between mx-auto w-50 p-2"
+            inline
+          >
+            <Form.Label className="" htmlFor="inlineFormCustomSelectPref">
               Search
             </Form.Label>
-          <FormControl
-            value={searchSelected}
-            onChange={event =>
-              this.setState({ searchSelected: event.target.value })
-            }
-            type="text"
-            placeholder="Search"
-            className=""
-          /> 
+            <FormControl
+              value={searchSelected}
+              onChange={event =>
+                this.setState({ searchSelected: event.target.value })
+              }
+              type="text"
+              placeholder="Search"
+              className=""
+            />
           </Form>
-          <Button className="d-flex justify-content-between mx-auto w-50 p-2 mb-3 "
-           onClick={this.search} variant="outline-success">
+          <Button
+            className="d-flex justify-content-between mx-auto w-50 p-2 mb-3 "
+            onClick={this.search}
+            variant="outline-success"
+          >
             Search
           </Button>
 
-          {filteredAds && filteredAds.length > 0 ? 
-          (<Row>{filteredAds}</Row>)
-           : ( search && <Sorry />)}
+          {filteredAds && filteredAds.length > 0 ? (
+            <Row>{filteredAds}</Row>
+          ) : (
+            search && <Sorry />
+          )}
         </Container>
       </div>
     );

@@ -47,7 +47,8 @@ class login extends Component {
     return (
       <div className="c-login">
         <h3> EXISTING CUSTOMERS</h3>
-        <h3>  Sign Into</h3><br></br>
+        <h3> Sign Into</h3>
+        <br></br>
         <Form onSubmit={this.login}>
           {showLogInError ? (
             <Alert variant="danger">
@@ -86,16 +87,17 @@ class login extends Component {
             </Form.Group>
           </Form.Row>
           <Form.Row>
-            
-          <Form.Group id="formGridCheckbox">
-                        
-                        <Form.Check onChange={(e) => this.setState({ readed: e.target.checked })} type="checkbox" label="Remember Me" />
-                    </Form.Group>
+            <Form.Group id="formGridCheckbox">
+              <Form.Check
+                onChange={e => this.setState({ readed: e.target.checked })}
+                type="checkbox"
+                label="Remember Me"
+              />
+            </Form.Group>
             <Button className="btn-login" variant="primary" type="submit">
               LOGIN
             </Button>
           </Form.Row>
-
         </Form>
       </div>
     );
