@@ -182,6 +182,7 @@ class NewAdModal extends Component {
                                 type="text" name="DetailsInput" placeholder=" Details...." />
                                 
                         </Form.Group>
+                        
 
                         <Form.Group 
                         controlId="img"
@@ -191,7 +192,6 @@ class NewAdModal extends Component {
                                 onChange={this.handleInputChange}
                                 type="text" name="imgInput" placeholder=" File" />
                         </Form.Group>
-
           
 
 

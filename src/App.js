@@ -55,7 +55,7 @@ class App extends Component {
 
 
   }
-  
+
   handleLogout() {
     this.setState({
       activeUser: null,
@@ -87,17 +87,17 @@ class App extends Component {
   // }
 
   handleCreatNewAd(ad) {
+    const { allUsers, activeUser, ads } = this.state;
 
-    const { allUsers } = this.state;
-
-    allUsers.id = allUsers[allUsers.length - 1].id + 1;
+    ad.userId = activeUser.id;
+    ad.id = ads[ads.length - 1].id + 1;
     console.log(ad);
     this.setState({
-      
+
     });
   };
 
- 
+
   render() {
 
     const { activeUser, allUsers, ads } = this.state;
@@ -346,13 +346,13 @@ class App extends Component {
             </Route>
 
             <Route exact path="/product/:id">
-              <MoreInfoPage 
-              ads={ads} 
-              handleLogin={this.handleLogin}
-              allUsers={allUsers}
-              handleLogout={this.handleLogout}
-              activeUser={activeUser}
-              handlesignup={this.handlesignup}
+              <MoreInfoPage
+                ads={ads}
+                handleLogin={this.handleLogin}
+                allUsers={allUsers}
+                handleLogout={this.handleLogout}
+                activeUser={activeUser}
+                handlesignup={this.handlesignup}
               />
             </Route>
 
@@ -374,12 +374,12 @@ class App extends Component {
                 handleLogout={this.handleLogout}
                 activeUser={activeUser}
                 handleCreatNewAd={this.handleCreatNewAd}
-                
+
               />
             </Route>
-            
+
           </Switch>
-         
+
         </HashRouter>
       </div>
     );
