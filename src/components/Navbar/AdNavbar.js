@@ -10,15 +10,18 @@ import {
 } from 'react-bootstrap';
 import './adNavbar.css';
 import AdCard from '../../components/AdCard/AdCard';
+import Sorry from '../../components/Sorry we didnt find/sorry';
+
 
 class adNavbar extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      search: '',
+      searchSelected: '',
+      search: false,
+      filteredAds:[]
     };
-    // console.log(this.state);
     this.search = this.search.bind(this);
   }
 
@@ -28,7 +31,7 @@ class adNavbar extends Component {
 
     
 
-    const searchAds = searchSelected.filter(
+    const searchAds = ads.filter(
       ad =>
         ad.Details.toLowerCase().includes(searchSelected.toLowerCase()) ||
         ad.categoryName.toLowerCase().includes(searchSelected.toLowerCase()) ||
@@ -43,18 +46,19 @@ class adNavbar extends Component {
         <AdCard ad={ad} />
       </Col>
     ));
+    this.setState({ search: true });
+    this.setState({ filteredAds: filteredAds });
 
-    this.setState({
-      searchSelected: e.target.value
-    })
     console.log('searchSelected', searchSelected);
+    console.log('filteredAds', filteredAds);
+
 
   }
 
   render() {
 
     const { activeUser, ads, handleLogout, allUsers, } = this.props;
-    const { searchSelected } = this.state;
+    const { searchSelected, filteredAds, search,  } = this.state;
 
     const LogOutUser = activeUser ? (
       <Button onClick={() => handleLogout()} href="#" variant="secondary">
@@ -111,8 +115,8 @@ class adNavbar extends Component {
             <Form inline>
               <FormControl
                style={{ width: '6rem' }}
-                // value={search}
-                onChange={e => this.setState({ search: e.target.value })}
+                value={searchSelected}
+                onChange={e => this.setState({ searchSelected: e.target.value })}
                 type="text"
                 placeholder="Search"
                 className="mr-sm-2 "
@@ -121,6 +125,11 @@ class adNavbar extends Component {
               <Button size="sm-2" onClick={this.search} variant="outline-success">
                 Search
               </Button>
+
+              {filteredAds && filteredAds.length > 0 ? 
+          (<Row>{filteredAds}</Row>)
+           : ( search && <Sorry />)}
+
             </Form>
           </Navbar.Collapse>
         </Navbar>
