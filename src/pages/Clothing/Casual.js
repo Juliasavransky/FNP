@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AdCard from '../../components/AdCard/AdCard'
-import { ListGroup, Row, Col, Navbar, Nav, Form, } from 'react-bootstrap';
+import { ListGroup, Row, Col, Navbar, Nav, Form, Container, } from 'react-bootstrap';
 
 
 class Casual extends Component {
@@ -15,6 +15,7 @@ class Casual extends Component {
 
         return (
             <div className="c-adNavbar">
+                
                 <Navbar bg="light" expand="lg">
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -29,10 +30,11 @@ class Casual extends Component {
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
-               
+                <Container>
                 <Row>{CasualAdsUi}</Row>
                 <ListGroup variant="flush">
                 </ListGroup>
+                </Container>
             </div>
         );
     }

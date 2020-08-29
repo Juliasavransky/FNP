@@ -23,11 +23,15 @@ class HomePage extends Component {
     return (
       <div className="p-homepage">
         <Container>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus
-            in hac habitasse platea. Commodo elit at imperdiet dui accumsan sit
-            amet nulla.
+        
+         
+          <p className= "par">
+            <br></br>
+            
+          Got stuff you don't need For mothers and/or babies? <br></br>
+           We'll find someone to come and take it. <br></br>
+           Looking for something? We'll pair you with someone giving it away. <br></br>
+            All completely free.  
           </p>
 
           <Row>{allAds}</Row>

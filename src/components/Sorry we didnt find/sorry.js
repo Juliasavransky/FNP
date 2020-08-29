@@ -6,8 +6,8 @@ class sorry extends Component {
     render() {
         return (
             <div>
-                Sorry we did not find the page you're looking for
-                if u wont u can   
+                Sorry, We did not find the page you're looking for.
+                
                 <Button type="button" href="/#signup">signup</Button>
 
             </div>
