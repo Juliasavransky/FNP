@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button, Modal, Container, Image } from 'react-bootstrap';
+import emailjs from 'emailjs-com';
 
 
 
@@ -72,6 +73,24 @@ class NewAdModal extends Component {
         this.props.handleCreatNewAd(newAd);
         console.log("handleCreatNewAd",newAd)
         this.handleModalClose();
+
+         //send an email
+        
+         var template_params = {
+            "to_email": this.props.activeUser.email,
+            "ad_name": "ad_name_value",
+            "fname": "fname_value",
+            "lname": "lname_value",
+            "ad_desc": "ad_desc_value"
+         }
+         
+         var service_id = "default_service";
+         var template_id = "new_ad";
+         emailjs.send(service_id, template_id, template_params);
+
+
+
+
     }
 
 
