@@ -39,6 +39,7 @@ import UserArea from './pages/Login/UserArea/UserArea';
 import SearchResults from './components/Navbar/SearchResults';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NewAdModal from './components/New Ad Modal/NewAdModal';
 
 class App extends Component {
   constructor(props) {
@@ -86,13 +87,14 @@ class App extends Component {
     toast.success('New User Added');
   }
 
-  handleCreatNewAd(ad) {
-    const { activeUser, ads } = this.state;
+  handleCreatNewAd(newAd) {
 
-    ad.userId = activeUser.id;
-    ad.id = ads[ads.length - 1].id + 1;
-    console.log(ad);
-    this.setState({});
+    newAd.id= this.state.ads.length + 1;
+     this.setState({
+       ads:[...this.state.ads, newAd ]
+     });
+     toast.success('New ad Added');
+
   }
 
   handleSearch = searchResults => {
@@ -332,7 +334,6 @@ class App extends Component {
             <Route exact path="/signup">
               <Signup
                 handleNewUser={this.handleNewUser}
-                //handlesignup={this.handlesignup}
                 handleLogout={this.handleLogout}
                 activeUser={activeUser}
               />
@@ -354,7 +355,6 @@ class App extends Component {
                 allUsers={allUsers}
                 handleLogout={this.handleLogout}
                 activeUser={activeUser}
-                handlesignup={this.handlesignup}
               />
             </Route>
 
@@ -370,6 +370,17 @@ class App extends Component {
 
             <Route exact path="/userArea">
               <UserArea
+                ads={ads}
+                handleLogin={this.handleLogin}
+                allUsers={allUsers}
+                handleLogout={this.handleLogout}
+                activeUser={activeUser}
+                // handleCreatNewAd={this.handleCreatNewAd}
+              />
+            </Route>
+
+            <Route exact path="/newAdModal">
+              <NewAdModal
                 ads={ads}
                 handleLogin={this.handleLogin}
                 allUsers={allUsers}

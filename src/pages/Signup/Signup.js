@@ -26,6 +26,7 @@ class SignUp extends Component {
     this.validate = this.validate.bind(this);
     this.handleCreatUser = this.handleCreatUser.bind(this);
   }
+  
   validate = () => {
     const emailInputError = '';
     const pwdInputError = '';
@@ -54,7 +55,6 @@ class SignUp extends Component {
     }
   };
   signup = event => {
-    // const { handlesignup } = this.props;
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -117,7 +117,7 @@ class SignUp extends Component {
         <a href="#/signup"></a>
         <Form onSubmit={this.handleCreatUser}>
           <Form.Row>
-            <Form.Group controlId="formGridPassword">
+            <Form.Group >
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 value={fnameInput}
@@ -127,7 +127,7 @@ class SignUp extends Component {
                 placeholder="First Name"
               />
             </Form.Group>
-            <Form.Group controlId="formGridPassword">
+            <Form.Group >
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 value={lnameInput}
@@ -138,7 +138,7 @@ class SignUp extends Component {
               />
             </Form.Group>
 
-            <Form.Group controlId="formGridEmail">
+            <Form.Group >
               <Form.Label>Email</Form.Label>
               <Form.Control
                 value={emailInput}
@@ -171,9 +171,9 @@ class SignUp extends Component {
                 </Alert>
               ) : null}
             </Form.Group>
-          </Form.Row>
+          
 
-          <Form.Group controlId="formGridPassword">
+          <Form.Group >
             <Form.Label>Phone Number</Form.Label>
             <Form.Control
               value={ContactInput}
@@ -184,7 +184,7 @@ class SignUp extends Component {
             />
           </Form.Group>
 
-          <Form.Group controlId="formGridAddress1">
+          <Form.Group >
             <Form.Label>Address</Form.Label>
             <Form.Control
               value={StreetNumberInput}
@@ -195,8 +195,7 @@ class SignUp extends Component {
             />
           </Form.Group>
 
-          <Form.Row>
-            <Form.Group as={Col} controlId="formGridCity">
+            <Form.Group  >
               <Form.Label>City</Form.Label>
               <Form.Control
                 value={CityInput}
@@ -206,7 +205,7 @@ class SignUp extends Component {
               />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridState">
+            <Form.Group >
               <Form.Label>State</Form.Label>
               <Form.Control
                 value={LivingAreaInput}
@@ -239,7 +238,7 @@ class SignUp extends Component {
             REGISTER NOW
           </Button>
 
-          <Form.Group id="formGridCheckbox">
+          <Form.Group >
             <Form.Check
               onChange={e => this.setState({ readed: e.target.checked })}
               type="checkbox"

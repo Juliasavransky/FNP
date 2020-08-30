@@ -35,11 +35,12 @@ class UserArea extends Component {
                 </Container>
                 <NewAdModal 
                 ads={ads}
-                handleLogin={this.handleLogin}
+                // handleLogin={this.handleLogin}
                 allUsers={allUsers}
-                handleLogout={this.handleLogout}
-                handleCreatNewAd={this.handleCreatNewAd}
-                activeUser={activeUser}/>
+                // handleLogout={this.handleLogout}
+                // handleCreatNewAd={this.handleCreatNewAd}
+                // activeUser={activeUser}
+                />
             </div>
         );
     }
