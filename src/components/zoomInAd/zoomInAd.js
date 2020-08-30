@@ -6,12 +6,11 @@ class ZoomInAd extends Component {
   constructor(props) {
     super(props);
 
-// this.state({
-//   showButton: true
-// })
-this.handleSendEmail = this.handleSendEmail.bind(this);
-  } 
-  
+    this.state = {
+      showButton: true
+    }
+    this.handleSendEmail = this.handleSendEmail.bind(this);
+  }
 
 
   handleSendEmail = event => {
@@ -31,17 +30,19 @@ this.handleSendEmail = this.handleSendEmail.bind(this);
 
     const sendAnEmail = activeUser ? (
       <Button onClick={() => handleSendEmail()} href="#/emailSending" variant="secondary">
-        Send an Email 
+        Send an Email
       </Button>
     ) : null;
+
     const signupUser = !activeUser ? (
       <Button href="#/signup" variant="secondary" className="btn-userLogin">
-        SINGUP
+        Sign Up
       </Button>
     ) : null;
+
     const LogInUser = !activeUser ? (
       <Button href="#/login" variant="secondary" className="btn-userLogin">
-        LOGIN
+        LogIn
       </Button>
     ) : null;
 
@@ -58,11 +59,12 @@ this.handleSendEmail = this.handleSendEmail.bind(this);
           <Card.Text>Condition: {ad.Condition} </Card.Text>
 
           <Card.Img variant="bottom" src={ad.img} />
+          {signupUser}
+            {LogInUser}
           <small className=" m-2 text-muted">Published Date {ad.Date}</small>
           <Button onSubmit={this.handleSendEmail} className="btn-login" variant="primary" type="submit">
-          {signupUser}
-          {LogInUser}
-          Send An Email 
+           
+          Send An Email
             </Button>
         </Card>
 
