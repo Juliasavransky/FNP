@@ -60,8 +60,10 @@ this.handleSendEmail = this.handleSendEmail.bind(this);
           <Card.Img variant="bottom" src={ad.img} />
           <small className=" m-2 text-muted">Published Date {ad.Date}</small>
           <Button onSubmit={this.handleSendEmail} className="btn-login" variant="primary" type="submit">
+            
           {signupUser}
           {LogInUser}
+          
           Send An Email 
             </Button>
         </Card>
