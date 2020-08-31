@@ -85,7 +85,7 @@ class AdNavbar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat">
-              <Nav.Link className="mr-4" href="/">
+              <Nav.Link className="mr-4" href="/#">
                 Home
               </Nav.Link>
               <Nav.Link className="mr-4" href="/#Clothing">

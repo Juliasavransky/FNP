@@ -40,6 +40,9 @@ import SearchResults from './components/Navbar/SearchResults';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NewAdModal from './components/New Ad Modal/NewAdModal';
+import emailjs from 'emailjs-com';
+emailjs.init("user_92TMg4RqAMZUj3a9Jc5NQ");
+
 
 class App extends Component {
   constructor(props) {

@@ -7,10 +7,11 @@
     "SubCategoryId": 11,
     "img": "https://xcdn.next.co.uk/common/Items/Default/Default/Publications/G24/shotview-315x472/1592/962-548s.jpg",
     "Date": "23.07.20",
-    "Details": "White Fleeze, in a good condition",
+    "Details": "White Fleeze, In A good condition",
     "Condition": "Good",
     "conditionId": 2,
-    "userId": 2
+    "userId": 2,
+    "livingAreaId": 3
   },
   {
     "id": 2,
@@ -23,7 +24,8 @@
     "Details": "Star Jacket",
     "Condition": "New",
     "conditionId": 1,
-    "userId": 4
+    "userId": 4,
+    "livingAreaId": 4
   },
   {
     "id": 3,
@@ -33,10 +35,11 @@
     "SubCategoryId": 12,
     "img": "https://xcdn.next.co.uk/Common/Items/Default/Default/ItemImages/SearchAlt/224x336/956628.jpg?X56",
     "Date": "01.03.20",
-    "Details": "Delicate pink - a festive dress",
+    "Details": "Delicate pink - A festive dress",
     "Condition": "Used-In A Good Condition",
     "conditionId": 3,
-    "userId": 4
+    "userId": 4,
+    "livingAreaId": 5
   },
   {
     "id": 4,
@@ -49,7 +52,8 @@
     "Details": "Navy Suit Jacket (12mths-16yrs)",
     "Condition": "New",
     "conditionId": 1,
-    "userId": 5
+    "userId": 5,
+    "livingAreaId": 2
   },
   {
     "id": 5,
@@ -62,7 +66,8 @@
     "Details": "Denim Blue Minnie Mouse™ & Mickey Mouse™ Embellished Jeans (3mths-7yrs)",
     "Condition": "Used, In A Good Condition",
     "conditionId": 3,
-    "userId": 6
+    "userId": 6,
+    "livingAreaId": 1
   },
   {
     "id": 6,
@@ -75,7 +80,8 @@
     "Details": "2 Piece Giraffe Top And Leggings Set (0-12mths)",
     "Condition": "New",
     "conditionId": 1,
-    "userId": 7
+    "userId": 7,
+    "livingAreaId": 4
   },
   {
     "id": 7,
@@ -88,7 +94,8 @@
     "Details": "Navy Rainbow Dinosaur Spike Boots (Younger)",
     "Condition": "Used-In A Good Condition",
     "conditionId": 3,
-    "userId": 2
+    "userId": 2,
+    "livingAreaId": 1
   },
   {
     "id": 8,
@@ -100,7 +107,9 @@
     "Date": "04.09.20",
     "Details": "Red Spider-Man™ Slippers (Younger)",
     "Condition": "Used-In A Good Condition",
-    "userId": 4
+    "conditionId":3,
+    "userId": 4,
+    "livingAreaId": 5
   },
   {
     "id": 9,
@@ -112,7 +121,9 @@
     "Date": "01.03.20",
     "Details": "Pink 7 Pack Unicorn Socks",
     "Condition": "New",
-    "userId": 4
+    "conditionId":1,
+    "userId": 4,
+    "livingAreaId": 4
   },
   {
     "id": 10,
@@ -124,7 +135,9 @@
     "Date": "08.05.20",
     "Details": "The Little Tailor White Rocking Horse Jersey Hats Two Pack",
     "Condition": "Used-In A Good Condition",
-    "userId": 5
+    "conditionId":3,
+    "userId": 5,
+    "livingAreaId": 3
   },
   {
     "id": 11,
@@ -136,7 +149,9 @@
     "Date": "10.03.20",
     "Details": "Pikachu doll",
     "Condition": "New",
-    "userId": 6
+    "conditionId":1,
+    "userId": 6,
+    "livingAreaId": 2
   },
   {
     "id": 12,
@@ -148,7 +163,9 @@
     "Date": "14.09.20",
     "Details": "A few dolls, bears",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 1
   },
 
   {
@@ -161,7 +178,9 @@
     "Date": "14.09.20",
     "Details": "Lottery Board Game",
     "Condition": "New",
-    "userId": 7
+    "conditionId":1,
+    "userId": 7,
+    "livingAreaId": 5
   },
 
   {
@@ -174,7 +193,9 @@
     "Date": "02.08.20",
     "Details": "Original Lego Game, 240 pieces",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 4
   },
 
   {
@@ -187,7 +208,9 @@
     "Date": "19.08.20",
     "Details": "Dr. Round 3 books, children's book",
     "Condition": "New",
-    "userId": 7
+    "conditionId":1,
+    "userId": 7,
+    "livingAreaId": 3
   },
 
   {
@@ -199,8 +222,10 @@
     "img": "https://img1.ad.co.il/SecondHandImages/3588651-400_0.jpg",
     "Date": "31.08.20",
     "Details": "Sifroni, for first grade for reading study. Devided to six levels",
-    "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "Condition": "New",
+    "conditionId":1,
+    "userId": 7,
+    "livingAreaId": 2
   },
 
   {
@@ -213,7 +238,9 @@
     "Date": "29.06.20",
     "Details": "LEGO MOVIE, model 70801, including booklet",
     "Condition": "New",
-    "userId": 7
+    "conditionId":1,
+    "userId": 7,
+    "livingAreaId": 1
   },
 
   {
@@ -226,7 +253,9 @@
     "Date": "14.07.20",
     "Details": "",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 5
   },
 
   {
@@ -239,7 +268,9 @@
     "Date": "14.07.20",
     "Details": "Remote Car",
     "Condition": "Good",
-    "userId": 7
+    "conditionId":2,
+    "userId": 7,
+    "livingAreaId": 5
   },
 
   {
@@ -252,7 +283,9 @@
     "Date": "03.06.20",
     "Details": "A few Plastic games for children",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 3
   },
 
   {
@@ -265,7 +298,9 @@
     "Date": "19.07.20",
     "Details": "White baby playpen",
     "Condition": "Good",
-    "userId": 7
+    "conditionId":2,
+    "userId": 7,
+    "livingAreaId": 2
   },
 
   {
@@ -278,7 +313,9 @@
     "Date": "14.05.20",
     "Details": "White Ikea bed and mattress",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 1
   },
 
   {
@@ -291,7 +328,9 @@
     "Date": "14.03.20",
     "Details": "Selkel maxi cosi, from birth to 12 kg with removable support for the newborn. In like new condition Selkel maxi cosi",
     "Condition": "Good",
-    "userId": 7
+    "conditionId":2,
+    "userId": 7,
+    "livingAreaId": 5
   },
 
   {
@@ -304,7 +343,9 @@
     "Date": "14.03.20",
     "Details": "Carry Cot, in excellent condition, red color",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 4
   },
 
   {
@@ -317,7 +358,9 @@
     "Date": "14.08.20",
     "Details": "High quality hardly used, with 2 possible modes bath or stroller baby stroller by ayababy company",
     "Condition": "good",
-    "userId": 7
+    "conditionId":2,
+    "userId": 7,
+    "livingAreaId": 3
   },
 
   {
@@ -330,7 +373,9 @@
     "Date": "14.08.20",
     "Details": "Orange Mutsy 4RIDER stroller The stroller comes with a stroller, bathtub and in addition a removable shopping basket and a durable board !!! Whipped silicone wheels",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 2
   },
 
   {
@@ -343,7 +388,9 @@
     "Date": "14.08.20",
     "Details": "High quality crib in excellent condition. Spacious, comfortable and very light.",
     "Condition": "Good",
-    "userId": 7
+    "conditionId":2,
+    "userId": 7,
+    "livingAreaId": 1
   },
 
   {
@@ -356,7 +403,9 @@
     "Date": "14.09.20",
     "Details": "A solid wood crib including a mattress can also be used as a small bed there are two modes for the height of the mattress=]]]]]]]]]]]]]]]-54",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 5
   },
 
   {
@@ -369,7 +418,9 @@
     "Date": "29.08.20",
     "Details": "A world-wide board game. with the electronic control tower! For ages 6+. Includes detailed instructions",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 4
   },
 
   {
@@ -382,7 +433,9 @@
     "Date": "05.08.20",
     "Details": "Baby Jogger, 4 wheels, including bathtub for Baby Jogger stroller in new condition including adapters",
     "Condition": "Good",
-    "userId": 7
+    "conditionId":2,
+    "userId": 7,
+    "livingAreaId": 3
   },
 
   {
@@ -395,7 +448,9 @@
     "Date": "11.08.20",
     "Details": "Extremely comfortable nursing shirt The front rises and allows breastfeeding in privacy and comfort, a comfortable and comfortable velvety fabric",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 2
   },
 
   {
@@ -408,7 +463,9 @@
     "Date": "27.01.20",
     "Details": "Maternity pants Jeans maternity fabric Canvas overalls Ramilee size 42",
     "Condition": "Good",
-    "userId": 7
+    "conditionId":2,
+    "userId": 7,
+    "livingAreaId": 1
   },
 
   {
@@ -421,7 +478,9 @@
     "Date": "05.02.20",
     "Details": "Breastfeeding pump in new condition in the original kit plus the accessories in addition to the kit 9 new membranes 4 caps size 24 and another one size 27",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 5
   },
 
   {
@@ -434,7 +493,9 @@
     "Date": "16.06.20",
     "Details": "Breastfeeding pump in excellent condition was barely used and always underwent sterilization and rinsing.",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 4
   },
 
   {
@@ -447,7 +508,9 @@
     "Date": "14.09.20",
     "Details": "The Complete Guide to Pregnancy, Childbirth and Parenting",
     "Condition": "Good",
-    "userId": 7
+    "conditionId":2,
+    "userId": 7,
+    "livingAreaId": 3
   },
 
   {
@@ -460,7 +523,9 @@
     "Date": "01.09.20",
     "Details": "Active childbirth - the guide to natural childbirth",
     "Condition": "Good",
-    "userId": 7
+    "conditionId":2,
+    "userId": 7,
+    "livingAreaId": 2
   },
 
   {
@@ -473,7 +538,9 @@
     "Date": "22.05.20",
     "Details": "Pregnancy supplements",
     "Condition": "Good",
-    "userId": 7
+    "conditionId":2,
+    "userId": 7,
+    "livingAreaId": 1
   },
 
   {
@@ -486,7 +553,9 @@
     "Date": "27.03.20",
     "Details": "Nutritional supplement for pregnancy and lactation: 4 closed boxes in each of 30 tablets",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 5
   },
 
   {
@@ -499,7 +568,9 @@
     "Date": "14.08.20",
     "Details": "Black breastfeeding top. Flexible fabric",
     "Condition": "Good",
-    "userId": 7
+    "conditionId":2,
+    "userId": 7,
+    "livingAreaId": 4
   },
 
   {
@@ -512,7 +583,10 @@
     "Date": "07.06.20",
     "Details": "Pills- For natural relief of nausea.",
     "Condition": "Used-In A Good Condition",
-    "userId": 7
+    "conditionId":3,
+    "userId": 7,
+    "livingAreaId": 1
+  
   }
 ]
 
