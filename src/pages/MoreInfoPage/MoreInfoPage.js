@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ZoomInAdComponent from '../../components/ZoomInAd/zoomInAd'
+import ZoomInAdComponent from '../../components/ZoomInAd/ZoomInAd'
 import { useParams } from 'react-router-dom';
 import login from '../Login/Login';
 

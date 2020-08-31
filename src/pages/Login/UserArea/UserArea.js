@@ -5,6 +5,7 @@ import NewAdModal from '../../../components/New Ad Modal/NewAdModal';
 
 
 
+
 class UserArea extends Component {
     constructor(props) {
         super(props);
@@ -27,9 +28,9 @@ class UserArea extends Component {
 
             <div>
                 <Container>
-                my ads/active/pause/delete<br />
+               active/pause/delete<br />
                 my smart agent<br />
-               creat new ad<br />
+              
 
                 my meseges
                 <Row>{activeUserAdsUi}</Row>

@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "categoryId": 1,
+    "CategoryId": 1,
     "categoryName": "Clothing",
     "subCategoryName": "Coats and Jackets",
     "SubCategoryId": 11,
@@ -141,7 +141,7 @@
   },
   {
     "id": 11,
-    "categoryId": 2,
+    "CategoryId": 2,
     "categoryName": "Toys and Games",
     "subCategoryName": "Dolls",
     "SubCategoryId": 21,

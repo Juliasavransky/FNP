@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Button, Modal, Container, Image } from 'react-bootstrap';
-<<<<<<< HEAD
-import {categorys} from '../../data/ddData'
+import emailjs from 'emailjs-com';
 import jsonUsers from '../../data/users.json'
 import jsonAds from '../../data/Ads.json'
-=======
-import emailjs from 'emailjs-com';
 
->>>>>>> 26d4fc80cc1a9934206e20c796320f8df4f2ed4d
 
 
 class NewAdModal extends Component {
@@ -61,14 +57,14 @@ class NewAdModal extends Component {
         })
     }
     handleCreatAd(event) {
-console.log()
         const { categoryName, subCategoryName, imgInput, DetailsInput, Condition, } = this.state;
         // const { handleCreatNewAd }= this.props
 
         const newAd = {
             // categoryName: categorySelectedId,
             // subCategoryName: subCategorySelectedId ,
-            img: imgInput,
+            // img: imgInput,         const imgUTL= URL.createObjectURL(imgInput);
+
             Details: DetailsInput,
             // Condition: conditionSelected ,
 
@@ -77,11 +73,10 @@ console.log()
         console.log("props" ,this.props)
 
 
-        // handleCreatNewAd
         this.props.handleCreatNewAd(newAd);
         this.handleModalClose();
 
-         //send an email
+        //  send an email
         
          var template_params = {
             "to_email": this.props.activeUser.email,
@@ -107,21 +102,29 @@ console.log()
             filteredAds, imgInput, DetailsInput,
         } = this.state;
 
-        const { activeUser, ads, allUsers, handleLogin, handleLogout, handleCreatNewAd } = this.props;
-        // console.log('handleLogin', handleLogin)
+        const { activeUser, ads, allUsers, handleLogin, handleLogout, handleCreatNewAd  } = this.props;
+     
+        // a function that filters ads with the same category
+        const filterUniqueCategories = () => {
+            let categoryIdsFound = [];
+            let uniqueCategoryAds = [];
 
-        console.log(categorys(jsonAds))
+            ads.forEach(ad => {
+                if (!categoryIdsFound.includes(ad.CategoryId)) {
+                    categoryIdsFound.push(ad.CategoryId);
+                    uniqueCategoryAds.push(ad);
+                }
+            });
 
-        const categoryOption = ads.map(CategoryName => (
-            <option value={CategoryName.CategoryId}>
-                {CategoryName.categoryName}
-            </option>
-        ));
+            return uniqueCategoryAds;
+        }
 
-        // const fileredSubCategorys = ads.CategoryId.filter(
-        //    ads.subCategoryName =>
-        //         ad.CategoryId.SubCategoryId == this.state.categorySelectedId
-        // );
+
+        const categoryOptions = filterUniqueCategories().map(ad => 
+            <option value={ad.CategoryId}>
+                {ad.categoryName}
+            </option>)
+
         const subCategoryOption = ads.map(subCategoryName => (
             <option value={subCategoryName.SubCategoryId}>
                 {subCategoryName.subCategoryName}
@@ -170,7 +173,7 @@ console.log()
                                 className="justify-content-center "
                             >
                                 <option value="0">Select a Category...</option>
-                                {categoryOption}
+                                {categoryOptions}
                             </Form.Control>
 
 
