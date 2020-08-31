@@ -69,7 +69,7 @@ class AdNavbar extends Component {
     ) : null;
     const LogInUser = !activeUser ? (
       <Button href="#/login" variant="secondary" className="btn-userLogin">
-        LogIn
+        Log In
       </Button>
     ) : null;
 

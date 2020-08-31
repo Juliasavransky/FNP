@@ -58,6 +58,7 @@ class NewAdModal extends Component {
 
         const { categoryName, subCategoryName, imgInput, DetailsInput, Condition, } = this.state;
         const { handleCreatNewAd }= this.props
+        // const {activeUser}=this.state;
 
         const newAd = {
             // categoryName: categorySelectedId,
@@ -68,26 +69,23 @@ class NewAdModal extends Component {
 
         };
 
-
-
-        this.props.handleCreatNewAd(newAd);
-        console.log("handleCreatNewAd",newAd)
+        // this.props.handleCreatNewAd(newAd);
+        // console.log("handleCreatNewAd",newAd)
         this.handleModalClose();
 
-         //send an email
-        
-         var template_params = {
-            "to_email": this.props.activeUser.email,
-            "ad_name": "ad_name_value",
-            "fname": "fname_value",
-            "lname": "lname_value",
-            "ad_desc": "ad_desc_value"
-         }
-         
-         var service_id = "default_service";
-         var template_id = "new_ad";
-         emailjs.send(service_id, template_id, template_params);
+        // // // //  send an email
 
+        //  var template_params = {
+        //     "to_email": this.props.activeUser.email,
+        //     "ad_name": DetailsInput,
+        //     "fname": this.props.activeUser.fname,
+        //     "lname": this.props.activeUser.lname,
+        //     // "category_name":categorySelectedId,
+        //     // "subcatgory_name":subCategorySelectedId
+        //  }
+        //  var service_id = "default_service";
+        //  var template_id = "new_ad";
+        //  emailjs.send(service_id, template_id, template_params);
 
 
 
@@ -161,7 +159,7 @@ class NewAdModal extends Component {
                                 name="categorySelectedId"
                                 className="justify-content-center "
                             >
-                                <option value="0">Select a Category...</option>
+                                <option value="0">Select A Category</option>
                                 {categoryOption}
                             </Form.Control>
 
@@ -170,7 +168,7 @@ class NewAdModal extends Component {
                             <Form.Label
                                 htmlFor="inlineFormCustomSelectPref"
                             >
-                                Sub- Categories
+                                Sub-Categories
                             </Form.Label>
                             <Form.Control
                                 onChange={this.categoryChange}
@@ -181,7 +179,7 @@ class NewAdModal extends Component {
                                 name="subCategorySelectedId"
 
                             >
-                                <option value="0">Select a Category...</option>
+                                <option value="0">Select A Category</option>
                                 {subCategoryOption}
                             </Form.Control>
 
@@ -200,7 +198,7 @@ class NewAdModal extends Component {
                                 name="conditionSelected"
 
                             >
-                                <option value="0">Select a Category...</option>
+                                <option value="0">Select A Category</option>
                                 {itemConditionOption}
                             </Form.Control>
 
@@ -241,13 +239,13 @@ class NewAdModal extends Component {
                         <Button variant="secondary"
                             onClick={this.handleModalClose}
                         >
-                            Cansel
+                            Cancel
                              </Button>
 
                         <Button variant="primary"
                             onClick={this.handleCreatAd}
                         >
-                            Creat new Ad
+                            Creat A New Ad
                              </Button>
                     </Modal.Footer>
                 </Modal>
