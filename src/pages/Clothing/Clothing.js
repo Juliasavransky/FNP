@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { ListGroup, Row, Col } from 'react-bootstrap';
+import { ListGroup, } from 'react-bootstrap';
 import AdCard from '../../components/AdCard/AdCard';
-import { Navbar, Nav, Form, FormControl, Container, } from 'react-bootstrap';
+import { Navbar, Nav, Form, Container, CardColumns } from 'react-bootstrap';
 
 class Clothing extends Component {
   render() {
@@ -11,10 +11,9 @@ class Clothing extends Component {
     const clothingAds = ads.filter(ad => ad.CategoryId === ClothingPage);
     //  console.log("ads", ads)
     //  console.log("clothingAds", clothingAds)
-    const clothingAdsUi = clothingAds.map(ad => (
-      <Col key={ad.id} lg={3} md={4} sm={6}>
-        <AdCard ad={ad} />
-      </Col>
+    const clothingAdsUi = clothingAds.map(ad => (<AdCard ad={ad} key={ad.id}/>
+     
+      
     ));
 
     return (
@@ -43,7 +42,9 @@ class Clothing extends Component {
           </Navbar.Collapse>
         </Navbar>
         <Container>
-        <Row>{clothingAdsUi}</Row>
+        <CardColumns>
+        {clothingAdsUi}
+        </CardColumns>
         <ListGroup variant="flush"></ListGroup>
         </Container>
       </div>

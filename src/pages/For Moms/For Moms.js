@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { ListGroup, Col, Row } from 'react-bootstrap';
+import { ListGroup,  } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdCard from '../../components/AdCard/AdCard';
-import { Navbar, Nav, Form, FormControl, Container } from 'react-bootstrap';
+import { Navbar, Nav, Form, Container, CardColumns } from 'react-bootstrap';
 
 class ForMoms extends Component {
   render() {
@@ -11,10 +11,9 @@ class ForMoms extends Component {
     const ForMomsPage = 4;
     const ForMomsAds = ads.filter(ad => ad.CategoryId === ForMomsPage);
 
-    const ForMomsAdsUi = ForMomsAds.map(ad => (
-      <Col key={ad.id} lg={3} md={4} sm={6}>
-        <AdCard ad={ad} />
-      </Col>
+    const ForMomsAdsUi = ForMomsAds.map(ad => (<AdCard ad={ad} key={ad.id}/>
+      
+      
     ));
 
     return (
@@ -44,7 +43,9 @@ class ForMoms extends Component {
         </Navbar>
         <Container>
           <ListGroup variant="flush">
-            <Row>{ForMomsAdsUi}</Row>
+          <CardColumns>
+         {ForMomsAdsUi}
+         </CardColumns>
           </ListGroup>
         </Container>
       </div>

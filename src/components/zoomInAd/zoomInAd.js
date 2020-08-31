@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardColumns, Col, Row, Container, Button } from 'react-bootstrap';
 import AdCard from '../AdCard/AdCard';
+import emailjs from 'emailjs-com';
 
 class ZoomInAd extends Component {
   constructor(props) {
@@ -13,11 +14,26 @@ class ZoomInAd extends Component {
   }
 
 
+ 
+
   handleSendEmail = event => {
     event.preventDefault();
     const { activeUser } = this.props;
     console.log("activeUser", activeUser)
 
+       // //  send an email
+
+    //    var template_params = {
+    //     "to_email": this.props.activeUser.email,
+    //     // "ad_name": DetailsInput,
+    //     "fname": this.props.activeUser.fname,
+    //     "lname": this.props.activeUser.lname,
+    //     // "category_name":categorySelectedId,
+    //     // "subcatgory_name":subCategorySelectedId
+    //  }
+    //  var service_id = "default_service";
+    //  var template_id = "new_ad";
+    //  emailjs.send(service_id, template_id, template_params);
 
     this.setState({
       showButton: false
@@ -29,7 +45,7 @@ class ZoomInAd extends Component {
     console.log("activeUser", activeUser)
 
     const sendAnEmail = activeUser ? (
-      <Button onClick={() => handleSendEmail()} href="#/emailSending" variant="secondary">
+      <Button onSubmit={() => handleSendEmail()} href="#/emailSending" variant="secondary">
         Send an Email
       </Button>
     ) : null;

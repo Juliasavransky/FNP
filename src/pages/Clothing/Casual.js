@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AdCard from '../../components/AdCard/AdCard'
-import { ListGroup, Row, Col, Navbar, Nav, Form, Container, } from 'react-bootstrap';
+import { ListGroup, Row, Col, Navbar, Nav, Form, Container, CardColumns} from 'react-bootstrap';
 
 
 class Casual extends Component {
@@ -11,7 +11,7 @@ class Casual extends Component {
         const CasualPage = 13
         const CasualAds = ads.filter(ad => ad.SubCategoryId === CasualPage)
 
-        const CasualAdsUi = CasualAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const CasualAdsUi = CasualAds.map(ad => <AdCard key={ad.id} ad={ad} />)
 
         return (
             <div className="c-adNavbar">
@@ -31,7 +31,9 @@ class Casual extends Component {
                     </Navbar.Collapse>
                 </Navbar>
                 <Container>
-                <Row>{CasualAdsUi}</Row>
+                
+               <CardColumns> {CasualAdsUi} </CardColumns>
+               
                 <ListGroup variant="flush">
                 </ListGroup>
                 </Container>
