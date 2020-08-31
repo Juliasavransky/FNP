@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Homepage from './pages/Home page/Homepage';
 import SmartAgent from './pages/Smart agent/SmartAgent';
-import { Switch, Route, HashRouter } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import AdNavbar from '../src/components/Navbar/AdNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Clothing from '../src/pages/Clothing/Clothing';
@@ -41,8 +41,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NewAdModal from './components/New Ad Modal/NewAdModal';
 import emailjs from 'emailjs-com';
-emailjs.init("user_92TMg4RqAMZUj3a9Jc5NQ");
-
+emailjs.init('user_92TMg4RqAMZUj3a9Jc5NQ');
 
 class App extends Component {
   constructor(props) {
@@ -85,19 +84,26 @@ class App extends Component {
   }
 
   handleNewUser(newUser) {
+    // generate new user id (total users + 1)
     newUser.id = this.state.allUsers.length + 1;
+
+    // add the new user to the 'allUsers' state
     this.setState({ allUsers: [...this.state.allUsers, newUser] });
+
+    // redirect to the 'sign-in' page
+    this.props.history.push('/Login');
+
+    // show toast notification that the user has been created
     toast.success('New User Added');
   }
 
   handleCreatNewAd(newAd) {
-console.log("hello")
-    newAd.id= this.state.ads.length + 1;
-     this.setState({
-       ads:[...this.state.ads, newAd ]
-     });
-     toast.success('New ad Added');
-
+    console.log('hello');
+    newAd.id = this.state.ads.length + 1;
+    this.setState({
+      ads: [...this.state.ads, newAd],
+    });
+    toast.success('New ad Added');
   }
 
   handleSearch = searchResults => {
@@ -110,297 +116,295 @@ console.log("hello")
     return (
       <div className="App">
         <ToastContainer autoClose={3000} />
-        <HashRouter>
-          <AdNavbar
-            ads={ads}
-            allUsers={allUsers}
-            handleLogout={this.handleLogout}
-            activeUser={activeUser}
-            onSearch={this.handleSearch}
-          />
+        <AdNavbar
+          ads={ads}
+          allUsers={allUsers}
+          handleLogout={this.handleLogout}
+          activeUser={activeUser}
+          onSearch={this.handleSearch}
+        />
 
-          <Switch>
-            <Route exact path="/">
-              <Homepage
-                ads={ads}
-                allUsers={allUsers}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+        <Switch>
+          <Route exact path="/">
+            <Homepage
+              ads={ads}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/Clothing">
-              <Clothing
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/Clothing">
+            <Clothing
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/CoatsAndJackets">
-              <CoatsAndJackets
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/CoatsAndJackets">
+            <CoatsAndJackets
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/ClothingOther">
-              <ClothingOther
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/ClothingOther">
+            <ClothingOther
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/Shoes">
-              <Shoes
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/Shoes">
+            <Shoes
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/SpecialEvents">
-              <SpecialEvents
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/SpecialEvents">
+            <SpecialEvents
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/Casual">
-              <Casual
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/Casual">
+            <Casual
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/ToysAndGames">
-              <ToysAndGames
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/ToysAndGames">
+            <ToysAndGames
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/BoardGames">
-              <BoardGames
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/BoardGames">
+            <BoardGames
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/Books">
-              <Books
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/Books">
+            <Books
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/Dolls">
-              <Dolls
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/Dolls">
+            <Dolls
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/Lego">
-              <Lego
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/Lego">
+            <Lego
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/ToysAndGamesOther">
-              <ToysAndGamesOther
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/ToysAndGamesOther">
+            <ToysAndGamesOther
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/ForTheBabys">
-              <ForTheBabys
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/ForTheBabys">
+            <ForTheBabys
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/Furniture">
-              <Furniture
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/Furniture">
+            <Furniture
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/safety">
-              <Safety
-                ads={ads}
-                handleLogin={this.handleLogin}
-                allUsers={allUsers}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/safety">
+            <Safety
+              ads={ads}
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/carriages">
-              <Carriages
-                ads={ads}
-                handleLogin={this.handleLogin}
-                allUsers={allUsers}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/carriages">
+            <Carriages
+              ads={ads}
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/PlaypenCradle">
-              <PlaypenCradle
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/PlaypenCradle">
+            <PlaypenCradle
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/ForTheBabysOther">
-              <ForTheBabysOther
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/ForTheBabysOther">
+            <ForTheBabysOther
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/ForMoms">
-              <ForMoms
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/ForMoms">
+            <ForMoms
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/BooksForMoms">
-              <BooksForMoms
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/BooksForMoms">
+            <BooksForMoms
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/BreastPumps">
-              <BreastPumps
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/BreastPumps">
+            <BreastPumps
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/ForMomsOther">
-              <ForMomsOther
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/ForMomsOther">
+            <ForMomsOther
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/PregnancyClothes">
-              <PregnancyClothes
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/PregnancyClothes">
+            <PregnancyClothes
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/Supplements">
-              <Supplements
-                ads={ads}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/Supplements">
+            <Supplements
+              ads={ads}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/SmartAgent">
-              <SmartAgent
-                ads={ads}
-                handleLogout={this.handleLogout}
-                allUsers={allUsers}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/SmartAgent">
+            <SmartAgent
+              ads={ads}
+              handleLogout={this.handleLogout}
+              allUsers={allUsers}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/signup">
-              <Signup
-                handleNewUser={this.handleNewUser}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/signup">
+            <Signup
+              handleNewUser={this.handleNewUser}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/Login">
-              <Login
-                handleLogin={this.handleLogin}
-                allUsers={allUsers}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/Login">
+            <Login
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/product/:id">
-              <MoreInfoPage
-                ads={ads}
-                handleLogin={this.handleLogin}
-                allUsers={allUsers}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/product/:id">
+            <MoreInfoPage
+              ads={ads}
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/emptypage">
-              <Emptypage
-                ads={ads}
-                handleLogin={this.handleLogin}
-                allUsers={allUsers}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-              />
-            </Route>
+          <Route exact path="/emptypage">
+            <Emptypage
+              ads={ads}
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+            />
+          </Route>
 
-            <Route exact path="/userArea">
-              <UserArea
-                ads={ads}
-                handleLogin={this.handleLogin}
-                allUsers={allUsers}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-                handleCreatNewAd={this.handleCreatNewAd}
-              />
-            </Route>
+          <Route exact path="/userArea">
+            <UserArea
+              ads={ads}
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+              handleCreatNewAd={this.handleCreatNewAd}
+            />
+          </Route>
 
-            <Route exact path="/newAdModal">
-              <NewAdModal
-                ads={ads}
-                handleLogin={this.handleLogin}
-                allUsers={allUsers}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-                handleCreatNewAd={this.handleCreatNewAd}
-              />
-            </Route>
+          <Route exact path="/newAdModal">
+            <NewAdModal
+              ads={ads}
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+              handleCreatNewAd={this.handleCreatNewAd}
+            />
+          </Route>
 
-            <Route path="/search-results">
-              <SearchResults searchResults={searchResults} />
-            </Route>
-          </Switch>
-        </HashRouter>
+          <Route path="/search-results">
+            <SearchResults searchResults={searchResults} />
+          </Route>
+        </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
