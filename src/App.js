@@ -88,7 +88,7 @@ class App extends Component {
   }
 
   handleCreatNewAd(newAd) {
-
+console.log("hello")
     newAd.id= this.state.ads.length + 1;
      this.setState({
        ads:[...this.state.ads, newAd ]
@@ -375,7 +375,7 @@ class App extends Component {
                 allUsers={allUsers}
                 handleLogout={this.handleLogout}
                 activeUser={activeUser}
-                // handleCreatNewAd={this.handleCreatNewAd}
+                handleCreatNewAd={this.handleCreatNewAd}
               />
             </Route>
 

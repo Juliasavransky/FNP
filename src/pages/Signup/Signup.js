@@ -18,8 +18,8 @@ class SignUp extends Component {
       ContactInput: '',
       readed: false,
 
-      // emailInputError: false,
-      // pwdInputError: false,
+      emailInputError: false,
+      pwdInputError: false,
       redirectToHome: false,
     };
     //this.signup = this.signup.bind(this);
@@ -28,30 +28,23 @@ class SignUp extends Component {
   }
   
   validate = () => {
-    const emailInputError = '';
-    const pwdInputError = '';
+    // let emailInputError = '';
+    // let pwdInputError = '';
 
-    this.setState = {
-      emailInputError: false,
-      pwdInputError: false,
-    };
-
-    if (!this.state.pwdInput) {
-      pwdInputError = ' paswodr cannot be blank';
-    }
-    if (pwdInputError) {
+  
+    if (this.state.pwdInput) {
       this.setState({
         pwdInputError: true,
       });
     }
 
     if (!this.state.emailInput.includes('@')) {
-      emailInputError = 'Invalid email';
-    }
-    if (emailInputError) {
-      this.setState({
-        emailInputError: true,
-      });
+       
+        this.setState({
+          emailInputError: true,
+        });
+    
+ 
     }
   };
   signup = event => {
@@ -62,31 +55,40 @@ class SignUp extends Component {
 
   handleCreatUser(event) {
     event.preventDefault();
+    this.validate();
+console.log( "pwd" ,this.state.pwdInputError)
+console.log("Email", this.state.emailInputError)
 
-    const {
-      fnameInput,
-      lnameInput,
-      emailInput,
-      pwdInput,
-      readed,
-      LivingAreaInput,
-      CityInput,
-      StreetNumberInput,
-      ContactInput,
-    } = this.state;
 
-    const newUser = {
-      fname: fnameInput,
-      lname: lnameInput,
-      email: emailInput,
-      pwd: pwdInput,
-      LivingArea: LivingAreaInput,
-      City: CityInput,
-      StreetNumber: StreetNumberInput,
-      Contact: ContactInput,
-    };
+if (this.state.pwdInputError && this.state.emailInputError){
+  const {
+    fnameInput,
+    lnameInput,
+    emailInput,
+    pwdInput,
+    readed,
+    LivingAreaInput,
+    CityInput,
+    StreetNumberInput,
+    ContactInput,
+  } = this.state;
 
-    this.props.handleNewUser(newUser);
+  const newUser = {
+    fname: fnameInput,
+    lname: lnameInput,
+    email: emailInput,
+    pwd: pwdInput,
+    LivingArea: LivingAreaInput,
+    City: CityInput,
+    StreetNumber: StreetNumberInput,
+    Contact: ContactInput,
+  };
+
+  this.props.handleNewUser(newUser);
+  
+}
+
+
   }
 
   // handelClose();
@@ -111,11 +113,13 @@ class SignUp extends Component {
       return <Redirect to="/" />;
     }
 
+    
+
     return (
       <div className="c-login">
         <h3> NEW CUSTOMERS</h3>
         <a href="#/signup"></a>
-        <Form onSubmit={this.handleCreatUser}>
+        <Form onSubmit={this.handleCreatUser} >
           <Form.Row>
             <Form.Group >
               <Form.Label>First Name</Form.Label>

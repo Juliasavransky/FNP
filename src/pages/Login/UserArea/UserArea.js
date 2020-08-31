@@ -16,14 +16,15 @@ class UserArea extends Component {
 
     render() {
         const { activeUser, ads, allUsers, handleCreatNewAd } = this.props;
-
-        // const ads = userId
-        // const activeUser = allUsers.id
-        const activeUserAds = ads.filter(ad => ad.userId === allUsers.id)
-
-        const activeUserAdsUi = activeUserAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
-
+     
+        const activeUserAds = activeUser && ads.filter((ad)=> {
+            return ad.id === activeUser.id
+        })
+        
+        const activeUserAdsUi = activeUser && activeUserAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        
         return (
+
             <div>
                 <Container>
                 my ads/active/pause/delete<br />
@@ -35,11 +36,11 @@ class UserArea extends Component {
                 </Container>
                 <NewAdModal 
                 ads={ads}
-                // handleLogin={this.handleLogin}
+                handleLogin={this.props.handleLogin}
                 allUsers={allUsers}
-                // handleLogout={this.handleLogout}
-                // handleCreatNewAd={this.handleCreatNewAd}
-                // activeUser={activeUser}
+                handleLogout={this.props.handleLogout}
+                handleCreatNewAd={this.props.handleCreatNewAd}
+                activeUser={activeUser}
                 />
             </div>
         );

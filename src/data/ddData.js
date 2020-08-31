@@ -1,5 +1,21 @@
-// import jsonUsers from '../src/data/users.json';
-// import jsonAds from '../src/data/Ads.json';
+import jsonUsers from '../data/users.json'
+import jsonAds from '../data/Ads.json'
+
+
+ const categorys =(data)=>{
+ const categorysArr= []
+
+const categorysNames= data.forEach((el) => {
+    if(categorysArr.includes(el.categoryName)){
+        return
+    }else{
+        categorysArr.push(el.categoryName)
+    }
+
+})
+return categorysArr
+ }
+
 
 const dataCategoriess = [
     { categoryName: "Clothing", categoryId: 1 },
@@ -52,4 +68,4 @@ const dataLivingAreas = [
 
 ];
 
-export { dataLivingAreas, dataConditions, dataSubCategorys, dataCategoriess};
+export { dataLivingAreas, dataConditions, dataSubCategorys, dataCategoriess, categorys};

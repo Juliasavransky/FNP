@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Button, Modal, Container, Image } from 'react-bootstrap';
-
+import {categorys} from '../../data/ddData'
+import jsonUsers from '../../data/users.json'
+import jsonAds from '../../data/Ads.json'
 
 
 class NewAdModal extends Component {
@@ -54,9 +56,9 @@ class NewAdModal extends Component {
         })
     }
     handleCreatAd(event) {
-
+console.log()
         const { categoryName, subCategoryName, imgInput, DetailsInput, Condition, } = this.state;
-        const { handleCreatNewAd }= this.props
+        // const { handleCreatNewAd }= this.props
 
         const newAd = {
             // categoryName: categorySelectedId,
@@ -66,11 +68,12 @@ class NewAdModal extends Component {
             // Condition: conditionSelected ,
 
         };
+        console.log("handleCreatNewAd",this.props.handleCreatNewAd)
+        console.log("props" ,this.props)
 
 
-
+        // handleCreatNewAd
         this.props.handleCreatNewAd(newAd);
-        console.log("handleCreatNewAd",newAd)
         this.handleModalClose();
     }
 
@@ -84,6 +87,7 @@ class NewAdModal extends Component {
         const { activeUser, ads, allUsers, handleLogin, handleLogout, handleCreatNewAd } = this.props;
         // console.log('handleLogin', handleLogin)
 
+        console.log(categorys(jsonAds))
 
         const categoryOption = ads.map(CategoryName => (
             <option value={CategoryName.CategoryId}>
@@ -208,6 +212,7 @@ class NewAdModal extends Component {
                             </Form.Group>
                             <Image size="sm" 
                             // src={imgURL} 
+                            //  src={imgInput} 
                             className="preview" >
 
                             </Image>
