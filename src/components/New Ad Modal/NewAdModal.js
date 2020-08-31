@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Button, Modal, Container, Image } from 'react-bootstrap';
 import emailjs from 'emailjs-com';
+import jsonUsers from '../../data/users.json'
+import jsonAds from '../../data/Ads.json'
 
 
 
@@ -55,25 +57,38 @@ class NewAdModal extends Component {
         })
     }
     handleCreatAd(event) {
-
         const { categoryName, subCategoryName, imgInput, DetailsInput, Condition, } = this.state;
-        const { handleCreatNewAd }= this.props
-        // const {activeUser}=this.state;
+        // const { handleCreatNewAd }= this.props
 
         const newAd = {
             // categoryName: categorySelectedId,
             // subCategoryName: subCategorySelectedId ,
-            img: imgInput,
+            // img: imgInput,         const imgUTL= URL.createObjectURL(imgInput);
+
             Details: DetailsInput,
             // Condition: conditionSelected ,
 
         };
+        console.log("handleCreatNewAd",this.props.handleCreatNewAd)
+        console.log("props" ,this.props)
 
-        // this.props.handleCreatNewAd(newAd);
-        // console.log("handleCreatNewAd",newAd)
+
+        this.props.handleCreatNewAd(newAd);
         this.handleModalClose();
 
-        // // // //  send an email
+        //  send an email
+        
+         var template_params = {
+            "to_email": this.props.activeUser.email,
+            "ad_name": "ad_name_value",
+            "fname": "fname_value",
+            "lname": "lname_value",
+            "ad_desc": "ad_desc_value"
+         }
+         
+         var service_id = "default_service";
+         var template_id = "new_ad";
+         emailjs.send(service_id, template_id, template_params);
 
         //  var template_params = {
         //     "to_email": this.props.activeUser.email,
@@ -98,20 +113,29 @@ class NewAdModal extends Component {
             filteredAds, imgInput, DetailsInput,
         } = this.state;
 
-        const { activeUser, ads, allUsers, handleLogin, handleLogout, handleCreatNewAd } = this.props;
-        // console.log('handleLogin', handleLogin)
+        const { activeUser, ads, allUsers, handleLogin, handleLogout, handleCreatNewAd  } = this.props;
+     
+        // a function that filters ads with the same category
+        const filterUniqueCategories = () => {
+            let categoryIdsFound = [];
+            let uniqueCategoryAds = [];
+
+            ads.forEach(ad => {
+                if (!categoryIdsFound.includes(ad.CategoryId)) {
+                    categoryIdsFound.push(ad.CategoryId);
+                    uniqueCategoryAds.push(ad);
+                }
+            });
+
+            return uniqueCategoryAds;
+        }
 
 
-        const categoryOption = ads.map(CategoryName => (
-            <option value={CategoryName.CategoryId}>
-                {CategoryName.categoryName}
-            </option>
-        ));
+        const categoryOptions = filterUniqueCategories().map(ad => 
+            <option value={ad.CategoryId}>
+                {ad.categoryName}
+            </option>)
 
-        // const fileredSubCategorys = ads.CategoryId.filter(
-        //    ads.subCategoryName =>
-        //         ad.CategoryId.SubCategoryId == this.state.categorySelectedId
-        // );
         const subCategoryOption = ads.map(subCategoryName => (
             <option value={subCategoryName.SubCategoryId}>
                 {subCategoryName.subCategoryName}
@@ -159,8 +183,8 @@ class NewAdModal extends Component {
                                 name="categorySelectedId"
                                 className="justify-content-center "
                             >
-                                <option value="0">Select A Category</option>
-                                {categoryOption}
+                                <option value="0">Select a Category...</option>
+                                {categoryOptions}
                             </Form.Control>
 
 
@@ -225,6 +249,7 @@ class NewAdModal extends Component {
                             </Form.Group>
                             <Image size="sm" 
                             // src={imgURL} 
+                            //  src={imgInput} 
                             className="preview" >
 
                             </Image>

@@ -1,5 +1,49 @@
-// import jsonUsers from '../src/data/users.json';
-// import jsonAds from '../src/data/Ads.json';
+// import jsonUsers from '../data/users.json'
+// import jsonAds from '../data/Ads.json'
+
+
+// const categorys = (data) => {
+//     const categorysArr = []
+
+//     const categorysNames = data.forEach((el) => {
+//         if (categorysArr.includes(el.categoryName)) {
+//             return
+//         } else {
+//             categorysArr.push(el.categoryName)
+//         }
+
+//     })
+//     return categorysArr
+// }
+
+// const conditions = (data) => {
+//     const conditionsArr = []
+
+//     const conditionName = data.forEach((el) => {
+//         if (conditionsArr.includes(el.conditionName)) {
+//             return
+//         } else {
+//             conditionsArr.push(el.conditionName)
+//         }
+
+//     })
+//     return categorysArr
+// }
+
+// const livingAreas = (data) => {
+//     const livingAreasArr = []
+
+//     const livingAreaName = data.forEach((el) => {
+//         if (livingAreasArr.includes(el.livingAreaName)) {
+//             return
+//         } else {
+//             livingAreasArr.push(el.livingAreaName)
+//         }
+
+//     })
+//     return livingAreasArr
+// }
+
 
 const dataCategoriess = [
     { categoryName: "Clothing", categoryId: 1 },
@@ -22,17 +66,17 @@ const dataSubCategorys = [
     { subCategoryName: "Lego", subCategoryId: 24, categoryId: 2 },
     { subCategoryName: "ToysAndGames-Other", subCategoryId: 25, categoryId: 2 },
 
-    { subCategoryName: "Furniture", subCategoryId: 31, categoryId:3 },
-    { subCategoryName: "Safety", subCategoryId: 32, categoryId:3 },
-    { subCategoryName: "Carriage", subCategoryId: 33, categoryId:3 },
-    { subCategoryName: "Playpen Cradle", subCategoryId: 34, categoryId:3 },
-    { subCategoryName: "ForTheBaybys-Other", subCategoryId: 35, categoryId:3 },
+    { subCategoryName: "Furniture", subCategoryId: 31, categoryId: 3 },
+    { subCategoryName: "Safety", subCategoryId: 32, categoryId: 3 },
+    { subCategoryName: "Carriage", subCategoryId: 33, categoryId: 3 },
+    { subCategoryName: "Playpen Cradle", subCategoryId: 34, categoryId: 3 },
+    { subCategoryName: "ForTheBaybys-Other", subCategoryId: 35, categoryId: 3 },
 
-    { subCategoryName: "pregnancy clothes", subCategoryId: 41, categoryId:4 },
-    { subCategoryName: "Breast Pumps", subCategoryId: 42, categoryId:4 },
-    { subCategoryName: "books", subCategoryId: 43, categoryId:4 },
-    { subCategoryName: "Supplements", subCategoryId: 44, categoryId:4 },
-    { subCategoryName: "ForMoms-Other", subCategoryId: 45, categoryId:4 },
+    { subCategoryName: "pregnancy clothes", subCategoryId: 41, categoryId: 4 },
+    { subCategoryName: "Breast Pumps", subCategoryId: 42, categoryId: 4 },
+    { subCategoryName: "books", subCategoryId: 43, categoryId: 4 },
+    { subCategoryName: "Supplements", subCategoryId: 44, categoryId: 4 },
+    { subCategoryName: "ForMoms-Other", subCategoryId: 45, categoryId: 4 },
 
 ];
 
@@ -40,7 +84,7 @@ const dataConditions = [
     { conditionName: "New", conditionId: 1 },
     { conditionName: "Good", conditionId: 2 },
     { conditionName: "used-in a good condition", conditionId: 3 }
-   
+
 ];
 
 const dataLivingAreas = [
@@ -52,4 +96,6 @@ const dataLivingAreas = [
 
 ];
 
-export { dataLivingAreas, dataConditions, dataSubCategorys, dataCategoriess};
+export { dataLivingAreas, dataConditions, dataSubCategorys, dataCategoriess,
+    //  categorys, conditions, livingAreas 
+    };

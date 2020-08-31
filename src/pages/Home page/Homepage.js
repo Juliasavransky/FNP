@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button, Card, Col, Row } from 'react-bootstrap';
+import { Container, Button, Card, Col, Row, CardColumns } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './homepage.css';
 import Help from '../Footer/Footer';
@@ -15,9 +15,10 @@ class HomePage extends Component {
     console.log(ads);
 
     const allAds = ads.map(ad => (
-      <Col key={ad.id} lg={3} md={4} sm={6}>
-        <AdCard ad={ad} />
-      </Col>
+  
+  
+        <AdCard ad={ad} key={ad.id} />
+      
     ));
 
     return (
@@ -34,7 +35,8 @@ class HomePage extends Component {
             All completely free.  
           </p>
 
-          <Row>{allAds}</Row>
+               <CardColumns> {allAds}</CardColumns>
+
         </Container>
       </div>
     );
