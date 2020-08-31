@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListGroup, Col, Row, Nav, Navbar, Form, Container, } from 'react-bootstrap';
+import { ListGroup, Col, Row, Nav, Navbar, Form, Container, CardColumns } from 'react-bootstrap';
 import AdCard from '../../components/AdCard/AdCard';
 
 
@@ -11,7 +11,7 @@ class ForTheBabys extends Component {
         const ForTheBabysPage = 3
         const ForTheBabysAds = ads.filter(ad => ad.CategoryId === ForTheBabysPage)
 
-        const ForTheBabysAdsUi = ForTheBabysAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const ForTheBabysAdsUi = ForTheBabysAds.map(ad => <AdCard ad={ad} key={ad.id}/>)
 
         return (
             <div className="c-adNavbar">
@@ -30,7 +30,7 @@ class ForTheBabys extends Component {
                     </Navbar.Collapse>
                 </Navbar>
                 <Container>
-                <Row>{ForTheBabysAdsUi}</Row>
+                <CardColumns>{ForTheBabysAdsUi}</CardColumns>
                 <ListGroup variant="flush">
                 </ListGroup>
                 </Container>
