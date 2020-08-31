@@ -4,10 +4,10 @@ import {
   FormControl,
   Button,
   Col,
-  Dropdown,
   Row,
   Container,
-} from 'react-bootstrap';
+}
+ from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdCard from '../../components/AdCard/AdCard';
 import {
@@ -15,7 +15,8 @@ import {
   dataConditions,
   dataSubCategorys,
   dataCategoriess,
-} from '../../data/ddData';
+}
+ from '../../data/ddData';
 import Sorry from '../../components/Sorry we didnt find/sorry';
 
 class SmartAgent extends Component {
@@ -72,9 +73,6 @@ class SmartAgent extends Component {
       conditionSelected,
       livingAreaSelected,
     } = this.state;
-
-    //console.log('searchSelected', this.state.searchSelected);
-    //console.log('livingAreaSelected', this.state.livingAreaSelected);
 
     let filterdcategorys = ads.filter(
       ad => ad.CategoryId === parseInt(categorySelectedId)
