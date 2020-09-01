@@ -94,8 +94,8 @@ class NewAdModal extends Component {
     const template_id = 'new_ad';
     emailjs
       .send(service_id, template_id, template_params)
-      .then(alert('mail was sent'))
-      .catch('mail failed');
+      .then(alert('Email Has Been Sent Succesfully To The User'))
+      .catch('The Email send Has Been failed');
 
     //  var template_params = {
     //     "to_email": this.props.activeUser.email,
@@ -109,17 +109,6 @@ class NewAdModal extends Component {
     //  var template_id = "new_ad";
     //  emailjs.send(service_id, template_id, template_params);
 
-    // var template_params = {
-    //     "to_email": this.props.activeUser.email,
-    //     "ad_name": "ad_name_value",
-    //     "fname": "fname_value",
-    //     "lname": "lname_value",
-    //     "ad_desc": "ad_desc_value"
-    // }
-
-    // var service_id = "default_service";
-    // var template_id = "new_ad";
-    // emailjs.send(service_id, template_id, template_params);
   }
   categoryChange = event => {
     console.log(event.target.value, event.target.name);
