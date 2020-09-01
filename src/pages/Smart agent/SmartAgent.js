@@ -171,6 +171,7 @@ class SmartAgent extends Component {
               Categories
             </Form.Label>
             <Form.Control
+            style={{ width: '22rem' }}
               onChange={this.categoryChange}
               as="select"
               className=""
@@ -190,6 +191,7 @@ class SmartAgent extends Component {
               Sub-Categories
             </Form.Label>
             <Form.Control
+            style={{ width: '22rem' }}
               onChange={this.subCategoryChange}
               as="select"
               className=""
@@ -209,6 +211,7 @@ class SmartAgent extends Component {
               Condition
             </Form.Label>
             <Form.Control
+            style={{ width: '22rem' }}
               onChange={this.changeItemConditions}
               as="select"
               className=""
@@ -228,6 +231,7 @@ class SmartAgent extends Component {
               Living Area
             </Form.Label>
             <Form.Control
+            style={{ width: '22rem' }}
               onChange={this.changeItemLivingArea}
               as="select"
               className=""
@@ -247,6 +251,7 @@ class SmartAgent extends Component {
               Search
             </Form.Label>
             <FormControl
+            style={{ width: '22rem' }}
               value={searchSelected}
               onChange={event =>
                 this.setState({ searchSelected: event.target.value })

@@ -28,10 +28,7 @@ class UserArea extends Component {
 
             <div>
                 <Container>
-               active/pause/delete<br />
                 my smart agent<br />
-              
-
                 my meseges
                 <Row>{activeUserAdsUi}</Row>
                 </Container>
