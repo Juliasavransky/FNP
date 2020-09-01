@@ -26,6 +26,7 @@ class NewAdModal extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleCreatAd = this.handleCreatAd.bind(this);
         this.handleFileChange = this.handleFileChange.bind(this);
+        this.cleanModalData = this.cleanModalData.bind(this);
 
     }
 
@@ -56,17 +57,28 @@ class NewAdModal extends Component {
         })
     }
 
+    cleanModalData(){
+        this.setState({
+            categorySelectedId: null,
+            subCategorySelectedId: null,
+            conditionSelected: null,
+            DetailsInput: "",
+            imgInput: null,
+
+        })
+    }
+
     handleCreatAd(event) {
-        const { categoryName, subCategoryName, imgInput, DetailsInput, Condition, } = this.state;
-        const { handleCreatNewAd }= this.props
+        const {conditionSelected, categoryName, subCategoryName, imgInput, DetailsInput, Condition,categorySelectedId,subCategorySelectedId } = this.state;
+        const { handleCreatNewAd ,activeUser, ads, allUsers}= this.props
 
         const newAd = {
-            // categoryName: categorySelectedId,
-            // subCategoryName: subCategorySelectedId ,
+            categoryName: categorySelectedId,
+            subCategoryName: subCategorySelectedId ,
             img: URL.createObjectURL(imgInput),
-
             Details: DetailsInput,
-            // Condition: conditionSelected ,
+            Condition: conditionSelected ,
+            userId: activeUser.id,
 
         };
         console.log("handleCreatNewAd", this.props.handleCreatNewAd)
@@ -75,6 +87,7 @@ class NewAdModal extends Component {
 
         this.props.handleCreatNewAd(newAd);
         this.handleModalClose();
+        this.cleanModalData();
 
         //  send an email
 
@@ -97,10 +110,12 @@ class NewAdModal extends Component {
     categoryChange = (event) => {
         console.log(event.target.value, event.target.name)
         this.setState({
-            categorySelectedId: parseInt(event.target.value)
+            categorySelectedId: parseInt(event.target.value),
+            subCategorySelectedId: parseInt(event.target.value),
+            conditionSelected: parseInt(event.target.value),
         })
     }
-
+  
     render() {
         const { showNewAdModal, categorySelectedId,
             subCategorySelectedId, conditionSelected,
@@ -222,14 +237,13 @@ class NewAdModal extends Component {
                                 </Form.Control>
 
 
-
                                 <Form.Label
                                     htmlFor="inlineFormCustomSelectPref"
                                 >
                                 </Form.Label>
                                 <Form.Control
                                 style={{ width: '22rem' }}
-                                    value={this.state.categorySelectedId}
+                                    value={this.state.subCategorySelectedId}
                                     onChange={this.handleInputChange}
                                     as="select"
                                     className="justify-content-center"
@@ -249,7 +263,7 @@ class NewAdModal extends Component {
                                 style={{ width: '22rem' }}
                                     onChange={this.categoryChange}
                                     onChange={this.handleInputChange}
-                                    value={this.state.categorySelectedId}
+                                    value={this.state.conditionSelected}
                                     as="select"
                                     className="justify-content-center"
                                     name="conditionSelected"
@@ -258,7 +272,6 @@ class NewAdModal extends Component {
                                     <option value="0">Select Item Condition...</option>
                                     {conditionOptions}
                                 </Form.Control>
-
                                 <Form.Group
                                     controlId="Details"
                                     className="justify-content-center">
