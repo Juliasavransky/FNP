@@ -60,13 +60,14 @@ class NewAdModal extends Component {
     }
     handleCreatAd(event) {
         const { categoryName, subCategoryName, imgInput, DetailsInput, Condition, } = this.state;
+        const{ activeUser}= this.props
         // const { handleCreatNewAd }= this.props
 
         const newAd = {
             // categoryName: categorySelectedId,
             // subCategoryName: subCategorySelectedId ,
             img: URL.createObjectURL(imgInput),
-
+            userId: activeUser,
             Details: DetailsInput,
             // Condition: conditionSelected ,
 
@@ -78,47 +79,21 @@ class NewAdModal extends Component {
         this.props.handleCreatNewAd(newAd);
         this.handleModalClose();
 
-<<<<<<< HEAD
         // //  send an email
-=======
-        //  send an email
         
-         var template_params = {
-            "to_email": this.props.activeUser.email,
-            "ad_name": "ad_name_value",
-            "fname": "fname_value",
-            "lname": "lname_value",
-            "ad_desc": "ad_desc_value"
-         }
-         
-         var service_id = "default_service";
-         var template_id = "new_ad";
-         emailjs.send(service_id, template_id, template_params);
-
         //  var template_params = {
-        //     "to_email": this.props.activeUser.email,
-        //     "ad_name": DetailsInput,
-        //     "fname": this.props.activeUser.fname,
-        //     "lname": this.props.activeUser.lname,
-        //     // "category_name":categorySelectedId,
-        //     // "subcatgory_name":subCategorySelectedId
-        //  }
-        //  var service_id = "default_service";
-        //  var template_id = "new_ad";
-        //  emailjs.send(service_id, template_id, template_params);
->>>>>>> 27bc2d0af0b768177740b684ff01bbcfaf404ed6
-
-        // var template_params = {
         //     "to_email": this.props.activeUser.email,
         //     "ad_name": "ad_name_value",
         //     "fname": "fname_value",
         //     "lname": "lname_value",
         //     "ad_desc": "ad_desc_value"
-        // }
+        //  }
+         
+        //  var service_id = "default_service";
+        //  var template_id = "new_ad";
+        //  emailjs.send(service_id, template_id, template_params);
 
-        // var service_id = "default_service";
-        // var template_id = "new_ad";
-        // emailjs.send(service_id, template_id, template_params);
+ 
 
     }
     categoryChange = (event) => {
@@ -233,7 +208,6 @@ class NewAdModal extends Component {
 
 
                         <Form className="mx-auto d-flex justify-content-between w-50 p-3" inline>
-<<<<<<< HEAD
                             <Form.Label ></Form.Label>
                             <Form.Row>
                                 <Form.Control
@@ -272,65 +246,6 @@ class NewAdModal extends Component {
                                     htmlFor="inlineFormCustomSelectPref"
                                 >
                                 </Form.Label>
-=======
-                            <Form.Label >Categories</Form.Label>
-                              <Form.Row>
-                            <Form.Control
-                                onChange={this.categoryChange}
-                                onSubmit={this.handleInputChange}
-                                value={this.state.categorySelectedId}
-                                as="select"
-                                name="categorySelectedId"
-                                className="justify-content-center "
-                            >
-                                <option value="0">Select a Category...</option>
-                                {categoryOptions}
-                            </Form.Control>
-
-
-
-                            <Form.Label
-                                htmlFor="inlineFormCustomSelectPref"
-                            >
-                                Sub-Categories
-                            </Form.Label>
-                            <Form.Control
-                                onChange={this.categoryChange}
-                                value={this.state.categorySelectedId}
-                                onChange={this.handleInputChange}
-                                as="select"
-                                className="justify-content-center"
-                                name="subCategorySelectedId"
-
-                            >
-                                <option value="0">Select A Category</option>
-                                {subCategoryOption}
-                            </Form.Control>
-
-
-                            <Form.Label
-                                htmlFor="inlineFormCustomSelectPref"
-                            >
-                                Item Condition
-                            </Form.Label>
-                            <Form.Control
-                                onChange={this.categoryChange}
-                                onChange={this.handleInputChange}
-                                value={this.state.categorySelectedId}
-                                as="select"
-                                className="justify-content-center"
-                                name="conditionSelected"
-
-                            >
-                                <option value="0">Select A Category</option>
-                                {itemConditionOption}
-                            </Form.Control>
-
-                            <Form.Group
-                                controlId="Details"
-                                className="justify-content-center">
-                                <Form.Label> Ad Details</Form.Label>
->>>>>>> 27bc2d0af0b768177740b684ff01bbcfaf404ed6
                                 <Form.Control
                                     onChange={this.categoryChange}
                                     onChange={this.handleInputChange}
