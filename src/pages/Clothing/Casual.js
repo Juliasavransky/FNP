@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AdCard from '../../components/AdCard/AdCard'
-import { ListGroup, Row, Col, Navbar, Nav, Form, Container, CardColumns} from 'react-bootstrap';
+import { ListGroup, Row, Col, Navbar, Nav, Form, Container, CardColumns } from 'react-bootstrap';
 
 
 class Casual extends Component {

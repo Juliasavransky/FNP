@@ -26,25 +26,21 @@ class SignUp extends Component {
     this.validate = this.validate.bind(this);
     this.handleCreatUser = this.handleCreatUser.bind(this);
   }
-  
+
   validate = () => {
     // let emailInputError = '';
     // let pwdInputError = '';
 
-  
     if (this.state.pwdInput) {
       this.setState({
-        pwdInputError: true,
+        pwdInputError: false,
       });
     }
 
     if (!this.state.emailInput.includes('@')) {
-       
-        this.setState({
-          emailInputError: true,
-        });
-    
- 
+      this.setState({
+        emailInputError: true,
+      });
     }
   };
   signup = event => {
@@ -56,39 +52,35 @@ class SignUp extends Component {
   handleCreatUser(event) {
     event.preventDefault();
     this.validate();
-console.log( "pwd" ,this.state.pwdInputError)
-console.log("Email", this.state.emailInputError)
+    console.log('pwd', this.state.pwdInputError);
+    console.log('Email', this.state.emailInputError);
 
+    if (!this.state.pwdInputError && !this.state.emailInputError) {
+      const {
+        fnameInput,
+        lnameInput,
+        emailInput,
+        pwdInput,
+        readed,
+        LivingAreaInput,
+        CityInput,
+        StreetNumberInput,
+        ContactInput,
+      } = this.state;
 
-if (this.state.pwdInputError && this.state.emailInputError){
-  const {
-    fnameInput,
-    lnameInput,
-    emailInput,
-    pwdInput,
-    readed,
-    LivingAreaInput,
-    CityInput,
-    StreetNumberInput,
-    ContactInput,
-  } = this.state;
+      const newUser = {
+        fname: fnameInput,
+        lname: lnameInput,
+        email: emailInput,
+        pwd: pwdInput,
+        LivingArea: LivingAreaInput,
+        City: CityInput,
+        StreetNumber: StreetNumberInput,
+        Contact: ContactInput,
+      };
 
-  const newUser = {
-    fname: fnameInput,
-    lname: lnameInput,
-    email: emailInput,
-    pwd: pwdInput,
-    LivingArea: LivingAreaInput,
-    City: CityInput,
-    StreetNumber: StreetNumberInput,
-    Contact: ContactInput,
-  };
-
-  this.props.handleNewUser(newUser);
-  
-}
-
-
+      this.props.handleNewUser(newUser);
+    }
   }
 
   // handelClose();
@@ -113,15 +105,13 @@ if (this.state.pwdInputError && this.state.emailInputError){
       return <Redirect to="/" />;
     }
 
-    
-
     return (
       <div className="c-login">
         <h3> NEW CUSTOMERS</h3>
         <a href="#/signup"></a>
-        <Form onSubmit={this.handleCreatUser} >
+        <Form onSubmit={this.handleCreatUser}>
           <Form.Row>
-            <Form.Group >
+            <Form.Group>
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 value={fnameInput}
@@ -131,7 +121,7 @@ if (this.state.pwdInputError && this.state.emailInputError){
                 placeholder="First Name"
               />
             </Form.Group>
-            <Form.Group >
+            <Form.Group>
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 value={lnameInput}
@@ -142,7 +132,7 @@ if (this.state.pwdInputError && this.state.emailInputError){
               />
             </Form.Group>
 
-            <Form.Group >
+            <Form.Group>
               <Form.Label>Email</Form.Label>
               <Form.Control
                 value={emailInput}
@@ -175,31 +165,30 @@ if (this.state.pwdInputError && this.state.emailInputError){
                 </Alert>
               ) : null}
             </Form.Group>
-          
 
-          <Form.Group >
-            <Form.Label>Phone Number</Form.Label>
-            <Form.Control
-              value={ContactInput}
-              onChange={this.signup}
-              type="text"
-              name="ContactInput"
-              placeholder="Phone Number"
-            />
-          </Form.Group>
+            <Form.Group>
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control
+                value={ContactInput}
+                onChange={this.signup}
+                type="text"
+                name="ContactInput"
+                placeholder="Phone Number"
+              />
+            </Form.Group>
 
-          <Form.Group >
-            <Form.Label>Address</Form.Label>
-            <Form.Control
-              value={StreetNumberInput}
-              onChange={this.signup}
-              placeholder="Main St"
-              type="text"
-              name="StreetNumberInput"
-            />
-          </Form.Group>
+            <Form.Group>
+              <Form.Label>Address</Form.Label>
+              <Form.Control
+                value={StreetNumberInput}
+                onChange={this.signup}
+                placeholder="Main St"
+                type="text"
+                name="StreetNumberInput"
+              />
+            </Form.Group>
 
-            <Form.Group  >
+            <Form.Group>
               <Form.Label>City</Form.Label>
               <Form.Control
                 value={CityInput}
@@ -209,7 +198,7 @@ if (this.state.pwdInputError && this.state.emailInputError){
               />
             </Form.Group>
 
-            <Form.Group >
+            <Form.Group>
               <Form.Label>State</Form.Label>
               <Form.Control
                 value={LivingAreaInput}
@@ -242,7 +231,7 @@ if (this.state.pwdInputError && this.state.emailInputError){
             REGISTER NOW
           </Button>
 
-          <Form.Group >
+          <Form.Group>
             <Form.Check
               onChange={e => this.setState({ readed: e.target.checked })}
               type="checkbox"

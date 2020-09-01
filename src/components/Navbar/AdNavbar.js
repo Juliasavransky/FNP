@@ -11,7 +11,7 @@ import {
 import './adNavbar.css';
 import AdCard from '../../components/AdCard/AdCard';
 import Sorry from '../../components/Sorry we didnt find/sorry';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class AdNavbar extends Component {
   constructor(props) {
@@ -51,6 +51,9 @@ class AdNavbar extends Component {
     this.setState({ filteredAds: filteredAds });
 
     this.props.onSearch(filteredAds);
+
+    // when the user click 'Search', the page should redirtect to '/search-results'
+    this.props.history.push('/search-results');
   };
 
   render() {
@@ -111,7 +114,7 @@ class AdNavbar extends Component {
 
             <Form inline onSubmit={this.search}>
               <FormControl
-                style={{ width: '6rem' }}
+                style={{ width: '14rem' }}
                 value={searchSelected}
                 onChange={e =>
                   this.setState({ searchSelected: e.target.value })
@@ -126,10 +129,9 @@ class AdNavbar extends Component {
             </Form>
           </Navbar.Collapse>
         </Navbar>
-        {search && <Redirect to="search-results" />}
       </div>
     );
   }
 }
 
-export default AdNavbar;
+export default withRouter(AdNavbar);

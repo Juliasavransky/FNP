@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class SendingEmailToUser extends Component {
     
      
-
     render() {
 
         
