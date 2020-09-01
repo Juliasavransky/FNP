@@ -258,10 +258,6 @@ class NewAdModal extends Component {
                   className="justify-content-center"
                   name="subCategorySelectedId"
                 >
-<<<<<<< HEAD
-                    Place An Ad
-                    </Button>
-=======
                   <option value="0">Select A Category</option>
                   {/* {subCategoryOption} */}
                 </Form.Control>
@@ -280,7 +276,6 @@ class NewAdModal extends Component {
                   <option value="0">Select A Category</option>
                   {/* {itemConditionOption} */}
                 </Form.Control>
->>>>>>> 7405f508a0a71932257ac7de5d0473004e896964
 
                 <Form.Group
                   controlId="Details"
