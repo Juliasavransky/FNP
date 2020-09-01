@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { Card, CardColumns, Col, Row, Container, Button } from 'react-bootstrap';
+import {
+  Card,
+  CardColumns,
+  Col,
+  Row,
+  Container,
+  Button,
+} from 'react-bootstrap';
 import AdCard from '../AdCard/AdCard';
 import emailjs from 'emailjs-com';
 
@@ -8,20 +15,17 @@ class ZoomInAd extends Component {
     super(props);
 
     this.state = {
-      showButton: true
-    }
+      showButton: true,
+    };
     this.handleSendEmail = this.handleSendEmail.bind(this);
   }
-
-
- 
 
   handleSendEmail = event => {
     event.preventDefault();
     const { activeUser } = this.props;
-    console.log("activeUser", activeUser)
+    console.log('activeUser', activeUser);
 
-       // //  send an email
+    // //  send an email
 
        var template_params = {
         "to_email": this.props.activeUser.email,
@@ -36,16 +40,26 @@ class ZoomInAd extends Component {
      emailjs.send(service_id, template_id, template_params);
 
     this.setState({
-      showButton: false
+      showButton: false,
     });
   };
 
   render() {
-    const { activeUser, ad, handleLogout, allUsers, handleSendEmail } = this.props;
-    console.log("activeUser", activeUser)
+    const {
+      activeUser,
+      ad,
+      handleLogout,
+      allUsers,
+      handleSendEmail,
+    } = this.props;
+    console.log('activeUser', activeUser);
 
     const sendAnEmail = activeUser ? (
-      <Button onSubmit={() => handleSendEmail()} href="#/emailSending" variant="secondary">
+      <Button
+        onSubmit={() => handleSendEmail()}
+        href="#/emailSending"
+        variant="secondary"
+      >
         Send an Email
       </Button>
     ) : null;
@@ -78,14 +92,17 @@ class ZoomInAd extends Component {
 
           <Card.Img variant="bottom" src={ad.img} />
           {signupUser}
-            {LogInUser}
+          {LogInUser}
           <small className=" m-2 text-muted">Published Date {ad.Date}</small>
-          <Button onSubmit={this.handleSendEmail} className="btn-login" variant="primary" type="submit">
-           
-          Send An Email
-            </Button>
+          <Button
+            onSubmit={this.handleSendEmail}
+            className="btn-login"
+            variant="primary"
+            type="submit"
+          >
+            Send An Email
+          </Button>
         </Card>
-
       </Container>
     );
   }
