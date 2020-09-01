@@ -20,9 +20,9 @@ class ToysAndGames extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto cat">
-                            <Nav.Link className="mr-5" href="/#Dolls">Dolls</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Board Games">Board Games</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Books">Books</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#Dolls">Board Games</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#Board Games">Books</Nav.Link>
+                            <Nav.Link className="mr-5" href="/#Books">Dolls</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Lego">Lego</Nav.Link>
                             <Nav.Link className="mr-5" href="/#Other">Other</Nav.Link>
                         </Nav>
