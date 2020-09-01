@@ -23,17 +23,17 @@ class ZoomInAd extends Component {
 
        // //  send an email
 
-    //    var template_params = {
-    //     "to_email": this.props.activeUser.email,
-    //     // "ad_name": DetailsInput,
-    //     "fname": this.props.activeUser.fname,
-    //     "lname": this.props.activeUser.lname,
-    //     // "category_name":categorySelectedId,
-    //     // "subcatgory_name":subCategorySelectedId
-    //  }
-    //  var service_id = "default_service";
-    //  var template_id = "new_ad";
-    //  emailjs.send(service_id, template_id, template_params);
+       var template_params = {
+        "to_email": this.props.activeUser.email,
+        // "ad_name": DetailsInput,
+        "fname": this.props.activeUser.fname,
+        "lname": this.props.activeUser.lname,
+        // "category_name":categorySelectedId,
+        // "subcatgory_name":subCategorySelectedId
+     }
+     var service_id = "default_service";
+     var template_id = "new_ad";
+     emailjs.send(service_id, template_id, template_params);
 
     this.setState({
       showButton: false
@@ -49,11 +49,13 @@ class ZoomInAd extends Component {
         Send an Email
       </Button>
     ) : null;
-
+        
     const signupUser = !activeUser ? (
       <Button href="#/signup" variant="secondary" className="btn-userLogin">
-        Sign Up
-      </Button>
+      
+        Sign Up 
+      </Button> 
+  
     ) : null;
 
     const LogInUser = !activeUser ? (
@@ -65,14 +67,14 @@ class ZoomInAd extends Component {
     return (
       <Container className="d-flex ">
         <Card
-          className="mx-auto shadow p-3 mb-5 bg-white rounded  m-2"
+          className="mx-auto shadow p-3 mb-5 bg-white rounded  m-2 text-muted card text-center"
           style={{ width: '26rem' }}
         >
           <Card.Title className=" m-2">{ad.Category}</Card.Title>
 
-          <Card.Text className="m-2">Details: {ad.Details}</Card.Text>
+          <Card.Text className="m-2 text-muted card text-center">Details: {ad.Details}</Card.Text>
           <Card.Text></Card.Text>
-          <Card.Text>Condition: {ad.Condition} </Card.Text>
+          <Card.Text className="text-muted card text-center"  >Condition: {ad.Condition} </Card.Text>
 
           <Card.Img variant="bottom" src={ad.img} />
           {signupUser}

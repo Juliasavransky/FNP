@@ -155,7 +155,7 @@ class NewAdModal extends Component {
                 <Button variant="primary"
                     onClick={() => this.setState({ showNewAdModal: true })}
                 >
-                    Place an Ad
+                    Place An Ad
                     </Button>
 
                 <Modal
