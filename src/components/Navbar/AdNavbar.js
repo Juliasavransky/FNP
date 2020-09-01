@@ -103,8 +103,8 @@ class AdNavbar extends Component {
               <Nav.Link className="mr-2" href="/#ForMoms">
                 For Mom's
               </Nav.Link>
-              <Nav.Link className="mr-2" href="/#SmartAgent">
-                Smart Agent
+              <Nav.Link className="mr-4" href="/#SmartAgent">
+                Advanced Search
               </Nav.Link>
               {UserArea}
               {signupUser}
