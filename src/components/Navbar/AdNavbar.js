@@ -77,7 +77,7 @@ class AdNavbar extends Component {
     ) : null;
 
     const UserArea = activeUser ? (
-      <Nav.Link className="mr-4" href="/#UserArea">
+      <Nav.Link className="mr-2" href="/#UserArea">
         User Area
       </Nav.Link>
     ) : null;
@@ -88,19 +88,19 @@ class AdNavbar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat">
-              <Nav.Link className="mr-4" href="/#">
+              <Nav.Link className="mr-2" href="/#">
                 Home
               </Nav.Link>
-              <Nav.Link className="mr-4" href="/#Clothing">
+              <Nav.Link className="mr-2" href="/#Clothing">
                 Clothing
               </Nav.Link>
-              <Nav.Link className="mr-4" href="/#ToysAndGames">
+              <Nav.Link className="mr-2" href="/#ToysAndGames">
                 Toys And games
               </Nav.Link>
-              <Nav.Link className="mr-4" href="/#ForTheBabys">
+              <Nav.Link className="mr-2" href="/#ForTheBabys">
                 For The Baby's
               </Nav.Link>
-              <Nav.Link className="mr-4" href="/#ForMoms">
+              <Nav.Link className="mr-2" href="/#ForMoms">
                 For Mom's
               </Nav.Link>
               <Nav.Link className="mr-4" href="/#SmartAgent">
