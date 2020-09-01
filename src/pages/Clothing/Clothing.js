@@ -9,8 +9,6 @@ class Clothing extends Component {
 
     const ClothingPage = 1;
     const clothingAds = ads.filter(ad => ad.CategoryId === ClothingPage);
-    //  console.log("ads", ads)
-    //  console.log("clothingAds", clothingAds)
     const clothingAdsUi = clothingAds.map(ad => (<AdCard ad={ad} key={ad.id}/>
      
       

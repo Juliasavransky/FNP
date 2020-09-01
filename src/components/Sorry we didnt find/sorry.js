@@ -19,7 +19,7 @@ class Sorry extends Component {
                the smart agent will wait for new ads to be added to the site, which meet the criteria you have set for him. <br></br>
                The search results can be obtained by your email. <br></br> <br></br>
                 
-                <Button type="button" href="/#SmartAgent">Add New Agent</Button>
+                <Button type="button" href="/#newAdModal">Add New Agent</Button>
 
 
 

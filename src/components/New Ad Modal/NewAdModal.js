@@ -313,6 +313,7 @@ class NewAdModal extends Component {
                     <Modal.Footer>
                         <Button variant="secondary"
                             onClick={this.handleModalClose}
+                            onClick={this.cleanModalData}
                         >
                             Cansel
                              </Button>

@@ -80,6 +80,14 @@ class SignUp extends Component {
       };
 
       this.props.handleNewUser(newUser);
+
+      if (newUser) {
+       
+        this.setState({
+          redirectToHome: true
+        });
+      }
+      
     }
   }
 
@@ -102,7 +110,7 @@ class SignUp extends Component {
     } = this.state;
 
     if (redirectToHome) {
-      return <Redirect to="/" />;
+      return <Redirect to="/#" />;
     }
 
     return (

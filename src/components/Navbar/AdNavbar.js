@@ -129,6 +129,11 @@ class AdNavbar extends Component {
             </Form>
           </Navbar.Collapse>
         </Navbar>
+        {filteredAds && filteredAds.length > 0 ? (
+            <Row>{filteredAds}</Row>
+          ) : (
+            search && <Sorry />
+          )}
       </div>
     );
   }
