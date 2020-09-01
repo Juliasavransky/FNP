@@ -114,7 +114,7 @@ class AdNavbar extends Component {
 
             <Form inline onSubmit={this.search}>
               <FormControl
-                style={{ width: '16rem' }}
+                style={{ width: '14rem' }}
                 value={searchSelected}
                 onChange={e =>
                   this.setState({ searchSelected: e.target.value })

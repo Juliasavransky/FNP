@@ -218,7 +218,7 @@ class NewAdModal extends Component {
           variant="primary"
           onClick={() => this.setState({ showNewAdModal: true })}
         >
-          Place an Ad
+          Place An Ad
         </Button>
         <Modal
           size="lg justify-content-center"

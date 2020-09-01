@@ -55,6 +55,7 @@ class ZoomInAd extends Component {
     console.log('activeUser', activeUser);
 
     const sendAnEmail = activeUser ? (
+      
       <Button
         onSubmit={() => handleSendEmail()}
         href="#/emailSending"
