@@ -23,6 +23,7 @@ class ZoomInAd extends Component {
     const { activeUser } = this.props;
     console.log('activeUser', activeUser);
 
+    
     // //  Send An Email
 
     const template_params = {
@@ -40,9 +41,11 @@ class ZoomInAd extends Component {
       .then(alert('Email Has Been Sent Succesfully To The User'))
       .catch('The Email send Has Been failed');
 
-
+      
     this.setState({
       showButton: false,
+
+
     });
   };
 

@@ -26,13 +26,13 @@ class HomePage extends Component {
         <Container>
         
          
-          <p className= "par">
-            <br></br>
+          <p className= "par block-example border border-dark ">
+           
             
           Got stuff you don't need For mothers and/or babies? <br></br>
            We'll find someone to come and take it. <br></br>
            Looking for something? We'll pair you with someone giving it away. <br></br>
-            All completely free.  
+            All completely free.  <br></br>
           </p>
 
                <CardColumns> {allAds}</CardColumns>

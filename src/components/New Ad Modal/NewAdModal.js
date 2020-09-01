@@ -78,8 +78,8 @@ class NewAdModal extends Component {
     //console.log('handleCreatNewAd', this.props.handleCreatNewAd);
     //console.log('props', this.props);
 
-    //this.props.handleCreatNewAd(newAd);
-    //this.handleModalClose();
+    // this.props.handleCreatNewAd(newAd);
+    // this.handleModalClose();
 
     //  send an email
     const template_params = {
