@@ -36,6 +36,8 @@ class Sorry extends Component {
                     handleLogout={this.handleLogout}
                     activeUser={activeUser}
                     handleCreatNewAd={this.handleCreatNewAd}
+                    handleCreatSmartAgent={this.handleCreatSmartAgent}
+
 
                 />
 
