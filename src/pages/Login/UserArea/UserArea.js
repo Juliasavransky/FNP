@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListGroup, Col, Row, Form, Button, Modal, Container } from 'react-bootstrap';
+import { ListGroup, Col, Row, Form, Button, Modal, Container,CardColumns } from 'react-bootstrap';
 import AdCard from '../../../components/AdCard/AdCard'
 import NewAdModal from '../../../components/New Ad Modal/NewAdModal';
 
@@ -22,7 +22,7 @@ class UserArea extends Component {
             return ad.userId === activeUser.id
         })
         
-        const activeUserAdsUi = activeUser && activeUserAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const activeUserAdsUi = activeUser && activeUserAds.map(ad =>  <AdCard key={ad.id} ad={ad} />)
         
         return (
 
@@ -30,7 +30,7 @@ class UserArea extends Component {
                 <Container>
                 my smart agent<br />
                 my meseges
-                <Row>{activeUserAdsUi}</Row>
+                <CardColumns>{activeUserAdsUi}</CardColumns>
                 </Container>
                 <NewAdModal 
                 ads={ads}

@@ -5,8 +5,7 @@ import {
   Form,
   FormControl,
   Button,
-  Col,
-  Row,
+  CardColumns,
 } from 'react-bootstrap';
 import './adNavbar.css';
 import AdCard from '../../components/AdCard/AdCard';
@@ -42,9 +41,7 @@ class AdNavbar extends Component {
     );
 
     const filteredAds = searchAds.map(ad => (
-      <Col key={ad.id} lg={3} md={4} sm={6}>
-        <AdCard ad={ad} />
-      </Col>
+        <AdCard ad={ad} key={ad.id}/>
     ));
 
     this.setState({ search: true });
@@ -57,7 +54,7 @@ class AdNavbar extends Component {
   };
 
   render() {
-    const { activeUser, ads, handleLogout, allUsers } = this.props;
+    const { activeUser, ads, handleLogout, allUsers,handleCreatSmartAgent, requests, searchResults} = this.props;
     const { searchSelected, filteredAds, search } = this.state;
 
     const LogOutUser = activeUser ? (
@@ -130,7 +127,7 @@ class AdNavbar extends Component {
           </Navbar.Collapse>
         </Navbar>
         {filteredAds && filteredAds.length > 0 ? (
-            <Row>{filteredAds}</Row>
+            <CardColumns>{filteredAds}</CardColumns>
           ) : (
             search && <Sorry
             ads={ads}
@@ -139,6 +136,9 @@ class AdNavbar extends Component {
             handleLogout={this.handleLogout}
             activeUser={activeUser}
             handleCreatNewAd={this.handleCreatNewAd}
+            handleCreatSmartAgent={this.handleCreatSmartAgent}
+            requests={requests}
+            searchResults={searchResults}
              />
           )}
       </div>

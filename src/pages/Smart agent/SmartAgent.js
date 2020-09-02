@@ -6,6 +6,7 @@ import {
   Col,
   Row,
   Container,
+  CardColumns
 }
  from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -115,9 +116,9 @@ class SmartAgent extends Component {
     );
 
     const filteredAds = filteredFreeSearch.map(ad => (
-      <Col key={ad.id} lg={3} md={4} sm={6}>
-        <AdCard ad={ad} />
-      </Col>
+     
+        <AdCard key={ad.id}  ad={ad} />
+     
     ));
 
     this.setState({ filteredAds: filteredAds });
@@ -283,7 +284,7 @@ class SmartAgent extends Component {
          
 
           {filteredAds && filteredAds.length > 0 ? (
-            <Row>{filteredAds}</Row>
+            <CardColumns>{filteredAds}</CardColumns>
           ) : (
             search && <Sorry
             ads={ads}
@@ -292,6 +293,9 @@ class SmartAgent extends Component {
             handleLogout={this.handleLogout}
             activeUser={activeUser}
             handleCreatNewAd={this.handleCreatNewAd}
+            handleCreatSmartAgent={this.handleCreatSmartAgent}
+            // requests={requests}
+            // searchResults={searchResults}
              />
           )}
          

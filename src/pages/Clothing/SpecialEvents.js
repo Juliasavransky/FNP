@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AdCard from '../../components/AdCard/AdCard'
-import { ListGroup, Row, Col, Navbar, Nav, Form, Container } from 'react-bootstrap';
+import { ListGroup, Row, Col, Navbar, Nav, Form, Container,CardColumns } from 'react-bootstrap';
 
 class SpecialEvents extends Component {
     render() {
@@ -10,7 +10,7 @@ class SpecialEvents extends Component {
         const SpecialEventsPage = 12
         const SpecialEventsAds = ads.filter(ad => ad.SubCategoryId === SpecialEventsPage)
 
-        const SpecialEventsAdsUi = SpecialEventsAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const SpecialEventsAdsUi = SpecialEventsAds.map(ad =>  <AdCard key={ad.id} ad={ad} />)
         return (
             <div className="c-adNavbar">
                 <Navbar bg="light" expand="lg">
@@ -28,7 +28,7 @@ class SpecialEvents extends Component {
                     </Navbar.Collapse>
                 </Navbar>
                 <Container>
-                <Row>{SpecialEventsAdsUi}</Row>
+                <CardColumns>{SpecialEventsAdsUi}</CardColumns>
                 <ListGroup variant="flush">
                 </ListGroup>
                 </Container>
