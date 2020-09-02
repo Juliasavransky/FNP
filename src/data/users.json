@@ -30,7 +30,7 @@
         "email": "hannakantor@gmail.com",
         "pwd": "456",
         "livingArea": "West",
-        "livingAreaId": "5",
+        "livingAreaId": 5,
         "City": "Rishon-Le-Zion",
         "StreetNumber": "5",
         "Contact": "055678943"
@@ -42,7 +42,7 @@
         "email": "yulia@gmail.com",
         "pwd": "876",
         "livingArea": "North",
-        "livingAreaId": "2",
+        "livingAreaId": 2,
         "City": "Carcur",
         "StreetNumber": "5",
         "Contact": "055678943"
@@ -54,7 +54,7 @@
         "email": "Tal@gmail.com",
         "pwd": "992",
         "livingArea": "Center",
-        "livingAreaId": "1",
+        "livingAreaId": 1,
         "City": "Hulon",
         "StreetNumber": "99",
         "Contact": "098345666"
@@ -66,7 +66,7 @@
         "email": "Bar@gmail.com",
         "pwd": "555",
         "livingArea": "South",
-        "livingAreaId": "4",
+        "livingAreaId": 4,
         "City": "Beer-Sheva",
         "StreetNumber": "44",
         "Contact": "050789543"
@@ -78,7 +78,7 @@
         "email": "mila@gmail.com",
         "pwd": "778",
         "livingArea": "Center",
-        "livingAreaId": "1",
+        "livingAreaId": 1,
         "City": "Tel-Aviv",
         "StreetNumber": "33",
         "Contact": "0523274663"

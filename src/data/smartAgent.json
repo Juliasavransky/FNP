@@ -1,0 +1,17 @@
+[
+    {
+        "id": 9,
+        "CategoryId": 1,
+        "categoryName": "Clothing",
+        "subCategoryName": "Clothing-Other",
+        "SubCategoryId": 15,
+        "img": "https://xcdn.next.co.uk/Common/Items/Default/Default/ItemImages/SearchAlt/224x336/470317.jpg?X56",
+        "Date": "01.03.20",
+        "Details": "Pink 7 Pack Unicorn Socks",
+        "Condition": "New",
+        "conditionId":1,
+        "userId": 3,
+        "livingAreaId": 4
+      },
+      
+]

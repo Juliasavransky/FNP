@@ -59,6 +59,10 @@ class App extends Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.handleCreatNewAd = this.handleCreatNewAd.bind(this);
     this.handleNewUser = this.handleNewUser.bind(this);
+    this.handleCreatSmartAgent = this.handleCreatSmartAgent.bind(this);
+
+
+
   }
 
   componentDidMount() {
@@ -106,6 +110,15 @@ class App extends Component {
       ads: [...this.state.ads, newAd],
     });
     toast.success('New ad Added');
+  }
+
+  handleCreatSmartAgent(newAgent) {
+    console.log('hello');
+    newAgent.id = this.state.agents.length + 1;
+    this.setState({
+      agents: [...this.state.agents, newAgent],
+    });
+    toast.success('New Smart Agent addet');
   }
 
   handleSearch = searchResults => {

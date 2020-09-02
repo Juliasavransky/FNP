@@ -30,9 +30,7 @@ class SignUp extends Component {
   }
 
   validate = () => {
-    // let emailInputError = '';
-    // let pwdInputError = '';
-
+    
     if (this.state.pwdInput) {
       this.setState({
         pwdInputError: false,
@@ -232,19 +230,19 @@ class SignUp extends Component {
                   as="select"
                 >
                   <option value="0">Select a Area...</option>
-                  <option name="jerusalem" value="jerusalem">
+                  <option value="3" name="jerusalem" >
                     Jerusalem
                 </option>
-                  <option name="center" value="center">
+                  <option value="1" name="center" >
                     Center
                 </option>
-                  <option name="north" value="north">
+                  <option value="2"name="north">
                     North
                 </option>
-                  <option name="south" value="south">
+                  <option value="4" name="south" >
                     South
                 </option>
-                  <option name="west" value="west">
+                  <option value="5" name="west" >
                     West
                 </option>
                 </Form.Control>
