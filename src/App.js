@@ -41,6 +41,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NewAdModal from './components/New Ad Modal/NewAdModal';
 import emailjs from 'emailjs-com';
+import RequestForItem from './components/Request for item/RequestForItem';
 emailjs.init('user_92TMg4RqAMZUj3a9Jc5NQ');
 
 class App extends Component {
@@ -389,6 +390,17 @@ class App extends Component {
 
           <Route exact path="/newAdModal">
             <NewAdModal
+              ads={ads}
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+              handleCreatNewAd={this.handleCreatNewAd}
+            />
+          </Route>
+
+          <Route exact path="/requestForItem">
+            <RequestForItem
               ads={ads}
               handleLogin={this.handleLogin}
               allUsers={allUsers}

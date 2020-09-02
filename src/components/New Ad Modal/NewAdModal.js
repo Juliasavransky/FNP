@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import { Form, Button, Modal, Container, Image, Row, Col } from 'react-bootstrap';
 import emailjs from 'emailjs-com';
-import jsonUsers from '../../data/users.json'
-import jsonAds from '../../data/Ads.json'
+// import jsonUsers from '../../data/users.json'
+// import jsonAds from '../../data/Ads.json'
 
 
 
@@ -73,12 +73,13 @@ class NewAdModal extends Component {
         const { handleCreatNewAd ,activeUser, ads, allUsers}= this.props
 
         const newAd = {
-            categoryName: categorySelectedId,
-            subCategoryName: subCategorySelectedId ,
+            CategoryId: categorySelectedId,
+            SubCategoryId: subCategorySelectedId ,
             img: URL.createObjectURL(imgInput),
             Details: DetailsInput,
-            Condition: conditionSelected ,
+            conditionId: conditionSelected ,
             userId: activeUser.id,
+
 
         };
         console.log("handleCreatNewAd", this.props.handleCreatNewAd)
@@ -117,15 +118,15 @@ class NewAdModal extends Component {
     }
   
     render() {
-        const { showNewAdModal, categorySelectedId,
-            subCategorySelectedId, conditionSelected,
-            filteredAds, imgInput, DetailsInput,
+        const { showNewAdModal,
+            imgInput, DetailsInput,
         } = this.state;
 
-        const { activeUser, ads, allUsers, handleLogin, handleLogout, handleCreatNewAd } = this.props;
+        const {  ads  } = this.props;
 
         // a function that filters ads with the same category
         const filterUniqueCategories = () => {
+
             let categoryIdsFound = [];
             let uniqueCategoryAds = [];
 
@@ -133,8 +134,9 @@ class NewAdModal extends Component {
                 if (!categoryIdsFound.includes(ad.CategoryId)) {
                     categoryIdsFound.push(parseInt(ad.CategoryId));
                     uniqueCategoryAds.push(ad);
-                }
+                }     console.log("ad",ad)
             });
+       
 
             return uniqueCategoryAds;
         }
@@ -245,6 +247,7 @@ class NewAdModal extends Component {
                                 style={{ width: '22rem' }}
                                     value={this.state.subCategorySelectedId}
                                     onChange={this.handleInputChange}
+                                    onChange={this.categoryChange}
                                     as="select"
                                     className="justify-content-center"
                                     name="subCategorySelectedId"

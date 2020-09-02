@@ -76,7 +76,6 @@ class ZoomInAd extends Component {
      
     const signupUser = !activeUser ? (
       <Button href="#/signup" variant="secondary" className="btn-userLogin mr-2 mb-3">
-      
         Sign Up 
       </Button> 
   
@@ -93,8 +92,10 @@ class ZoomInAd extends Component {
     // const advertisingUser =  allUsers.fname.indexOf(ad.userId)
     // const advertisingUser =  allUsers.fname.find(ad.userId)
 
+    // const advertisingUser = allUsers.filter(user => (user.id).includes(ad.userId)).map(userFilterd =><div>{userFilterd.fname}</div>);
 
-    
+
+
     // allUsers.map(user => (
     //   <div>{user.fname }</div>
     // ));
