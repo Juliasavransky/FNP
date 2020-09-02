@@ -285,7 +285,14 @@ class SmartAgent extends Component {
           {filteredAds && filteredAds.length > 0 ? (
             <Row>{filteredAds}</Row>
           ) : (
-            search && <Sorry />
+            search && <Sorry
+            ads={ads}
+            handleLogin={this.handleLogin}
+            allUsers={allUsers}
+            handleLogout={this.handleLogout}
+            activeUser={activeUser}
+            handleCreatNewAd={this.handleCreatNewAd}
+             />
           )}
          
         </Container>

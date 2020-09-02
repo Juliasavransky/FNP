@@ -5,7 +5,15 @@ import RequestForItem from '../Request for item/RequestForItem';
 
 
 class Sorry extends Component {
+    constructor(props) {
+        super(props);
+        
+    }
+    
     render() {
+        const {ads, allUsers, activeUser, searchResult }= this.props
+        console.log("props", this.props)
+
         return (
             <div  >
                 <Container className="sorry">
@@ -21,8 +29,15 @@ class Sorry extends Component {
                The search results can be obtained by your email. <br></br> <br></br>
                 
                 <Button type="button" >Add New Agent</Button>
-                {/* <RequestForItem/> */}
-                {/* href="/#newAdModal" */}
+                <RequestForItem
+                    ads={ads}
+                    handleLogin={this.handleLogin}
+                    allUsers={allUsers}
+                    handleLogout={this.handleLogout}
+                    activeUser={activeUser}
+                    handleCreatNewAd={this.handleCreatNewAd}
+
+                />
 
 
 
