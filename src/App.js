@@ -43,7 +43,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import NewAdModal from './components/New Ad Modal/NewAdModal';
 import emailjs from 'emailjs-com';
 import RequestForItem from './components/Request for item/RequestForItem';
-import Sorry from './components/Sorry we didnt find/sorry';
+import Sorry from './components/Sorry we didnt find/Sorry';
 emailjs.init('user_92TMg4RqAMZUj3a9Jc5NQ');
 
 class App extends Component {
@@ -62,9 +62,6 @@ class App extends Component {
     this.handleCreatNewAd = this.handleCreatNewAd.bind(this);
     this.handleNewUser = this.handleNewUser.bind(this);
     this.handleCreatSmartAgent = this.handleCreatSmartAgent.bind(this);
-
-
-
   }
 
   componentDidMount() {
@@ -128,7 +125,7 @@ class App extends Component {
   };
 
   render() {
-    const { activeUser, allUsers, ads, searchResults,requests } = this.state;
+    const { activeUser, allUsers, ads, searchResults, requests } = this.state;
 
     return (
       <div className="App">
@@ -150,7 +147,6 @@ class App extends Component {
               handleLogout={this.handleLogout}
               activeUser={activeUser}
               searchResults={searchResults}
-
             />
           </Route>
 
@@ -358,8 +354,6 @@ class App extends Component {
               activeUser={activeUser}
               searchResults={searchResults}
               requests={requests}
-
-
             />
           </Route>
 
@@ -388,7 +382,6 @@ class App extends Component {
               handleLogout={this.handleLogout}
               activeUser={activeUser}
               searchResults={searchResults}
-
             />
           </Route>
 
@@ -413,7 +406,6 @@ class App extends Component {
               handleCreatNewAd={this.handleCreatNewAd}
               handleCreatSmartAgent={this.handleCreatSmartAgent}
               searchResults={searchResults}
-
             />
           </Route>
 
@@ -426,7 +418,6 @@ class App extends Component {
               activeUser={activeUser}
               handleCreatNewAd={this.handleCreatNewAd}
               searchResults={searchResults}
-
             />
           </Route>
 
@@ -440,7 +431,6 @@ class App extends Component {
               activeUser={activeUser}
               handleCreatSmartAgent={this.handleCreatSmartAgent}
               searchResults={searchResults}
-
             />
           </Route>
 
@@ -455,12 +445,14 @@ class App extends Component {
               handleCreatSmartAgent={this.handleCreatSmartAgent}
               requests={requests}
               searchResults={searchResults}
-
             />
           </Route>
 
           <Route path="/search-results">
-            <SearchResults searchResults={searchResults} />
+            <SearchResults
+              searchResults={searchResults}
+              activeUser={activeUser}
+            />
           </Route>
         </Switch>
       </div>
