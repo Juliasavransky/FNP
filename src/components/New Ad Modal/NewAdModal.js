@@ -122,7 +122,7 @@ class NewAdModal extends Component {
             imgInput, DetailsInput,
         } = this.state;
 
-        const {  ads  } = this.props;
+        const {  ads } = this.props;
 
         // a function that filters ads with the same category
         const filterUniqueCategories = () => {
