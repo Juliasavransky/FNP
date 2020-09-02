@@ -38,6 +38,7 @@ class SmartAgent extends Component {
     this.changeItemConditions = this.changeItemConditions.bind(this);
     this.changeItemLivingArea = this.changeItemLivingArea.bind(this);
     this.search = this.search.bind(this);
+    this.cleanData = this.cleanData.bind(this);
   }
 
   categoryChange = event => {
@@ -64,6 +65,16 @@ class SmartAgent extends Component {
     });
   };
 
+  cleanData(){
+    this.setState({
+      categorySelectedId: null,
+      subCategorySelectedId: null,
+      conditionSelected: null,
+      livingAreaSelected: null,
+      searchSelected: '',
+
+    })
+}
   search = event => {
     const { ads, activeUser, allUsers } = this.props;
     const {
@@ -263,17 +274,27 @@ class SmartAgent extends Component {
           </Form>
           <Button
             className="d-flex justify-content-between mx-auto w-50 p-2 mb-3 "
+            // onClick={this.cleanData}
             onClick={this.search}
             variant="outline-success"
           >
             Search
           </Button>
+         
 
           {filteredAds && filteredAds.length > 0 ? (
             <Row>{filteredAds}</Row>
           ) : (
-            search && <Sorry />
+            search && <Sorry
+            ads={ads}
+            handleLogin={this.handleLogin}
+            allUsers={allUsers}
+            handleLogout={this.handleLogout}
+            activeUser={activeUser}
+            handleCreatNewAd={this.handleCreatNewAd}
+             />
           )}
+         
         </Container>
       </div>
     );

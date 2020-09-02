@@ -129,6 +129,18 @@ class AdNavbar extends Component {
             </Form>
           </Navbar.Collapse>
         </Navbar>
+        {filteredAds && filteredAds.length > 0 ? (
+            <Row>{filteredAds}</Row>
+          ) : (
+            search && <Sorry
+            ads={ads}
+            handleLogin={this.handleLogin}
+            allUsers={allUsers}
+            handleLogout={this.handleLogout}
+            activeUser={activeUser}
+            handleCreatNewAd={this.handleCreatNewAd}
+             />
+          )}
       </div>
     );
   }

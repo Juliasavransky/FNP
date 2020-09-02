@@ -19,7 +19,7 @@ class UserArea extends Component {
         const { activeUser, ads, allUsers, handleCreatNewAd } = this.props;
      
         const activeUserAds = activeUser && ads.filter((ad)=> {
-            return ad.id === activeUser.id
+            return ad.userId === activeUser.id
         })
         
         const activeUserAdsUi = activeUser && activeUserAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)

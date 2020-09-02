@@ -10,7 +10,7 @@
     "Details": "White Fleeze, In A good condition",
     "Condition": "Good",
     "conditionId": 2,
-    "userId": 2,
+    "userId": 3,
     "livingAreaId": 3
   },
   {
@@ -122,7 +122,7 @@
     "Details": "Pink 7 Pack Unicorn Socks",
     "Condition": "New",
     "conditionId":1,
-    "userId": 4,
+    "userId": 3,
     "livingAreaId": 4
   },
   {

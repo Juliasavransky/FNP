@@ -25,12 +25,12 @@ class SignUp extends Component {
     //this.signup = this.signup.bind(this);
     this.validate = this.validate.bind(this);
     this.handleCreatUser = this.handleCreatUser.bind(this);
+    this.cleanData = this.cleanData.bind(this);
+
   }
 
   validate = () => {
-    // let emailInputError = '';
-    // let pwdInputError = '';
-
+    
     if (this.state.pwdInput) {
       this.setState({
         pwdInputError: false,
@@ -79,174 +79,196 @@ class SignUp extends Component {
         Contact: ContactInput,
       };
 
+
       this.props.handleNewUser(newUser);
+
+      if (newUser) {
+
+        this.setState({
+          redirectToHome: true
+        });
+      }
+
     }
+
+
+  }
+  cleanData() {
+    this.setState({
+      fnameInput: '',
+      lnameInput: '',
+      emailInput: '',
+      pwdInput: '',
+      LivingAreaInput: '',
+      CityInput: '',
+      StreetNumberInput: '',
+      ContactInput: '',
+      readed: false,
+    });
   }
 
-  // handelClose();
+    render() {
+      const {
+        emailInputError,
+        pwdInputError,
+        redirectToHome,
+        fnameInput,
+        lnameInput,
+        emailInput,
+        pwdInput,
+        LivingAreaInput,
+        CityInput,
+        StreetNumberInput,
+        ContactInput,
+        readed,
+      } = this.state;
 
-  render() {
-    const {
-      emailInputError,
-      pwdInputError,
-      redirectToHome,
-      fnameInput,
-      lnameInput,
-      emailInput,
-      pwdInput,
-      LivingAreaInput,
-      CityInput,
-      StreetNumberInput,
-      ContactInput,
-      readed,
-    } = this.state;
+      if (redirectToHome) {
+        return <Redirect to="/#" />;
+      }
 
-    if (redirectToHome) {
-      return <Redirect to="/" />;
-    }
+      return (
+        <div className="c-login">
+          <h3> NEW CUSTOMERS</h3>
+          <a href="#/signup"></a>
+          <Form onSubmit={this.handleCreatUser}>
+            <Form.Row>
+              <Form.Group>
+                <Form.Label>First Name</Form.Label>
+                <Form.Control
+                  value={fnameInput}
+                  onChange={this.signup}
+                  type="text"
+                  name="fnameInput"
+                  placeholder="First Name"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control
+                  value={lnameInput}
+                  onChange={this.signup}
+                  type="text"
+                  name="lnameInput"
+                  placeholder="Last Name"
+                />
+              </Form.Group>
 
-    return (
-      <div className="c-login">
-        <h3> NEW CUSTOMERS</h3>
-        <a href="#/signup"></a>
-        <Form onSubmit={this.handleCreatUser}>
-          <Form.Row>
-            <Form.Group>
-              <Form.Label>First Name</Form.Label>
-              <Form.Control
-                value={fnameInput}
-                onChange={this.signup}
-                type="text"
-                name="fnameInput"
-                placeholder="First Name"
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control
-                value={lnameInput}
-                onChange={this.signup}
-                type="text"
-                name="lnameInput"
-                placeholder="Last Name"
-              />
-            </Form.Group>
+              <Form.Group>
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  value={emailInput}
+                  onChange={this.signup}
+                  type="email"
+                  name="emailInput"
+                  placeholder="Enter email"
+                />
 
-            <Form.Group>
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                value={emailInput}
-                onChange={this.signup}
-                type="email"
-                name="emailInput"
-                placeholder="Enter email"
-              />
+                {emailInputError ? (
+                  <Alert variant="danger">
+                    Invalid Credentials! Incorrect Email
+                  </Alert>
+                ) : null}
+              </Form.Group>
 
-              {emailInputError ? (
-                <Alert variant="danger">
-                  Invalid Credentials! Incorrect Email
-                </Alert>
-              ) : null}
-            </Form.Group>
+              <Form.Group controlId="formGridPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  value={pwdInput}
+                  onChange={this.signup}
+                  type="password"
+                  name="pwdInput"
+                  placeholder="Password"
+                />
 
-            <Form.Group controlId="formGridPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                value={pwdInput}
-                onChange={this.signup}
-                type="password"
-                name="pwdInput"
-                placeholder="Password"
-              />
+                {pwdInputError ? (
+                  <Alert variant="danger">
+                    Invalid Credentials! Incorrect Password
+                  </Alert>
+                ) : null}
+              </Form.Group>
 
-              {pwdInputError ? (
-                <Alert variant="danger">
-                  Invalid Credentials! Incorrect Password
-                </Alert>
-              ) : null}
-            </Form.Group>
+              <Form.Group>
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control
+                  value={ContactInput}
+                  onChange={this.signup}
+                  type="text"
+                  name="ContactInput"
+                  placeholder="Phone Number"
+                />
+              </Form.Group>
 
-            <Form.Group>
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control
-                value={ContactInput}
-                onChange={this.signup}
-                type="text"
-                name="ContactInput"
-                placeholder="Phone Number"
-              />
-            </Form.Group>
+              <Form.Group>
+                <Form.Label>Address</Form.Label>
+                <Form.Control
+                  value={StreetNumberInput}
+                  onChange={this.signup}
+                  placeholder="Main St"
+                  type="text"
+                  name="StreetNumberInput"
+                />
+              </Form.Group>
 
-            <Form.Group>
-              <Form.Label>Address</Form.Label>
-              <Form.Control
-                value={StreetNumberInput}
-                onChange={this.signup}
-                placeholder="Main St"
-                type="text"
-                name="StreetNumberInput"
-              />
-            </Form.Group>
+              <Form.Group>
+                <Form.Label>City</Form.Label>
+                <Form.Control
+                  value={CityInput}
+                  onChange={this.signup}
+                  name="CityInput"
+                  type="text"
+                />
+              </Form.Group>
 
-            <Form.Group>
-              <Form.Label>City</Form.Label>
-              <Form.Control
-                value={CityInput}
-                onChange={this.signup}
-                name="CityInput"
-                type="text"
-              />
-            </Form.Group>
-
-            <Form.Group>
-              <Form.Label>State</Form.Label>
-              <Form.Control
-                value={LivingAreaInput}
-                name="LivingAreaInput"
-                // onChange={(e) => this.setState({ LivingAreaInput: e.target.value })}
-                onChange={this.signup}
-                as="select"
-              >
-                <option value="0">Select a Area...</option>
-                <option name="jerusalem" value="jerusalem">
-                  Jerusalem
+              <Form.Group>
+                <Form.Label>State</Form.Label>
+                <Form.Control
+                  value={LivingAreaInput}
+                  name="LivingAreaInput"
+                  // onChange={(e) => this.setState({ LivingAreaInput: e.target.value })}
+                  onChange={this.signup}
+                  as="select"
+                >
+                  <option value="0">Select a Area...</option>
+                  <option value="3" name="jerusalem" >
+                    Jerusalem
                 </option>
-                <option name="center" value="center">
-                  Center
+                  <option value="1" name="center" >
+                    Center
                 </option>
-                <option name="north" value="north">
-                  North
+                  <option value="2"name="north">
+                    North
                 </option>
-                <option name="south" value="south">
-                  South
+                  <option value="4" name="south" >
+                    South
                 </option>
-                <option name="west" value="west">
-                  West
+                  <option value="5" name="west" >
+                    West
                 </option>
-              </Form.Control>
-            </Form.Group>
-          </Form.Row>
+                </Form.Control>
+              </Form.Group>
+            </Form.Row>
 
-          <Button className="btn-register" variant="primary" type="submit">
-            REGISTER NOW
+            <Button onClick={this.cleanData} className="btn-register" variant="primary" type="submit">
+              REGISTER NOW
           </Button>
 
-          <Form.Group>
-            <Form.Check
-              onChange={e => this.setState({ readed: e.target.checked })}
-              type="checkbox"
-              label="Read and Understood"
-            />
-            <Form.Check
-              onChange={e => this.setState({ readed: e.target.checked })}
-              type="checkbox"
-              label="Remember Me"
-            />
-          </Form.Group>
-        </Form>
-      </div>
-    );
+            <Form.Group>
+              <Form.Check
+                onChange={e => this.setState({ readed: e.target.checked })}
+                type="checkbox"
+                label="Read and Understood"
+              />
+              <Form.Check
+                onChange={e => this.setState({ readed: e.target.checked })}
+                type="checkbox"
+                label="Remember Me"
+              />
+            </Form.Group>
+          </Form>
+        </div>
+      );
+    }
   }
-}
 
-export default SignUp;
+  export default SignUp;

@@ -1,52 +1,31 @@
- 
 import React, { Component } from 'react';
 import { Form, Button, Modal, Container, Image, Row, Col } from 'react-bootstrap';
 import emailjs from 'emailjs-com';
-// import jsonUsers from '../../data/users.json'
-// import jsonAds from '../../data/Ads.json'
 
-
-
-class NewAdModal extends Component {
+class RequestForItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
             showNewAdModal: false,
-
             categorySelectedId: null,
             subCategorySelectedId: null,
             conditionSelected: null,
-
+            livingAreaIdSelected: null,
             DetailsInput: "",
-            imgInput: null,
-
             filteredAds: [],
+            sendEmail: null,
         }
         this.handleModalClose = this.handleModalClose.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleCreatAd = this.handleCreatAd.bind(this);
-        this.handleFileChange = this.handleFileChange.bind(this);
         this.cleanModalData = this.cleanModalData.bind(this);
-
     }
+
 
     handleModalClose() {
         this.setState({
             showNewAdModal: false
         })
-    }
-    handleFileChange(event) {
-
-        if (event.target.files[0]) {
-            this.setState({
-                imgInput: event.target.files[0]
-            });
-        } else {
-            this.setState({
-                imgInput: null
-            });
-
-        }
     }
 
     handleInputChange = (event) => {
@@ -57,36 +36,36 @@ class NewAdModal extends Component {
         })
     }
 
-    cleanModalData(){
+    cleanModalData() {
         this.setState({
             categorySelectedId: null,
             subCategorySelectedId: null,
             conditionSelected: null,
             DetailsInput: "",
-            imgInput: null,
-
+            livingAreaIdSelected: null
         })
     }
 
-    handleCreatAd(event) {
-        const {conditionSelected, categoryName, subCategoryName, imgInput, DetailsInput, Condition,categorySelectedId,subCategorySelectedId } = this.state;
-        const { handleCreatNewAd ,activeUser, ads, allUsers}= this.props
+    handleCreatSmartAgent(event) {
+        const { livingAreaIdSelected, conditionSelected,
+             DetailsInput,  categorySelectedId,
+              subCategorySelectedId } = this.state;
+
+        const { handleCreatNewAd, activeUser, ads, allUsers } = this.props
 
         const newAd = {
             CategoryId: categorySelectedId,
-            SubCategoryId: subCategorySelectedId ,
-            img: URL.createObjectURL(imgInput),
+            SubCategoryId: subCategorySelectedId,
             Details: DetailsInput,
-            conditionId: conditionSelected ,
+            conditionId: conditionSelected,
             userId: activeUser.id,
-
-
+            livingAreaId: livingAreaIdSelected
         };
-        console.log("handleCreatNewAd", this.props.handleCreatNewAd)
+        console.log("handleCreatNewAd", this.props.handleCreatSmartAgent)
         console.log("props", this.props)
 
 
-        this.props.handleCreatNewAd(newAd);
+        this.props.handleCreatSmartAgent(newAgent);
         this.handleModalClose();
         this.cleanModalData();
 
@@ -98,11 +77,11 @@ class NewAdModal extends Component {
             fname: 'fname_value',
             lname: 'lname_value',
             ad_desc: 'ad_desc_value',
-          };
-      
-          const service_id = 'default_service';
-          const template_id = 'new_ad';
-          emailjs
+        };
+
+        const service_id = 'default_service';
+        const template_id = 'new_ad';
+        emailjs
             .send(service_id, template_id, template_params)
             .then(alert('Email Has Been Sent Succesfully To The User'))
             .catch('The Email send Has Been failed');
@@ -114,16 +93,20 @@ class NewAdModal extends Component {
             categorySelectedId: parseInt(event.target.value),
             subCategorySelectedId: parseInt(event.target.value),
             conditionSelected: parseInt(event.target.value),
+            livingAreaIdSelected: parseInt(event.target.value),
+            sendEmail: event.target.Check,
         })
     }
-  
+
     render() {
-        const { showNewAdModal,
-            imgInput, DetailsInput,
+
+        const { showNewAdModal, categorySelectedId,
+            subCategorySelectedId, conditionSelected,
+            filteredAds, DetailsInput, livingAreaIdSelected,
         } = this.state;
 
-        const {  ads } = this.props;
-
+        const { activeUser, ads, allUsers, handleLogin, handleLogout, handleCreatNewAd, ad } = this.props;
+        console.log("ads", ads)
         // a function that filters ads with the same category
         const filterUniqueCategories = () => {
 
@@ -134,9 +117,9 @@ class NewAdModal extends Component {
                 if (!categoryIdsFound.includes(ad.CategoryId)) {
                     categoryIdsFound.push(parseInt(ad.CategoryId));
                     uniqueCategoryAds.push(ad);
-                }     console.log("ad",ad)
+                } console.log("ad", ad)
             });
-       
+
 
             return uniqueCategoryAds;
         }
@@ -196,119 +179,127 @@ class NewAdModal extends Component {
                 {ad.Condition}
             </option>)
 
+        // a function that filters ads with the same living Area
+        const filterUniquelivingArea = () => {
+            let livingAreaIdFound = [];
+            let livingAreaIdUsers = [];
 
-        const imgURL = imgInput ? URL.createObjectURL(imgInput) : "";
+
+            allUsers.forEach(user => {
+                if (!livingAreaIdFound.includes(user.livingAreaId)) {
+                    livingAreaIdFound.push(parseInt(user.livingAreaId));
+                    livingAreaIdUsers.push(user);
+                }
+            });
+
+            return livingAreaIdUsers;
+        }
+        const livingAreaOptions = filterUniquelivingArea().map(user =>
+            <option value={user.livingAreaIdFound}>
+                {user.livingArea}
+            </option>)
+
 
         return (
+
             <Container>
 
                 <Button variant="primary"
-                    onClick={() => this.setState({ showNewAdModal: true })}
-                >
-                    Place an Ad
-                    </Button>
+                    onClick={() => this.setState({ showNewAdModal: true })}>
+                    Looking for Item
+                </Button>
                 <Modal
                     size="lg justify-content-center"
                     show={showNewAdModal}
-                    onHide={this.handleModalClose}
-                >
+                    onHide={this.handleModalClose}>
                     <Modal.Header closeButton>
                         <Modal.Title
-                        >New Ad</Modal.Title>
+                        >Creat new Smart agent
+                        </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
 
 
 
 
-                        <Form className="mx-auto d-flex justify-content-between w-50 p-3" inline>
-                            <Form.Label ></Form.Label>
+                        <Form className="mx-auto d-flex justify-content-between w-150 p-3" inline>
                             <Form.Row>
                                 <Form.Control
-                                style={{ width: '22rem' }}
+                                    style={{ width: '22rem' }}
                                     onSubmit={this.handleInputChange}
                                     onChange={this.categoryChange}
                                     value={this.state.categorySelectedId}
                                     as="select"
                                     name="categorySelectedId"
-                                    className="justify-content-center "
-                                >
+                                    className="justify-content-center " >
                                     <option name="categoryOptions"
                                         value="0">Select a Category...</option>
                                     {categoryOptions}
                                 </Form.Control>
 
 
-                                <Form.Label
-                                    htmlFor="inlineFormCustomSelectPref"
-                                >
-                                </Form.Label>
+
+
                                 <Form.Control
-                                style={{ width: '22rem' }}
+                                    style={{ width: '22rem' }}
                                     value={this.state.subCategorySelectedId}
                                     onChange={this.handleInputChange}
                                     onChange={this.categoryChange}
                                     as="select"
                                     className="justify-content-center"
-                                    name="subCategorySelectedId"
-
-                                >
+                                    name="subCategorySelectedId" >
                                     <option value="0">Select a Sub-Category...</option>
                                     {subCategoryOptions}
                                 </Form.Control>
 
 
-                                <Form.Label
-                                    htmlFor="inlineFormCustomSelectPref"
-                                >
-                                </Form.Label>
                                 <Form.Control
-                                style={{ width: '22rem' }}
+                                    style={{ width: '22rem' }}
                                     onChange={this.categoryChange}
                                     onChange={this.handleInputChange}
                                     value={this.state.conditionSelected}
                                     as="select"
                                     className="justify-content-center"
-                                    name="conditionSelected"
-
-                                >
+                                    name="conditionSelected" >
                                     <option value="0">Select Item Condition...</option>
                                     {conditionOptions}
                                 </Form.Control>
+
+
+
+                                <Form.Control
+                                    style={{ width: '22rem' }}
+                                    onChange={this.categoryChange}
+                                    onChange={this.handleInputChange}
+                                    value={this.state.livingAreaIdSelected}
+                                    as="select"
+                                    className="justify-content-center"
+                                    name="livingAreaIdSelected" >
+                                    <option value="0">Select Item living Area...</option>
+                                    {livingAreaOptions}
+                                </Form.Control>
+
+
                                 <Form.Group
                                     controlId="Details"
                                     className="justify-content-center">
-                                    <Form.Label> Ad Details</Form.Label>
                                     <Form.Control
-                                    style={{ width: '22rem' }}
+                                        as="textarea"
+                                        style={{ width: '40rem' }}
+                                        rows="2"
                                         value={DetailsInput}
                                         onChange={this.handleInputChange}
-                                        type="text" name="DetailsInput" placeholder=" Details...." />
-
+                                        type="text" name="DetailsInput" placeholder="Ad Details..." />
                                 </Form.Group>
 
 
-                                <Form.Group
-                                    as={Row}
-                                    controlId="img"
-                                    className="justify-content-center">
-                                    <Form.Label column sm={2}> Img </Form.Label>
-                                    <Col sm={10}>
-                                        <Form.Control
-                                        style={{ width: '22rem' }}
-                                            onChange={this.handleFileChange}
-                                            type="file"
-                                            accept="image/*" />
-                                    </Col>
-                                </Form.Group>
-                                <Image
-                                    size="sm"
-                                    src={imgURL}
-                                    className="preview" >
-                                </Image>
+                                <Form.Check
+                                className="p-4"
+                                    onChange={this.handleInputChange}
+                                    onChange={this.categoryChange}
+                                    type="checkbox"
+                                    label="Send me an Email" />
                             </Form.Row>
-
-
                         </Form>
 
 
@@ -316,21 +307,19 @@ class NewAdModal extends Component {
                     <Modal.Footer>
                         <Button variant="secondary"
                             onClick={this.handleModalClose}
-                            onClick={this.cleanModalData}
-                        >
+                            onClick={this.cleanModalData}>
                             Cansel
-                             </Button>
+                         </Button>
 
                         <Button variant="primary"
-                            onClick={this.handleCreatAd}
-                        >
-                            Creat new Ad
-                             </Button>
+                            onClick={this.handleCreatAd} >
+                            Creat new Smart agent
+                         </Button>
                     </Modal.Footer>
                 </Modal>
-            </Container>
+            </Container >
         );
     }
 }
 
-export default NewAdModal;
+export default RequestForItem;

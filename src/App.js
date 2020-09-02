@@ -41,6 +41,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NewAdModal from './components/New Ad Modal/NewAdModal';
 import emailjs from 'emailjs-com';
+import RequestForItem from './components/Request for item/RequestForItem';
+import Sorry from './components/Sorry we didnt find/sorry';
 emailjs.init('user_92TMg4RqAMZUj3a9Jc5NQ');
 
 class App extends Component {
@@ -57,6 +59,10 @@ class App extends Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.handleCreatNewAd = this.handleCreatNewAd.bind(this);
     this.handleNewUser = this.handleNewUser.bind(this);
+    this.handleCreatSmartAgent = this.handleCreatSmartAgent.bind(this);
+
+
+
   }
 
   componentDidMount() {
@@ -106,6 +112,15 @@ class App extends Component {
     toast.success('New ad Added');
   }
 
+  handleCreatSmartAgent(newAgent) {
+    console.log('hello');
+    newAgent.id = this.state.agents.length + 1;
+    this.setState({
+      agents: [...this.state.agents, newAgent],
+    });
+    toast.success('New Smart Agent addet');
+  }
+
   handleSearch = searchResults => {
     this.setState({ searchResults: searchResults });
   };
@@ -118,6 +133,7 @@ class App extends Component {
         <ToastContainer autoClose={3000} />
         <AdNavbar
           ads={ads}
+          searchResults={searchResults}
           allUsers={allUsers}
           handleLogout={this.handleLogout}
           activeUser={activeUser}
@@ -131,6 +147,8 @@ class App extends Component {
               allUsers={allUsers}
               handleLogout={this.handleLogout}
               activeUser={activeUser}
+              searchResults={searchResults}
+
             />
           </Route>
 
@@ -336,6 +354,8 @@ class App extends Component {
               handleLogout={this.handleLogout}
               allUsers={allUsers}
               activeUser={activeUser}
+              searchResults={searchResults}
+
             />
           </Route>
 
@@ -363,6 +383,8 @@ class App extends Component {
               allUsers={allUsers}
               handleLogout={this.handleLogout}
               activeUser={activeUser}
+              searchResults={searchResults}
+
             />
           </Route>
 
@@ -384,6 +406,8 @@ class App extends Component {
               handleLogout={this.handleLogout}
               activeUser={activeUser}
               handleCreatNewAd={this.handleCreatNewAd}
+              searchResults={searchResults}
+
             />
           </Route>
 
@@ -395,6 +419,34 @@ class App extends Component {
               handleLogout={this.handleLogout}
               activeUser={activeUser}
               handleCreatNewAd={this.handleCreatNewAd}
+              searchResults={searchResults}
+
+            />
+          </Route>
+
+          <Route exact path="/requestForItem">
+            <RequestForItem
+              ads={ads}
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+              handleCreatNewAd={this.handleCreatNewAd}
+              searchResults={searchResults}
+
+            />
+          </Route>
+
+          <Route exact path="/sorry">
+            <Sorry
+              ads={ads}
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+              handleCreatNewAd={this.handleCreatNewAd}
+              searchResults={searchResults}
+
             />
           </Route>
 

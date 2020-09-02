@@ -41,7 +41,7 @@ class login extends Component {
     const { showLogInError, emailInput, pwdInput, redirectToHome } = this.state;
 
     if (redirectToHome) {
-      return <Redirect to="/" />;
+      return <Redirect to="/#" />;
     }
 
     return (

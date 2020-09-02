@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {
   Card,
-  CardColumns,
-   Container,
+  Container,
   Button,
 } from 'react-bootstrap';
 import AdCard from '../AdCard/AdCard';
@@ -53,11 +52,16 @@ class ZoomInAd extends Component {
     const {
       activeUser,
       ad,
+      ads,
       handleLogout,
       allUsers,
       handleSendEmail,
     } = this.props;
-    console.log('activeUser', activeUser);
+    console.log('allUsers Name', ad.userId);
+    console.log('allUsers', allUsers);
+
+
+
 
     const sendAnEmail = activeUser ? (
       
@@ -69,10 +73,9 @@ class ZoomInAd extends Component {
         Send An Email
       </Button>
     ) : null;
-        
+     
     const signupUser = !activeUser ? (
       <Button href="#/signup" variant="secondary" className="btn-userLogin mr-2 mb-3">
-      
         Sign Up 
       </Button> 
   
@@ -84,6 +87,21 @@ class ZoomInAd extends Component {
       </Button>
     ) : null;
 
+    // conct advertisingUser = (ad.userId === allUsers.id)
+
+    // const advertisingUser =  allUsers.fname.indexOf(ad.userId)
+    // const advertisingUser =  allUsers.fname.find(ad.userId)
+
+    // const advertisingUser = allUsers.filter(user => (user.id).includes(ad.userId)).map(userFilterd =><div>{userFilterd.fname}</div>);
+
+
+
+    // allUsers.map(user => (
+    //   <div>{user.fname }</div>
+    // ));
+    // const advertisingUserID = (allUsers.fname)
+
+
     return (
       <Container className="d-flex ">
         <Card
@@ -93,9 +111,20 @@ class ZoomInAd extends Component {
           <Card.Title className=" m-2">{ad.Category}</Card.Title>
 
           <Card.Text className="m-2 text-muted card text-center font-weight-bold">Details: {ad.Details}</Card.Text>
+          <Card.Text className="m-2 text-muted card text-center font-weight-bold">Details: {}</Card.Text>
+          <Card.Text className="m-2 text-muted card text-center font-weight-bold">Details: {}</Card.Text>
+          <Card.Text className="m-2 text-muted card text-center font-weight-bold">Details: {ad.Details}</Card.Text>
+          <Card.Text className="m-2 text-muted card text-center font-weight-bold">Details: {ad.Details}</Card.Text>
+
           <Card.Text></Card.Text>
           <Card.Text className="text-muted card text-center">Condition: {ad.Condition} </Card.Text>
+      
+       {/*users ( "fname": "Hanna",
+        "lname": "Kantor"   
+        "livingArea": "West",)
+(      ads "userId": 3,) */}
 
+       
           <Card.Img variant="bottom" src={ad.img} />
           {signupUser}
           {LogInUser}
