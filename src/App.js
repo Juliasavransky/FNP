@@ -10,6 +10,7 @@ import ToysAndGames from '../src/pages/Toys and games/Toys and games';
 import ForMoms from '../src/pages/For Moms/For Moms';
 import jsonUsers from '../src/data/users.json';
 import jsonAds from '../src/data/Ads.json';
+// import jsonSmartAgent from './data/smartAgent.json';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import Furniture from './pages/For the babys/furniture';
@@ -42,7 +43,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import NewAdModal from './components/New Ad Modal/NewAdModal';
 import emailjs from 'emailjs-com';
 import RequestForItem from './components/Request for item/RequestForItem';
-import Sorry from './components/Sorry we didnt find/sorry';
+import Sorry from './components/Sorry we didnt find/Sorry';
 emailjs.init('user_92TMg4RqAMZUj3a9Jc5NQ');
 
 class App extends Component {
@@ -53,6 +54,7 @@ class App extends Component {
       activeUser: null,
       allUsers: jsonUsers,
       ads: jsonAds,
+      // requests:jsonSmartAgent,
       searchResults: [],
     };
     this.handleLogout = this.handleLogout.bind(this);
@@ -60,9 +62,6 @@ class App extends Component {
     this.handleCreatNewAd = this.handleCreatNewAd.bind(this);
     this.handleNewUser = this.handleNewUser.bind(this);
     this.handleCreatSmartAgent = this.handleCreatSmartAgent.bind(this);
-
-
-
   }
 
   componentDidMount() {
@@ -126,7 +125,7 @@ class App extends Component {
   };
 
   render() {
-    const { activeUser, allUsers, ads, searchResults } = this.state;
+    const { activeUser, allUsers, ads, searchResults, requests } = this.state;
 
     return (
       <div className="App">
@@ -148,7 +147,6 @@ class App extends Component {
               handleLogout={this.handleLogout}
               activeUser={activeUser}
               searchResults={searchResults}
-
             />
           </Route>
 
@@ -355,7 +353,7 @@ class App extends Component {
               allUsers={allUsers}
               activeUser={activeUser}
               searchResults={searchResults}
-
+              requests={requests}
             />
           </Route>
 
@@ -384,7 +382,6 @@ class App extends Component {
               handleLogout={this.handleLogout}
               activeUser={activeUser}
               searchResults={searchResults}
-
             />
           </Route>
 
@@ -401,13 +398,14 @@ class App extends Component {
           <Route exact path="/userArea">
             <UserArea
               ads={ads}
+              requests={requests}
               handleLogin={this.handleLogin}
               allUsers={allUsers}
               handleLogout={this.handleLogout}
               activeUser={activeUser}
               handleCreatNewAd={this.handleCreatNewAd}
+              handleCreatSmartAgent={this.handleCreatSmartAgent}
               searchResults={searchResults}
-
             />
           </Route>
 
@@ -420,7 +418,6 @@ class App extends Component {
               activeUser={activeUser}
               handleCreatNewAd={this.handleCreatNewAd}
               searchResults={searchResults}
-
             />
           </Route>
 
@@ -428,12 +425,12 @@ class App extends Component {
             <RequestForItem
               ads={ads}
               handleLogin={this.handleLogin}
+              requests={requests}
               allUsers={allUsers}
               handleLogout={this.handleLogout}
               activeUser={activeUser}
-              handleCreatNewAd={this.handleCreatNewAd}
+              handleCreatSmartAgent={this.handleCreatSmartAgent}
               searchResults={searchResults}
-
             />
           </Route>
 
@@ -445,13 +442,17 @@ class App extends Component {
               handleLogout={this.handleLogout}
               activeUser={activeUser}
               handleCreatNewAd={this.handleCreatNewAd}
+              handleCreatSmartAgent={this.handleCreatSmartAgent}
+              requests={requests}
               searchResults={searchResults}
-
             />
           </Route>
 
           <Route path="/search-results">
-            <SearchResults searchResults={searchResults} />
+            <SearchResults
+              searchResults={searchResults}
+              activeUser={activeUser}
+            />
           </Route>
         </Switch>
       </div>

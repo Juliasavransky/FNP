@@ -6,8 +6,8 @@ import {
   Col,
   Row,
   Container,
-}
- from 'react-bootstrap';
+  CardColumns,
+} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdCard from '../../components/AdCard/AdCard';
 import {
@@ -15,9 +15,8 @@ import {
   dataConditions,
   dataSubCategorys,
   dataCategoriess,
-}
- from '../../data/ddData';
-import Sorry from '../../components/Sorry we didnt find/sorry';
+} from '../../data/ddData';
+import Sorry from '../../components/Sorry we didnt find/Sorry';
 
 class SmartAgent extends Component {
   constructor(props) {
@@ -65,16 +64,15 @@ class SmartAgent extends Component {
     });
   };
 
-  cleanData(){
+  cleanData() {
     this.setState({
       categorySelectedId: null,
       subCategorySelectedId: null,
       conditionSelected: null,
       livingAreaSelected: null,
       searchSelected: '',
-
-    })
-}
+    });
+  }
   search = event => {
     const { ads, activeUser, allUsers } = this.props;
     const {
@@ -115,9 +113,7 @@ class SmartAgent extends Component {
     );
 
     const filteredAds = filteredFreeSearch.map(ad => (
-      <Col key={ad.id} lg={3} md={4} sm={6}>
-        <AdCard ad={ad} />
-      </Col>
+      <AdCard key={ad.id} ad={ad} />
     ));
 
     this.setState({ filteredAds: filteredAds });
@@ -182,7 +178,7 @@ class SmartAgent extends Component {
               Categories
             </Form.Label>
             <Form.Control
-            style={{ width: '22rem' }}
+              style={{ width: '22rem' }}
               onChange={this.categoryChange}
               as="select"
               className=""
@@ -202,7 +198,7 @@ class SmartAgent extends Component {
               Sub-Categories
             </Form.Label>
             <Form.Control
-            style={{ width: '22rem' }}
+              style={{ width: '22rem' }}
               onChange={this.subCategoryChange}
               as="select"
               className=""
@@ -222,7 +218,7 @@ class SmartAgent extends Component {
               Condition
             </Form.Label>
             <Form.Control
-            style={{ width: '22rem' }}
+              style={{ width: '22rem' }}
               onChange={this.changeItemConditions}
               as="select"
               className=""
@@ -242,7 +238,7 @@ class SmartAgent extends Component {
               Living Area
             </Form.Label>
             <Form.Control
-            style={{ width: '22rem' }}
+              style={{ width: '22rem' }}
               onChange={this.changeItemLivingArea}
               as="select"
               className=""
@@ -262,7 +258,7 @@ class SmartAgent extends Component {
               Search
             </Form.Label>
             <FormControl
-            style={{ width: '22rem' }}
+              style={{ width: '22rem' }}
               value={searchSelected}
               onChange={event =>
                 this.setState({ searchSelected: event.target.value })
@@ -280,21 +276,24 @@ class SmartAgent extends Component {
           >
             Search
           </Button>
-         
 
           {filteredAds && filteredAds.length > 0 ? (
-            <Row>{filteredAds}</Row>
+            <CardColumns>{filteredAds}</CardColumns>
           ) : (
-            search && <Sorry
-            ads={ads}
-            handleLogin={this.handleLogin}
-            allUsers={allUsers}
-            handleLogout={this.handleLogout}
-            activeUser={activeUser}
-            handleCreatNewAd={this.handleCreatNewAd}
-             />
+            search && (
+              <Sorry
+                ads={ads}
+                handleLogin={this.handleLogin}
+                allUsers={allUsers}
+                handleLogout={this.handleLogout}
+                activeUser={activeUser}
+                handleCreatNewAd={this.handleCreatNewAd}
+                handleCreatSmartAgent={this.handleCreatSmartAgent}
+                // requests={requests}
+                // searchResults={searchResults}
+              />
+            )
           )}
-         
         </Container>
       </div>
     );

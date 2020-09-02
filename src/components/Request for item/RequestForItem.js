@@ -6,25 +6,24 @@ class RequestForItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            showNewAdModal: false,
+            showNewAgentModal: false,
             categorySelectedId: null,
             subCategorySelectedId: null,
             conditionSelected: null,
             livingAreaIdSelected: null,
-            DetailsInput: "",
-            filteredAds: [],
+            detailsInput: "",
+            filteredAgents: [],
             sendEmail: null,
         }
         this.handleModalClose = this.handleModalClose.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleCreatAd = this.handleCreatAd.bind(this);
         this.cleanModalData = this.cleanModalData.bind(this);
     }
 
 
     handleModalClose() {
         this.setState({
-            showNewAdModal: false
+            showNewAgentModal: false
         })
     }
 
@@ -41,27 +40,31 @@ class RequestForItem extends Component {
             categorySelectedId: null,
             subCategorySelectedId: null,
             conditionSelected: null,
-            DetailsInput: "",
-            livingAreaIdSelected: null
+            detailsInput: "",
+            livingAreaIdSelected: null,
+
         })
     }
 
     handleCreatSmartAgent(event) {
+
         const { livingAreaIdSelected, conditionSelected,
-             DetailsInput,  categorySelectedId,
-              subCategorySelectedId } = this.state;
+             detailsInput,  categorySelectedId,
+              subCategorySelectedId, 
+              categoryName, subCategoryName, imgInput,
+             Condition,  } = this.state;
 
-        const { handleCreatNewAd, activeUser, ads, allUsers } = this.props
+        const { activeUser, ads, allUsers ,smartAgent} = this.props
 
-        const newAd = {
+        const newAgent = {
             CategoryId: categorySelectedId,
             SubCategoryId: subCategorySelectedId,
-            Details: DetailsInput,
+            Details: detailsInput,
             conditionId: conditionSelected,
             userId: activeUser.id,
             livingAreaId: livingAreaIdSelected
         };
-        console.log("handleCreatNewAd", this.props.handleCreatSmartAgent)
+        console.log("handleCreatSmartAgent", this.props.handleCreatSmartAgent)
         console.log("props", this.props)
 
 
@@ -95,17 +98,18 @@ class RequestForItem extends Component {
             conditionSelected: parseInt(event.target.value),
             livingAreaIdSelected: parseInt(event.target.value),
             sendEmail: event.target.Check,
+
         })
     }
 
     render() {
 
-        const { showNewAdModal, categorySelectedId,
+        const { showNewAgentModal, categorySelectedId, sendEmail,
             subCategorySelectedId, conditionSelected,
-            filteredAds, DetailsInput, livingAreaIdSelected,
+            filteredAgents, detailsInput, livingAreaIdSelected,
         } = this.state;
 
-        const { activeUser, ads, allUsers, handleLogin, handleLogout, handleCreatNewAd, ad } = this.props;
+        const { activeUser, ads, allUsers, handleCreatSmartAgent, ad } = this.props;
         console.log("ads", ads)
         // a function that filters ads with the same category
         const filterUniqueCategories = () => {
@@ -205,12 +209,12 @@ class RequestForItem extends Component {
             <Container>
 
                 <Button variant="primary"
-                    onClick={() => this.setState({ showNewAdModal: true })}>
+                    onClick={() => this.setState({ showNewAgentModal: true })}>
                     Looking for Item
                 </Button>
                 <Modal
                     size="lg justify-content-center"
-                    show={showNewAdModal}
+                    show={showNewAgentModal}
                     onHide={this.handleModalClose}>
                     <Modal.Header closeButton>
                         <Modal.Title
@@ -287,9 +291,9 @@ class RequestForItem extends Component {
                                         as="textarea"
                                         style={{ width: '40rem' }}
                                         rows="2"
-                                        value={DetailsInput}
+                                        value={detailsInput}
                                         onChange={this.handleInputChange}
-                                        type="text" name="DetailsInput" placeholder="Ad Details..." />
+                                        type="text" name="detailsInput" placeholder="Ad Details..." />
                                 </Form.Group>
 
 
@@ -312,7 +316,7 @@ class RequestForItem extends Component {
                          </Button>
 
                         <Button variant="primary"
-                            onClick={this.handleCreatAd} >
+                            onClick={this.handleCreatSmartAgent} >
                             Creat new Smart agent
                          </Button>
                     </Modal.Footer>

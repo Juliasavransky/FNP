@@ -5,12 +5,11 @@ import {
   Form,
   FormControl,
   Button,
-  Col,
-  Row,
+  CardColumns,
 } from 'react-bootstrap';
 import './adNavbar.css';
 import AdCard from '../../components/AdCard/AdCard';
-import Sorry from '../../components/Sorry we didnt find/sorry';
+import Sorry from '../Sorry we didnt find/Sorry';
 import { withRouter } from 'react-router-dom';
 
 class AdNavbar extends Component {
@@ -41,11 +40,7 @@ class AdNavbar extends Component {
         ad.Condition.toLowerCase().includes(searchSelected.toLowerCase())
     );
 
-    const filteredAds = searchAds.map(ad => (
-      <Col key={ad.id} lg={3} md={4} sm={6}>
-        <AdCard ad={ad} />
-      </Col>
-    ));
+    const filteredAds = searchAds.map(ad => <AdCard ad={ad} key={ad.id} />);
 
     this.setState({ search: true });
     this.setState({ filteredAds: filteredAds });
@@ -57,7 +52,15 @@ class AdNavbar extends Component {
   };
 
   render() {
-    const { activeUser, ads, handleLogout, allUsers } = this.props;
+    const {
+      activeUser,
+      ads,
+      handleLogout,
+      allUsers,
+      handleCreatSmartAgent,
+      requests,
+      searchResults,
+    } = this.props;
     const { searchSelected, filteredAds, search } = this.state;
 
     const LogOutUser = activeUser ? (
@@ -129,18 +132,6 @@ class AdNavbar extends Component {
             </Form>
           </Navbar.Collapse>
         </Navbar>
-        {filteredAds && filteredAds.length > 0 ? (
-            <Row>{filteredAds}</Row>
-          ) : (
-            search && <Sorry
-            ads={ads}
-            handleLogin={this.handleLogin}
-            allUsers={allUsers}
-            handleLogout={this.handleLogout}
-            activeUser={activeUser}
-            handleCreatNewAd={this.handleCreatNewAd}
-             />
-          )}
       </div>
     );
   }

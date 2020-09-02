@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AdCard from '../../components/AdCard/AdCard'
-import { ListGroup, Row, Col, Navbar, Nav, Form, Container, } from 'react-bootstrap';
+import { ListGroup, Row, Col, Navbar, Nav, Form, Container, CardColumns } from 'react-bootstrap';
 
 
 class Carriages extends Component {
@@ -11,7 +11,7 @@ class Carriages extends Component {
         const CarriagePage = 33
         const CarriageAds = ads.filter(ad => ad.SubCategoryId === CarriagePage)
 
-        const CarriageAdsUi = CarriageAds.map(ad => <Col key={ad.id} lg={3} md={4} sm={6}><AdCard ad={ad} /></Col>)
+        const CarriageAdsUi = CarriageAds.map(ad => <AdCard key={ad.id}ad={ad} />)
 
         return (
             <div className="c-adNavbar">
@@ -30,7 +30,7 @@ class Carriages extends Component {
                     </Navbar.Collapse>
                 </Navbar>
                 <Container>
-                <Row>{CarriageAdsUi}</Row>
+                <CardColumns>{CarriageAdsUi}</CardColumns>
                 <ListGroup variant="flush">
                 </ListGroup>
                 </Container>

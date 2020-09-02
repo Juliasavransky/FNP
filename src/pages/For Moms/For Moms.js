@@ -12,8 +12,7 @@ class ForMoms extends Component {
     const ForMomsAds = ads.filter(ad => ad.CategoryId === ForMomsPage);
 
     const ForMomsAdsUi = ForMomsAds.map(ad => (<AdCard ad={ad} key={ad.id}/>
-      
-      
+  
     ));
 
     return (

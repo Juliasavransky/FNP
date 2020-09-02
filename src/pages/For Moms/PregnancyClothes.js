@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ListGroup, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdCard from '../../components/AdCard/AdCard';
-import { Navbar, Nav, Form, FormControl, Container } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Container ,CardColumns} from 'react-bootstrap';
 
 class PregnancyClothes extends Component {
   render() {
@@ -14,9 +14,7 @@ class PregnancyClothes extends Component {
     );
 
     const PregnancyClothesAdsUi = PregnancyClothesAds.map(ad => (
-      <Col lg={3} md={4} sm={6}>
-        <AdCard ad={ad} />
-      </Col>
+        <AdCard ad={ad} key={ad.id}/>
     ));
 
     return (
@@ -46,7 +44,7 @@ class PregnancyClothes extends Component {
         </Navbar>
         <Container>
           <ListGroup variant="flush">
-            <Row>{PregnancyClothesAdsUi}</Row>
+            <CardColumns>{PregnancyClothesAdsUi}</CardColumns>
           </ListGroup>
         </Container>
       </div>
