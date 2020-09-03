@@ -86,48 +86,38 @@ class ZoomInAd extends Component {
       </Button>
     ) : null;
 
-    // conct advertisingUser = (ad.userId === allUsers.id)
-
-    // const advertisingUser =  allUsers.fname.indexOf(ad.userId)
-    // const advertisingUser =  allUsers.fname.find(ad.userId)
-
-    // const advertisingUser = allUsers.filter(user => (user.id).includes(ad.userId)).map(userFilterd =><div>{userFilterd.fname}</div>);
-
-    // allUsers.map(user => (
-    //   <div>{user.fname }</div>
-    // ));
-    // const advertisingUserID = (allUsers.fname)
-
     return (
       <Container className="d-flex ">
         <Card
           className="mx-auto shadow p-3 mb-5 bg-white rounded  m-2 text-muted card text-center"
           style={{ width: '26rem' }}
         >
-          <Card.Title className=" m-2">{ad.Category}</Card.Title>
+          <Card.Title className=" m-2">{ad.subCategoryName}</Card.Title>
 
-          <Card.Text className="m-2 text-muted card text-center font-weight-bold">
-            Details: {ad.Details}
-          </Card.Text>
-
-          <Card.Text className="m-2 text-muted card text-center">
-            Condition: {ad.Condition}{' '}
-          </Card.Text>
-
-          <Card.Text className="m-2 text-muted card text-center">
+          <Card.Body className="m-4 text-muted card  ">
+           <div>Details: {ad.Details}</div> 
+           <div>Condition: {ad.Condition}</div> 
             Owner name:{' '}
             {owner.length > 0 ? owner[0].fname + ' ' + owner[0].lname : 'N/A'}
-          </Card.Text>
+            Owner name:{' '}
+            {owner.length > 0 ? owner[0].livingArea + ' ' + "in"+ owner[0].City : 'N/A'}
+        
 
-          {/*users ( "fname": "Hanna",
-        "lname": "Kantor"   
-        "livingArea": "West",)
-(      ads "userId": 3,) */}
+          </Card.Body>
+
+          {/* <Card.Text className="m-2 text-muted card text-center">
+            Condition: {ad.Condition}{' '}
+          </Card.Text> */}
+
+          {/* <Card.Text className="m-2 text-muted card text-center">
+            Owner name:{' '}
+            {owner.length > 0 ? owner[0].fname + ' ' + owner[0].lname : 'N/A'}
+          </Card.Text> */}
 
           <Card.Img variant="bottom" src={ad.img} />
           {signupUser}
           {LogInUser}
-          <small className=" m-2 text-muted">Published Date {ad.Date}</small>
+          
           <Button
             onSubmit={this.handleSendEmail}
             className="btn-login"
@@ -136,6 +126,7 @@ class ZoomInAd extends Component {
           >
             Send An Email
           </Button>
+          <small className=" m-2 text-muted">Published Date {ad.Date}</small>
         </Card>
       </Container>
     );

@@ -61,7 +61,7 @@ class App extends Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.handleCreatNewAd = this.handleCreatNewAd.bind(this);
     this.handleNewUser = this.handleNewUser.bind(this);
-    this.handleCreatSmartAgent = this.handleCreatSmartAgent.bind(this);
+    this.handleCreatSmartNewAgent = this.handleCreatSmartNewAgent.bind(this);
   }
 
   componentDidMount() {
@@ -111,7 +111,7 @@ class App extends Component {
     toast.success('New ad Added');
   }
 
-  handleCreatSmartAgent(newAgent) {
+  handleCreatSmartNewAgent(newAgent) {
     console.log('hello');
     newAgent.id = this.state.agents.length + 1;
     this.setState({
@@ -404,7 +404,7 @@ class App extends Component {
               handleLogout={this.handleLogout}
               activeUser={activeUser}
               handleCreatNewAd={this.handleCreatNewAd}
-              handleCreatSmartAgent={this.handleCreatSmartAgent}
+              handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
               searchResults={searchResults}
             />
           </Route>
@@ -429,7 +429,7 @@ class App extends Component {
               allUsers={allUsers}
               handleLogout={this.handleLogout}
               activeUser={activeUser}
-              handleCreatSmartAgent={this.handleCreatSmartAgent}
+              handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
               searchResults={searchResults}
             />
           </Route>
@@ -442,7 +442,7 @@ class App extends Component {
               handleLogout={this.handleLogout}
               activeUser={activeUser}
               handleCreatNewAd={this.handleCreatNewAd}
-              handleCreatSmartAgent={this.handleCreatSmartAgent}
+              handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
               requests={requests}
               searchResults={searchResults}
             />

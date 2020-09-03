@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button, Modal, Container, Image, Row, Col } from 'react-bootstrap';
+import { Form, Button, Modal, Container, } from 'react-bootstrap';
 import emailjs from 'emailjs-com';
 
 class RequestForItem extends Component {
@@ -17,9 +17,10 @@ class RequestForItem extends Component {
         }
         this.handleModalClose = this.handleModalClose.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.cleanModalData = this.cleanModalData.bind(this);
+        this.cleanAndHideModalData = this.cleanAndHideModalData.bind(this);
+        this.handleCreatSmartAgent = this.handleCreatSmartAgent.bind(this);
     }
-
+    
 
     handleModalClose() {
         this.setState({
@@ -35,13 +36,14 @@ class RequestForItem extends Component {
         })
     }
 
-    cleanModalData() {
+    cleanAndHideModalData() {
         this.setState({
             categorySelectedId: null,
             subCategorySelectedId: null,
             conditionSelected: null,
             detailsInput: "",
             livingAreaIdSelected: null,
+            showNewAgentModal: false
 
         })
     }
@@ -54,7 +56,7 @@ class RequestForItem extends Component {
               categoryName, subCategoryName, imgInput,
              Condition,  } = this.state;
 
-        const { activeUser, ads, allUsers ,smartAgent} = this.props
+        const { activeUser, ads, allUsers ,smartAgent,handleCreatSmartNewAgent} = this.props
 
         const newAgent = {
             CategoryId: categorySelectedId,
@@ -68,9 +70,9 @@ class RequestForItem extends Component {
         console.log("props", this.props)
 
 
-        this.props.handleCreatSmartAgent(newAgent);
-        this.handleModalClose();
-        this.cleanModalData();
+        this.props.handleCreatSmartNewAgent(newAgent);
+        this.cleanAndHideModalData();
+       
 
         //  send an email
 
@@ -94,11 +96,27 @@ class RequestForItem extends Component {
         console.log(event.target.value, event.target.name)
         this.setState({
             categorySelectedId: parseInt(event.target.value),
+        })
+    }
+    subCategoryChange = (event) => {
+        this.setState({
             subCategorySelectedId: parseInt(event.target.value),
+        })
+    }
+    conditionChange = (event) => {
+        this.setState({
             conditionSelected: parseInt(event.target.value),
+        })
+    }
+    livingAreaChange = (event) => {
+        this.setState({
             livingAreaIdSelected: parseInt(event.target.value),
+            // sendEmail: event.target.Check,
+        })
+    }
+    sendEmailChange = (event) => {
+        this.setState({
             sendEmail: event.target.Check,
-
         })
     }
 
@@ -248,7 +266,7 @@ class RequestForItem extends Component {
                                     style={{ width: '22rem' }}
                                     value={this.state.subCategorySelectedId}
                                     onChange={this.handleInputChange}
-                                    onChange={this.categoryChange}
+                                    onChange={this.subCategoryChange}
                                     as="select"
                                     className="justify-content-center"
                                     name="subCategorySelectedId" >
@@ -259,7 +277,7 @@ class RequestForItem extends Component {
 
                                 <Form.Control
                                     style={{ width: '22rem' }}
-                                    onChange={this.categoryChange}
+                                    onChange={this.conditionChange}
                                     onChange={this.handleInputChange}
                                     value={this.state.conditionSelected}
                                     as="select"
@@ -273,7 +291,7 @@ class RequestForItem extends Component {
 
                                 <Form.Control
                                     style={{ width: '22rem' }}
-                                    onChange={this.categoryChange}
+                                    onChange={this.livingAreaChange}
                                     onChange={this.handleInputChange}
                                     value={this.state.livingAreaIdSelected}
                                     as="select"
@@ -300,7 +318,7 @@ class RequestForItem extends Component {
                                 <Form.Check
                                 className="p-4"
                                     onChange={this.handleInputChange}
-                                    onChange={this.categoryChange}
+                                    onChange={this.sendEmailChange}
                                     type="checkbox"
                                     label="Send me an Email" />
                             </Form.Row>
@@ -310,8 +328,7 @@ class RequestForItem extends Component {
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary"
-                            onClick={this.handleModalClose}
-                            onClick={this.cleanModalData}>
+                            onClick={this.cleanAndHideModalData}>
                             Cansel
                          </Button>
 

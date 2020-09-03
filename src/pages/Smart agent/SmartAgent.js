@@ -169,32 +169,26 @@ class SmartAgent extends Component {
 
     return (
       <div>
-        <Container className=" d-flex  flex-column bd-highlight mb-3 mt-5">
-          <Form
-            className="mx-auto  d-flex justify-content-between w-50 p-2"
-            inline
-          >
-            <Form.Label htmlFor="inlineFormCustomSelectPref">
+        <Container className=" d-flex d-flex justify-content-center p-5 m-5">
+          <Form inline>
+            <Form.Label className="d-flex justify-content-center w-50 m-1 p-2" htmlFor="inlineFormCustomSelectPref">
               Categories
             </Form.Label>
             <Form.Control
               style={{ width: '22rem' }}
               onChange={this.categoryChange}
               as="select"
-              className=""
               id="inlineFormCustomSelectPref"
               value={this.state.categorySelectedId}
             >
               <option value="0">Select A Category</option>
               {categoryOption}
             </Form.Control>
-          </Form>
 
-          <Form
-            className="d-flex justify-content-between mx-auto w-50 p-2"
-            inline
-          >
-            <Form.Label className="" htmlFor="inlineFormCustomSelectPref">
+
+
+
+            <Form.Label className="d-flex justify-content-center w-50 p-2 m-1" htmlFor="inlineFormCustomSelectPref">
               Sub-Categories
             </Form.Label>
             <Form.Control
@@ -208,13 +202,11 @@ class SmartAgent extends Component {
               <option value="0">Select A Sub-Category</option>
               {subCategoryOption}
             </Form.Control>
-          </Form>
 
-          <Form
-            className="d-flex justify-content-between mx-auto w-50 p-2 "
-            inline
-          >
-            <Form.Label className="" htmlFor="inlineFormCustomSelectPref">
+
+
+
+            <Form.Label className="d-flex justify-content-center w-50 p-2 m-1" htmlFor="inlineFormCustomSelectPref">
               Condition
             </Form.Label>
             <Form.Control
@@ -223,18 +215,15 @@ class SmartAgent extends Component {
               as="select"
               className=""
               id="inlineFormCustomSelectPref"
-              value={this.state.conditionSelected}
-            >
+              value={this.state.conditionSelected} >
               <option value="0">Select A Condition</option>
               {itemConditionOption}
             </Form.Control>
-          </Form>
 
-          <Form
-            className="d-flex justify-content-between mx-auto w-50 p-2"
-            inline
-          >
-            <Form.Label className="" htmlFor="inlineFormCustomSelectPref">
+
+
+
+            <Form.Label className="d-flex justify-content-center w-50 p-2 m-1" htmlFor="inlineFormCustomSelectPref">
               Living Area
             </Form.Label>
             <Form.Control
@@ -243,18 +232,14 @@ class SmartAgent extends Component {
               as="select"
               className=""
               id="inlineFormCustomSelectPref"
-              value={this.state.livingAreaSelected}
-            >
+              value={this.state.livingAreaSelected} >
               <option value="0">Select An Area</option>
               {dataLivingAreasOption}
             </Form.Control>
-          </Form>
 
-          <Form
-            className="d-flex justify-content-between mx-auto w-50 p-2"
-            inline
-          >
-            <Form.Label className="" htmlFor="inlineFormCustomSelectPref">
+
+
+            <Form.Label className="d-flex justify-content-center w-50 p-2 m-1" htmlFor="inlineFormCustomSelectPref">
               Search
             </Form.Label>
             <FormControl
@@ -267,33 +252,35 @@ class SmartAgent extends Component {
               placeholder="Search"
               className=""
             />
-          </Form>
-          <Button
-            className="d-flex justify-content-between mx-auto w-50 p-2 mb-3 "
-            // onClick={this.cleanData}
-            onClick={this.search}
-            variant="outline-success"
-          >
-            Search
+           
+              <Button
+                className="d-flex justify-content-around btn-block p-2 m-1"
+                // onClick={this.cleanData}
+                onClick={this.search}
+                variant="outline-success"
+              >
+                Search
           </Button>
+           
+          </Form>
 
           {filteredAds && filteredAds.length > 0 ? (
             <CardColumns>{filteredAds}</CardColumns>
           ) : (
-            search && (
-              <Sorry
-                ads={ads}
-                handleLogin={this.handleLogin}
-                allUsers={allUsers}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-                handleCreatNewAd={this.handleCreatNewAd}
-                handleCreatSmartAgent={this.handleCreatSmartAgent}
+              search && (
+                <Sorry
+                  ads={ads}
+                  handleLogin={this.handleLogin}
+                  allUsers={allUsers}
+                  handleLogout={this.handleLogout}
+                  activeUser={activeUser}
+                  handleCreatNewAd={this.handleCreatNewAd}
+                  handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
                 // requests={requests}
                 // searchResults={searchResults}
-              />
-            )
-          )}
+                />
+              )
+            )}
         </Container>
       </div>
     );
