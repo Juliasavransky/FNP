@@ -16,7 +16,7 @@ import {
   dataSubCategorys,
   dataCategoriess,
 } from '../../data/ddData';
-import Sorry from '../../components/Sorry we didnt find/Sorry';
+import Sorry from '../../components/Sorry we didnt find/sorry';
 
 class SmartAgent extends Component {
   constructor(props) {
