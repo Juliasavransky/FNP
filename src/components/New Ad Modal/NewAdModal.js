@@ -309,6 +309,8 @@ class NewAdModal extends Component {
                 <Image size="sm" src={imgURL} className="preview"></Image>
               </Form.Row>
             </Form>
+
+            
           </Modal.Body>
           <Modal.Footer>
             <Button

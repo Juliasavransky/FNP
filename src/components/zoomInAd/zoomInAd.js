@@ -14,7 +14,6 @@ class ZoomInAd extends Component {
     };
     this.handleSendEmail = this.handleSendEmail.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
-    this.handleModalShow = this.handleModalShow.bind(this);
 
 
   }
@@ -25,11 +24,6 @@ class ZoomInAd extends Component {
     });
   }
 
-  handleModalShow = () => {
-    this.setState({
-      showEmailModal: true,
-    });
-  }
 
   handleSendEmail = event => {
     event.preventDefault();
@@ -68,6 +62,7 @@ class ZoomInAd extends Component {
       handleSendEmail,
       showEmailModal,
     } = this.props;
+    
     console.log('allUsers Name', ad.userId);
     console.log('allUsers', allUsers);
 
@@ -78,7 +73,6 @@ class ZoomInAd extends Component {
     const sendAnEmail = activeUser && (
       <Button
         onSubmit={() => handleSendEmail()}
-        onClick={() => handleModalShow()}
         href="#/emailSending"
         variant="secondary">
         Send An Email
@@ -131,8 +125,7 @@ class ZoomInAd extends Component {
 
           <Button
             onSubmit={this.handleSendEmail}
-            // onClick={() => this.setState({ showEmailModal: true })}
-            onClick={this.handleModalShow}
+            onClick={() => this.setState({ showEmailModal: true })}
             className="btn-login"
             variant="primary"
             type="submit">
@@ -141,31 +134,28 @@ class ZoomInAd extends Component {
 
           <small className=" m-2 text-muted">Published Date {ad.Date}</small>
         </Card>
-      </Container>
 
 
+        <Modal 
+        show={showEmailModal}
+        onHide={this.handleModalClose} >
 
-
-      // <Container>
-      //   <Modal show={handleModalShow}
-      //     onHide={handleModalClose} >
-
-      //     <Modal.Header closeButton>
-      //       <Modal.Title>Modal heading</Modal.Title>
-      //     </Modal.Header>
-      //     <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-      //     <Modal.Footer>
-      //       <Button variant="secondary" onClick={handleModalClose}>
-      //         Close
-      //     </Button>
-      //       <Button variant="primary" onClick={handleModalClose}>
-      //         Save Changes
-      //     </Button>
-      //     </Modal.Footer>
-      //   </Modal>
-      // </Container>
-
-     
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" 
+            onClick={this.handleModalClose}>
+              Close
+          </Button>
+            <Button variant="primary"
+             onClick={this.handleModalClose}>
+              Save Changes
+          </Button>
+          </Modal.Footer>
+        </Modal>
+      </Container>     
     );
   }
 }
