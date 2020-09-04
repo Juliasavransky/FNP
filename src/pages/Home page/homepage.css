@@ -1,5 +1,6 @@
-.p-homepage{
+.p-homepage {
     padding: 20px;
+    background-color: white;
 }
 
 .par {
@@ -7,5 +8,6 @@
     font-size: larger;
     text-align: center;
     background-color: peachpuff;
-    
-} 
+    /* border-radius: 10%; */
+    margin-top: 30px;
+}

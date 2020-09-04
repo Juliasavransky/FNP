@@ -21,7 +21,9 @@ class RequestForItem extends Component {
         this.handleCreatSmartAgent = this.handleCreatSmartAgent.bind(this);
     }
     
-
+componentDidMount(){
+    console.log("RequestForItem" , this.props)
+}
     handleModalClose() {
         this.setState({
             showNewAgentModal: false
@@ -56,7 +58,7 @@ class RequestForItem extends Component {
               categoryName, subCategoryName, imgInput,
              Condition,  } = this.state;
 
-        const { activeUser, ads, allUsers ,smartAgent,handleCreatSmartNewAgent} = this.props
+        const { activeUser, ads, allUsers ,smartAgent,handleCreatSmartNewAgent,requests} = this.props
 
         const newAgent = {
             CategoryId: categorySelectedId,
@@ -70,7 +72,7 @@ class RequestForItem extends Component {
         console.log("props", this.props)
 
 
-        this.props.handleCreatSmartNewAgent(newAgent);
+        this.handleCreatSmartNewAgent(newAgent);
         this.cleanAndHideModalData();
        
 
@@ -127,7 +129,7 @@ class RequestForItem extends Component {
             filteredAgents, detailsInput, livingAreaIdSelected,
         } = this.state;
 
-        const { activeUser, ads, allUsers, handleCreatSmartAgent, ad } = this.props;
+        const { activeUser, ads, allUsers, handleCreatSmartAgent, ad, requests } = this.props;
         console.log("ads", ads)
         // a function that filters ads with the same category
         const filterUniqueCategories = () => {
@@ -139,14 +141,14 @@ class RequestForItem extends Component {
                 if (!categoryIdsFound.includes(ad.CategoryId)) {
                     categoryIdsFound.push(parseInt(ad.CategoryId));
                     uniqueCategoryAds.push(ad);
-                } console.log("ad", ad)
+                } 
             });
 
 
             return uniqueCategoryAds;
         }
         const categoryOptions = filterUniqueCategories().map(ad =>
-            <option value={ad.CategoryId}>
+            <option key={ad.id} value={ad.CategoryId}>
                 {ad.categoryName}
             </option>)
 
@@ -172,7 +174,7 @@ class RequestForItem extends Component {
             if (ad.CategoryId === this.state.categorySelectedId) {
                 if (!subOp.includes(ad.subCategoryName)) {
                     subOp.push(ad.subCategoryName);
-                    return <option value={ad.SubCategoryId}>
+                    return <option key={ad.id} value={ad.SubCategoryId}>
                         {ad.subCategoryName}
                     </option>
                 }
@@ -197,7 +199,7 @@ class RequestForItem extends Component {
             return conditionAds;
         }
         const conditionOptions = filterUniqueCondition().map(ad =>
-            <option value={ad.conditionIdFound}>
+            <option key={ad.id} value={ad.conditionIdFound}>
                 {ad.Condition}
             </option>)
 
@@ -207,17 +209,18 @@ class RequestForItem extends Component {
             let livingAreaIdUsers = [];
 
 
-            allUsers.forEach(user => {
+            allUsers && allUsers.forEach(user => {
                 if (!livingAreaIdFound.includes(user.livingAreaId)) {
                     livingAreaIdFound.push(parseInt(user.livingAreaId));
                     livingAreaIdUsers.push(user);
+                    
                 }
             });
 
             return livingAreaIdUsers;
         }
         const livingAreaOptions = filterUniquelivingArea().map(user =>
-            <option value={user.livingAreaIdFound}>
+            <option key={user.id} value={user.livingAreaIdFound}>
                 {user.livingArea}
             </option>)
 

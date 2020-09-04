@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 import RequestForItem from '../Request for item/RequestForItem';
 
 class SearchResults extends Component {
+  componentDidMount(){
+    console.log("SearchResults" , this.props)
+}
   render() {
+
     return (
       <Container>
         {this.props.searchResults.length === 0 ? (
@@ -26,7 +30,15 @@ class SearchResults extends Component {
             The search results can be obtained by your email. <br></br>{' '}
             <br></br>
             {this.props.activeUser ? (
-              <RequestForItem/>
+              <RequestForItem 
+              ads={this.props.ads}
+              handleLogin={this.props.handleLogin}
+              allUsers={this.props.allUsers}
+              handleLogout={this.props.handleLogout}
+              activeUser={this.props.activeUser}
+              handleCreatNewAd={this.props.handleCreatNewAd}
+              handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
+              />
             ) : (
               <Link to="/Login">Please sign-in</Link>
             )}

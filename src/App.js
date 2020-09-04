@@ -10,7 +10,7 @@ import ToysAndGames from '../src/pages/Toys and games/Toys and games';
 import ForMoms from '../src/pages/For Moms/For Moms';
 import jsonUsers from '../src/data/users.json';
 import jsonAds from '../src/data/Ads.json';
-// import jsonSmartAgent from './data/smartAgent.json';
+import jsonSmartAgent from './data/smartAgent.json';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import Furniture from './pages/For the babys/furniture';
@@ -47,6 +47,10 @@ import Sorry from './components/Sorry we didnt find/sorry';
 emailjs.init('user_92TMg4RqAMZUj3a9Jc5NQ');
 
 class App extends Component {
+
+  componentDidMount(){
+    console.log("props from app" , this.props)
+}
   constructor(props) {
     super(props);
 
@@ -54,7 +58,7 @@ class App extends Component {
       activeUser: null,
       allUsers: jsonUsers,
       ads: jsonAds,
-      // requests:jsonSmartAgent,
+      requests:jsonSmartAgent,
       searchResults: [],
     };
     this.handleLogout = this.handleLogout.bind(this);
@@ -112,10 +116,10 @@ class App extends Component {
   }
 
   handleCreatSmartNewAgent(newAgent) {
-    console.log('hello');
-    newAgent.id = this.state.agents.length + 1;
+    console.log('handleCreatSmartNewAgent-App');
+    newAgent.id = this.state.requests.length + 1;
     this.setState({
-      agents: [...this.state.agents, newAgent],
+      requests: [...this.state.requests, newAgent],
     });
     toast.success('New Smart Agent addet');
   }
@@ -354,6 +358,8 @@ class App extends Component {
               activeUser={activeUser}
               searchResults={searchResults}
               requests={requests}
+              handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
+
             />
           </Route>
 
@@ -382,6 +388,8 @@ class App extends Component {
               handleLogout={this.handleLogout}
               activeUser={activeUser}
               searchResults={searchResults}
+              handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
+
             />
           </Route>
 
@@ -417,6 +425,7 @@ class App extends Component {
               handleLogout={this.handleLogout}
               activeUser={activeUser}
               handleCreatNewAd={this.handleCreatNewAd}
+              handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
               searchResults={searchResults}
             />
           </Route>

@@ -167,120 +167,138 @@ class SmartAgent extends Component {
     // const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
 
     return (
+      <>
+        <Container
+          className=" d-flex justify-content-center w-50 p-5">
+          <Form
+          // className=" d-flex justify-content-center"
+          >
 
-      <Container className=" p-5 m-5">
-        <Form inline>
-        <FormGroup>
-          <Form.Label className="d-flex  justify-content-between  m-1 p-2" 
-          htmlFor="inlineFormCustomSelectPref">
-            Categories
+            <FormGroup >
+              <Form.Label
+                // className="d-flex justify-content-between w-100 p-2 m-1"
+                htmlFor="inlineFormCustomSelectPref">
+                Categories
             </Form.Label>
-          <Form.Control
-            style={{ width: '22rem' }}
-            onChange={this.categoryChange}
-            as="select"
-            id="inlineFormCustomSelectPref"
-            value={this.state.categorySelectedId} >
-            <option value="0">Select A Category</option>
-            {categoryOption}
-          </Form.Control>
+              <Form.Control
+                inline
+                style={{ width: '22rem' }}
+                onChange={this.categoryChange}
+                as="select"
+                id="inlineFormCustomSelectPref"
+                value={this.state.categorySelectedId} >
+                <option value="0">Select A Category</option>
+                {categoryOption}
+              </Form.Control>
+            </FormGroup>
 
 
 
-
-          <Form.Label inline className="d-flex justify-content-between w-100 p-2 m-1" 
-          htmlFor="inlineFormCustomSelectPref">
-            Sub-Categories
+            <FormGroup>
+              <Form.Label
+                // className="d-flex justify-content-between w-100 p-2 m-1"
+                htmlFor="inlineFormCustomSelectPref">
+                Sub-Categories
             </Form.Label>
-          <Form.Control
-            style={{ width: '22rem' }}
-            onChange={this.subCategoryChange}
-            as="select"
-            className=""
-            id="inlineFormCustomSelectPref"
-            value={this.state.subCategorySelectedId} >
-            <option value="0">Select A Sub-Category</option>
-            {subCategoryOption}
-          </Form.Control>
+              <Form.Control
+                style={{ width: '22rem' }}
+                onChange={this.subCategoryChange}
+                as="select"
+                className=""
+                id="inlineFormCustomSelectPref"
+                value={this.state.subCategorySelectedId} >
+                <option value="0">Select A Sub-Category</option>
+                {subCategoryOption}
+              </Form.Control>
+            </FormGroup>
 
 
 
-
-          <Form.Label inlineclassName="d-flex  justify-content-between  p-2 m-1" 
-          htmlFor="inlineFormCustomSelectPref">
-            Condition
+            <FormGroup>
+              <Form.Label
+                // className="d-flex justify-content-between w-100 p-2 m-1"
+                htmlFor="inlineFormCustomSelectPref">
+                Condition
             </Form.Label>
-          <Form.Control
-            style={{ width: '22rem' }}
-            onChange={this.changeItemConditions}
-            as="select"
-            className=""
-            id="inlineFormCustomSelectPref"
-            value={this.state.conditionSelected} >
-            <option value="0">Select A Condition</option>
-            {itemConditionOption}
-          </Form.Control>
+              <Form.Control
+                style={{ width: '22rem' }}
+                onChange={this.changeItemConditions}
+                as="select"
+                className=""
+                id="inlineFormCustomSelectPref"
+                value={this.state.conditionSelected} >
+                <option value="0">Select A Condition</option>
+                {itemConditionOption}
+              </Form.Control>
+            </FormGroup>
 
 
 
-
-          <Form.Label className="d-flex  justify-content-between p-2 m-1" 
-          htmlFor="inlineFormCustomSelectPref">
-            Living Area
+            <FormGroup>
+              <Form.Label
+                // className="d-flex justify-content-between w-100 p-2 m-1"
+                htmlFor="inlineFormCustomSelectPref">
+                Living Area
             </Form.Label>
-          <Form.Control
-            style={{ width: '22rem' }}
-            onChange={this.changeItemLivingArea}
-            as="select"
-            className=""
-            id="inlineFormCustomSelectPref"
-            value={this.state.livingAreaSelected} >
-            <option value="0">Select An Area</option>
-            {dataLivingAreasOption}
-          </Form.Control>
+              <Form.Control
+                style={{ width: '22rem' }}
+                onChange={this.changeItemLivingArea}
+                as="select"
+                className=""
+                id="inlineFormCustomSelectPref"
+                value={this.state.livingAreaSelected} >
+                <option value="0">Select An Area</option>
+                {dataLivingAreasOption}
+              </Form.Control>
+            </FormGroup>
 
 
-
-          <Form.Label className="d-flex  justify-content-between p-2 m-1" 
-          htmlFor="inlineFormCustomSelectPref">
-            Search
+            <FormGroup>
+              <Form.Label
+                //  className="d-flex justify-content-between w-100 p-2 m-1"
+                htmlFor="inlineFormCustomSelectPref">
+                Search
             </Form.Label>
-          <FormControl
-            style={{ width: '22rem' }}
-            value={searchSelected}
-            onChange={event =>
-              this.setState({ searchSelected: event.target.value }) }
-            type="text"
-            placeholder="Search"
-            className=""/>
+              <FormControl
+                style={{ width: '22rem' }}
+                value={searchSelected}
+                onChange={event =>
+                  this.setState({ searchSelected: event.target.value })}
+                type="text"
+                placeholder="Search"
+                className="" />
 
-          <Button
-            className="d-flex  justify-content-between btn-block p-2 m-1"
-            // onClick={this.cleanData}
-            onClick={this.search}
-            variant="outline-success">
-            Search
+              <Button
+                // className="btn btn-block"
+                // onClick={this.cleanData}
+                block
+                onClick={this.search}
+                variant="outline-success">
+                Search
           </Button>
-          </FormGroup>
+            </FormGroup>
 
-        </Form>
+          </Form>
+        </Container>
 
-        {filteredAds && filteredAds.length > 0 ? (
-          <CardColumns>{filteredAds}</CardColumns>
-        ) : (
-            search && (
-              <Sorry
-                ads={ads}
-                handleLogin={this.handleLogin}
-                allUsers={allUsers}
-                handleLogout={this.handleLogout}
-                activeUser={activeUser}
-                handleCreatNewAd={this.handleCreatNewAd}
-                handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
-              />
-            )
-          )}
-      </Container>
+        <Container>
+          {filteredAds && filteredAds.length > 0 ? (
+            <CardColumns>{filteredAds}</CardColumns>
+          ) : (
+              search && (
+                <Sorry
+                  ads={this.props.ads}
+                  handleLogin={this.props.handleLogin}
+                  allUsers={this.props.allUsers}
+                  handleLogout={this.props.handleLogout}
+                  activeUser={this.props.activeUser}
+                  handleCreatNewAd={this.props.handleCreatNewAd}
+                  handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
+                />
+              )
+            )}
+        </Container>
+      </>
     );
   }
 }

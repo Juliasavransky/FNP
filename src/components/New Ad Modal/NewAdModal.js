@@ -9,8 +9,6 @@ import {
   Col,
 } from 'react-bootstrap';
 import emailjs from 'emailjs-com';
-// import jsonUsers from '../../data/users.json'
-// import jsonAds from '../../data/Ads.json'
 
 class NewAdModal extends Component {
   constructor(props) {
@@ -71,6 +69,7 @@ class NewAdModal extends Component {
       categorySelectedId,
       subCategorySelectedId,
     } = this.state;
+    
     const { handleCreatNewAd, activeUser, ads, allUsers } = this.props;
 
   
