@@ -43,7 +43,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import NewAdModal from './components/New Ad Modal/NewAdModal';
 import emailjs from 'emailjs-com';
 import RequestForItem from './components/Request for item/RequestForItem';
-import Sorry from './components/Sorry we didnt find/Sorry';
+import Sorry from './components/Sorry we didnt find/Sorry'
 emailjs.init('user_92TMg4RqAMZUj3a9Jc5NQ');
 
 class App extends Component {

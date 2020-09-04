@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import { Container, Button, Card, Col, Row, CardColumns, Jumbotron } from 'react-bootstrap';
-=======
-import { Container, CardColumns } from 'react-bootstrap';
->>>>>>> 61c2ce61b150a42b4010cebbe1954dc9ebc3f970
+import { Container, CardColumns,Jumbotron  } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './homepage.css';
 import Help from '../Footer/Footer';

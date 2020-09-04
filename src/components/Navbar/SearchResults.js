@@ -33,7 +33,7 @@ class SearchResults extends Component {
             The search results can be obtained by your email. <br></br>{' '}
             <br></br>
             {this.props.activeUser ? (
-<<<<<<< HEAD
+
               <RequestForItem 
               ads={this.props.ads}
               handleLogin={this.props.handleLogin}
@@ -43,15 +43,7 @@ class SearchResults extends Component {
               handleCreatNewAd={this.props.handleCreatNewAd}
               handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
               />
-=======
-<<<<<<< HEAD
-
-            
-              <Link to="/requestForItem">Try Out Smart Agent</Link>
-=======
-              <RequestForItem/>
->>>>>>> d5ea63334d90c7385543fedf57f1f72003f6a740
->>>>>>> 61c2ce61b150a42b4010cebbe1954dc9ebc3f970
+              // <Link to="/requestForItem">Try Out Smart Agent</Link>
             ) : (
               
               <Link to="/Login">Registered Users Login</Link>

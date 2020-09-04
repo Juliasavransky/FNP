@@ -331,14 +331,8 @@ componentDidMount(){
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary"
-<<<<<<< HEAD
-                            onClick={this.handleModalClose}
-                            onClick={this.cleanModalData}>
-                            Cancel
-=======
                             onClick={this.cleanAndHideModalData}>
-                            Cansel
->>>>>>> d5ea63334d90c7385543fedf57f1f72003f6a740
+                            Cancel
                          </Button>
 
                         <Button variant="primary"
