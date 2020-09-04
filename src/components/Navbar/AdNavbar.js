@@ -5,11 +5,10 @@ import {
   Form,
   FormControl,
   Button,
-  CardColumns,
 } from 'react-bootstrap';
 import './adNavbar.css';
 import AdCard from '../../components/AdCard/AdCard';
-import Sorry from '../Sorry we didnt find/sorry';
+import Sorry from '../Sorry we didnt find/Sorry';
 import { withRouter } from 'react-router-dom';
 
 class AdNavbar extends Component {
@@ -91,7 +90,7 @@ class AdNavbar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat">
-              <Nav.Link className="mr-2" href="/#">
+              <Nav.Link className="mr-2 fas fa-baby-carriage" href="/#"> 
                 Home
               </Nav.Link>
               <Nav.Link className="mr-2" href="/#Clothing">

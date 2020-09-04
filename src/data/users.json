@@ -8,7 +8,7 @@
         "livingArea": "Jerusalem",
         "livingAreaId": 3,
         "City": "Jerusalem",
-        "StreetNumber": "20",
+        "StreetNumber": " Balfur 20",
         "Contact": "0976789661"
     },
     {
@@ -17,10 +17,10 @@
         "lname": "Doe",
         "email": "sara@sara.com",
         "pwd": "321",
-        "livingArea": "South",
+        "livingArea": "North",
         "livingAreaId": 4,
         "City": "Carmiel",
-        "StreetNumber": "13",
+        "StreetNumber": " Smadar 13",
         "Contact": "0545679117"
     },
     {
@@ -32,7 +32,7 @@
         "livingArea": "West",
         "livingAreaId": 5,
         "City": "Rishon-Le-Zion",
-        "StreetNumber": "5",
+        "StreetNumber": "Heyl Ha-Tzanhanim 5",
         "Contact": "055678943"
     },
     {
@@ -44,7 +44,7 @@
         "livingArea": "North",
         "livingAreaId": 2,
         "City": "Carcur",
-        "StreetNumber": "5",
+        "StreetNumber": "Tavor 5",
         "Contact": "055678943"
     },
     {
@@ -56,7 +56,7 @@
         "livingArea": "Center",
         "livingAreaId": 1,
         "City": "Hulon",
-        "StreetNumber": "99",
+        "StreetNumber": "Yosef Sapir 99",
         "Contact": "098345666"
     },
     {
@@ -68,7 +68,7 @@
         "livingArea": "South",
         "livingAreaId": 4,
         "City": "Beer-Sheva",
-        "StreetNumber": "44",
+        "StreetNumber": "Hertsel 44",
         "Contact": "050789543"
     },
     {
@@ -80,7 +80,7 @@
         "livingArea": "Center",
         "livingAreaId": 1,
         "City": "Tel-Aviv",
-        "StreetNumber": "33",
+        "StreetNumber": " Jaffa St 33",
         "Contact": "0523274663"
     }
 ]

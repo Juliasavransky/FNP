@@ -231,7 +231,7 @@ componentDidMount(){
 
                 <Button variant="primary"
                     onClick={() => this.setState({ showNewAgentModal: true })}>
-                    Looking for Item
+                    I'm Looking for An Item
                 </Button>
                 <Modal
                     size="lg justify-content-center"
@@ -239,7 +239,7 @@ componentDidMount(){
                     onHide={this.handleModalClose}>
                     <Modal.Header closeButton>
                         <Modal.Title
-                        >Creat new Smart agent
+                        >  Creat A New Agent
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
@@ -258,7 +258,7 @@ componentDidMount(){
                                     name="categorySelectedId"
                                     className="justify-content-center " >
                                     <option name="categoryOptions"
-                                        value="0">Select a Category...</option>
+                                        value="0">Select a Category</option>
                                     {categoryOptions}
                                 </Form.Control>
 
@@ -273,7 +273,7 @@ componentDidMount(){
                                     as="select"
                                     className="justify-content-center"
                                     name="subCategorySelectedId" >
-                                    <option value="0">Select a Sub-Category...</option>
+                                    <option value="0">Select A Sub-Category</option>
                                     {subCategoryOptions}
                                 </Form.Control>
 
@@ -286,7 +286,7 @@ componentDidMount(){
                                     as="select"
                                     className="justify-content-center"
                                     name="conditionSelected" >
-                                    <option value="0">Select Item Condition...</option>
+                                    <option value="0">Select Item Condition</option>
                                     {conditionOptions}
                                 </Form.Control>
 
@@ -300,7 +300,7 @@ componentDidMount(){
                                     as="select"
                                     className="justify-content-center"
                                     name="livingAreaIdSelected" >
-                                    <option value="0">Select Item living Area...</option>
+                                    <option value="0">Select Item Location</option>
                                     {livingAreaOptions}
                                 </Form.Control>
 
@@ -323,7 +323,7 @@ componentDidMount(){
                                     onChange={this.handleInputChange}
                                     onChange={this.sendEmailChange}
                                     type="checkbox"
-                                    label="Send me an Email" />
+                                    label="Send Me Email Alerts" />
                             </Form.Row>
                         </Form>
 
@@ -331,13 +331,19 @@ componentDidMount(){
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary"
+<<<<<<< HEAD
+                            onClick={this.handleModalClose}
+                            onClick={this.cleanModalData}>
+                            Cancel
+=======
                             onClick={this.cleanAndHideModalData}>
                             Cansel
+>>>>>>> d5ea63334d90c7385543fedf57f1f72003f6a740
                          </Button>
 
                         <Button variant="primary"
                             onClick={this.handleCreatSmartAgent} >
-                            Creat new Smart agent
+                            Creat A New Agent
                          </Button>
                     </Modal.Footer>
                 </Modal>

@@ -214,8 +214,14 @@ class NewAdModal extends Component {
       <Container>
         <Button
           variant="primary"
+<<<<<<< HEAD
+          onClick={() => this.setState({ showNewAdModal: true })}
+        >
+          Place An Ad
+=======
           onClick={() => this.setState({ showNewAdModal: true })}>
           Place an Ad
+>>>>>>> d5ea63334d90c7385543fedf57f1f72003f6a740
         </Button>
         <Modal
           size="lg justify-content-center"
@@ -320,7 +326,7 @@ class NewAdModal extends Component {
             </Button>
 
             <Button variant="primary" onClick={this.handleCreatAd}>
-              Creat new Ad
+              Creat A New Ad
             </Button>
           </Modal.Footer>
         </Modal>
