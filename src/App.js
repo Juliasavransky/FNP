@@ -43,7 +43,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import NewAdModal from './components/New Ad Modal/NewAdModal';
 import emailjs from 'emailjs-com';
 import RequestForItem from './components/Request for item/RequestForItem';
-import Sorry from './components/Sorry we didnt find/sorry';
+import Sorry from './components/Sorry we didnt find/Sorry';
 emailjs.init('user_92TMg4RqAMZUj3a9Jc5NQ');
 
 class App extends Component {
@@ -450,8 +450,15 @@ class App extends Component {
 
           <Route path="/search-results">
             <SearchResults
-              searchResults={searchResults}
               activeUser={activeUser}
+              ads={ads}
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              handleCreatNewAd={this.handleCreatNewAd}
+              handleCreatSmartAgent={this.handleCreatSmartAgent}
+              requests={requests}
+              searchResults={searchResults}
             />
           </Route>
         </Switch>

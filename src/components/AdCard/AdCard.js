@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardColumns, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import {FacebookShareButton, FacebookIcon} from 'react-share';
 
 class AdCard extends Component {
   render() {
@@ -16,14 +17,20 @@ class AdCard extends Component {
           <Card.Body>
             <Card.Title>{ad.Category}</Card.Title>
             <Card.Link href={'#/product/' + ad.id}>
-              Details: {ad.Details}
+              Details- {ad.Details}
             </Card.Link>
              
-            <Card.Text>Condition: {ad.Condition}{' '} </Card.Text>
+            <Card.Text>Condition- {ad.Condition}{' '} </Card.Text>
 
-            <small className="text-muted card text-center">Published Date {ad.Date}</small>
+            <small className="text-muted card text-center">Published Date {ad.Date}</small> 
+            <br></br> <br></br>
+            <FacebookShareButton url="https://www.facebook.com/">
+              <FacebookIcon size={32} round={true}/>
+              </FacebookShareButton>
           </Card.Body>
         </Card>
+
+
       
     );
   }

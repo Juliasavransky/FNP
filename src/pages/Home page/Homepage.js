@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button, Card, Col, Row, CardColumns } from 'react-bootstrap';
+import { Container, CardColumns } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './homepage.css';
 import Help from '../Footer/Footer';

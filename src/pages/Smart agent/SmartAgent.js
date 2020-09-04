@@ -3,8 +3,6 @@ import {
   Form,
   FormControl,
   Button,
-  Col,
-  Row,
   Container,
   CardColumns,
 } from 'react-bootstrap';
@@ -16,7 +14,7 @@ import {
   dataSubCategorys,
   dataCategoriess,
 } from '../../data/ddData';
-import Sorry from '../../components/Sorry we didnt find/sorry';
+import Sorry from '../../components/Sorry we didnt find/Sorry';
 
 class SmartAgent extends Component {
   constructor(props) {
