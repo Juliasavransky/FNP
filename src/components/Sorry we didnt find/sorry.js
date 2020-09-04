@@ -5,7 +5,7 @@ import RequestForItem from '../Request for item/RequestForItem';
 
 class Sorry extends Component {
   render() {
-    const { ads, allUsers, activeUser } = this.props;
+    const { ads, allUsers, activeUser, } = this.props;
     console.log('props', this.props);
 
     return (
@@ -33,7 +33,7 @@ class Sorry extends Component {
             handleLogout={this.handleLogout}
             activeUser={activeUser}
             handleCreatNewAd={this.handleCreatNewAd}
-            handleCreatSmartAgent={this.handleCreatSmartAgent}
+            handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
           />
         </Container>
       </div>

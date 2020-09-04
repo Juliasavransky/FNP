@@ -79,7 +79,7 @@ class AdNavbar extends Component {
     ) : null;
 
     const UserArea = activeUser ? (
-      <Nav.Link className="mr-2" href="/#UserArea">
+      <Nav.Link  href="/#UserArea">
         User Area
       </Nav.Link>
     ) : null;
@@ -105,7 +105,7 @@ class AdNavbar extends Component {
               <Nav.Link className="mr-2" href="/#ForMoms">
                 For Mom's
               </Nav.Link>
-              <Nav.Link className="mr-4" href="/#SmartAgent">
+              <Nav.Link className="mr-2" href="/#SmartAgent">
                 Advanced Search
               </Nav.Link>
               {UserArea}

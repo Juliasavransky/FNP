@@ -31,7 +31,7 @@ class NewAdModal extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleCreatAd = this.handleCreatAd.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
-    this.cleanModalData = this.cleanModalData.bind(this);
+    this.handleCloseAndClean = this.handleCloseAndClean.bind(this);
   }
 
   handleModalClose() {
@@ -39,6 +39,7 @@ class NewAdModal extends Component {
       showNewAdModal: false,
     });
   }
+
   handleFileChange(event) {
     if (event.target.files[0]) {
       this.setState({
@@ -59,16 +60,6 @@ class NewAdModal extends Component {
     });
   };
 
-  cleanModalData() {
-    this.setState({
-      categorySelectedId: null,
-      subCategorySelectedId: null,
-      conditionSelected: null,
-      DetailsInput: '',
-      imgInput: null,
-    });
-  }
-
   handleCreatAd(event) {
     const {
       conditionSelected,
@@ -82,10 +73,15 @@ class NewAdModal extends Component {
     } = this.state;
     const { handleCreatNewAd, activeUser, ads, allUsers } = this.props;
 
+  
+    // const image = imgInput && (img: URL.createObjectURL(imgInput));
+          // img: URL.createObjectURL(imgInput) && URL.createObjectURL(imgInput).length > 0 ? ("")
+
+    
     const newAd = {
       CategoryId: categorySelectedId,
       SubCategoryId: subCategorySelectedId,
-      img: URL.createObjectURL(imgInput),
+      img: URL.createObjectURL(imgInput) ,
       Details: DetailsInput,
       conditionId: conditionSelected,
       userId: activeUser.id,
@@ -94,8 +90,7 @@ class NewAdModal extends Component {
     console.log('props', this.props);
 
     this.props.handleCreatNewAd(newAd);
-    this.handleModalClose();
-    this.cleanModalData();
+    this.handleCloseAndClean();
 
     //  send an email
 
@@ -115,13 +110,36 @@ class NewAdModal extends Component {
       .catch('The Email send Has Been failed');
   }
   categoryChange = event => {
-    console.log(event.target.value, event.target.name);
     this.setState({
       categorySelectedId: parseInt(event.target.value),
+      
+    });
+  };
+  subCategoryChange = event => {
+    this.setState({
       subCategorySelectedId: parseInt(event.target.value),
+      
+    });
+  };
+  conditionChange = event => {
+    this.setState({
       conditionSelected: parseInt(event.target.value),
     });
   };
+  
+      
+  handleCloseAndClean = () =>{
+    this.setState({
+      categorySelectedId: null,
+      subCategorySelectedId: null,
+      conditionSelected: null,
+      DetailsInput: '',
+      imgInput: null,
+      showNewAdModal: false,
+    });
+
+  }
+
 
   render() {
     const { showNewAdModal, imgInput, DetailsInput } = this.state;
@@ -197,23 +215,27 @@ class NewAdModal extends Component {
       <Container>
         <Button
           variant="primary"
+<<<<<<< HEAD
           onClick={() => this.setState({ showNewAdModal: true })}
         >
           Place An Ad
+=======
+          onClick={() => this.setState({ showNewAdModal: true })}>
+          Place an Ad
+>>>>>>> d5ea63334d90c7385543fedf57f1f72003f6a740
         </Button>
         <Modal
           size="lg justify-content-center"
           show={showNewAdModal}
-          onHide={this.handleModalClose}
-        >
+          onHide={this.handleModalClose} >
           <Modal.Header closeButton>
             <Modal.Title>New Ad</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form
-              className="mx-auto d-flex justify-content-between w-50 p-3"
-              inline
-            >
+
+
+
+            <Form className="mx-auto d-flex justify-content-between w-50 p-3" >
               <Form.Label></Form.Label>
               <Form.Row>
                 <Form.Control
@@ -236,7 +258,7 @@ class NewAdModal extends Component {
                   style={{ width: '22rem' }}
                   value={this.state.subCategorySelectedId}
                   onChange={this.handleInputChange}
-                  onChange={this.categoryChange}
+                  onChange={this.subCategoryChange}
                   as="select"
                   className="justify-content-center"
                   name="subCategorySelectedId"
@@ -248,7 +270,7 @@ class NewAdModal extends Component {
                 <Form.Label htmlFor="inlineFormCustomSelectPref"></Form.Label>
                 <Form.Control
                   style={{ width: '22rem' }}
-                  onChange={this.categoryChange}
+                  onChange={this.conditionChange}
                   onChange={this.handleInputChange}
                   value={this.state.conditionSelected}
                   as="select"
@@ -279,8 +301,7 @@ class NewAdModal extends Component {
                   className="justify-content-center"
                 >
                   <Form.Label column sm={2}>
-                    {' '}
-                    Img{' '}
+                    Img
                   </Form.Label>
                   <Col sm={10}>
                     <Form.Control
@@ -298,8 +319,7 @@ class NewAdModal extends Component {
           <Modal.Footer>
             <Button
               variant="secondary"
-              onClick={this.handleModalClose}
-              onClick={this.cleanModalData}
+              onClick={this.handleCloseAndClean}
             >
               Cancel
             </Button>
