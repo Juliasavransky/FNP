@@ -452,6 +452,12 @@ class App extends Component {
             <SearchResults
               searchResults={searchResults}
               activeUser={activeUser}
+              ads={ads}
+              handleLogin={this.handleLogin}
+              requests={requests}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
             />
           </Route>
         </Switch>

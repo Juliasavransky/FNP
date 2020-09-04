@@ -215,25 +215,21 @@ class NewAdModal extends Component {
       <Container>
         <Button
           variant="primary"
-          onClick={() => this.setState({ showNewAdModal: true })}
-        >
+          onClick={() => this.setState({ showNewAdModal: true })}>
           Place an Ad
         </Button>
         <Modal
           size="lg justify-content-center"
           show={showNewAdModal}
-          onHide={this.handleModalClose}
-        >
+          onHide={this.handleModalClose} >
           <Modal.Header closeButton>
             <Modal.Title>New Ad</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form
-              className="mx-auto d-flex justify-content-between w-50 p-3"
-              inline
-            >
 
 
+
+            <Form className="mx-auto d-flex justify-content-between w-50 p-3" >
               <Form.Label></Form.Label>
               <Form.Row>
                 <Form.Control

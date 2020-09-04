@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Card, Container, Button } from 'react-bootstrap';
+import { Card, Container, Button, Modal, } from 'react-bootstrap';
 import AdCard from '../AdCard/AdCard';
 import emailjs from 'emailjs-com';
+import MailToTheOwner from '../../components/MailToTheOwner/MailToTheOwner'
 
 class ZoomInAd extends Component {
   constructor(props) {
@@ -9,8 +10,25 @@ class ZoomInAd extends Component {
 
     this.state = {
       showButton: true,
+      showEmailModal: false
     };
     this.handleSendEmail = this.handleSendEmail.bind(this);
+    this.handleModalClose = this.handleModalClose.bind(this);
+    this.handleModalShow = this.handleModalShow.bind(this);
+
+
+  }
+
+  handleModalClose = () => {
+    this.setState({
+      showEmailModal: false,
+    });
+  }
+
+  handleModalShow = () => {
+    this.setState({
+      showEmailModal: true,
+    });
   }
 
   handleSendEmail = event => {
@@ -48,6 +66,7 @@ class ZoomInAd extends Component {
       handleLogout,
       allUsers,
       handleSendEmail,
+      showEmailModal,
     } = this.props;
     console.log('allUsers Name', ad.userId);
     console.log('allUsers', allUsers);
@@ -59,12 +78,14 @@ class ZoomInAd extends Component {
     const sendAnEmail = activeUser && (
       <Button
         onSubmit={() => handleSendEmail()}
+        onClick={() => handleModalShow()}
         href="#/emailSending"
-        variant="secondary"
-      >
+        variant="secondary">
         Send An Email
       </Button>
     );
+    console.log("showEmailModal", showEmailModal)
+
 
     const signupUser = !activeUser && (
       <Button
@@ -89,46 +110,62 @@ class ZoomInAd extends Component {
     return (
       <Container className="d-flex ">
         <Card
-          className="mx-auto shadow p-3 mb-5 bg-white rounded  m-2 text-muted card text-center"
+          className="mx-auto shadow p-3 mb-5 bg-white rounded  m-2 text-muted card "
           style={{ width: '26rem' }}
         >
           <Card.Title className=" m-2">{ad.subCategoryName}</Card.Title>
 
-          <Card.Body className="m-4 text-muted card  ">
-           <div>Details: {ad.Details}</div> 
-           <div>Condition: {ad.Condition}</div> 
-            Owner name:{' '}
-            {owner.length > 0 ? owner[0].fname + ' ' + owner[0].lname : 'N/A'}
-            Owner name:{' '}
-            {owner.length > 0 ? owner[0].livingArea + ' ' + "in"+ owner[0].City : 'N/A'}
-        
+          <Card.Body className="m-4 card  ">
+            <div>Details: {ad.Details}</div>
+            <div>Condition: {ad.Condition}</div>
+            <div>Owner name:{' '}
+              {owner.length > 0 ? owner[0].fname + ' ' + owner[0].lname : 'N/A'}</div>
+            <div>That live in:{' '}
+              {owner.length > 0 ? owner[0].livingArea + "  " + 'Area  ' + "in" + " " + owner[0].City : 'N/A'}</div>
+
 
           </Card.Body>
-
-          {/* <Card.Text className="m-2 text-muted card text-center">
-            Condition: {ad.Condition}{' '}
-          </Card.Text> */}
-
-          {/* <Card.Text className="m-2 text-muted card text-center">
-            Owner name:{' '}
-            {owner.length > 0 ? owner[0].fname + ' ' + owner[0].lname : 'N/A'}
-          </Card.Text> */}
-
           <Card.Img variant="bottom" src={ad.img} />
           {signupUser}
           {LogInUser}
-          
+
           <Button
             onSubmit={this.handleSendEmail}
+            // onClick={() => this.setState({ showEmailModal: true })}
+            onClick={this.handleModalShow}
             className="btn-login"
             variant="primary"
-            type="submit"
-          >
+            type="submit">
             Send An Email
           </Button>
+
           <small className=" m-2 text-muted">Published Date {ad.Date}</small>
         </Card>
       </Container>
+
+
+
+
+      // <Container>
+      //   <Modal show={handleModalShow}
+      //     onHide={handleModalClose} >
+
+      //     <Modal.Header closeButton>
+      //       <Modal.Title>Modal heading</Modal.Title>
+      //     </Modal.Header>
+      //     <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+      //     <Modal.Footer>
+      //       <Button variant="secondary" onClick={handleModalClose}>
+      //         Close
+      //     </Button>
+      //       <Button variant="primary" onClick={handleModalClose}>
+      //         Save Changes
+      //     </Button>
+      //     </Modal.Footer>
+      //   </Modal>
+      // </Container>
+
+     
     );
   }
 }

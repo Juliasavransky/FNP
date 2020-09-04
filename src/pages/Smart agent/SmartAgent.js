@@ -3,8 +3,7 @@ import {
   Form,
   FormControl,
   Button,
-  Col,
-  Row,
+  FormGroup,
   Container,
   CardColumns,
 } from 'react-bootstrap';
@@ -168,121 +167,120 @@ class SmartAgent extends Component {
     // const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
 
     return (
-      <div>
-        <Container className=" d-flex d-flex justify-content-center p-5 m-5">
-          <Form inline>
-            <Form.Label className="d-flex justify-content-center w-50 m-1 p-2" htmlFor="inlineFormCustomSelectPref">
-              Categories
+
+      <Container className=" p-5 m-5">
+        <Form inline>
+        <FormGroup>
+          <Form.Label className="d-flex  justify-content-between  m-1 p-2" 
+          htmlFor="inlineFormCustomSelectPref">
+            Categories
             </Form.Label>
-            <Form.Control
-              style={{ width: '22rem' }}
-              onChange={this.categoryChange}
-              as="select"
-              id="inlineFormCustomSelectPref"
-              value={this.state.categorySelectedId}
-            >
-              <option value="0">Select A Category</option>
-              {categoryOption}
-            </Form.Control>
+          <Form.Control
+            style={{ width: '22rem' }}
+            onChange={this.categoryChange}
+            as="select"
+            id="inlineFormCustomSelectPref"
+            value={this.state.categorySelectedId} >
+            <option value="0">Select A Category</option>
+            {categoryOption}
+          </Form.Control>
 
 
 
 
-            <Form.Label className="d-flex justify-content-center w-50 p-2 m-1" htmlFor="inlineFormCustomSelectPref">
-              Sub-Categories
+          <Form.Label inline className="d-flex justify-content-between w-100 p-2 m-1" 
+          htmlFor="inlineFormCustomSelectPref">
+            Sub-Categories
             </Form.Label>
-            <Form.Control
-              style={{ width: '22rem' }}
-              onChange={this.subCategoryChange}
-              as="select"
-              className=""
-              id="inlineFormCustomSelectPref"
-              value={this.state.subCategorySelectedId}
-            >
-              <option value="0">Select A Sub-Category</option>
-              {subCategoryOption}
-            </Form.Control>
+          <Form.Control
+            style={{ width: '22rem' }}
+            onChange={this.subCategoryChange}
+            as="select"
+            className=""
+            id="inlineFormCustomSelectPref"
+            value={this.state.subCategorySelectedId} >
+            <option value="0">Select A Sub-Category</option>
+            {subCategoryOption}
+          </Form.Control>
 
 
 
 
-            <Form.Label className="d-flex justify-content-center w-50 p-2 m-1" htmlFor="inlineFormCustomSelectPref">
-              Condition
+          <Form.Label inlineclassName="d-flex  justify-content-between  p-2 m-1" 
+          htmlFor="inlineFormCustomSelectPref">
+            Condition
             </Form.Label>
-            <Form.Control
-              style={{ width: '22rem' }}
-              onChange={this.changeItemConditions}
-              as="select"
-              className=""
-              id="inlineFormCustomSelectPref"
-              value={this.state.conditionSelected} >
-              <option value="0">Select A Condition</option>
-              {itemConditionOption}
-            </Form.Control>
+          <Form.Control
+            style={{ width: '22rem' }}
+            onChange={this.changeItemConditions}
+            as="select"
+            className=""
+            id="inlineFormCustomSelectPref"
+            value={this.state.conditionSelected} >
+            <option value="0">Select A Condition</option>
+            {itemConditionOption}
+          </Form.Control>
 
 
 
 
-            <Form.Label className="d-flex justify-content-center w-50 p-2 m-1" htmlFor="inlineFormCustomSelectPref">
-              Living Area
+          <Form.Label className="d-flex  justify-content-between p-2 m-1" 
+          htmlFor="inlineFormCustomSelectPref">
+            Living Area
             </Form.Label>
-            <Form.Control
-              style={{ width: '22rem' }}
-              onChange={this.changeItemLivingArea}
-              as="select"
-              className=""
-              id="inlineFormCustomSelectPref"
-              value={this.state.livingAreaSelected} >
-              <option value="0">Select An Area</option>
-              {dataLivingAreasOption}
-            </Form.Control>
+          <Form.Control
+            style={{ width: '22rem' }}
+            onChange={this.changeItemLivingArea}
+            as="select"
+            className=""
+            id="inlineFormCustomSelectPref"
+            value={this.state.livingAreaSelected} >
+            <option value="0">Select An Area</option>
+            {dataLivingAreasOption}
+          </Form.Control>
 
 
 
-            <Form.Label className="d-flex justify-content-center w-50 p-2 m-1" htmlFor="inlineFormCustomSelectPref">
-              Search
+          <Form.Label className="d-flex  justify-content-between p-2 m-1" 
+          htmlFor="inlineFormCustomSelectPref">
+            Search
             </Form.Label>
-            <FormControl
-              style={{ width: '22rem' }}
-              value={searchSelected}
-              onChange={event =>
-                this.setState({ searchSelected: event.target.value })
-              }
-              type="text"
-              placeholder="Search"
-              className=""
-            />
-           
-              <Button
-                className="d-flex justify-content-around btn-block p-2 m-1"
-                // onClick={this.cleanData}
-                onClick={this.search}
-                variant="outline-success"
-              >
-                Search
+          <FormControl
+            style={{ width: '22rem' }}
+            value={searchSelected}
+            onChange={event =>
+              this.setState({ searchSelected: event.target.value }) }
+            type="text"
+            placeholder="Search"
+            className=""/>
+
+          <Button
+            className="d-flex  justify-content-between btn-block p-2 m-1"
+            // onClick={this.cleanData}
+            onClick={this.search}
+            variant="outline-success">
+            Search
           </Button>
-           
-          </Form>
+          </FormGroup>
 
-          {filteredAds && filteredAds.length > 0 ? (
-            <CardColumns>{filteredAds}</CardColumns>
-          ) : (
-              search && (
-                <Sorry
-                  ads={ads}
-                  handleLogin={this.handleLogin}
-                  allUsers={allUsers}
-                  handleLogout={this.handleLogout}
-                  activeUser={activeUser}
-                  handleCreatNewAd={this.handleCreatNewAd}
-                  handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
-                // requests={requests}
-                // searchResults={searchResults}
-                />
-              )
-            )}
-        </Container>
-      </div>
+        </Form>
+
+        {filteredAds && filteredAds.length > 0 ? (
+          <CardColumns>{filteredAds}</CardColumns>
+        ) : (
+            search && (
+              <Sorry
+                ads={ads}
+                handleLogin={this.handleLogin}
+                allUsers={allUsers}
+                handleLogout={this.handleLogout}
+                activeUser={activeUser}
+                handleCreatNewAd={this.handleCreatNewAd}
+                handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
+              />
+            )
+          )}
+      </Container>
     );
   }
 }
