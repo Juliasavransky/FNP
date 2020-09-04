@@ -75,16 +75,11 @@ class NewAdModal extends Component {
   
     // const image = imgInput && (img: URL.createObjectURL(imgInput));
           // img: URL.createObjectURL(imgInput) && URL.createObjectURL(imgInput).length > 0 ? ("")
-
-    let imgUrl = false;
-    if (imgInput){
-      imgUrl = URL.createObjectURL(imgInput);
-    }
     
     const newAd = {
       CategoryId: categorySelectedId,
       SubCategoryId: subCategorySelectedId,
-      img: imgUrl,
+      img: (imgInput) ?  URL.createObjectURL(imgInput) : false,
       Details: DetailsInput,
       conditionId: conditionSelected,
       userId: activeUser.id,
