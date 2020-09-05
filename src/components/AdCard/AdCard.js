@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Card, } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import {FacebookShareButton, FacebookIcon} from 'react-share';
+import React, { Component } from 'react';
+import { Card } from 'react-bootstrap';
+import { FacebookIcon, FacebookShareButton } from 'react-share';
 
 class AdCard extends Component {
   render() {

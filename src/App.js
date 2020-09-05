@@ -1,57 +1,56 @@
-import React, { Component } from 'react';
-import './App.css';
-import Homepage from './pages/Home page/Homepage';
-import SmartAgent from './pages/Smart agent/SmartAgent';
-import { Switch, Route, withRouter } from 'react-router-dom';
-import AdNavbar from '../src/components/Navbar/AdNavbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Clothing from '../src/pages/Clothing/Clothing';
-import ToysAndGames from '../src/pages/Toys and games/Toys and games';
-import ForMoms from '../src/pages/For Moms/For Moms';
-import jsonUsers from '../src/data/users.json';
-import jsonAds from '../src/data/Ads.json';
-import jsonSmartAgent from './data/smartAgent.json';
-import Login from './pages/Login/Login';
-import Signup from './pages/Signup/Signup';
-import Furniture from './pages/For the babys/furniture';
-import Safety from './pages/For the babys/safety';
-import Carriages from './pages/For the babys/carriages';
-import CoatsAndJackets from './pages/Clothing/Coats and Jackets';
-import ClothingOther from './pages/Clothing/ClothingOther';
-import Shoes from './pages/Clothing/Shoes';
-import SpecialEvents from './pages/Clothing/SpecialEvents';
-import Casual from './pages/Clothing/Casual';
-import BooksForMoms from './pages/For Moms/Booksformoms';
-import BreastPumps from './pages/For Moms/Breast Pumps';
-import BoardGames from './pages/Toys and games/Board games';
-import ForMomsOther from './pages/For Moms/ForMomsOther';
-import Supplements from './pages/For Moms/Supplements';
-import Books from './pages/Toys and games/books';
-import Dolls from './pages/Toys and games/dolls';
-import Lego from './pages/Toys and games/Lego';
-import ToysAndGamesOther from './pages/Toys and games/ToysAndGamesOther';
-import PlaypenCradle from './pages/For the babys/Playpen Cradle';
-import ForTheBabysOther from './pages/For the babys/ForTheBabysOther';
-import ForTheBabys from './pages/For the babys/For the babys';
-import PregnancyClothes from './pages/For Moms/PregnancyClothes';
-import Emptypage from './pages/Footer/emptypage';
-import MoreInfoPage from './pages/MoreInfoPage/MoreInfoPage';
-import UserArea from './pages/Login/UserArea/UserArea';
-import SearchResults from './components/Navbar/SearchResults';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import NewAdModal from './components/New Ad Modal/NewAdModal';
-import emailjs from 'emailjs-com';
-import RequestForItem from './components/Request for item/RequestForItem';
-import Sorry from './components/Sorry we didnt find/Sorry'
-import ZoomInAd from './components/ZoomInAd/ZoomInAd'
-emailjs.init('user_92TMg4RqAMZUj3a9Jc5NQ');
+import "bootstrap/dist/css/bootstrap.min.css";
+import emailjs from "emailjs-com";
+import React, { Component } from "react";
+import { Route, Switch, withRouter } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
+import AdNavbar from "./components/Navbar/AdNavbar";
+import SearchResults from "./components/Navbar/SearchResults";
+import NewAdModal from "./components/New Ad Modal/NewAdModal";
+import RequestForItem from "./components/Request for item/RequestForItem";
+import Sorry from "./components/Sorry we didnt find/Sorry";
+import ZoomInAd from "./components/ZoomInAd/ZoomInAd";
+import jsonAds from "./data/Ads.json";
+import jsonSmartAgent from "./data/smartAgent.json";
+import jsonUsers from "./data/users.json";
+import Casual from "./pages/Clothing/Casual";
+import Clothing from "./pages/Clothing/Clothing";
+import ClothingOther from "./pages/Clothing/ClothingOther";
+import CoatsAndJackets from "./pages/Clothing/Coats and Jackets";
+import Shoes from "./pages/Clothing/Shoes";
+import SpecialEvents from "./pages/Clothing/SpecialEvents";
+import Emptypage from "./pages/Footer/emptypage";
+import BooksForMoms from "./pages/For Moms/Booksformoms";
+import BreastPumps from "./pages/For Moms/Breast Pumps";
+import ForMoms from "./pages/For Moms/For Moms";
+import ForMomsOther from "./pages/For Moms/ForMomsOther";
+import PregnancyClothes from "./pages/For Moms/PregnancyClothes";
+import Supplements from "./pages/For Moms/Supplements";
+import Carriages from "./pages/For the babys/carriages";
+import ForTheBabys from "./pages/For the babys/For the babys";
+import ForTheBabysOther from "./pages/For the babys/ForTheBabysOther";
+import Furniture from "./pages/For the babys/furniture";
+import PlaypenCradle from "./pages/For the babys/Playpen Cradle";
+import Safety from "./pages/For the babys/safety";
+import Homepage from "./pages/Home page/Homepage";
+import Login from "./pages/Login/Login";
+import UserArea from "./pages/Login/UserArea/UserArea";
+import MoreInfoPage from "./pages/MoreInfoPage/MoreInfoPage";
+import Signup from "./pages/Signup/Signup";
+import SmartAgent from "./pages/Smart agent/SmartAgent";
+import BoardGames from "./pages/Toys and games/Board games";
+import Books from "./pages/Toys and games/books";
+import Dolls from "./pages/Toys and games/dolls";
+import Lego from "./pages/Toys and games/Lego";
+import ToysAndGames from "./pages/Toys and games/Toys and games";
+import ToysAndGamesOther from "./pages/Toys and games/ToysAndGamesOther";
+emailjs.init("user_92TMg4RqAMZUj3a9Jc5NQ");
 
 class App extends Component {
-
-  componentDidMount(){
-    console.log("props from app" , this.props)
-}
+  componentDidMount() {
+    console.log("props from app", this.props);
+  }
   constructor(props) {
     super(props);
 
@@ -59,7 +58,7 @@ class App extends Component {
       activeUser: null,
       allUsers: jsonUsers,
       ads: jsonAds,
-      requests:jsonSmartAgent,
+      requests: jsonSmartAgent,
       searchResults: [],
     };
     this.handleLogout = this.handleLogout.bind(this);
@@ -72,13 +71,13 @@ class App extends Component {
   componentDidMount() {
     // will run only the first time the application is loading
     // will display the all users from the JSON only
-    console.log('All Users', this.state.allUsers);
+    console.log("All Users", this.state.allUsers);
   }
 
   componentDidUpdate() {
     // Will run every time the component is being updated
     // Everytime you call 'this.setState' the component will render and this function will run again
-    console.log('All Users', this.state.allUsers);
+    console.log("All Users", this.state.allUsers);
   }
 
   handleLogout() {
@@ -101,31 +100,31 @@ class App extends Component {
     this.setState({ allUsers: [...this.state.allUsers, newUser] });
 
     // redirect to the 'sign-in' page
-    this.props.history.push('/Login');
+    this.props.history.push("/Login");
 
     // show toast notification that the user has been created
-    toast.success('New User Added');
+    toast.success("New User Added");
   }
 
   handleCreatNewAd(newAd) {
-    console.log('hello');
+    console.log("hello");
     newAd.id = this.state.ads.length + 1;
     this.setState({
       ads: [...this.state.ads, newAd],
     });
-    toast.success('New ad Added');
+    toast.success("New ad Added");
   }
 
   handleCreatSmartNewAgent(newAgent) {
-    console.log('handleCreatSmartNewAgent-App');
+    console.log("handleCreatSmartNewAgent-App");
     newAgent.id = this.state.requests.length + 1;
     this.setState({
       requests: [...this.state.requests, newAgent],
     });
-    toast.success('New Smart Agent addet');
+    toast.success("New Smart Agent addet");
   }
 
-  handleSearch = searchResults => {
+  handleSearch = (searchResults) => {
     this.setState({ searchResults: searchResults });
   };
 
@@ -360,7 +359,6 @@ class App extends Component {
               searchResults={searchResults}
               requests={requests}
               handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
-
             />
           </Route>
 
@@ -390,7 +388,6 @@ class App extends Component {
               activeUser={activeUser}
               searchResults={searchResults}
               handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
-
             />
           </Route>
 
