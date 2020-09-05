@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-import { Card, Container, Button, Modal, Form } from 'react-bootstrap';
-import AdCard from '../AdCard/AdCard';
-import emailjs from 'emailjs-com';
-import MailToTheOwner from '../MailToTheOwner/MailToTheOwner'
+import emailjs from "emailjs-com";
+import React, { Component } from "react";
+import { Button, Card, Container, Modal } from "react-bootstrap";
 
 class ZoomInAd extends Component {
   constructor(props) {
@@ -12,14 +10,13 @@ class ZoomInAd extends Component {
       showEmailModal: false,
       emailInput: "",
       taitalInput:"",
-
+      
     };
     this.handleSendEmail = this.handleSendEmail.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
     this.handleemailInput = this.handleemailInput.bind(this);
     this.handleITaitelChange = this.handleITaitelChange.bind(this);
   }
-
 
   handleModalClose = () => {
     this.setState({
@@ -48,7 +45,7 @@ class ZoomInAd extends Component {
     console.log("handleITaitelChange", event.target.value)
   }
 
-  handleSendEmail = event => {
+  handleSendEmail = (event) => {
     event.preventDefault();
     const { activeUser, ad, allUsers } = this.props;
     const { emailInput, taitalInput } = this.state;
@@ -75,12 +72,12 @@ class ZoomInAd extends Component {
       
     };
 
-    const service_id = 'default_service';
-    const template_id = 'new_ad';
+    const service_id = "default_service";
+    const template_id = "new_ad";
     emailjs
       .send(service_id, template_id, template_params)
-      .then(alert('Email Has Been Sent Succesfully To The User'))
-      .catch('The Email send Has Been failed');
+      .then(alert("Email Has Been Sent Succesfully To The User"))
+      .catch("The Email send Has Been failed");
 
 
     this.setState({
@@ -98,18 +95,18 @@ class ZoomInAd extends Component {
 
     console.log("activeUser", activeUser)
     const owner = this.props.allUsers.filter(
-      user => this.props.ad.userId === user.id
+      (user) => this.props.ad.userId === user.id
     );
 
     const sendAnEmail = activeUser && (
       <Button
         onSubmit={() => handleSendEmail()}
         href="#/emailSending"
-        variant="secondary">
+        variant="secondary"
+      >
         Send An Email
       </Button>
     );
-
 
     const signupUser = !activeUser && (
       <Button
@@ -143,25 +140,40 @@ class ZoomInAd extends Component {
             <Card.Body className="m-4 card  ">
               <div>Details: {ad.Details}</div>
               <div>Condition: {ad.Condition}</div>
-              <div>Owner name:{' '}
-                {owner.length > 0 ? owner[0].fname + ' ' + owner[0].lname : 'N/A'}</div>
-              <div>That live in:{' '}
-                {owner.length > 0 ? owner[0].livingArea + "  " + 'Area  ' + "in" + " " + owner[0].City : 'N/A'}</div>
-
-
+              <div>
+                Owner name:{" "}
+                {owner.length > 0
+                  ? owner[0].fname + " " + owner[0].lname
+                  : "N/A"}
+              </div>
+              <div>
+                That live in:{" "}
+                {owner.length > 0
+                  ? owner[0].livingArea +
+                    "  " +
+                    "Area  " +
+                    "in" +
+                    " " +
+                    owner[0].City
+                  : "N/A"}
+              </div>
             </Card.Body>
             <Card.Img variant="bottom" src={ad.img} />
             {signupUser}
             {LogInUser}
-
-            <Button
-              // onSubmit={this.handleSendEmail}
-              onClick={() => this.setState({ showEmailModal: true })}
-              className="btn-login"
-              variant="primary"
-              type="submit">
-              Send An Email
-          </Button>
+            {activeUser ? (
+              <Button
+                onSubmit={this.handleSendEmail}
+                onClick={() => this.setState({ showEmailModal: true })}
+                className="btn-login"
+                variant="primary"
+                type="submit"
+              >
+                Send An Email
+              </Button>
+            ) : (
+              <></>
+            )}
 
             <small className=" m-2 text-muted">Published Date {ad.Date}</small>
           </Card>

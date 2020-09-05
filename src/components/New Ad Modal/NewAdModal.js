@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Login from '../../pages/Login/Login'
+import React, { Component } from "react";
+import Login from "../../pages/Login/Login";
 import {
   Form,
   Button,
@@ -8,8 +8,8 @@ import {
   Image,
   Row,
   Col,
-} from 'react-bootstrap';
-import emailjs from 'emailjs-com';
+} from "react-bootstrap";
+import emailjs from "emailjs-com";
 
 class NewAdModal extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class NewAdModal extends Component {
       subCategorySelectedId: null,
       conditionSelected: null,
 
-      DetailsInput: '',
+      DetailsInput: "",
       imgInput: null,
 
       filteredAds: [],
@@ -37,13 +37,13 @@ class NewAdModal extends Component {
     this.DetailsInputChange = this.DetailsInputChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
-  handleInputChange = event => {
+  handleInputChange = (event) => {
     event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value,
     });
   };
-  
+
   handleModalClose() {
     this.setState({
       showNewAdModal: false,
@@ -79,81 +79,74 @@ class NewAdModal extends Component {
     const newAd = {
       CategoryId: categorySelectedId,
       SubCategoryId: subCategorySelectedId,
-      img: imgInput ? URL.createObjectURL(imgInput):null,
+      img: imgInput ? URL.createObjectURL(imgInput) : null,
       Details: DetailsInput,
       conditionId: conditionSelected,
-      userId: activeUser.id
-      
+      userId: activeUser.id,
+      //  ? (<Login/>):null,
     };
 
-    console.log('handleCreatNewAd', this.props.handleCreatNewAd);
-    console.log('props', this.props);
+    console.log("handleCreatNewAd", this.props.handleCreatNewAd);
+    console.log("props", this.props);
 
     this.props.handleCreatNewAd(newAd);
-    
 
     //  send an email
 
     const template_params = {
       to_email: activeUser.email,
       ad_name: categorySelectedId,
-      subcatgory_name:subCategorySelectedId,
+      subcatgory_name: subCategorySelectedId,
       fname: activeUser.fname,
       lname: activeUser.lname,
       ad_desc: DetailsInput,
     };
 
-
-    const service_id = 'default_service';
-    const template_id = 'new_ad';
+    const service_id = "default_service";
+    const template_id = "new_ad";
     emailjs
       .send(service_id, template_id, template_params)
-      .then(alert('Email Has Been Sent Succesfully To The User'))
-      .catch('The Email send Has Been failed');
+      .then(alert("Email Has Been Sent Succesfully To The User"))
+      .catch("The Email send Has Been failed");
 
-      this.handleCloseAndClean();
+    this.handleCloseAndClean();
   }
 
-
-  categoryChange = event => {
+  categoryChange = (event) => {
     this.setState({
       categorySelectedId: parseInt(event.target.value),
     });
-    console.log("categoryChange",event.target.value)
+    console.log("categoryChange", event.target.value);
   };
-  subCategoryChange = event => {
+  subCategoryChange = (event) => {
     this.setState({
       subCategorySelectedId: parseInt(event.target.value),
-
     });
-    console.log("subCategoryChange",event.target.value)
+    console.log("subCategoryChange", event.target.value);
   };
-  conditionChange = event => {
+  conditionChange = (event) => {
     this.setState({
       conditionSelected: parseInt(event.target.value),
     });
-    console.log("conditionChange",event.target.value)
+    console.log("conditionChange", event.target.value);
   };
-  DetailsInputChange = event => {
+  DetailsInputChange = (event) => {
     this.setState({
       DetailsInput: event.target.value,
     });
-    console.log("DetailsInputChange",event.target.value)
+    console.log("DetailsInputChange", event.target.value);
   };
-
 
   handleCloseAndClean = () => {
     this.setState({
       categorySelectedId: null,
       subCategorySelectedId: null,
       conditionSelected: null,
-      DetailsInput: '',
+      DetailsInput: "",
       imgInput: null,
       showNewAdModal: false,
     });
-
-  }
-
+  };
 
   render() {
     const { showNewAdModal, imgInput, DetailsInput } = this.state;
@@ -165,7 +158,7 @@ class NewAdModal extends Component {
       let categoryIdsFound = [];
       let uniqueCategoryAds = [];
 
-      ads.forEach(ad => {
+      ads.forEach((ad) => {
         if (!categoryIdsFound.includes(ad.CategoryId)) {
           categoryIdsFound.push(parseInt(ad.CategoryId));
           uniqueCategoryAds.push(ad);
@@ -174,8 +167,10 @@ class NewAdModal extends Component {
 
       return uniqueCategoryAds;
     };
-    const categoryOptions = filterUniqueCategories().map(ad => (
-      <option key={ad.id} value={ad.CategoryId}>{ad.categoryName}</option>
+    const categoryOptions = filterUniqueCategories().map((ad) => (
+      <option key={ad.id} value={ad.CategoryId}>
+        {ad.categoryName}
+      </option>
     ));
 
     // a function that filters ads with the same subcategory
@@ -183,7 +178,7 @@ class NewAdModal extends Component {
       let subCategoryIdsFound = [];
       let uniqueSubCategoryAds = [];
 
-      ads.forEach(ad => {
+      ads.forEach((ad) => {
         if (!subCategoryIdsFound.includes(ad.SubCategoryId)) {
           subCategoryIdsFound.push(parseInt(ad.SubCategoryId));
           uniqueSubCategoryAds.push(ad);
@@ -193,13 +188,17 @@ class NewAdModal extends Component {
       return uniqueSubCategoryAds;
     };
 
-    const subCategoryOptions = filterUniqueSubCategories().map(ad => {
+    const subCategoryOptions = filterUniqueSubCategories().map((ad) => {
       const subOp = [];
 
       if (ad.CategoryId === this.state.categorySelectedId) {
         if (!subOp.includes(ad.subCategoryName)) {
           subOp.push(ad.subCategoryName);
-          return <option key={ad.id} value={ad.SubCategoryId}>{ad.subCategoryName}</option>;
+          return (
+            <option key={ad.id} value={ad.SubCategoryId}>
+              {ad.subCategoryName}
+            </option>
+          );
         }
       }
     });
@@ -209,7 +208,7 @@ class NewAdModal extends Component {
       let conditionIdFound = [];
       let conditionAds = [];
 
-      ads.forEach(ad => {
+      ads.forEach((ad) => {
         if (!conditionIdFound.includes(ad.conditionId)) {
           conditionIdFound.push(parseInt(ad.conditionId));
           conditionAds.push(ad);
@@ -218,36 +217,36 @@ class NewAdModal extends Component {
 
       return conditionAds;
     };
-    const conditionOptions = filterUniqueCondition().map(ad => (
-      <option key={ad.id} value={ad.conditionIdFound}>{ad.Condition}</option>
+    const conditionOptions = filterUniqueCondition().map((ad) => (
+      <option key={ad.id} value={ad.conditionIdFound}>
+        {ad.Condition}
+      </option>
     ));
 
-    const imgURL = imgInput ? URL.createObjectURL(imgInput) : '';
+    const imgURL = imgInput ? URL.createObjectURL(imgInput) : "";
 
     return (
       <Container>
         <Button
           variant="primary"
-          onClick={() => this.setState({ showNewAdModal: true })}>
+          onClick={() => this.setState({ showNewAdModal: true })}
+        >
           Place an Ad
         </Button>
         <Modal
           size="lg justify-content-center"
           show={showNewAdModal}
-          onHide={this.handleModalClose} >
+          onHide={this.handleModalClose}
+        >
           <Modal.Header closeButton>
             <Modal.Title>New Ad</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-
-
             <Container className=" d-flex justify-content-center w-50 p-5">
-              <Form
-                className=" p-2"
-              >
+              <Form className=" p-2">
                 <Form.Group>
                   <Form.Control
-                    style={{ width: '22rem' }}
+                    style={{ width: "22rem" }}
                     onSubmit={this.handleInputChange}
                     onChange={this.categoryChange}
                     value={this.state.categorySelectedId}
@@ -256,7 +255,7 @@ class NewAdModal extends Component {
                   >
                     <option name="categoryOptions" value="0">
                       Select a Category...
-                  </option>
+                    </option>
                     {categoryOptions}
                   </Form.Control>
                 </Form.Group>
@@ -264,7 +263,7 @@ class NewAdModal extends Component {
                 <Form.Group>
                   <Form.Label htmlFor="inlineFormCustomSelectPref"></Form.Label>
                   <Form.Control
-                    style={{ width: '22rem' }}
+                    style={{ width: "22rem" }}
                     value={this.state.subCategorySelectedId}
                     onChange={this.subCategoryChange}
                     onChange={this.handleInputChange}
@@ -279,7 +278,7 @@ class NewAdModal extends Component {
                 <Form.Group>
                   <Form.Label htmlFor="inlineFormCustomSelectPref"></Form.Label>
                   <Form.Control
-                    style={{ width: '22rem' }}
+                    style={{ width: "22rem" }}
                     onChange={this.conditionChange}
                     onChange={this.handleInputChange}
                     value={this.state.conditionSelected}
@@ -291,13 +290,10 @@ class NewAdModal extends Component {
                   </Form.Control>
                 </Form.Group>
 
-
-                <Form.Group
-                  controlId="Details"
-                >
+                <Form.Group controlId="Details">
                   <Form.Label> Ad Details</Form.Label>
                   <Form.Control
-                    style={{ width: '22rem' }}
+                    style={{ width: "22rem" }}
                     value={DetailsInput}
                     onChange={this.DetailsInputChange}
                     onChange={this.handleInputChange}
@@ -307,16 +303,13 @@ class NewAdModal extends Component {
                   />
                 </Form.Group>
 
-                <Form.Group
-                  as={Row}
-                  controlId="img"
-                >
+                <Form.Group as={Row} controlId="img">
                   <Form.Label column sm={2}>
                     Img
                   </Form.Label>
                   <Col sm={10}>
                     <Form.Control
-                      style={{ width: '22rem' }}
+                      style={{ width: "22rem" }}
                       onChange={this.handleFileChange}
                       type="file"
                       accept="image/*"
@@ -326,14 +319,9 @@ class NewAdModal extends Component {
                 <Image size="sm" src={imgURL} className="preview"></Image>
               </Form>
             </Container>
-
-
           </Modal.Body>
           <Modal.Footer>
-            <Button
-              variant="secondary"
-              onClick={this.handleCloseAndClean}
-            >
+            <Button variant="secondary" onClick={this.handleCloseAndClean}>
               Cancel
             </Button>
 
