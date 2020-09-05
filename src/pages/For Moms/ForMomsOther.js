@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { ListGroup, Col, Row } from 'react-bootstrap';
+import { ListGroup,} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdCard from '../../components/AdCard/AdCard';
-import { Navbar, Nav, Form, FormControl, Container ,CardColumns} from 'react-bootstrap';
+import { Navbar, Nav, Form, Container ,CardColumns} from 'react-bootstrap';
 
 class ForMomsOther extends Component {
   render() {

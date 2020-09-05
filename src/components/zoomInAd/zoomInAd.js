@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Container, Button, } from 'react-bootstrap';
+import { Card, Container, Button, Modal} from 'react-bootstrap';
 import AdCard from '../AdCard/AdCard';
 import emailjs from 'emailjs-com';
 import MailToTheOwner from '../MailToTheOwner/MailToTheOwner'
