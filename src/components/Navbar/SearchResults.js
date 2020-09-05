@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { CardColumns, Container } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import RequestForItem from '../Request for item/RequestForItem';
+// import RequestForItem from '../Request for item/RequestForItem';
 
 class SearchResults extends Component {
   render() {
@@ -29,15 +29,9 @@ class SearchResults extends Component {
             The search results can be obtained by your email. <br></br>{' '}
             <br></br>
             {this.props.activeUser ? (
-<<<<<<< HEAD
-
-            
-              <Link to="/requestForItem">Try Out Smart Agent</Link>
-=======
-              <RequestForItem/>
->>>>>>> d5ea63334d90c7385543fedf57f1f72003f6a740
-            ) : (
-              
+           
+             <Link to="/SmartAgent">Try Smart Agent</Link>
+              ) : (
               <Link to="/Login">Registered Users Login</Link>
             )}
           </div>

@@ -3,10 +3,7 @@ import {
   Form,
   FormControl,
   Button,
-<<<<<<< HEAD
-=======
   FormGroup,
->>>>>>> d5ea63334d90c7385543fedf57f1f72003f6a740
   Container,
   CardColumns,
 } from 'react-bootstrap';

@@ -457,6 +457,7 @@ class App extends Component {
               allUsers={allUsers}
               handleLogout={this.handleLogout}
               handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
+              searchResults={searchResults}
             />
           </Route>
         </Switch>

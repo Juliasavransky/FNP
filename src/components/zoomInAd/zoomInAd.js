@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Container, Button, Modal, } from 'react-bootstrap';
+import { Card, Container, Button, } from 'react-bootstrap';
 import AdCard from '../AdCard/AdCard';
 import emailjs from 'emailjs-com';
 import MailToTheOwner from '../../components/MailToTheOwner/MailToTheOwner'
@@ -40,9 +40,9 @@ class ZoomInAd extends Component {
 
     const template_params = {
       to_email: this.props.activeUser.email,
-      ad_name: 'ad_name_value',
-      fname: 'fname_value',
-      lname: 'lname_value',
+      ad_name: this.props.ad.categoryName,
+      fname: this.props.activeUser.fname,
+      lname: this.props.activeUser.lname,
       ad_desc: 'ad_desc_value',
     };
 
@@ -75,37 +75,37 @@ class ZoomInAd extends Component {
       user => this.props.ad.userId === user.id
     );
 
-    const sendAnEmail = activeUser && (
-      <Button
-        onSubmit={() => handleSendEmail()}
-        onClick={() => handleModalShow()}
-        href="#/emailSending"
-        variant="secondary">
-        Send An Email
-      </Button>
-    );
-    console.log("showEmailModal", showEmailModal)
+    // const sendAnEmail = activeUser && (
+    //   <Button
+    //     onSubmit={() => handleSendEmail()}
+    //     onClick={() => handleModalShow()}
+    //     href="#/emailSending"
+    //     variant="secondary">
+    //     Send An Email
+    //   </Button>
+    // );
+    // console.log("showEmailModal", showEmailModal)
 
 
-    const signupUser = !activeUser && (
-      <Button
-        href="#/signup"
-        variant="secondary"
-        className="btn-userLogin mr-2 mb-3"
-      >
-        Sign Up
-      </Button>
-    );
+    // const signupUser = !activeUser && (
+    //   <Button
+    //     href="#/signup"
+    //     variant="secondary"
+    //     className="btn-userLogin mr-2 mb-3"
+    //   >
+    //     Sign Up
+    //   </Button>
+    // );
 
-    const LogInUser = !activeUser ? (
-      <Button
-        href="#/login"
-        variant="secondary"
-        className="btn-userLogin mr-2 mb-3 "
-      >
-        Log In
-      </Button>
-    ) : null;
+    // const LogInUser = !activeUser ? (
+    //   <Button
+    //     href="#/login"
+    //     variant="secondary"
+    //     className="btn-userLogin mr-2 mb-3 "
+    //   >
+    //     Log In
+    //   </Button>
+    // ) : null;
 
     return (
       <Container className="d-flex ">
@@ -115,24 +115,24 @@ class ZoomInAd extends Component {
         >
           <Card.Title className=" m-2">{ad.subCategoryName}</Card.Title>
 
-          <Card.Body className="m-4 card  ">
+          <Card.Body className="m-4 card card text-center">
             <div>Details: {ad.Details}</div>
             <div>Condition: {ad.Condition}</div>
-            <div>Owner name:{' '}
+            <div>Owner Name:{' '}
               {owner.length > 0 ? owner[0].fname + ' ' + owner[0].lname : 'N/A'}</div>
-            <div>That live in:{' '}
+            <div>Living Area:{' '}
               {owner.length > 0 ? owner[0].livingArea + "  " + 'Area  ' + "in" + " " + owner[0].City : 'N/A'}</div>
 
 
           </Card.Body>
           <Card.Img variant="bottom" src={ad.img} />
-          {signupUser}
-          {LogInUser}
+          {/* {signupUser}
+          {LogInUser} */}
 
           <Button
-            onSubmit={this.handleSendEmail}
+            // onSubmit={this.handleSendEmail}
             // onClick={() => this.setState({ showEmailModal: true })}
-            onClick={this.handleModalShow}
+            onClick={this.handleSendEmail}
             className="btn-login"
             variant="primary"
             type="submit">

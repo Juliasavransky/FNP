@@ -81,7 +81,7 @@ class NewAdModal extends Component {
     const newAd = {
       CategoryId: categorySelectedId,
       SubCategoryId: subCategorySelectedId,
-      img: URL.createObjectURL(imgInput) ,
+      img: imgInput?URL.createObjectURL(imgInput):null,
       Details: DetailsInput,
       conditionId: conditionSelected,
       userId: activeUser.id,
@@ -97,8 +97,8 @@ class NewAdModal extends Component {
     const template_params = {
       to_email: this.props.activeUser.email,
       ad_name: 'ad_name_value',
-      fname: 'fname_value',
-      lname: 'lname_value',
+      fname: this.props.activeUser.fname,
+      lname: this.props.activeUser.lname,
       ad_desc: 'ad_desc_value',
     };
 
@@ -215,14 +215,8 @@ class NewAdModal extends Component {
       <Container>
         <Button
           variant="primary"
-<<<<<<< HEAD
-          onClick={() => this.setState({ showNewAdModal: true })}
-        >
-          Place An Ad
-=======
           onClick={() => this.setState({ showNewAdModal: true })}>
           Place an Ad
->>>>>>> d5ea63334d90c7385543fedf57f1f72003f6a740
         </Button>
         <Modal
           size="lg justify-content-center"
