@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button, Modal, Container, Col, Row,} from 'react-bootstrap';
+import { Form, Button, Modal, Container, Col, Row, } from 'react-bootstrap';
 import emailjs from 'emailjs-com';
 
 class RequestForItem extends Component {
@@ -11,6 +11,7 @@ class RequestForItem extends Component {
             subCategorySelectedId: null,
             conditionSelected: null,
             livingAreaIdSelected: null,
+            taitelInput: "",
             detailsInput: "",
             filteredAgents: [],
             sendEmail: null,
@@ -45,7 +46,9 @@ class RequestForItem extends Component {
             conditionSelected: null,
             detailsInput: "",
             livingAreaIdSelected: null,
-            showNewAgentModal: false
+            showNewAgentModal: false,
+            taitelInput: "",
+
 
         })
     }
@@ -56,7 +59,7 @@ class RequestForItem extends Component {
             detailsInput, categorySelectedId,
             subCategorySelectedId,
             categoryName, subCategoryName, imgInput,
-            Condition, } = this.state;
+            Condition, taitelInput, } = this.state;
 
         const { activeUser, ads, allUsers, smartAgent, handleCreatSmartNewAgent, requests } = this.props
 
@@ -66,7 +69,9 @@ class RequestForItem extends Component {
             Details: detailsInput,
             conditionId: conditionSelected,
             userId: activeUser.id,
-            livingAreaId: livingAreaIdSelected
+            livingAreaId: livingAreaIdSelected,
+            taitel: taitelInput,
+
         };
         console.log("handleCreatSmartAgent", this.props.handleCreatSmartAgent)
         console.log("props", this.props)
@@ -112,7 +117,6 @@ class RequestForItem extends Component {
     livingAreaChange = (event) => {
         this.setState({
             livingAreaIdSelected: parseInt(event.target.value),
-            // sendEmail: event.target.Check,
         })
     }
     sendEmailChange = (event) => {
@@ -125,7 +129,7 @@ class RequestForItem extends Component {
 
         const { showNewAgentModal, categorySelectedId, sendEmail,
             subCategorySelectedId, conditionSelected,
-            filteredAgents, detailsInput, livingAreaIdSelected,
+            filteredAgents, detailsInput, taitelInput, livingAreaIdSelected,
         } = this.state;
 
         const { activeUser, ads, allUsers, handleCreatSmartAgent, ad, requests } = this.props;
@@ -237,7 +241,7 @@ class RequestForItem extends Component {
                     show={showNewAgentModal}
                     onHide={this.handleModalClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title 
+                        <Modal.Title
                         >  Creat A New Agent
                         </Modal.Title>
                     </Modal.Header>
@@ -305,6 +309,15 @@ class RequestForItem extends Component {
                                         <option value="0">Select Item Location</option>
                                         {livingAreaOptions}
                                     </Form.Control>
+                                </Form.Group>
+
+                                <Form.Group
+                                    controlId="taitel">
+                                    <Form.Control
+                                        style={{ width: '22rem' }}
+                                        value={taitelInput}
+                                        onChange={this.handleInputChange}
+                                        type="text" name="taitelInput" placeholder="Ad Taitel..." />
                                 </Form.Group>
 
                                 <Row>
