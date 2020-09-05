@@ -1,6 +1,6 @@
 import emailjs from "emailjs-com";
 import React, { Component } from "react";
-import { Button, Card, Container, Modal } from "react-bootstrap";
+import { Button, Card, Container, Modal, Form, Row, Col } from "react-bootstrap";
 
 class ZoomInAd extends Component {
   constructor(props) {
@@ -9,8 +9,8 @@ class ZoomInAd extends Component {
       showButton: true,
       showEmailModal: false,
       emailInput: "",
-      taitalInput:"",
-      
+      taitalInput: "",
+
     };
     this.handleSendEmail = this.handleSendEmail.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
@@ -28,7 +28,7 @@ class ZoomInAd extends Component {
       showButton: true,
       showEmailModal: false,
       emailInput: "",
-      taitalInput:"",
+      taitalInput: "",
     });
   }
   handleemailInput = (event) => {
@@ -37,7 +37,7 @@ class ZoomInAd extends Component {
     })
     console.log("handleemailInput", event.target.value)
   }
-  
+
   handleITaitelChange = (event) => {
     this.setState({
       taitalInput: event.target.value
@@ -58,18 +58,18 @@ class ZoomInAd extends Component {
     //  Send An Email
 
     const template_params = {
-      
-      activ_user_fname:activeUser.fname,
-      activeuser_lname:activeUser.lname,
-      owner_fname: <div>{owner.length > 0 ? owner[0].fname: 'N/A'}</div> ,
-      owner_lname: <div>{owner.length > 0 ? owner[0].lname: 'N/A'}</div>,
+
+      activ_user_fname: activeUser.fname,
+      activeuser_lname: activeUser.lname,
+      owner_fname: <div>{owner.length > 0 ? owner[0].fname : 'N/A'}</div>,
+      owner_lname: <div>{owner.length > 0 ? owner[0].lname : 'N/A'}</div>,
       activeUser_fname: activeUser.fname,
-      activeUser_lname:activeUser.lname,
+      activeUser_lname: activeUser.lname,
       category_name: ad.categoryName,
       taitalinput: taitalInput,
       emailinput: emailInput,
-      to_email:<div>{owner.length > 0 ? owner[0].email: 'N/A'}</div> ,
-      
+      to_email: <div>{owner.length > 0 ? owner[0].email : 'N/A'}</div>,
+
     };
 
     const service_id = "default_service";
@@ -110,6 +110,7 @@ class ZoomInAd extends Component {
 
     const signupUser = !activeUser && (
       <Button
+      
         href="#/signup"
         variant="secondary"
         className="btn-userLogin mr-2 mb-3"
@@ -120,6 +121,7 @@ class ZoomInAd extends Component {
 
     const LogInUser = !activeUser ? (
       <Button
+      
         href="#/login"
         variant="secondary"
         className="btn-userLogin mr-2 mb-3 "
@@ -132,12 +134,12 @@ class ZoomInAd extends Component {
       <>
         <Container className="d-flex ">
           <Card
-            className="mx-auto shadow p-3 mb-5 bg-white rounded  m-2 text-muted card "
+            className="mx-auto shadow p-3 mt-5 rounded text-muted card "
             style={{ width: '26rem' }}
           >
             <Card.Title className=" m-2">{ad.subCategoryName}</Card.Title>
 
-            <Card.Body className="m-4 card  ">
+            <Card.Body className="   ">
               <div>Details: {ad.Details}</div>
               <div>Condition: {ad.Condition}</div>
               <div>
@@ -150,17 +152,17 @@ class ZoomInAd extends Component {
                 That live in:{" "}
                 {owner.length > 0
                   ? owner[0].livingArea +
-                    "  " +
-                    "Area  " +
-                    "in" +
-                    " " +
-                    owner[0].City
+                  "  " +
+                  "Area  " +
+                  "in" +
+                  " " +
+                  owner[0].City
                   : "N/A"}
               </div>
             </Card.Body>
             <Card.Img variant="bottom" src={ad.img} />
-            {signupUser}
-            {LogInUser}
+                {signupUser}
+                {LogInUser}
             {activeUser ? (
               <Button
                 onSubmit={this.handleSendEmail}
@@ -172,8 +174,8 @@ class ZoomInAd extends Component {
                 Send An Email
               </Button>
             ) : (
-              <></>
-            )}
+                <></>
+              )}
 
             <small className=" m-2 text-muted">Published Date {ad.Date}</small>
           </Card>
@@ -214,8 +216,8 @@ class ZoomInAd extends Component {
               Close
           </Button>
             <Button variant="primary" onSubmit={this.handleSendEmail}
-            onClick={this.handleModalCloseAndClean}>
-              Save Changes
+              onClick={this.handleModalCloseAndClean}>
+              Sand an Email
           </Button>
           </Modal.Footer>
         </Modal>
