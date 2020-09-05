@@ -5,17 +5,13 @@ import { Link } from 'react-router-dom';
 import RequestForItem from '../Request for item/RequestForItem';
 
 class SearchResults extends Component {
-  componentDidMount() {
-    console.log("SearchResults", this.props)
-  }
   render() {
-
     return (
       <Container className="SearchResults">
         {this.props.searchResults.length === 0 ? (
           <div>
-
-            <br></br><br></br>
+            <br></br>
+            <br></br>
             <h2>No Results Found :-(</h2>
             <br></br>
             Sorry, the item you are interested in is not currently on the site.{' '}
@@ -28,12 +24,12 @@ class SearchResults extends Component {
             First click on Add New Agent and define the criteria of the ads you
             are looking for.<br></br>
             As soon as you fill in the details, <br></br>
-            the smart agent will wait for new ads to be added to the site, <br></br>
+            the smart agent will wait for new ads to be added to the site,{' '}
+            <br></br>
             which meet the criteria you have set for him. <br></br>
             The search results can be obtained by your email. <br></br>{' '}
             <br></br>
             {this.props.activeUser ? (
-
               <RequestForItem
                 ads={this.props.ads}
                 handleLogin={this.props.handleLogin}
@@ -43,15 +39,14 @@ class SearchResults extends Component {
                 handleCreatNewAd={this.props.handleCreatNewAd}
                 handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
               />
-              // <Link to="/requestForItem">Try Out Smart Agent</Link>
             ) : (
-
-                <Link to="/Login">Registered Users Login</Link>
-              )}
+              // <Link to="/requestForItem">Try Out Smart Agent</Link>
+              <Link to="/Login">Registered Users Login</Link>
+            )}
           </div>
         ) : (
-            <CardColumns>{this.props.searchResults}</CardColumns>
-          )}
+          <CardColumns>{this.props.searchResults}</CardColumns>
+        )}
       </Container>
     );
   }

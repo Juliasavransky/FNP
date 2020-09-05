@@ -1,17 +1,21 @@
-import React, { Component } from 'react';
-import { ListGroup, } from 'react-bootstrap';
-import AdCard from '../../components/AdCard/AdCard';
-import { Navbar, Nav, Form, Container, CardColumns } from 'react-bootstrap';
+import React, { Component } from "react";
+import {
+  CardColumns,
+  Container,
+  Form,
+  ListGroup,
+  Nav,
+  Navbar
+} from "react-bootstrap";
+import AdCard from "../../components/AdCard/AdCard";
 
 class Clothing extends Component {
   render() {
     const { ads } = this.props;
-
     const ClothingPage = 1;
-    const clothingAds = ads.filter(ad => ad.CategoryId === ClothingPage);
-    const clothingAdsUi = clothingAds.map(ad => (<AdCard ad={ad} key={ad.id}/>
-     
-      
+    const clothingAds = ads.filter((ad) => ad.CategoryId === ClothingPage);
+    const clothingAdsUi = clothingAds.map((ad) => (
+      <AdCard ad={ad} key={ad.id} />
     ));
 
     return (
@@ -40,10 +44,8 @@ class Clothing extends Component {
           </Navbar.Collapse>
         </Navbar>
         <Container>
-        <CardColumns>
-        {clothingAdsUi}
-        </CardColumns>
-        <ListGroup variant="flush"></ListGroup>
+          <CardColumns>{clothingAdsUi}</CardColumns>
+          <ListGroup variant="flush"></ListGroup>
         </Container>
       </div>
     );

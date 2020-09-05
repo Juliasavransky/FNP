@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { Button, Container } from 'react-bootstrap';
-import './sorry.css'; 
+import { Container } from 'react-bootstrap';
 import RequestForItem from '../Request for item/RequestForItem';
+import './Sorry.css';
 
 class Sorry extends Component {
-  componentDidMount(){
-    console.log("Sorry" , this.props)
-}
+  componentDidMount() {
+    console.log('Sorry', this.props);
+  }
   render() {
-   
     return (
       <div>
         <Container className="sorry">
@@ -25,7 +24,6 @@ class Sorry extends Component {
           the smart agent will wait for new ads to be added to the site, which
           meet the criteria you have set for him. <br></br>
           The search results can be obtained by your email. <br></br> <br></br>
-
           <RequestForItem
             ads={this.props.ads}
             handleLogin={this.props.handleLogin}
