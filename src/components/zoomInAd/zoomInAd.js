@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Container, Button, Modal, } from 'react-bootstrap';
+import { Card, Container, Button, Modal, Form } from 'react-bootstrap';
 import AdCard from '../AdCard/AdCard';
 import emailjs from 'emailjs-com';
 import MailToTheOwner from '../MailToTheOwner/MailToTheOwner'
@@ -9,33 +9,70 @@ class ZoomInAd extends Component {
     super(props);
     this.state = {
       showButton: true,
-      showEmailModal: false
+      showEmailModal: false,
+      emailInput: "",
+      taitalInput:"",
+
     };
     this.handleSendEmail = this.handleSendEmail.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
+    this.handleemailInput = this.handleemailInput.bind(this);
+    this.handleITaitelChange = this.handleITaitelChange.bind(this);
   }
-  
+
 
   handleModalClose = () => {
     this.setState({
       showEmailModal: false,
     });
   }
-
+  handleModalCloseAndClean = () => {
+    this.setState({
+      showButton: true,
+      showEmailModal: false,
+      emailInput: "",
+      taitalInput:"",
+    });
+  }
+  handleemailInput = (event) => {
+    this.setState({
+      emailInput: event.target.value
+    })
+    console.log("handleemailInput", event.target.value)
+  }
+  
+  handleITaitelChange = (event) => {
+    this.setState({
+      taitalInput: event.target.value
+    })
+    console.log("handleITaitelChange", event.target.value)
+  }
 
   handleSendEmail = event => {
     event.preventDefault();
-    const { activeUser } = this.props;
+    const { activeUser, ad, allUsers } = this.props;
+    const { emailInput, taitalInput } = this.state;
+    const owner = this.props.allUsers.filter(
+      user => this.props.ad.userId === user.id
+    );
+
     console.log('activeUser', activeUser);
 
-    // //  Send An Email
+    //  Send An Email
 
     const template_params = {
-      to_email: this.props.activeUser.email,
-      ad_name: 'ad_name_value',
-      fname: 'fname_value',
-      lname: 'lname_value',
-      ad_desc: 'ad_desc_value',
+      
+      activ_user_fname:activeUser.fname,
+      activeuser_lname:activeUser.lname,
+      owner_fname: <div>{owner.length > 0 ? owner[0].fname: 'N/A'}</div> ,
+      owner_lname: <div>{owner.length > 0 ? owner[0].lname: 'N/A'}</div>,
+      activeUser_fname: activeUser.fname,
+      activeUser_lname:activeUser.lname,
+      category_name: ad.categoryName,
+      taitalinput: taitalInput,
+      emailinput: emailInput,
+      to_email:<div>{owner.length > 0 ? owner[0].email: 'N/A'}</div> ,
+      
     };
 
     const service_id = 'default_service';
@@ -45,20 +82,21 @@ class ZoomInAd extends Component {
       .then(alert('Email Has Been Sent Succesfully To The User'))
       .catch('The Email send Has Been failed');
 
+
     this.setState({
       showButton: false,
     });
 
-    
+    this.handleModalCloseAndClean()
 
   };
 
   render() {
-    const {activeUser,ad,ads,handleLogout,allUsers, handleSendEmail, } = this.props;
+    const { activeUser, ad, ads, handleLogout, allUsers, handleSendEmail, } = this.props;
 
-    const{showEmailModal}=this.state;
-    
-console.log("activeUser",activeUser)
+    const { showEmailModal } = this.state;
+
+    console.log("activeUser", activeUser)
     const owner = this.props.allUsers.filter(
       user => this.props.ad.userId === user.id
     );
@@ -95,57 +133,82 @@ console.log("activeUser",activeUser)
 
     return (
       <>
-      <Container className="d-flex ">
-        <Card
-          className="mx-auto shadow p-3 mb-5 bg-white rounded  m-2 text-muted card "
-          style={{ width: '26rem' }}
-        >
-          <Card.Title className=" m-2">{ad.subCategoryName}</Card.Title>
+        <Container className="d-flex ">
+          <Card
+            className="mx-auto shadow p-3 mb-5 bg-white rounded  m-2 text-muted card "
+            style={{ width: '26rem' }}
+          >
+            <Card.Title className=" m-2">{ad.subCategoryName}</Card.Title>
 
-          <Card.Body className="m-4 card  ">
-            <div>Details: {ad.Details}</div>
-            <div>Condition: {ad.Condition}</div>
-            <div>Owner name:{' '}
-              {owner.length > 0 ? owner[0].fname + ' ' + owner[0].lname : 'N/A'}</div>
-            <div>That live in:{' '}
-              {owner.length > 0 ? owner[0].livingArea + "  " + 'Area  ' + "in" + " " + owner[0].City : 'N/A'}</div>
+            <Card.Body className="m-4 card  ">
+              <div>Details: {ad.Details}</div>
+              <div>Condition: {ad.Condition}</div>
+              <div>Owner name:{' '}
+                {owner.length > 0 ? owner[0].fname + ' ' + owner[0].lname : 'N/A'}</div>
+              <div>That live in:{' '}
+                {owner.length > 0 ? owner[0].livingArea + "  " + 'Area  ' + "in" + " " + owner[0].City : 'N/A'}</div>
 
 
-          </Card.Body>
-          <Card.Img variant="bottom" src={ad.img} />
-          {signupUser}
-          {LogInUser}
+            </Card.Body>
+            <Card.Img variant="bottom" src={ad.img} />
+            {signupUser}
+            {LogInUser}
 
-          <Button
-            onSubmit={this.handleSendEmail}
-            onClick={() => this.setState({showEmailModal: true})}
-            className="btn-login"
-            variant="primary"
-            type="submit">
-            Send An Email
+            <Button
+              // onSubmit={this.handleSendEmail}
+              onClick={() => this.setState({ showEmailModal: true })}
+              className="btn-login"
+              variant="primary"
+              type="submit">
+              Send An Email
           </Button>
 
-          <small className=" m-2 text-muted">Published Date {ad.Date}</small>
-        </Card>
-        </Container>  
+            <small className=" m-2 text-muted">Published Date {ad.Date}</small>
+          </Card>
+        </Container>
 
 
         <Modal show={showEmailModal} onHide={this.handleModalClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={this.handleModalClose}>
-            Close
+          <Modal.Header closeButton>
+            <Modal.Title>Send an email to :
+          <div>{' '}
+                {owner.length > 0 ? owner[0].fname + ' ' + owner[0].lname : 'N/A'}</div>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+
+            <Form.Group
+              controlId="taitel">
+              <Form.Control
+                style={{ width: '27rem' }}
+                onChange={this.handleITaitelChange}
+                type="text" name="taitelInput" placeholder="Taitel" />
+            </Form.Group>
+
+            <Form.Group
+              controlId="emailInput">
+              <Form.Control
+                as="textarea"
+                style={{ width: '27rem' }}
+                rows="5"
+                onChange={this.handleemailInput}
+                type="text" name="emailInput" placeholder="Ask a question...." />
+            </Form.Group>
+
+
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.handleModalCloseAndClean}>
+              Close
           </Button>
-          <Button variant="primary" onClick={this.handleModalClose}>
-            Save Changes
+            <Button variant="primary" onSubmit={this.handleSendEmail}
+            onClick={this.handleModalCloseAndClean}>
+              Save Changes
           </Button>
-        </Modal.Footer>
-      </Modal>
+          </Modal.Footer>
+        </Modal>
       </>
-         
+
     );
   }
 }

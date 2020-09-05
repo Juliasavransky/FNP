@@ -83,8 +83,7 @@ class NewAdModal extends Component {
       Details: DetailsInput,
       conditionId: conditionSelected,
       userId: activeUser.id
-      //  ? (<Login/>):null,
-    
+      
     };
 
     console.log('handleCreatNewAd', this.props.handleCreatNewAd);
