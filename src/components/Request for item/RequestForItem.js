@@ -231,7 +231,6 @@ class RequestForItem extends Component {
         return (
 
             <Container>
-
                 <Button variant="primary"
                     onClick={() => this.setState({ showNewAgentModal: true })}>
                     I'm Looking for An Item
