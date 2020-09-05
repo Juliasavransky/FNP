@@ -1,15 +1,17 @@
 import emailjs from "emailjs-com";
 import React, { Component } from "react";
-import { Button, Card, Container, Modal } from "react-bootstrap";
+import { Button, Card, Container, Modal, Form } from "react-bootstrap";
 
 class ZoomInAd extends Component {
-  constructor(props) {
+  constructor(props, city, streetNumber) {
     super(props);
     this.state = {
       showButton: true,
       showEmailModal: false,
       emailInput: "",
       taitalInput:"",
+      city: city,
+      streetNumber: streetNumber
       
     };
     this.handleSendEmail = this.handleSendEmail.bind(this);
@@ -140,7 +142,9 @@ class ZoomInAd extends Component {
             <Card.Body className="m-4 card  ">
               <div>Details: {ad.Details}</div>
               <div>Condition: {ad.Condition}</div>
-              <div>
+              <div>City: {ad.City} </div>
+              <div>StreetNumber: {ad.StreetNumber} 
+             
                 Owner name:{" "}
                 {owner.length > 0
                   ? owner[0].fname + " " + owner[0].lname
