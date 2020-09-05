@@ -4,10 +4,11 @@ import './sorry.css';
 import RequestForItem from '../Request for item/RequestForItem';
 
 class Sorry extends Component {
+  componentDidMount(){
+    console.log("Sorry" , this.props)
+}
   render() {
-    const { ads, allUsers, activeUser, } = this.props;
-    console.log('props', this.props);
-
+   
     return (
       <div>
         <Container className="sorry">
@@ -25,15 +26,14 @@ class Sorry extends Component {
           meet the criteria you have set for him. <br></br>
           The search results can be obtained by your email. <br></br> <br></br>
 
-          <Button type="button"></Button>
           <RequestForItem
-            ads={ads}
-            handleLogin={this.handleLogin}
-            allUsers={allUsers}
-            handleLogout={this.handleLogout}
-            activeUser={activeUser}
-            handleCreatNewAd={this.handleCreatNewAd}
-            handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
+            ads={this.props.ads}
+            handleLogin={this.props.handleLogin}
+            allUsers={this.props.allUsers}
+            handleLogout={this.props.handleLogout}
+            activeUser={this.props.activeUser}
+            handleCreatNewAd={this.props.handleCreatNewAd}
+            handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
           />
         </Container>
       </div>

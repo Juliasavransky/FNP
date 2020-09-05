@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button, Modal, Container, } from 'react-bootstrap';
+import { Form, Button, Modal, Container, Col, Row, } from 'react-bootstrap';
 import emailjs from 'emailjs-com';
 
 class RequestForItem extends Component {
@@ -11,6 +11,7 @@ class RequestForItem extends Component {
             subCategorySelectedId: null,
             conditionSelected: null,
             livingAreaIdSelected: null,
+            taitelInput: "",
             detailsInput: "",
             filteredAgents: [],
             sendEmail: null,
@@ -20,8 +21,10 @@ class RequestForItem extends Component {
         this.cleanAndHideModalData = this.cleanAndHideModalData.bind(this);
         this.handleCreatSmartAgent = this.handleCreatSmartAgent.bind(this);
     }
-    
 
+    componentDidMount() {
+        console.log("RequestForItem", this.props)
+    }
     handleModalClose() {
         this.setState({
             showNewAgentModal: false
@@ -43,7 +46,9 @@ class RequestForItem extends Component {
             conditionSelected: null,
             detailsInput: "",
             livingAreaIdSelected: null,
-            showNewAgentModal: false
+            showNewAgentModal: false,
+            taitelInput: "",
+
 
         })
     }
@@ -51,12 +56,12 @@ class RequestForItem extends Component {
     handleCreatSmartAgent(event) {
 
         const { livingAreaIdSelected, conditionSelected,
-             detailsInput,  categorySelectedId,
-              subCategorySelectedId, 
-              categoryName, subCategoryName, imgInput,
-             Condition,  } = this.state;
+            detailsInput, categorySelectedId,
+            subCategorySelectedId,
+            categoryName, subCategoryName, imgInput,
+            Condition, taitelInput, } = this.state;
 
-        const { activeUser, ads, allUsers ,smartAgent,handleCreatSmartNewAgent} = this.props
+        const { activeUser, ads, allUsers, smartAgent, handleCreatSmartNewAgent, requests } = this.props
 
         const newAgent = {
             CategoryId: categorySelectedId,
@@ -64,15 +69,17 @@ class RequestForItem extends Component {
             Details: detailsInput,
             conditionId: conditionSelected,
             userId: activeUser.id,
-            livingAreaId: livingAreaIdSelected
+            livingAreaId: livingAreaIdSelected,
+            taitel: taitelInput,
+
         };
         console.log("handleCreatSmartAgent", this.props.handleCreatSmartAgent)
         console.log("props", this.props)
 
 
-        this.props.handleCreatSmartNewAgent(newAgent);
+        this.handleCreatSmartNewAgent(newAgent);
         this.cleanAndHideModalData();
-       
+
 
         //  send an email
 
@@ -90,7 +97,6 @@ class RequestForItem extends Component {
             .send(service_id, template_id, template_params)
             .then(alert('Email Has Been Sent Succesfully To The User'))
             .catch('The Email send Has Been failed');
-
     }
     categoryChange = (event) => {
         console.log(event.target.value, event.target.name)
@@ -111,7 +117,6 @@ class RequestForItem extends Component {
     livingAreaChange = (event) => {
         this.setState({
             livingAreaIdSelected: parseInt(event.target.value),
-            // sendEmail: event.target.Check,
         })
     }
     sendEmailChange = (event) => {
@@ -124,10 +129,10 @@ class RequestForItem extends Component {
 
         const { showNewAgentModal, categorySelectedId, sendEmail,
             subCategorySelectedId, conditionSelected,
-            filteredAgents, detailsInput, livingAreaIdSelected,
+            filteredAgents, detailsInput, taitelInput, livingAreaIdSelected,
         } = this.state;
 
-        const { activeUser, ads, allUsers, handleCreatSmartAgent, ad } = this.props;
+        const { activeUser, ads, allUsers, handleCreatSmartAgent, ad, requests } = this.props;
         console.log("ads", ads)
         // a function that filters ads with the same category
         const filterUniqueCategories = () => {
@@ -139,14 +144,14 @@ class RequestForItem extends Component {
                 if (!categoryIdsFound.includes(ad.CategoryId)) {
                     categoryIdsFound.push(parseInt(ad.CategoryId));
                     uniqueCategoryAds.push(ad);
-                } console.log("ad", ad)
+                }
             });
 
 
             return uniqueCategoryAds;
         }
         const categoryOptions = filterUniqueCategories().map(ad =>
-            <option value={ad.CategoryId}>
+            <option key={ad.id} value={ad.CategoryId}>
                 {ad.categoryName}
             </option>)
 
@@ -172,7 +177,7 @@ class RequestForItem extends Component {
             if (ad.CategoryId === this.state.categorySelectedId) {
                 if (!subOp.includes(ad.subCategoryName)) {
                     subOp.push(ad.subCategoryName);
-                    return <option value={ad.SubCategoryId}>
+                    return <option key={ad.id} value={ad.SubCategoryId}>
                         {ad.subCategoryName}
                     </option>
                 }
@@ -197,7 +202,7 @@ class RequestForItem extends Component {
             return conditionAds;
         }
         const conditionOptions = filterUniqueCondition().map(ad =>
-            <option value={ad.conditionIdFound}>
+            <option key={ad.id} value={ad.conditionIdFound}>
                 {ad.Condition}
             </option>)
 
@@ -207,17 +212,18 @@ class RequestForItem extends Component {
             let livingAreaIdUsers = [];
 
 
-            allUsers.forEach(user => {
+            allUsers && allUsers.forEach(user => {
                 if (!livingAreaIdFound.includes(user.livingAreaId)) {
                     livingAreaIdFound.push(parseInt(user.livingAreaId));
                     livingAreaIdUsers.push(user);
+
                 }
             });
 
             return livingAreaIdUsers;
         }
         const livingAreaOptions = filterUniquelivingArea().map(user =>
-            <option value={user.livingAreaIdFound}>
+            <option key={user.id} value={user.livingAreaIdFound}>
                 {user.livingArea}
             </option>)
 
@@ -243,86 +249,104 @@ class RequestForItem extends Component {
 
 
 
-
-                        <Form className="mx-auto d-flex justify-content-between w-150 p-3" inline>
-                            <Form.Row>
-                                <Form.Control
-                                    style={{ width: '22rem' }}
-                                    onSubmit={this.handleInputChange}
-                                    onChange={this.categoryChange}
-                                    value={this.state.categorySelectedId}
-                                    as="select"
-                                    name="categorySelectedId"
-                                    className="justify-content-center " >
-                                    <option name="categoryOptions"
-                                        value="0">Select a Category</option>
-                                    {categoryOptions}
-                                </Form.Control>
-
-
-
-
-                                <Form.Control
-                                    style={{ width: '22rem' }}
-                                    value={this.state.subCategorySelectedId}
-                                    onChange={this.handleInputChange}
-                                    onChange={this.subCategoryChange}
-                                    as="select"
-                                    className="justify-content-center"
-                                    name="subCategorySelectedId" >
-                                    <option value="0">Select A Sub-Category</option>
-                                    {subCategoryOptions}
-                                </Form.Control>
-
-
-                                <Form.Control
-                                    style={{ width: '22rem' }}
-                                    onChange={this.conditionChange}
-                                    onChange={this.handleInputChange}
-                                    value={this.state.conditionSelected}
-                                    as="select"
-                                    className="justify-content-center"
-                                    name="conditionSelected" >
-                                    <option value="0">Select Item Condition</option>
-                                    {conditionOptions}
-                                </Form.Control>
-
-
-
-                                <Form.Control
-                                    style={{ width: '22rem' }}
-                                    onChange={this.livingAreaChange}
-                                    onChange={this.handleInputChange}
-                                    value={this.state.livingAreaIdSelected}
-                                    as="select"
-                                    className="justify-content-center"
-                                    name="livingAreaIdSelected" >
-                                    <option value="0">Select Item Location</option>
-                                    {livingAreaOptions}
-                                </Form.Control>
-
-
-                                <Form.Group
-                                    controlId="Details"
-                                    className="justify-content-center">
+                        <Container className=" d-flex justify-content-center w-50 p-5">
+                            <Form>
+                                <Form.Group >
                                     <Form.Control
-                                        as="textarea"
-                                        style={{ width: '40rem' }}
-                                        rows="2"
-                                        value={detailsInput}
-                                        onChange={this.handleInputChange}
-                                        type="text" name="detailsInput" placeholder="Ad Details..." />
+                                        style={{ width: '22rem' }}
+                                        onSubmit={this.handleInputChange}
+                                        onChange={this.categoryChange}
+                                        value={this.state.categorySelectedId}
+                                        as="select"
+                                        name="categorySelectedId"
+                                        className="justify-content-center " >
+                                        <option name="categoryOptions"
+                                            value="0">Select a Category</option>
+                                        {categoryOptions}
+                                    </Form.Control>
                                 </Form.Group>
 
 
-                                <Form.Check
-                                className="p-4"
-                                    onChange={this.handleInputChange}
-                                    onChange={this.sendEmailChange}
-                                    type="checkbox"
-                                    label="Send Me Email Alerts" />
-                            </Form.Row>
-                        </Form>
+
+                                <Form.Group >
+                                    <Form.Control
+                                        style={{ width: '22rem' }}
+                                        value={this.state.subCategorySelectedId}
+                                        onChange={this.handleInputChange}
+                                        onChange={this.subCategoryChange}
+                                        as="select"
+                                        className="justify-content-center"
+                                        name="subCategorySelectedId" >
+                                        <option value="0">Select A Sub-Category</option>
+                                        {subCategoryOptions}
+                                    </Form.Control>
+                                </Form.Group>
+
+                                <Form.Group >
+                                    <Form.Control
+                                        style={{ width: '22rem' }}
+                                        onChange={this.conditionChange}
+                                        onChange={this.handleInputChange}
+                                        value={this.state.conditionSelected}
+                                        as="select"
+                                        className="justify-content-center"
+                                        name="conditionSelected" >
+                                        <option value="0">Select Item Condition</option>
+                                        {conditionOptions}
+                                    </Form.Control>
+                                </Form.Group>
+
+
+                                <Form.Group >
+                                    <Form.Control
+                                        style={{ width: '22rem' }}
+                                        onChange={this.livingAreaChange}
+                                        onChange={this.handleInputChange}
+                                        value={this.state.livingAreaIdSelected}
+                                        as="select"
+                                        className="justify-content-center"
+                                        name="livingAreaIdSelected" >
+                                        <option value="0">Select Item Location</option>
+                                        {livingAreaOptions}
+                                    </Form.Control>
+                                </Form.Group>
+
+                                <Form.Group
+                                    controlId="taitel">
+                                    <Form.Control
+                                        style={{ width: '22rem' }}
+                                        value={taitelInput}
+                                        onChange={this.handleInputChange}
+                                        type="text" name="taitelInput" placeholder="Ad Taitel..." />
+                                </Form.Group>
+
+                                <Row>
+                                    <Col>
+                                        <Form.Group
+                                            controlId="Details">
+                                            <Form.Control
+                                                as="textarea"
+                                                style={{ width: '22rem' }}
+                                                rows="2"
+                                                value={detailsInput}
+                                                onChange={this.handleInputChange}
+                                                type="text" name="detailsInput" placeholder="Ad Details..." />
+                                        </Form.Group>
+                                    </Col>
+                                    <Col>
+
+                                        <Form.Group >
+                                            <Form.Check
+                                                onChange={this.handleInputChange}
+                                                onChange={this.sendEmailChange}
+                                                type="checkbox"
+                                                label="Send Me Email Alerts" />
+                                        </Form.Group>
+                                    </Col>
+                                </Row>
+
+                            </Form>
+                        </Container>
 
 
                     </Modal.Body>

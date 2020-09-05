@@ -6,7 +6,9 @@
         "details": "detailsInput",
         "conditionId": "conditionSelected",
         "userId": "activeUser.id",
-        "livingAreaId": "livingAreaIdSelected"
+        "livingAreaId": "livingAreaIdSelected",
+        "agentId": 100,
+        "taitel": "taitelInput"
       }
       
 ]

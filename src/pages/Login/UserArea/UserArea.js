@@ -16,7 +16,7 @@ class UserArea extends Component {
   
 
     render() {
-        const { activeUser, ads, allUsers, handleCreatNewAd } = this.props;
+        const { activeUser, ads, allUsers, handleCreatNewAd,handleCreatSmartNewAgent } = this.props;
      
         const activeUserAds = activeUser && ads.filter((ad)=> {
             return ad.userId === activeUser.id
@@ -38,6 +38,8 @@ class UserArea extends Component {
                 allUsers={allUsers}
                 handleLogout={this.props.handleLogout}
                 handleCreatNewAd={this.props.handleCreatNewAd}
+                handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
+
                 activeUser={activeUser}
                 />
             </div>
