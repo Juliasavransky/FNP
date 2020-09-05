@@ -15,17 +15,17 @@ class UserArea extends Component {
     };
   }
 
-  componentDidMount() {
-    // Get all the existing smart agents - we don't want to display it to the logged-in user
-    console.log('all smart agents', this.props.requests);
+  // componentDidMount() {
+  //   // Get all the existing smart agents - we don't want to display it to the logged-in user
+  //   console.log('all smart agents', this.props.requests);
 
-    // Filter only the smart agents belongs to the logged in user - this is what we want to display
-    this.setState({
-      userSmartAgents: this.props.requests.filter(
-        sAgent => sAgent.userId === this.props.activeUser.id
-      ),
-    });
-  }
+  //   // Filter only the smart agents belongs to the logged in user - this is what we want to display
+  //   this.setState({
+  //     userSmartAgents: this.props.requests.filter(
+  //       sAgent => sAgent.userId === this.props.activeUser.id
+  //     ),
+  //   });
+  // }
 
   componentDidUpdate() {
     console.log('only logged-in user smart agents', this.state.userSmartAgents);
