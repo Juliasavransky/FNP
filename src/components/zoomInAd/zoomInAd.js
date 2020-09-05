@@ -1,15 +1,12 @@
-import emailjs from 'emailjs-com';
-import React, { Component } from 'react';
+import emailjs from "emailjs-com";
+import React, { Component } from "react";
 import {
   Button,
   Card,
   Container,
-  Modal,
-  Form,
-  Row,
-  Col,
-} from 'react-bootstrap';
-import { toast } from 'react-toastify';
+
+  Form, Modal
+} from "react-bootstrap";
 
 class ZoomInAd extends Component {
   constructor(props) {
@@ -17,8 +14,8 @@ class ZoomInAd extends Component {
     this.state = {
       showButton: true,
       showEmailModal: false,
-      emailInput: '',
-      taitalInput: '',
+      emailInput: "",
+      taitalInput: "",
     };
     this.handleSendEmail = this.handleSendEmail.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
@@ -31,59 +28,61 @@ class ZoomInAd extends Component {
       showEmailModal: false,
     });
   };
+
   handleModalCloseAndClean = () => {
     this.setState({
       showButton: true,
       showEmailModal: false,
-      emailInput: '',
-      taitalInput: '',
+      emailInput: "",
+      taitalInput: "",
     });
   };
-  handleemailInput = event => {
+  
+  handleemailInput = (event) => {
     this.setState({
       emailInput: event.target.value,
     });
     //console.log('handleemailInput', event.target.value);
   };
 
-  handleITitleChange = event => {
+  handleITitleChange = (event) => {
     this.setState({
       taitalInput: event.target.value,
     });
     //console.log('handleITitleChange', event.target.value);
   };
 
-  handleSendEmail = event => {
+  handleSendEmail = (event) => {
     event.preventDefault();
     const { activeUser, ad, allUsers } = this.props;
     const { emailInput, taitalInput } = this.state;
     const owner = this.props.allUsers.filter(
-      user => this.props.ad.userId === user.id
+      (user) => this.props.ad.userId === user.id
     );
 
-    console.log('activeUser', activeUser);
+    console.log("activeUser", activeUser);
 
     //  Send An Email
 
     const template_params = {
       activ_user_fname: activeUser.fname,
       activeuser_lname: activeUser.lname,
-      owner_fname: <div>{owner.length > 0 ? owner[0].fname : 'N/A'}</div>,
-      owner_lname: <div>{owner.length > 0 ? owner[0].lname : 'N/A'}</div>,
+      owner_fname: <div>{owner.length > 0 ? owner[0].fname : "N/A"}</div>,
+      owner_lname: <div>{owner.length > 0 ? owner[0].lname : "N/A"}</div>,
       activeUser_fname: activeUser.fname,
       activeUser_lname: activeUser.lname,
       category_name: ad.categoryName,
       taitalinput: taitalInput,
       emailinput: emailInput,
-      to_email: <div>{owner.length > 0 ? owner[0].email : 'N/A'}</div>,
+      to_email: <div>{owner.length > 0 ? owner[0].email : "N/A"}</div>,
     };
 
-    const service_id = 'default_service';
-    const template_id = 'new_ad';
+    const service_id = "default_service";
+    const template_id = "new_ad";
     emailjs
       .send(service_id, template_id, template_params)
-      .then(alert('Email Has Been Sent Succesfully To The User'))
-      .catch('The Email send Has Been failed');
+      .then(alert("Email Has Been Sent Succesfully To The User"))
+      .catch("The Email send Has Been failed");
 
     //toast
     this.setState({
@@ -113,11 +112,11 @@ class ZoomInAd extends Component {
     owner.fname
 
     */
-    console.log('activeUser', activeUser);
+    console.log("activeUser", activeUser);
     const owner = this.props.allUsers.find(
-      user => this.props.ad.userId === user.id
+      (user) => this.props.ad.userId === user.id
     );
-    console.log('owner', owner);
+    console.log("owner", owner);
 
     const sendAnEmail = activeUser && (
       <Button
@@ -154,7 +153,7 @@ class ZoomInAd extends Component {
         <Container className="d-flex ">
           <Card
             className="mx-auto shadow p-3 mt-5 rounded text-muted card "
-            style={{ width: '26rem' }}
+            style={{ width: "26rem" }}
           >
             <Card.Title className=" m-2">{ad.subCategoryName}</Card.Title>
 
@@ -162,13 +161,13 @@ class ZoomInAd extends Component {
               <div>Details: {ad.Details}</div>
               <div>Condition: {ad.Condition}</div>
               <div>
-                Owner name: {owner ? owner.fname + ' ' + owner.lname : 'N/A'}
+                Owner name: {owner ? owner.fname + " " + owner.lname : "N/A"}
               </div>
               <div>
-                That live in:{' '}
+                That live in:{" "}
                 {owner
-                  ? owner.livingArea + '  ' + 'Area  ' + 'in' + ' ' + owner.City
-                  : 'N/A'}
+                  ? owner.livingArea + "  " + "Area  " + "in" + " " + owner.City
+                  : "N/A"}
               </div>
             </Card.Body>
             <Card.Img variant="bottom" src={ad.img} />
@@ -196,13 +195,13 @@ class ZoomInAd extends Component {
           <Modal.Header closeButton>
             <Modal.Title>
               Send an email to :
-              <div> {owner ? owner.fname + ' ' + owner.lname : 'N/A'}</div>
+              <div> {owner ? owner.fname + " " + owner.lname : "N/A"}</div>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form.Group controlId="title">
               <Form.Control
-                style={{ width: '27rem' }}
+                style={{ width: "27rem" }}
                 onChange={this.handleITitleChange}
                 type="text"
                 name="titleInput"
@@ -213,7 +212,7 @@ class ZoomInAd extends Component {
             <Form.Group controlId="emailInput">
               <Form.Control
                 as="textarea"
-                style={{ width: '27rem' }}
+                style={{ width: "27rem" }}
                 rows="5"
                 onChange={this.handleemailInput}
                 type="text"

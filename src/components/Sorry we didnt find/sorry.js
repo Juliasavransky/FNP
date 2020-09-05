@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Button, Container } from 'react-bootstrap';
-import './sorry.css';
+import { Container } from 'react-bootstrap';
 import RequestForItem from '../Request for item/RequestForItem';
+import './Sorry.css';
 
 class Sorry extends Component {
   componentDidMount() {
