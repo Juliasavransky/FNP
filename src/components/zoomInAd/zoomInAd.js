@@ -54,15 +54,9 @@ class ZoomInAd extends Component {
   };
 
   render() {
-    const {
-      activeUser,
-      ad,
-      ads,
-      handleLogout,
-      allUsers,
-      handleSendEmail,
-      showEmailModal,
-    } = this.props;
+    const {activeUser,ad,ads,handleLogout,allUsers, handleSendEmail, } = this.props;
+
+    const{showEmailModal}=this.state;
     
 console.log("activeUser",activeUser)
     const owner = this.props.allUsers.filter(
@@ -100,6 +94,7 @@ console.log("activeUser",activeUser)
     ) : null;
 
     return (
+      <>
       <Container className="d-flex ">
         <Card
           className="mx-auto shadow p-3 mb-5 bg-white rounded  m-2 text-muted card "
@@ -123,7 +118,7 @@ console.log("activeUser",activeUser)
 
           <Button
             onSubmit={this.handleSendEmail}
-            onClick={() => this.setState({ showEmailModal: true })}
+            onClick={() => this.setState({showEmailModal: true})}
             className="btn-login"
             variant="primary"
             type="submit">
@@ -132,28 +127,25 @@ console.log("activeUser",activeUser)
 
           <small className=" m-2 text-muted">Published Date {ad.Date}</small>
         </Card>
+        </Container>  
 
 
-        <Modal 
-        show={showEmailModal}
-        onHide={this.handleModalClose} >
-
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" 
-            onClick={this.handleModalClose}>
-              Close
+        <Modal show={showEmailModal} onHide={this.handleModalClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={this.handleModalClose}>
+            Close
           </Button>
-            <Button variant="primary"
-             onClick={this.handleModalClose}>
-              Save Changes
+          <Button variant="primary" onClick={this.handleModalClose}>
+            Save Changes
           </Button>
-          </Modal.Footer>
-        </Modal>
-      </Container>     
+        </Modal.Footer>
+      </Modal>
+      </>
+         
     );
   }
 }
