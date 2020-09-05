@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { CardColumns, Container } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// import RequestForItem from '../Request for item/RequestForItem';
+import RequestForItem from '../Request for item/RequestForItem';
 
 class SearchResults extends Component {
   componentDidMount() {

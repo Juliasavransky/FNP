@@ -100,7 +100,7 @@ class ZoomInAd extends Component {
             className="mx-auto shadow p-3 mb-5 bg-white rounded  m-2 text-muted card "
             style={{ width: "26rem" }}
           >
-            <Card.Title className=" m-2">{ad.subCategoryName}</Card.Title>
+            <Card.Title className=" m-2 card text-center">{ad.subCategoryName}</Card.Title>
 
             <Card.Body className="m-4 card  ">
               <div>Details: {ad.Details}</div>
@@ -112,7 +112,7 @@ class ZoomInAd extends Component {
                   : "N/A"}
               </div>
               <div>
-                That live in:{" "}
+                That lives in:{" "}
                 {owner.length > 0
                   ? owner[0].livingArea +
                     "  " +
