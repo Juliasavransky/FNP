@@ -8,7 +8,7 @@ class login extends Component {
     super(props);
 
     this.state = {
-      emailInput: "savranskyj@gmail.com",
+      emailInput: 'hannakantor@gmail.com',
       pwdInput: '',
       showLogInError: false,
       redirectToHome: false,

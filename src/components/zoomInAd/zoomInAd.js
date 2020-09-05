@@ -1,6 +1,15 @@
-import emailjs from "emailjs-com";
-import React, { Component } from "react";
-import { Button, Card, Container, Modal, Form, Row, Col } from "react-bootstrap";
+import emailjs from 'emailjs-com';
+import React, { Component } from 'react';
+import {
+  Button,
+  Card,
+  Container,
+  Modal,
+  Form,
+  Row,
+  Col,
+} from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 class ZoomInAd extends Component {
   constructor(props) {
@@ -8,44 +17,43 @@ class ZoomInAd extends Component {
     this.state = {
       showButton: true,
       showEmailModal: false,
-      emailInput: "",
-      taitalInput: "",
-
+      emailInput: '',
+      taitalInput: '',
     };
     this.handleSendEmail = this.handleSendEmail.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
     this.handleemailInput = this.handleemailInput.bind(this);
-    this.handleITaitelChange = this.handleITaitelChange.bind(this);
+    this.handleITitleChange = this.handleITitleChange.bind(this);
   }
 
   handleModalClose = () => {
     this.setState({
       showEmailModal: false,
     });
-  }
+  };
   handleModalCloseAndClean = () => {
     this.setState({
       showButton: true,
       showEmailModal: false,
-      emailInput: "",
-      taitalInput: "",
+      emailInput: '',
+      taitalInput: '',
     });
-  }
-  handleemailInput = (event) => {
+  };
+  handleemailInput = event => {
     this.setState({
-      emailInput: event.target.value
-    })
-    console.log("handleemailInput", event.target.value)
-  }
+      emailInput: event.target.value,
+    });
+    //console.log('handleemailInput', event.target.value);
+  };
 
-  handleITaitelChange = (event) => {
+  handleITitleChange = event => {
     this.setState({
-      taitalInput: event.target.value
-    })
-    console.log("handleITaitelChange", event.target.value)
-  }
+      taitalInput: event.target.value,
+    });
+    //console.log('handleITitleChange', event.target.value);
+  };
 
-  handleSendEmail = (event) => {
+  handleSendEmail = event => {
     event.preventDefault();
     const { activeUser, ad, allUsers } = this.props;
     const { emailInput, taitalInput } = this.state;
@@ -58,7 +66,6 @@ class ZoomInAd extends Component {
     //  Send An Email
 
     const template_params = {
-
       activ_user_fname: activeUser.fname,
       activeuser_lname: activeUser.lname,
       owner_fname: <div>{owner.length > 0 ? owner[0].fname : 'N/A'}</div>,
@@ -69,38 +76,52 @@ class ZoomInAd extends Component {
       taitalinput: taitalInput,
       emailinput: emailInput,
       to_email: <div>{owner.length > 0 ? owner[0].email : 'N/A'}</div>,
-
     };
 
-    const service_id = "default_service";
-    const template_id = "new_ad";
+    const service_id = 'default_service';
+    const template_id = 'new_ad';
     emailjs
       .send(service_id, template_id, template_params)
-      .then(alert("Email Has Been Sent Succesfully To The User"))
-      .catch("The Email send Has Been failed");
+      .then(alert('Email Has Been Sent Succesfully To The User'))
+      .catch('The Email send Has Been failed');
 
-
+    //toast
     this.setState({
       showButton: false,
     });
 
-    this.handleModalCloseAndClean()
-
+    this.handleModalCloseAndClean();
   };
 
   render() {
-    const { activeUser, ad, ads, handleLogout, allUsers, handleSendEmail, } = this.props;
+    const { activeUser, ad, ads, handleLogout, allUsers } = this.props;
 
     const { showEmailModal } = this.state;
 
-    console.log("activeUser", activeUser)
-    const owner = this.props.allUsers.filter(
-      (user) => this.props.ad.userId === user.id
+    /*
+    THIS IS THE OLD CODE THAT RETURN AN ARRAY AND NOT AN OBJECT
+    WE WOULD LIKE TO GET ONLY THE AD-USER WHICH IS AN OBJECT
+    AND THEREFORE, WE USED ower[0].fname AT THE BOTTOM.
+
+    // console.log('activeUser', activeUser);
+    // const owner = this.props.allUsers.filter(
+    //   user => this.props.ad.userId === user.id
+    // );
+
+    THE FOLLOWING CODE SOMPLY REPLACE 'filter' WITH 'find' 
+    WHICH RETURNS AN OBJECT INSTEAD OF ARRAY SO WE CAN DO
+    owner.fname
+
+    */
+    console.log('activeUser', activeUser);
+    const owner = this.props.allUsers.find(
+      user => this.props.ad.userId === user.id
     );
+    console.log('owner', owner);
 
     const sendAnEmail = activeUser && (
       <Button
-        onSubmit={() => handleSendEmail()}
+        onSubmit={this.handleSendEmail}
         href="#/emailSending"
         variant="secondary"
       >
@@ -110,7 +131,6 @@ class ZoomInAd extends Component {
 
     const signupUser = !activeUser && (
       <Button
-      
         href="#/signup"
         variant="secondary"
         className="btn-userLogin mr-2 mb-3"
@@ -121,7 +141,6 @@ class ZoomInAd extends Component {
 
     const LogInUser = !activeUser ? (
       <Button
-      
         href="#/login"
         variant="secondary"
         className="btn-userLogin mr-2 mb-3 "
@@ -143,26 +162,18 @@ class ZoomInAd extends Component {
               <div>Details: {ad.Details}</div>
               <div>Condition: {ad.Condition}</div>
               <div>
-                Owner name:{" "}
-                {owner.length > 0
-                  ? owner[0].fname + " " + owner[0].lname
-                  : "N/A"}
+                Owner name: {owner ? owner.fname + ' ' + owner.lname : 'N/A'}
               </div>
               <div>
-                That live in:{" "}
-                {owner.length > 0
-                  ? owner[0].livingArea +
-                  "  " +
-                  "Area  " +
-                  "in" +
-                  " " +
-                  owner[0].City
-                  : "N/A"}
+                That live in:{' '}
+                {owner
+                  ? owner.livingArea + '  ' + 'Area  ' + 'in' + ' ' + owner.City
+                  : 'N/A'}
               </div>
             </Card.Body>
             <Card.Img variant="bottom" src={ad.img} />
-                {signupUser}
-                {LogInUser}
+            {signupUser}
+            {LogInUser}
             {activeUser ? (
               <Button
                 onSubmit={this.handleSendEmail}
@@ -174,55 +185,57 @@ class ZoomInAd extends Component {
                 Send An Email
               </Button>
             ) : (
-                <></>
-              )}
+              <></>
+            )}
 
             <small className=" m-2 text-muted">Published Date {ad.Date}</small>
           </Card>
         </Container>
 
-
         <Modal show={showEmailModal} onHide={this.handleModalClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Send an email to :
-          <div>{' '}
-                {owner.length > 0 ? owner[0].fname + ' ' + owner[0].lname : 'N/A'}</div>
+            <Modal.Title>
+              Send an email to :
+              <div> {owner ? owner.fname + ' ' + owner.lname : 'N/A'}</div>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-
-            <Form.Group
-              controlId="taitel">
+            <Form.Group controlId="title">
               <Form.Control
                 style={{ width: '27rem' }}
-                onChange={this.handleITaitelChange}
-                type="text" name="taitelInput" placeholder="Taitel" />
+                onChange={this.handleITitleChange}
+                type="text"
+                name="titleInput"
+                placeholder="Title"
+              />
             </Form.Group>
 
-            <Form.Group
-              controlId="emailInput">
+            <Form.Group controlId="emailInput">
               <Form.Control
                 as="textarea"
                 style={{ width: '27rem' }}
                 rows="5"
                 onChange={this.handleemailInput}
-                type="text" name="emailInput" placeholder="Ask a question...." />
+                type="text"
+                name="emailInput"
+                placeholder="Ask a question...."
+              />
             </Form.Group>
-
-
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.handleModalCloseAndClean}>
               Close
-          </Button>
-            <Button variant="primary" onSubmit={this.handleSendEmail}
-              onClick={this.handleModalCloseAndClean}>
+            </Button>
+            <Button
+              variant="primary"
+              onSubmit={this.handleSendEmail}
+              onClick={this.handleModalCloseAndClean}
+            >
               Sand an Email
-          </Button>
+            </Button>
           </Modal.Footer>
         </Modal>
       </>
-
     );
   }
 }

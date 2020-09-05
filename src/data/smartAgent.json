@@ -1,14 +1,32 @@
 [
-  
-      {
-        "CategoryId": "categorySelectedId",
-        "SubCategoryId": "subCategorySelectedId",
-        "details": "detailsInput",
-        "conditionId": "conditionSelected",
-        "userId": "activeUser.id",
-        "livingAreaId": "livingAreaIdSelected",
-        "agentId": 100,
-        "taitel": "taitelInput"
-      }
-      
+  {
+    "CategoryId": 0,
+    "SubCategoryId": 0,
+    "details": "detailsInput",
+    "conditionId": "conditionSelected",
+    "userId": "activeUser.id",
+    "livingAreaId": "livingAreaIdSelected",
+    "agentId": 100,
+    "title": "titleInput"
+  },
+  {
+    "CategoryId": 1,
+    "SubCategoryId": 11,
+    "details": "This is an AD details",
+    "conditionId": "New",
+    "userId": 3,
+    "livingAreaId": "North",
+    "agentId": 101,
+    "title": "This is a new AD Title"
+  },
+  {
+    "CategoryId": 2,
+    "SubCategoryId": 12,
+    "details": "This is another AD details",
+    "conditionId": "Used",
+    "userId": 3,
+    "livingAreaId": "Center",
+    "agentId": 102,
+    "title": "This is a different AD Title"
+  }
 ]
