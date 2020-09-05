@@ -2,21 +2,19 @@ import React, { Component } from 'react';
 import { Card, Container, Button, Modal, } from 'react-bootstrap';
 import AdCard from '../AdCard/AdCard';
 import emailjs from 'emailjs-com';
-import MailToTheOwner from '../../components/MailToTheOwner/MailToTheOwner'
+import MailToTheOwner from '../MailToTheOwner/MailToTheOwner'
 
 class ZoomInAd extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       showButton: true,
       showEmailModal: false
     };
     this.handleSendEmail = this.handleSendEmail.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
-
-
   }
+  
 
   handleModalClose = () => {
     this.setState({
@@ -50,6 +48,9 @@ class ZoomInAd extends Component {
     this.setState({
       showButton: false,
     });
+
+    
+
   };
 
   render() {
@@ -63,9 +64,7 @@ class ZoomInAd extends Component {
       showEmailModal,
     } = this.props;
     
-    console.log('allUsers Name', ad.userId);
-    console.log('allUsers', allUsers);
-
+console.log("activeUser",activeUser)
     const owner = this.props.allUsers.filter(
       user => this.props.ad.userId === user.id
     );
@@ -78,7 +77,6 @@ class ZoomInAd extends Component {
         Send An Email
       </Button>
     );
-    console.log("showEmailModal", showEmailModal)
 
 
     const signupUser = !activeUser && (

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SmartAgent.css';
 import {
   Form,
   FormControl,
@@ -137,7 +138,7 @@ class SmartAgent extends Component {
     } = this.state;
 
     const categoryOption = dataCategoriess.map(itencategorys => (
-      <option value={itencategorys.categoryId}>
+      <option  value={itencategorys.categoryId}>
         {itencategorys.categoryName}
       </option>
     ));
@@ -269,9 +270,9 @@ class SmartAgent extends Component {
                 className="" />
 
               <Button
-                // className="btn btn-block"
+                className="btn-search"
                 // onClick={this.cleanData}
-                block
+                
                 onClick={this.search}
                 variant="outline-success">
                 Search

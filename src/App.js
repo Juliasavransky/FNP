@@ -44,6 +44,7 @@ import NewAdModal from './components/New Ad Modal/NewAdModal';
 import emailjs from 'emailjs-com';
 import RequestForItem from './components/Request for item/RequestForItem';
 import Sorry from './components/Sorry we didnt find/Sorry'
+import ZoomInAd from './components/ZoomInAd/ZoomInAd'
 emailjs.init('user_92TMg4RqAMZUj3a9Jc5NQ');
 
 class App extends Component {
@@ -466,6 +467,20 @@ class App extends Component {
               allUsers={allUsers}
               handleLogout={this.handleLogout}
               handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
+            />
+          </Route>
+
+          <Route exact path="/zoomInAd">
+            <ZoomInAd
+              ads={ads}
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+              handleCreatNewAd={this.handleCreatNewAd}
+              handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
+              requests={requests}
+              searchResults={searchResults}
             />
           </Route>
         </Switch>

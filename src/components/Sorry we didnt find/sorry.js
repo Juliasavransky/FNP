@@ -26,7 +26,6 @@ class Sorry extends Component {
           meet the criteria you have set for him. <br></br>
           The search results can be obtained by your email. <br></br> <br></br>
 
-          <Button type="button"></Button>
           <RequestForItem
             ads={this.props.ads}
             handleLogin={this.props.handleLogin}

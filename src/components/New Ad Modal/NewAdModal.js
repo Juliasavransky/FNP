@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Login from '../../pages/Login/Login'
 import {
   Form,
   Button,
@@ -26,12 +27,23 @@ class NewAdModal extends Component {
       filteredAds: [],
     };
     this.handleModalClose = this.handleModalClose.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.DetailsInputChange = this.DetailsInputChange.bind(this);
     this.handleCreatAd = this.handleCreatAd.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
     this.handleCloseAndClean = this.handleCloseAndClean.bind(this);
+    this.categoryChange = this.categoryChange.bind(this);
+    this.subCategoryChange = this.subCategoryChange.bind(this);
+    this.conditionChange = this.conditionChange.bind(this);
+    this.DetailsInputChange = this.DetailsInputChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
-
+  handleInputChange = event => {
+    event.preventDefault();
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+  
   handleModalClose() {
     this.setState({
       showNewAdModal: false,
@@ -50,14 +62,6 @@ class NewAdModal extends Component {
     }
   }
 
-  handleInputChange = event => {
-    event.preventDefault();
-
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
-
   handleCreatAd(event) {
     const {
       conditionSelected,
@@ -69,37 +73,37 @@ class NewAdModal extends Component {
       categorySelectedId,
       subCategorySelectedId,
     } = this.state;
-    
+
     const { handleCreatNewAd, activeUser, ads, allUsers } = this.props;
 
-  
-    // const image = imgInput && (img: URL.createObjectURL(imgInput));
-          // img: URL.createObjectURL(imgInput) && URL.createObjectURL(imgInput).length > 0 ? ("")
-
-    
     const newAd = {
       CategoryId: categorySelectedId,
       SubCategoryId: subCategorySelectedId,
-      img: URL.createObjectURL(imgInput) ,
+      img: imgInput ? URL.createObjectURL(imgInput):null,
       Details: DetailsInput,
       conditionId: conditionSelected,
-      userId: activeUser.id,
+      userId: activeUser.id
+      //  ? (<Login/>):null,
+    
     };
+
     console.log('handleCreatNewAd', this.props.handleCreatNewAd);
     console.log('props', this.props);
 
     this.props.handleCreatNewAd(newAd);
-    this.handleCloseAndClean();
+    
 
     //  send an email
 
     const template_params = {
-      to_email: this.props.activeUser.email,
-      ad_name: 'ad_name_value',
-      fname: 'fname_value',
-      lname: 'lname_value',
-      ad_desc: 'ad_desc_value',
+      to_email: activeUser.email,
+      ad_name: categorySelectedId,
+      subcatgory_name:subCategorySelectedId,
+      fname: activeUser.fname,
+      lname: activeUser.lname,
+      ad_desc: DetailsInput,
     };
+
 
     const service_id = 'default_service';
     const template_id = 'new_ad';
@@ -107,27 +111,39 @@ class NewAdModal extends Component {
       .send(service_id, template_id, template_params)
       .then(alert('Email Has Been Sent Succesfully To The User'))
       .catch('The Email send Has Been failed');
+
+      this.handleCloseAndClean();
   }
+
+
   categoryChange = event => {
     this.setState({
       categorySelectedId: parseInt(event.target.value),
-      
     });
+    console.log("categoryChange",event.target.value)
   };
   subCategoryChange = event => {
     this.setState({
       subCategorySelectedId: parseInt(event.target.value),
-      
+
     });
+    console.log("subCategoryChange",event.target.value)
   };
   conditionChange = event => {
     this.setState({
       conditionSelected: parseInt(event.target.value),
     });
+    console.log("conditionChange",event.target.value)
   };
-  
-      
-  handleCloseAndClean = () =>{
+  DetailsInputChange = event => {
+    this.setState({
+      DetailsInput: event.target.value,
+    });
+    console.log("DetailsInputChange",event.target.value)
+  };
+
+
+  handleCloseAndClean = () => {
     this.setState({
       categorySelectedId: null,
       subCategorySelectedId: null,
@@ -155,13 +171,12 @@ class NewAdModal extends Component {
           categoryIdsFound.push(parseInt(ad.CategoryId));
           uniqueCategoryAds.push(ad);
         }
-        console.log('ad', ad);
       });
 
       return uniqueCategoryAds;
     };
     const categoryOptions = filterUniqueCategories().map(ad => (
-      <option value={ad.CategoryId}>{ad.categoryName}</option>
+      <option key={ad.id} value={ad.CategoryId}>{ad.categoryName}</option>
     ));
 
     // a function that filters ads with the same subcategory
@@ -185,7 +200,7 @@ class NewAdModal extends Component {
       if (ad.CategoryId === this.state.categorySelectedId) {
         if (!subOp.includes(ad.subCategoryName)) {
           subOp.push(ad.subCategoryName);
-          return <option value={ad.SubCategoryId}>{ad.subCategoryName}</option>;
+          return <option key={ad.id} value={ad.SubCategoryId}>{ad.subCategoryName}</option>;
         }
       }
     });
@@ -205,7 +220,7 @@ class NewAdModal extends Component {
       return conditionAds;
     };
     const conditionOptions = filterUniqueCondition().map(ad => (
-      <option value={ad.conditionIdFound}>{ad.Condition}</option>
+      <option key={ad.id} value={ad.conditionIdFound}>{ad.Condition}</option>
     ));
 
     const imgURL = imgInput ? URL.createObjectURL(imgInput) : '';
@@ -227,60 +242,65 @@ class NewAdModal extends Component {
           <Modal.Body>
 
 
-
-            <Form className="mx-auto d-flex justify-content-between w-50 p-3" >
-              <Form.Label></Form.Label>
-              <Form.Row>
-                <Form.Control
-                  style={{ width: '22rem' }}
-                  onSubmit={this.handleInputChange}
-                  onChange={this.categoryChange}
-                  value={this.state.categorySelectedId}
-                  as="select"
-                  name="categorySelectedId"
-                  className="justify-content-center "
-                >
-                  <option name="categoryOptions" value="0">
-                    Select a Category...
+            <Container className=" d-flex justify-content-center w-50 p-5">
+              <Form
+                className=" p-2"
+              >
+                <Form.Group>
+                  <Form.Control
+                    style={{ width: '22rem' }}
+                    onSubmit={this.handleInputChange}
+                    onChange={this.categoryChange}
+                    value={this.state.categorySelectedId}
+                    as="select"
+                    name="categorySelectedId"
+                  >
+                    <option name="categoryOptions" value="0">
+                      Select a Category...
                   </option>
-                  {categoryOptions}
-                </Form.Control>
+                    {categoryOptions}
+                  </Form.Control>
+                </Form.Group>
 
-                <Form.Label htmlFor="inlineFormCustomSelectPref"></Form.Label>
-                <Form.Control
-                  style={{ width: '22rem' }}
-                  value={this.state.subCategorySelectedId}
-                  onChange={this.handleInputChange}
-                  onChange={this.subCategoryChange}
-                  as="select"
-                  className="justify-content-center"
-                  name="subCategorySelectedId"
-                >
-                  <option value="0">Select a Sub-Category...</option>
-                  {subCategoryOptions}
-                </Form.Control>
+                <Form.Group>
+                  <Form.Label htmlFor="inlineFormCustomSelectPref"></Form.Label>
+                  <Form.Control
+                    style={{ width: '22rem' }}
+                    value={this.state.subCategorySelectedId}
+                    onChange={this.subCategoryChange}
+                    onChange={this.handleInputChange}
+                    as="select"
+                    name="subCategorySelectedId"
+                  >
+                    <option value="0">Select a Sub-Category...</option>
+                    {subCategoryOptions}
+                  </Form.Control>
+                </Form.Group>
 
-                <Form.Label htmlFor="inlineFormCustomSelectPref"></Form.Label>
-                <Form.Control
-                  style={{ width: '22rem' }}
-                  onChange={this.conditionChange}
-                  onChange={this.handleInputChange}
-                  value={this.state.conditionSelected}
-                  as="select"
-                  className="justify-content-center"
-                  name="conditionSelected"
-                >
-                  <option value="0">Select Item Condition...</option>
-                  {conditionOptions}
-                </Form.Control>
+                <Form.Group>
+                  <Form.Label htmlFor="inlineFormCustomSelectPref"></Form.Label>
+                  <Form.Control
+                    style={{ width: '22rem' }}
+                    onChange={this.conditionChange}
+                    onChange={this.handleInputChange}
+                    value={this.state.conditionSelected}
+                    as="select"
+                    name="conditionSelected"
+                  >
+                    <option value="0">Select Item Condition...</option>
+                    {conditionOptions}
+                  </Form.Control>
+                </Form.Group>
+
+
                 <Form.Group
                   controlId="Details"
-                  className="justify-content-center"
                 >
                   <Form.Label> Ad Details</Form.Label>
                   <Form.Control
                     style={{ width: '22rem' }}
                     value={DetailsInput}
+                    onChange={this.DetailsInputChange}
                     onChange={this.handleInputChange}
                     type="text"
                     name="DetailsInput"
@@ -291,7 +311,6 @@ class NewAdModal extends Component {
                 <Form.Group
                   as={Row}
                   controlId="img"
-                  className="justify-content-center"
                 >
                   <Form.Label column sm={2}>
                     Img
@@ -306,10 +325,10 @@ class NewAdModal extends Component {
                   </Col>
                 </Form.Group>
                 <Image size="sm" src={imgURL} className="preview"></Image>
-              </Form.Row>
-            </Form>
+              </Form>
+            </Container>
 
-            
+
           </Modal.Body>
           <Modal.Footer>
             <Button

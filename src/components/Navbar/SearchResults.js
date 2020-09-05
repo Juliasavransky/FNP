@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import RequestForItem from '../Request for item/RequestForItem';
 
 class SearchResults extends Component {
-  componentDidMount(){
-    console.log("SearchResults" , this.props)
-}
+  componentDidMount() {
+    console.log("SearchResults", this.props)
+  }
   render() {
 
     return (
@@ -34,24 +34,24 @@ class SearchResults extends Component {
             <br></br>
             {this.props.activeUser ? (
 
-              <RequestForItem 
-              ads={this.props.ads}
-              handleLogin={this.props.handleLogin}
-              allUsers={this.props.allUsers}
-              handleLogout={this.props.handleLogout}
-              activeUser={this.props.activeUser}
-              handleCreatNewAd={this.props.handleCreatNewAd}
-              handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
+              <RequestForItem
+                ads={this.props.ads}
+                handleLogin={this.props.handleLogin}
+                allUsers={this.props.allUsers}
+                handleLogout={this.props.handleLogout}
+                activeUser={this.props.activeUser}
+                handleCreatNewAd={this.props.handleCreatNewAd}
+                handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
               />
               // <Link to="/requestForItem">Try Out Smart Agent</Link>
             ) : (
-              
-              <Link to="/Login">Registered Users Login</Link>
-            )}
+
+                <Link to="/Login">Registered Users Login</Link>
+              )}
           </div>
         ) : (
-          <CardColumns>{this.props.searchResults}</CardColumns>
-        )}
+            <CardColumns>{this.props.searchResults}</CardColumns>
+          )}
       </Container>
     );
   }
