@@ -63,19 +63,19 @@ class AdNavbar extends Component {
     const { searchSelected, filteredAds, search } = this.state;
 
     const LogOutUser = activeUser ? (
-      <Button onClick={() => handleLogout()} href="#" variant="secondary">
+      <Nav.Link className="btnFont" onClick={() => handleLogout()} href="#" >
         Log Out
-      </Button>
+      </Nav.Link>
     ) : null;
     const signupUser = !activeUser ? (
-      <Button href="#/signup" variant="secondary" className="btn-userLogin">
+      <Nav.Link className="btnFont" href="#/signup"  >
         Sign Up
-      </Button>
+      </Nav.Link>
     ) : null;
     const LogInUser = !activeUser ? (
-      <Button href="#/login" variant="secondary" className="btn-userLogin">
+      <Nav.Link className="btnFont" href="#/login"  >
         Log In
-      </Button>
+      </Nav.Link>
     ) : null;
 
     const UserArea = activeUser ? (
@@ -86,10 +86,11 @@ class AdNavbar extends Component {
 
     return (
       <div className="c-adNavbar">
-        <Navbar bg="light" expand="lg">
+        <Navbar
+         >
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto cat">
+            <Nav className="mr-auto cat navFont">
               <Nav.Link className="mr-2 fas fa-baby-carriage" href="/#"> 
                 Home
               </Nav.Link>
@@ -107,16 +108,13 @@ class AdNavbar extends Component {
               </Nav.Link>
               <Nav.Link className="mr-2" href="/#SmartAgent">
                 Advanced Search
-              </Nav.Link>
+              </Nav.Link >
               {UserArea}
-              {signupUser}
-              {LogInUser}
-              {LogOutUser}
             </Nav>
 
-            <Form inline onSubmit={this.search}>
+            <Form className="navFont"
+            inline onSubmit={this.search}>
               <FormControl
-                style={{ width: '14rem' }}
                 value={searchSelected}
                 onChange={e =>
                   this.setState({ searchSelected: e.target.value })
@@ -125,9 +123,15 @@ class AdNavbar extends Component {
                 placeholder="Search"
                 className="mr-sm-2 "
               />
-              <Button size="sm-2" type="submit" variant="outline-success">
+              {/* <Button className="navFont btnSearch"
+               type="submit" variant="outline-success">
                 Search
-              </Button>
+              </Button> */}
+              <div  className="btnFont">
+              {signupUser}
+              {LogInUser}
+              {LogOutUser}
+              </div>
             </Form>
           </Navbar.Collapse>
         </Navbar>

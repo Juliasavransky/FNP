@@ -9,3 +9,32 @@
 .btn-userLogin {
   margin-left: 8px;
 }
+
+.navFont{
+  font-family:'Archivo Narrow', sans-serif;
+  font-size: 1.2rem;
+}
+
+.btnFont{
+  font-family:'Petit Formal Script', cursive;
+  font-size: 1rem;
+  background-color: transparent ;
+  color: #000000;;
+}
+.btnFont:hover {
+  color: #FF8118;
+}
+.navFont:hover{
+  color: #FF8118;
+}
+.btnSearch{
+  background-color: transparent ;
+  color: #000000;
+}
+
+/* #bootstrap-overrides .btnFont{
+  color:black
+}
+#bootstrap-overrides:hover{
+  color: #FF8118;
+} */
