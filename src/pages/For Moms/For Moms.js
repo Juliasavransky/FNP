@@ -16,7 +16,7 @@ class ForMoms extends Component {
     ));
 
     return (
-      <div className="c-adNavbar">
+      <div className="c-adNavbar font">
         <Navbar bg="light" expand="lg">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -42,9 +42,9 @@ class ForMoms extends Component {
         </Navbar>
         <Container>
           <ListGroup variant="flush">
-          <CardColumns>
+          <CardColumns className="back">
          {ForMomsAdsUi}
-         </CardColumns>
+         </CardColumns >
           </ListGroup>
         </Container>
       </div>

@@ -26,7 +26,7 @@ class HomePage extends Component {
         <div className="img">
           <Container className="p-homepage" >
             <div className="name">
-              <h1>PASS ON </h1>
+              <h1>PASS ON</h1>
               <span>All completely free</span>
             </div>
 

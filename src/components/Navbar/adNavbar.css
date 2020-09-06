@@ -4,6 +4,7 @@
 .cat {
   justify-items: flex-end;
   padding: 10px;
+  
 }
 
 .btn-userLogin {
@@ -31,6 +32,13 @@
   background-color: transparent ;
   color: #000000;
 }
+/* 
+
+ .
+  {color: #000000;}
+   :hover {color:#FF8118;}
+   */
+
 
 /* #bootstrap-overrides .btnFont{
   color:black

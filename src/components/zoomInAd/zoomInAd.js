@@ -155,7 +155,7 @@ class ZoomInAd extends Component {
             className="mx-auto shadow p-3 mt-5 rounded text-muted card "
             style={{ width: "26rem" }}
           >
-            <Card.Title className=" m-2 card text-center">{ad.subCategoryName}</Card.Title>
+            <Card.Title className="m-2 card text-center">{ad.subCategoryName}</Card.Title>
 
             <Card.Body className="   ">
               <div>Details: {ad.Details}</div>
@@ -187,7 +187,7 @@ class ZoomInAd extends Component {
               <></>
             )}
 
-            <small className=" m-2 text-muted">Published Date {ad.Date}</small>
+            <small className=" m-2 text-muted card text-center">Published Date {ad.Date}</small>
           </Card>
         </Container>
 

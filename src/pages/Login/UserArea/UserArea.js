@@ -87,6 +87,17 @@ class UserArea extends Component {
                       <li>Living-Area: {sAgent.livingAreaId}</li>
                     </ul>
                   </React.Fragment>
+
+                  // <Nav defaultActiveKey="/home" className="flex-column">
+                  // <Nav.Link href="/home">Category:</Nav.Link>
+                  // <Nav.Link eventKey="Sub-Category:">Link</Nav.Link>
+                  // <Nav.Link eventKey="link-2">Condition:</Nav.Link>
+                  // <Nav.Link eventKey="Living-Area"
+                  //  
+                  // </Nav.Link>
+                  // </Nav>
+
+
                 );
               })}
             <br />
