@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { CardColumns, Container } from "react-bootstrap";
+import { CardColumns, Container, Card, Row, Col} from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import AdCard from "../../../components/AdCard/AdCard";
 import NewAdModal from "../../../components/New Ad Modal/NewAdModal";
 import {
   dataCategoriess as categories,
-  dataSubCategorys as subCategories
+  dataSubCategorys as subCategories,
 } from "../../../data/ddData";
 
 class UserArea extends Component {
@@ -20,7 +20,10 @@ class UserArea extends Component {
     // Get all the existing smart agents - we don't want to display it to the logged-in user
     console.log("all smart agents", this.props.requests);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e9bd8778d2324be77e593639393b5224d0be7732
     //לבדוק האם מבטל רידייקט // Filter only the smart agents belongs to the logged in user - this is what we want to display
     if (this.props.activeUser) {
       this.setState({
@@ -29,7 +32,6 @@ class UserArea extends Component {
         ),
       });
     }
-
   }
 
   componentDidUpdate() {
@@ -65,34 +67,51 @@ class UserArea extends Component {
         {redirectToHome ? (
           <Redirect to="/#" />
         ) : (
-            <Container>
-              {userSmartAgents.length > 0 &&
-                userSmartAgents.map((sAgent) => {
-                  const categoryName = categories.find(
-                    (cateogry) => cateogry.categoryId === sAgent.CategoryId
-                  ).categoryName;
+          <Container>
+            {userSmartAgents.length > 0 &&
+              userSmartAgents.map((sAgent) => {
+                const categoryName = categories.find(
+                  (cateogry) => cateogry.categoryId === sAgent.CategoryId
+                ).categoryName;
 
-                  const subCategoryName = subCategories.find(
-                    (subCategory) =>
-                      subCategory.subCategoryId === sAgent.SubCategoryId
-                  ).subCategoryName;
+                const subCategoryName = subCategories.find(
+                  (subCategory) =>
+                    subCategory.subCategoryId === sAgent.SubCategoryId
+                ).subCategoryName;
 
-                  return (
-                    <React.Fragment key={sAgent.agentId}>
-                      <h3>{sAgent.title}</h3>
-                      <ul>
-                        <li>Category: {categoryName}</li>
-                        <li>Sub-Category: {subCategoryName}</li>
-                        <li>Condition: {sAgent.conditionId}</li>
-                        <li>Living-Area: {sAgent.livingAreaId}</li>
-                      </ul>
-                    </React.Fragment>
-                  );
-                })}
-                
-              <CardColumns>{activeUserAdsUi}</CardColumns>
-            </Container>
-          )}
+                return (
+              
+      
+                 <Container>
+                  <CardColumns>
+                  
+    
+                    <Card
+                      key={sAgent.agentId}
+                      // className=" shadow item well p-3 mb-5 bg-white rounded card text-center "
+                    >
+                      <Card.Body>
+                        <Card.Title> {sAgent.title} </Card.Title>
+                        <Card.Text>
+                          <Card.Text>Category: {categoryName}</Card.Text>
+                          <Card.Text>Sub-Category: {subCategoryName}</Card.Text>
+                          <Card.Text>Condition: {sAgent.conditionId}</Card.Text>
+                          <Card.Text>
+                            Living-Area: {sAgent.livingAreaId}
+                          </Card.Text>
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+              
+                    </CardColumns>
+                    </Container>
+                );
+              })}
+            <br />
+
+            <CardColumns>{activeUserAdsUi}</CardColumns>
+          </Container>
+        )}
         <NewAdModal
           ads={ads}
           handleLogin={this.props.handleLogin}
