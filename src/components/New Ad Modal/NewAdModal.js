@@ -16,25 +16,23 @@ class NewAdModal extends Component {
     super(props);
     this.state = {
       showNewAdModal: false,
-
-      categorySelectedId: null,
-      subCategorySelectedId: null,
-      conditionSelected: null,
-
-      DetailsInput: '',
+      CategoryId: null,
+      SubCategoryId: null,
+      Condition: null,
+      Details:'',
       imgInput: null,
-
       filteredAds: [],
     };
+
     this.handleModalClose = this.handleModalClose.bind(this);
-    this.DetailsInputChange = this.DetailsInputChange.bind(this);
+    // this.DetailsInputChange = this.DetailsInputChange.bind(this);
     this.handleCreatAd = this.handleCreatAd.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
     this.handleCloseAndClean = this.handleCloseAndClean.bind(this);
-    this.categoryChange = this.categoryChange.bind(this);
-    this.subCategoryChange = this.subCategoryChange.bind(this);
-    this.conditionChange = this.conditionChange.bind(this);
-    this.DetailsInputChange = this.DetailsInputChange.bind(this);
+    // this.categoryChange = this.categoryChange.bind(this);
+    // this.subCategoryChange = this.subCategoryChange.bind(this);
+    // this.conditionChange = this.conditionChange.bind(this);
+    // this.DetailsInputChange = this.DetailsInputChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
@@ -68,24 +66,21 @@ class NewAdModal extends Component {
 
   handleCreatAd(event) {
     const {
-      conditionSelected,
-      categoryName,
-      subCategoryName,
+      condition,
       imgInput,
-      DetailsInput,
-      Condition,
-      categorySelectedId,
-      subCategorySelectedId,
+      Details,
+      CategoryId,
+      SubCategoryId,
     } = this.state;
 
     const { handleCreatNewAd, activeUser, ads, allUsers } = this.props;
 
     const newAd = {
-      CategoryId: categorySelectedId,
-      SubCategoryId: subCategorySelectedId,
+      CategoryId: CategoryId,
+      SubCategoryId: SubCategoryId,
       img: imgInput ? URL.createObjectURL(imgInput) : null,
-      Details: DetailsInput,
-      conditionId: conditionSelected,
+      Details: Details,
+      condition: condition,
       userId: activeUser.id,
       //  ? (<Login/>):null,
     };
@@ -99,13 +94,13 @@ class NewAdModal extends Component {
 
     const template_params = {
       to_email: activeUser.email,
-      ad_name: categorySelectedId,
-      subcatgory_name: subCategorySelectedId,
+      ad_name: CategoryId,
+      subcatgory_name: SubCategoryId,
       fname: activeUser.fname,
       lname: activeUser.lname,
-      ad_desc: DetailsInput,
+      ad_desc: Details,
     };
-
+   
     const service_id = 'default_service';
     const template_id = 'new_ad';
     emailjs
@@ -116,44 +111,44 @@ class NewAdModal extends Component {
     this.handleCloseAndClean();
   }
 
-  categoryChange = event => {
-    this.setState({
-      categorySelectedId: parseInt(event.target.value),
-    });
-    console.log('categoryChange', event.target.value);
-  };
-  subCategoryChange = event => {
-    this.setState({
-      subCategorySelectedId: parseInt(event.target.value),
-    });
-    console.log('subCategoryChange', event.target.value);
-  };
-  conditionChange = event => {
-    this.setState({
-      conditionSelected: parseInt(event.target.value),
-    });
-    console.log('conditionChange', event.target.value);
-  };
-  DetailsInputChange = event => {
-    this.setState({
-      DetailsInput: event.target.value,
-    });
-    console.log('DetailsInputChange', event.target.value);
-  };
+  // categoryChange = event => {
+  //   this.setState({
+  //     categorySelectedId: parseInt(event.target.value),
+  //   });
+  //   console.log('categoryChange', event.target.value);
+  // };
+  // subCategoryChange = event => {
+  //   this.setState({
+  //     subCategorySelectedId: parseInt(event.target.value),
+  //   });
+  //   console.log('subCategoryChange', event.target.value);
+  // };
+  // conditionChange = event => {
+  //   this.setState({
+  //     conditionSelected: parseInt(event.target.value),
+  //   });
+  //   console.log('conditionChange', event.target.value);
+  // // };
+  // DetailsInputChange = event => {
+  //   this.setState({
+  //     DetailsInput: event.target.value,
+  //   });
+  //   console.log('DetailsInputChange', event.target.value);
+  // };
 
   handleCloseAndClean = () => {
     this.setState({
-      categorySelectedId: null,
-      subCategorySelectedId: null,
-      conditionSelected: null,
-      DetailsInput: '',
+      CategoryId: null,
+      SubCategoryId: null,
+      Condition: null,
+      Details:"",
       imgInput: null,
       showNewAdModal: false,
     });
   };
 
   render() {
-    const { showNewAdModal, imgInput, DetailsInput } = this.state;
+    const { showNewAdModal, imgInput, Details } = this.state;
 
     const { ads } = this.props;
 
@@ -253,9 +248,9 @@ class NewAdModal extends Component {
                     style={{ width: '22rem' }}
                     onSubmit={this.handleInputChange}
                     //onChange={this.categoryChange}
-                    value={this.state.categorySelectedId}
+                    value={this.state.CategoryId}
                     as="select"
-                    name="categorySelectedId"
+                    name="CategoryId"
                   >
                     <option name="categoryOptions" value="0">
                       Select a Category...
@@ -268,11 +263,11 @@ class NewAdModal extends Component {
                   <Form.Label htmlFor="inlineFormCustomSelectPref"></Form.Label>
                   <Form.Control
                     style={{ width: '22rem' }}
-                    value={this.state.subCategorySelectedId}
+                    value={this.state.SubCategoryId}
                     //onChange={this.subCategoryChange}
                     onChange={this.handleInputChange}
                     as="select"
-                    name="subCategorySelectedId"
+                    name="SubCategoryId"
                   >
                     <option value="0">Select a Sub-Category...</option>
                     {subCategoryOptions}
@@ -285,9 +280,9 @@ class NewAdModal extends Component {
                     style={{ width: '22rem' }}
                     //onChange={this.conditionChange}
                     onChange={this.handleInputChange}
-                    value={this.state.conditionSelected}
+                    value={this.state.condition}
                     as="select"
-                    name="conditionSelected"
+                    name="condition"
                   >
                     <option value="0">Select Item Condition...</option>
                     {conditionOptions}
@@ -298,11 +293,11 @@ class NewAdModal extends Component {
                   <Form.Label> Ad Details</Form.Label>
                   <Form.Control
                     style={{ width: '22rem' }}
-                    value={DetailsInput}
+                    value={Details}
                     //onChange={this.DetailsInputChange}
                     onChange={this.handleInputChange}
                     type="text"
-                    name="DetailsInput"
+                    name="Details"
                     placeholder=" Details...."
                   />
                 </Form.Group>
