@@ -15,7 +15,7 @@ class ClothingOther extends Component {
     return (
       <div className="c-adNavbar">
       
-        <Navbar bg="light" expand="lg">
+        <Navbar >
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat">
@@ -25,15 +25,10 @@ class ClothingOther extends Component {
               <Nav.Link className="mr-5" href="/#Shoes">Shoes</Nav.Link>
               <Nav.Link className="mr-5" href="/#ClothingOther">Other</Nav.Link>
             </Nav>
-            <Form inline>
-            
-            </Form>
           </Navbar.Collapse>
         </Navbar>
         <Container>
         <CardColumns>{ClothingOtherAdsUi}</CardColumns>
-        <ListGroup variant="flush">
-        </ListGroup>
         </Container>
       </div>
     );

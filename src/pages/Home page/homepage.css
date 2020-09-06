@@ -1,13 +1,42 @@
 .p-homepage {
     padding: 20px;
-    background-color: white;
+    display: flex;
+}
+.p-homepage h1{
+    font-family:'Petit Formal Script', cursive;
+    font-size: 7rem;
 }
 
+.p-homepage span{
+    font-family:'Archivo Narrow', sans-serif;
+    font-size: 2rem;
+    color: #FF8118;
+    align-content:flex-end
+
+}
 .par {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: larger;
+    font-family:'Archivo Narrow', sans-serif;
+    font-size: 1.8rem;
     text-align: center;
-    background-color: peachpuff;
-    /* border-radius: 10%; */
-    margin-top: 30px;
+    width: 300px;
+    padding-top:200px ;
+    display: flex;
+}
+
+.img {
+    background-image: url("https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-Repeat: no-repeat;
+    height: 800px;
+
+}
+.back{
+    background-image: url("https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+
+}
+.name{
+    display: flex;
+    padding-top:300px ;
 }
