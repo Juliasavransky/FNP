@@ -100,19 +100,11 @@ class AdNavbar extends Component {
               <Nav.Link id="hover"className="mr-2" href="/#ToysAndGames">
                 Toys And games
               </Nav.Link>
-<<<<<<< HEAD
               <Nav.Link id="hover"className="mr-2" href="/#ForTheBabys">
-                For The Baby's
-              </Nav.Link>
-              <Nav.Link id="hover"className="mr-2" href="/#ForMoms">
-                For Mom's
-=======
-              <Nav.Link className="mr-2" href="/#ForTheBabys">
                 Baby Gear
               </Nav.Link>
-              <Nav.Link className="mr-2" href="/#ForMoms">
+              <Nav.Link id="hover"className="mr-2" href="/#ForMoms">
                 For Mom
->>>>>>> bd15af362425aa073daca5c5e48608238ec074ed
               </Nav.Link>
               <Nav.Link id="hover"className="mr-2" href="/#SmartAgent">
                 Advanced Search

@@ -17,15 +17,15 @@ class Lego extends Component {
 
     return(
       <div className="c-adNavbar">
-        <Navbar bg="light" expand="lg">
+        <Navbar>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat">
-              <Nav.Link className="mr-5" href="/#BoardGames">Board Games</Nav.Link>
-              <Nav.Link className="mr-5" href="/#Books">Books</Nav.Link>
-              <Nav.Link className="mr-5" href="/#Dolls">Dolls</Nav.Link>
-              <Nav.Link className="mr-5" href="/#Lego">Lego</Nav.Link>
-              <Nav.Link className="mr-5" href="/#ToysAndGamesOther">Other</Nav.Link>
+              <Nav.Link className="mr-5" id="hover" href="/#BoardGames">Board Games</Nav.Link>
+              <Nav.Link className="mr-5" id="hover" href="/#Books">Books</Nav.Link>
+              <Nav.Link className="mr-5" id="hover" href="/#Dolls">Dolls</Nav.Link>
+              <Nav.Link className="mr-5" id="hover" href="/#Lego">Lego</Nav.Link>
+              <Nav.Link className="mr-5" id="hover" href="/#ToysAndGamesOther">Other</Nav.Link>
             </Nav>
             <Form inline>
             </Form>
@@ -34,8 +34,6 @@ class Lego extends Component {
         </Navbar>
         <Container>
         <CardColumns>{LegoAdsUi}</CardColumns>
-        <ListGroup variant="flush">
-        </ListGroup>
         </Container>
       </div>
 
