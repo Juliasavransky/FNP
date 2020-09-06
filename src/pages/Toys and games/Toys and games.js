@@ -16,15 +16,15 @@ class ToysAndGames extends Component {
         ));
         return (
             <div className="c-adNavbar">
-                <Navbar bg="light" expand="lg">
+                <Navbar>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto cat">
-                            <Nav.Link className="mr-5" href="/#Dolls">Board Games</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Board Games">Books</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Books">Dolls</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Lego">Lego</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Other">Other</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="/#Dolls">Board Games</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="/#Board Games">Books</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="/#Books">Dolls</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="/#Lego">Lego</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="/#Other">Other</Nav.Link>
                         </Nav>
                         <Form inline>
                         </Form>

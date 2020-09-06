@@ -21,23 +21,23 @@ class ForMomsOther extends Component {
 
     return (
       <div className="c-adNavbar">
-        <Navbar bg="light" expand="lg">
+        <Navbar >
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat">
-              <Nav.Link className="mr-5" href="/#PregnancyClothes">
+              <Nav.Link className="mr-5" id="hover" href="/#PregnancyClothes">
                 Pregnancy Clothes
               </Nav.Link>
-              <Nav.Link className="mr-5" href="/#BreastPumps">
+              <Nav.Link className="mr-5"id="hover" href="/#BreastPumps">
                 Breast Pumps
               </Nav.Link>
-              <Nav.Link className="mr-5" href="/#BooksForMoms">
+              <Nav.Link className="mr-5"id="hover" href="/#BooksForMoms">
                 Books For Mom's
               </Nav.Link>
-              <Nav.Link className="mr-5" href="/#Supplements">
+              <Nav.Link className="mr-5" id="hover"href="/#Supplements">
                 Supplements
               </Nav.Link>
-              <Nav.Link className="mr-5" href="/#ForMomsOther">
+              <Nav.Link className="mr-5"id="hover" href="/#ForMomsOther">
                 Other
               </Nav.Link>
             </Nav>
@@ -45,9 +45,7 @@ class ForMomsOther extends Component {
           </Navbar.Collapse>
         </Navbar>
         <Container>
-          <ListGroup variant="flush">
             <CardColumns>{ForMomsOtherAdsUi}</CardColumns>
-          </ListGroup>
         </Container>
       </div>
     );

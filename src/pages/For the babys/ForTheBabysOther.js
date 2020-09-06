@@ -15,24 +15,22 @@ class ForTheBabysOther extends Component {
 
         return (
             <div className="c-adNavbar">
-                <Navbar bg="light" expand="lg">
+                <Navbar >
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto cat">
-                            <Nav.Link className="mr-5" href="/#Furniture">Furniture</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Safety">Safety</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#Carriages">Carriages</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#ForTheBabysOther">Other</Nav.Link>
-                            <Nav.Link className="mr-5" href="/#PlaypenCradle">Playpen Cradle</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="/#Furniture">Furniture</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="/#Safety">Safety</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="/#Carriages">Carriages</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="/#ForTheBabysOther">Other</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="/#PlaypenCradle">Playpen Cradle</Nav.Link>
                         </Nav>
-                        <Form inline>
+                        <Form >
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
                 <Container>
                 <CardColumns>{ForTheBabysOtherAdsUi}</CardColumns>
-                <ListGroup variant="flush">
-                </ListGroup>
                </Container>
             </div>
         );
