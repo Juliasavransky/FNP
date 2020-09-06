@@ -1,0 +1,8 @@
+.pic{
+    background-image: url("https://images.unsplash.com/photo-1586769852351-8791d2bb43be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-Repeat: no-repeat;
+    background-color: violet;
+}

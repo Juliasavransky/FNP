@@ -7,6 +7,8 @@ import {
 
   Form, Modal
 } from "react-bootstrap";
+import './ZoomInAd.css';
+
 
 class ZoomInAd extends Component {
   constructor(props, city, streetNumber) {
@@ -198,7 +200,7 @@ class ZoomInAd extends Component {
               <div> {owner ? owner.fname + " " + owner.lname : "N/A"}</div>
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="pic">
             <Form.Group controlId="title">
               <Form.Control
                 style={{ width: "27rem" }}

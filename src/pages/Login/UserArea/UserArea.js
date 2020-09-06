@@ -20,8 +20,8 @@ class UserArea extends Component {
     // Get all the existing smart agents - we don't want to display it to the logged-in user
     console.log("all smart agents", this.props.requests);
 
-   
-   //לבדוק האם מבטל רידייקט // Filter only the smart agents belongs to the logged in user - this is what we want to display
+
+    //לבדוק האם מבטל רידייקט // Filter only the smart agents belongs to the logged in user - this is what we want to display
     if (this.props.activeUser) {
       this.setState({
         userSmartAgents: this.props.requests.filter(
@@ -34,7 +34,7 @@ class UserArea extends Component {
 
   componentDidUpdate() {
     if (!this.props.activeUser) {
-      this.setState({...this.setState, redirectToHome: true });
+      this.setState({ ...this.setState, redirectToHome: true });
     }
     console.log("only logged-in user smart agents", this.state.userSmartAgents);
   }
@@ -65,46 +65,34 @@ class UserArea extends Component {
         {redirectToHome ? (
           <Redirect to="/#" />
         ) : (
-          <Container>
-            {userSmartAgents.length > 0 &&
-              userSmartAgents.map((sAgent) => {
-                const categoryName = categories.find(
-                  (cateogry) => cateogry.categoryId === sAgent.CategoryId
-                ).categoryName;
+            <Container>
+              {userSmartAgents.length > 0 &&
+                userSmartAgents.map((sAgent) => {
+                  const categoryName = categories.find(
+                    (cateogry) => cateogry.categoryId === sAgent.CategoryId
+                  ).categoryName;
 
-                const subCategoryName = subCategories.find(
-                  (subCategory) =>
-                    subCategory.subCategoryId === sAgent.SubCategoryId
-                ).subCategoryName;
+                  const subCategoryName = subCategories.find(
+                    (subCategory) =>
+                      subCategory.subCategoryId === sAgent.SubCategoryId
+                  ).subCategoryName;
 
-                return (
-                  <React.Fragment key={sAgent.agentId}>
-                    <h3>{sAgent.title}</h3>
-                    <ul>
-                      <li>Category: {categoryName}</li>
-                      <li>Sub-Category: {subCategoryName}</li>
-                      <li>Condition: {sAgent.conditionId}</li>
-                      <li>Living-Area: {sAgent.livingAreaId}</li>
-                    </ul>
-                  </React.Fragment>
-
-                  // <Nav defaultActiveKey="/home" className="flex-column">
-                  // <Nav.Link href="/home">Category:</Nav.Link>
-                  // <Nav.Link eventKey="Sub-Category:">Link</Nav.Link>
-                  // <Nav.Link eventKey="link-2">Condition:</Nav.Link>
-                  // <Nav.Link eventKey="Living-Area"
-                  //  
-                  // </Nav.Link>
-                  // </Nav>
-
-
-                );
-              })}
-            <br />
-            my meseges
-            <CardColumns>{activeUserAdsUi}</CardColumns>
-          </Container>
-        )}
+                  return (
+                    <React.Fragment key={sAgent.agentId}>
+                      <h3>{sAgent.title}</h3>
+                      <ul>
+                        <li>Category: {categoryName}</li>
+                        <li>Sub-Category: {subCategoryName}</li>
+                        <li>Condition: {sAgent.conditionId}</li>
+                        <li>Living-Area: {sAgent.livingAreaId}</li>
+                      </ul>
+                    </React.Fragment>
+                  );
+                })}
+                
+              <CardColumns>{activeUserAdsUi}</CardColumns>
+            </Container>
+          )}
         <NewAdModal
           ads={ads}
           handleLogin={this.props.handleLogin}
