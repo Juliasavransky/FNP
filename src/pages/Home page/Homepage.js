@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, CardColumns, Jumbotron, } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './homepage.css';
-import Help from '../Footer/Footer';
+// import Help from '../Footer/Footer';
 import AdCard from '../../components/AdCard/AdCard';
 
 class HomePage extends Component {
@@ -26,7 +26,7 @@ class HomePage extends Component {
         <div className="img">
           <Container className="p-homepage" >
             <div className="name">
-              <h1>PASS ON </h1>
+              <h1>PASS ON</h1>
               <span>All completely free</span>
             </div>
             

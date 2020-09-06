@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListGroup, Col, Row, Nav, Navbar, Form, Container, CardColumns } from 'react-bootstrap';
+import { ListGroup, Nav, Navbar, Form, Container, CardColumns } from 'react-bootstrap';
 import AdCard from '../../components/AdCard/AdCard';
 
 

@@ -20,12 +20,16 @@ class UserArea extends Component {
     // Get all the existing smart agents - we don't want to display it to the logged-in user
     console.log("all smart agents", this.props.requests);
 
-    // Filter only the smart agents belongs to the logged in user - this is what we want to display
-    this.setState({
-      userSmartAgents: this.props.requests.filter(
-        (sAgent) => sAgent.userId === this.props.activeUser.id
-      ),
-    });
+   
+   //לבדוק האם מבטל רידייקט // Filter only the smart agents belongs to the logged in user - this is what we want to display
+    if (this.props.activeUser) {
+      this.setState({
+        userSmartAgents: this.props.requests.filter(
+          (sAgent) => sAgent.userId === this.props.activeUser.id
+        ),
+      });
+    }
+
   }
 
   componentDidUpdate() {
@@ -83,6 +87,17 @@ class UserArea extends Component {
                       <li>Living-Area: {sAgent.livingAreaId}</li>
                     </ul>
                   </React.Fragment>
+
+                  // <Nav defaultActiveKey="/home" className="flex-column">
+                  // <Nav.Link href="/home">Category:</Nav.Link>
+                  // <Nav.Link eventKey="Sub-Category:">Link</Nav.Link>
+                  // <Nav.Link eventKey="link-2">Condition:</Nav.Link>
+                  // <Nav.Link eventKey="Living-Area"
+                  //  
+                  // </Nav.Link>
+                  // </Nav>
+
+
                 );
               })}
             <br />

@@ -10,7 +10,7 @@ import SearchResults from './components/Navbar/SearchResults';
 import NewAdModal from './components/New Ad Modal/NewAdModal';
 import RequestForItem from './components/Request for item/RequestForItem';
 import Sorry from './components/Sorry we didnt find/Sorry';
-import ZoomInAd from './components/ZoomInAd/ZoomInAd';
+import ZoomInAd from './components/ZoomInAd/zoomInAd';
 import jsonAds from './data/Ads.json';
 import jsonSmartAgent from './data/smartAgent.json';
 import jsonUsers from './data/users.json';
@@ -465,6 +465,7 @@ class App extends Component {
               handleLogout={this.handleLogout}
               handleCreatNewAd={this.handleCreatNewAd}
               handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
+              searchResults={searchResults}
             />
           </Route>
 

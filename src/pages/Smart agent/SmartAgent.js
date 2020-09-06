@@ -17,6 +17,7 @@ import {
   dataCategoriess,
 } from '../../data/ddData';
 import Sorry from '../../components/Sorry we didnt find/Sorry';
+import {filtersmartagent} from '../../utiles/filter';
 
 class SmartAgent extends Component {
   constructor(props) {
@@ -102,6 +103,10 @@ class SmartAgent extends Component {
     if (filterdConditions.length === 0)
       filterdConditions = filteredSubCategories;
 
+
+      //לקחת את הפילטר הזה ולרוץ על המודעות החדשות שהיוזר מכניס
+     // וצריך לעשות עוד פילטר כזה שירוץ על הבקשות של הסמארט אייגנט
+     // להשוות בין 2 התוצאות של שני הפילטרים וכשיש תשובה חייובית אז לשלוח התראה ליוזר (באתר) ליוזר של הרקווסט
     const filteredFreeSearch = filterdConditions.filter(
       ad =>
         ad.Details.toLowerCase().includes(searchSelected.toLowerCase()) ||
@@ -126,6 +131,7 @@ class SmartAgent extends Component {
   };
 
   render() {
+   
     const { ads, activeUser, allUsers } = this.props;
     const {
       searchSelected,
@@ -136,6 +142,7 @@ class SmartAgent extends Component {
       filteredAds,
       search,
     } = this.state;
+    // console.log(filtersmartagent(ads, 1, "Used", "Pills" ))
 
     const categoryOption = dataCategoriess.map(itencategorys => (
       <option  value={itencategorys.categoryId}>
