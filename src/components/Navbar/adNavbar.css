@@ -1,36 +1,43 @@
 .c-adNavbar {
   display: inline;
 }
-.cat {
+.c-adNavbar:hover {
+  color: #FF8118;
+}
+/* .cat {
   justify-items: flex-end;
   padding: 10px;
-}
+} */
 
-.btn-userLogin {
+/* .btn-userLogin {
   margin-left: 8px;
-}
+} */
 
-.navFont{
+/* .navFont{
   font-family:'Archivo Narrow', sans-serif;
   font-size: 1.2rem;
-}
+} */
 
 .btnFont{
   font-family:'Petit Formal Script', cursive;
   font-size: 1rem;
   background-color: transparent ;
-  color: #000000;;
+  color: #000000;
+  display: flex;
 }
 .btnFont:hover {
   color: #FF8118;
 }
-.navFont:hover{
+#hover:hover{
   color: #FF8118;
 }
-.btnSearch{
+/* .navFont:hover{
+  color: #FF8118;
+} */
+/* .btnSearch{
   background-color: transparent ;
   color: #000000;
-}
+} */
 
 /* #bootstrap-overrides .btnFont{
   color:black

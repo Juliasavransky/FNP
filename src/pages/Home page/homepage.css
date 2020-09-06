@@ -1,6 +1,7 @@
 .p-homepage {
-    padding: 20px;
     display: flex;
+    align-items:flex-start;
+    justify-content: space-between ;
 }
 .p-homepage h1{
     font-family:'Petit Formal Script', cursive;
@@ -18,9 +19,10 @@
     font-family:'Archivo Narrow', sans-serif;
     font-size: 1.8rem;
     text-align: center;
-    width: 300px;
+    width: 200px;
     padding-top:200px ;
     display: flex;
+    align-content: flex-end;
 }
 
 .img {
@@ -30,6 +32,7 @@
     background-attachment: fixed;
     background-Repeat: no-repeat;
     height: 800px;
+    display: flex;
 
 }
 .back{
@@ -37,9 +40,10 @@
 
 }
 .name{
-    display: flex;
-    padding-top:300px ;
-}
+    align-items:flex-end;
+    justify-content: flex-start ;
+    margin-top:200px ;
+} 
 .name  span{
-padding-top: 150px;
+margin-left:300px ;
 }

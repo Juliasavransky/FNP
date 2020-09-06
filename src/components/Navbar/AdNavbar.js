@@ -79,7 +79,7 @@ class AdNavbar extends Component {
     ) : null;
 
     const UserArea = activeUser ? (
-      <Nav.Link  href="/#UserArea">
+      <Nav.Link id="hover" href="/#UserArea">
         User Area
       </Nav.Link>
     ) : null;
@@ -91,22 +91,22 @@ class AdNavbar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat navFont">
-              <Nav.Link className="mr-2 fas fa-baby-carriage" href="/#"> 
+              <Nav.Link id="hover"className="mr-2 fas  fa-baby-carriage" href="/#"> 
                 Home
               </Nav.Link>
-              <Nav.Link className="mr-2" href="/#Clothing">
+              <Nav.Link id="hover" className="mr-2" href="/#Clothing">
                 Clothing
               </Nav.Link>
-              <Nav.Link className="mr-2" href="/#ToysAndGames">
+              <Nav.Link id="hover"className="mr-2" href="/#ToysAndGames">
                 Toys And games
               </Nav.Link>
-              <Nav.Link className="mr-2" href="/#ForTheBabys">
+              <Nav.Link id="hover"className="mr-2" href="/#ForTheBabys">
                 For The Baby's
               </Nav.Link>
-              <Nav.Link className="mr-2" href="/#ForMoms">
+              <Nav.Link id="hover"className="mr-2" href="/#ForMoms">
                 For Mom's
               </Nav.Link>
-              <Nav.Link className="mr-2" href="/#SmartAgent">
+              <Nav.Link id="hover"className="mr-2" href="/#SmartAgent">
                 Advanced Search
               </Nav.Link >
               {UserArea}
@@ -119,9 +119,9 @@ class AdNavbar extends Component {
                 onChange={e =>
                   this.setState({ searchSelected: e.target.value })
                 }
+                
                 type="text"
                 placeholder="Search"
-                className="mr-sm-2 "
               />
               {/* <Button className="navFont btnSearch"
                type="submit" variant="outline-success">
