@@ -42,7 +42,7 @@ class ForMoms extends Component {
         </Navbar>
         <Container>
           <ListGroup variant="flush">
-          <CardColumns className="back">
+          <CardColumns>
          {ForMomsAdsUi}
          </CardColumns >
           </ListGroup>

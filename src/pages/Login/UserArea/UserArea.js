@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { CardColumns, Container } from "react-bootstrap";
+import { CardColumns, Container, Card, Row, Col} from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import AdCard from "../../../components/AdCard/AdCard";
 import NewAdModal from "../../../components/New Ad Modal/NewAdModal";
 import {
   dataCategoriess as categories,
-  dataSubCategorys as subCategories
+  dataSubCategorys as subCategories,
 } from "../../../data/ddData";
 
 class UserArea extends Component {
@@ -20,8 +20,7 @@ class UserArea extends Component {
     // Get all the existing smart agents - we don't want to display it to the logged-in user
     console.log("all smart agents", this.props.requests);
 
-   
-   //לבדוק האם מבטל רידייקט // Filter only the smart agents belongs to the logged in user - this is what we want to display
+    //לבדוק האם מבטל רידייקט // Filter only the smart agents belongs to the logged in user - this is what we want to display
     if (this.props.activeUser) {
       this.setState({
         userSmartAgents: this.props.requests.filter(
@@ -29,12 +28,11 @@ class UserArea extends Component {
         ),
       });
     }
-
   }
 
   componentDidUpdate() {
     if (!this.props.activeUser) {
-      this.setState({...this.setState, redirectToHome: true });
+      this.setState({ ...this.setState, redirectToHome: true });
     }
     console.log("only logged-in user smart agents", this.state.userSmartAgents);
   }
@@ -78,30 +76,35 @@ class UserArea extends Component {
                 ).subCategoryName;
 
                 return (
-                  <React.Fragment key={sAgent.agentId}>
-                    <h3>{sAgent.title}</h3>
-                    <ul>
-                      <li>Category: {categoryName}</li>
-                      <li>Sub-Category: {subCategoryName}</li>
-                      <li>Condition: {sAgent.conditionId}</li>
-                      <li>Living-Area: {sAgent.livingAreaId}</li>
-                    </ul>
-                  </React.Fragment>
-
-                  // <Nav defaultActiveKey="/home" className="flex-column">
-                  // <Nav.Link href="/home">Category:</Nav.Link>
-                  // <Nav.Link eventKey="Sub-Category:">Link</Nav.Link>
-                  // <Nav.Link eventKey="link-2">Condition:</Nav.Link>
-                  // <Nav.Link eventKey="Living-Area"
-                  //  
-                  // </Nav.Link>
-                  // </Nav>
-
-
+              
+      
+                 <Container>
+                  <CardColumns>
+                  
+    
+                    <Card
+                      key={sAgent.agentId}
+                      // className=" shadow item well p-3 mb-5 bg-white rounded card text-center "
+                    >
+                      <Card.Body>
+                        <Card.Title> {sAgent.title} </Card.Title>
+                        <Card.Text>
+                          <Card.Text>Category: {categoryName}</Card.Text>
+                          <Card.Text>Sub-Category: {subCategoryName}</Card.Text>
+                          <Card.Text>Condition: {sAgent.conditionId}</Card.Text>
+                          <Card.Text>
+                            Living-Area: {sAgent.livingAreaId}
+                          </Card.Text>
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+              
+                    </CardColumns>
+                    </Container>
                 );
               })}
             <br />
-            my meseges
+
             <CardColumns>{activeUserAdsUi}</CardColumns>
           </Container>
         )}

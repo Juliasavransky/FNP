@@ -16,6 +16,8 @@ class ZoomInAd extends Component {
       showEmailModal: false,
       emailInput: "",
       taitalInput: "",
+      // city = city,
+      // streetNumber = streetNumber
     };
     this.handleSendEmail = this.handleSendEmail.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
