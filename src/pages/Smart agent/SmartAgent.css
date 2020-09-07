@@ -1,4 +1,39 @@
-.btn-search{
+/* .btn-search {
     width: 22rem;
     margin-top: 20px;
+} */
+
+.lupa {
+    background-image: url("https://images.unsplash.com/photo-1488998427799-e3362cec87c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-Repeat: no-repeat;
+    max-height: 700px;
+    padding-right: 12%;
+    padding-left: 12%;
+    padding-top: 5%;
+    padding-bottom: 6%;
+    font-family: 'Archivo Narrow', sans-serif;
+    margin: 0;
 }
+
+#logo {
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0;
+    padding-top: -10px;
+    color:black;
+}
+.btn-search {
+    font-family:'Archivo Narrow', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #FF8118;
+  } 
+  .btn-search:hover{
+    color: white;
+  }
