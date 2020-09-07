@@ -45,10 +45,11 @@ class login extends Component {
     }
 
     return (
-      <div className="c-login">
+      <div className="background ">
+    
         <h3> EXISTING CUSTOMERS</h3>
-        <h3> Sign Into</h3>
-        <br></br>
+        <h2> Sign Into</h2>
+       
         <Form onSubmit={this.login}>
           {showLogInError ? (
             <Alert variant="danger">
@@ -93,12 +94,16 @@ class login extends Component {
                 type="checkbox"
                 label="Remember Me"
               />
-            </Form.Group>
-            <Button className="btn-login" variant="primary" type="submit">
+            </Form.Group >
+            <Button className="btn-login" variant="link" type="submit">
               LOGIN
             </Button>
           </Form.Row>
         </Form>
+        <div id="passon">
+              <p>PASS ON</p>
+              {/* <span>All completely free</span> */}
+            </div>
       </div>
     );
   }

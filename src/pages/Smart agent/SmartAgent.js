@@ -178,21 +178,19 @@ class SmartAgent extends Component {
 
     return (
       <>
-        <Container
-          className=" d-flex justify-content-center w-50 p-5">
-          <Form
-          // className=" d-flex justify-content-center"
-          >
+        <div className="lupa">
+          
+          <Form>
+          <Form.Row>
 
             <FormGroup >
               <Form.Label
-                // className="d-flex justify-content-between w-100 p-2 m-1"
                 htmlFor="inlineFormCustomSelectPref">
                 Categories
             </Form.Label>
               <Form.Control
-                inline
-                style={{ width: '22rem' }}
+                // inline
+                // style={{ width: '22rem' }}
                 onChange={this.categoryChange}
                 as="select"
                 id="inlineFormCustomSelectPref"
@@ -206,12 +204,11 @@ class SmartAgent extends Component {
 
             <FormGroup>
               <Form.Label
-                // className="d-flex justify-content-between w-100 p-2 m-1"
                 htmlFor="inlineFormCustomSelectPref">
                 Sub-Categories
             </Form.Label>
               <Form.Control
-                style={{ width: '22rem' }}
+                // style={{ width: '22rem' }}
                 onChange={this.subCategoryChange}
                 as="select"
                 className=""
@@ -226,12 +223,11 @@ class SmartAgent extends Component {
 
             <FormGroup>
               <Form.Label
-                // className="d-flex justify-content-between w-100 p-2 m-1"
                 htmlFor="inlineFormCustomSelectPref">
                 Condition
             </Form.Label>
               <Form.Control
-                style={{ width: '22rem' }}
+                // style={{ width: '22rem' }}
                 onChange={this.changeItemConditions}
                 as="select"
                 className=""
@@ -246,12 +242,11 @@ class SmartAgent extends Component {
 
             <FormGroup>
               <Form.Label
-                // className="d-flex justify-content-between w-100 p-2 m-1"
                 htmlFor="inlineFormCustomSelectPref">
                 Living Area
             </Form.Label>
               <Form.Control
-                style={{ width: '22rem' }}
+                // style={{ width: '22rem' }}
                 onChange={this.changeItemLivingArea}
                 as="select"
                 className=""
@@ -261,16 +256,16 @@ class SmartAgent extends Component {
                 {dataLivingAreasOption}
               </Form.Control>
             </FormGroup>
+            
 
 
             <FormGroup>
               <Form.Label
-                //  className="d-flex justify-content-between w-100 p-2 m-1"
                 htmlFor="inlineFormCustomSelectPref">
                 Search
             </Form.Label>
               <FormControl
-                style={{ width: '22rem' }}
+                // style={{ width: '22rem' }}
                 value={searchSelected}
                 onChange={event =>
                   this.setState({ searchSelected: event.target.value })}
@@ -280,16 +275,17 @@ class SmartAgent extends Component {
 
               <Button
                 className="btn-search"
-                // onClick={this.cleanData}
                 
                 onClick={this.search}
-                variant="outline-success">
+                variant="link">
                 Search
           </Button>
             </FormGroup>
-
+            </Form.Row>
+        
           </Form>
-        </Container>
+          <p id="logo">PASS ON</p>
+          </div>
 
         <Container>
           {filteredAds && filteredAds.length > 0 ? (

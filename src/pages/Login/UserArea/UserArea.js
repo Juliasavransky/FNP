@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CardColumns, Container, Card, Dropdown, } from "react-bootstrap";
+import { CardColumns, Container, Card, Row, Col, } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import AdCard from "../../../components/AdCard/AdCard";
 import NewAdModal from "../../../components/New Ad Modal/NewAdModal";
@@ -67,17 +67,17 @@ class UserArea extends Component {
         {redirectToHome ? (
           <Redirect to="/#" />
         ) : (
-          <Container>
-            {userSmartAgents.length > 0 &&
-              userSmartAgents.map((sAgent) => {
-                const categoryName = categories.find(
-                  (cateogry) => cateogry.categoryId === sAgent.CategoryId
-                ).categoryName;
+            <Container>
+              {userSmartAgents.length > 0 &&
+                userSmartAgents.map((sAgent) => {
+                  const categoryName = categories.find(
+                    (cateogry) => cateogry.categoryId === sAgent.CategoryId
+                  ).categoryName;
 
-                const subCategoryName = subCategories.find(
-                  (subCategory) =>
-                    subCategory.subCategoryId === sAgent.SubCategoryId
-                ).subCategoryName;
+                  const subCategoryName = subCategories.find(
+                    (subCategory) =>
+                      subCategory.subCategoryId === sAgent.SubCategoryId
+                  ).subCategoryName;
 
                 return ( 
                  
@@ -132,10 +132,13 @@ class UserArea extends Component {
             {/* <CardColumns>{activeUserAgentsUi}</CardColumns> */}
 
 
-             <h2>My Ads</h2><br></br>
-            <CardColumns>{activeUserAdsUi}</CardColumns>
-          </Container>
-        )}
+                  );
+                })}
+
+
+              <CardColumns>{activeUserAdsUi}</CardColumns>
+            </Container>
+          )}
         <NewAdModal
           ads={ads}
           handleLogin={this.props.handleLogin}

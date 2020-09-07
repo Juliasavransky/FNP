@@ -25,14 +25,9 @@ class NewAdModal extends Component {
     };
 
     this.handleModalClose = this.handleModalClose.bind(this);
-    // this.DetailsInputChange = this.DetailsInputChange.bind(this);
     this.handleCreatAd = this.handleCreatAd.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
     this.handleCloseAndClean = this.handleCloseAndClean.bind(this);
-    // this.categoryChange = this.categoryChange.bind(this);
-    // this.subCategoryChange = this.subCategoryChange.bind(this);
-    // this.conditionChange = this.conditionChange.bind(this);
-    // this.DetailsInputChange = this.DetailsInputChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
@@ -111,30 +106,7 @@ class NewAdModal extends Component {
     this.handleCloseAndClean();
   }
 
-  // categoryChange = event => {
-  //   this.setState({
-  //     categorySelectedId: parseInt(event.target.value),
-  //   });
-  //   console.log('categoryChange', event.target.value);
-  // };
-  // subCategoryChange = event => {
-  //   this.setState({
-  //     subCategorySelectedId: parseInt(event.target.value),
-  //   });
-  //   console.log('subCategoryChange', event.target.value);
-  // };
-  // conditionChange = event => {
-  //   this.setState({
-  //     conditionSelected: parseInt(event.target.value),
-  //   });
-  //   console.log('conditionChange', event.target.value);
-  // // };
-  // DetailsInputChange = event => {
-  //   this.setState({
-  //     DetailsInput: event.target.value,
-  //   });
-  //   console.log('DetailsInputChange', event.target.value);
-  // };
+
 
   handleCloseAndClean = () => {
     this.setState({

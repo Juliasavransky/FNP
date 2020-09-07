@@ -1,6 +1,47 @@
-.btn-register {
-  width: 100%;
+
+.c-signUp{
+  background-image: url("https://images.unsplash.com/photo-1580637250481-b78db3e6f84b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-Repeat: no-repeat;
+  max-height: 700px;
+  padding-right: 9%;
+  padding-left: 9%;
+  padding-top: 3%;
+  padding-bottom: 6%;
+  font-family:'Archivo Narrow', sans-serif;
+  margin:0;
 }
-.c-login{
-  margin-top:40px ;
+#passonLogo{
+  font-family:'Petit Formal Script', cursive;
+  font-size: 3rem;
+  display: flex;
+  flex-direction:column;
+  align-items: flex-end;
+  margin:0;
+  padding-top:-10px ;
+  color: #FF8118;
+
+}
+.c-signUp h3{
+  font-size: 2rem;
+  font-weight: bold;
+  font-family:'Archivo Narrow', sans-serif;
+  padding-bottom:20px ;
+
+}
+.c-signUp span{
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family:'Archivo Narrow', sans-serif;
+}
+.btn-register {
+  font-family:'Archivo Narrow', sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #FF8118;
+} 
+.btn-register:hover{
+  color: black;
 }
