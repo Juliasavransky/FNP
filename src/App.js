@@ -45,7 +45,9 @@ import Dolls from './pages/Toys and games/dolls';
 import Lego from './pages/Toys and games/Lego';
 import ToysAndGames from './pages/Toys and games/Toys and games';
 import ToysAndGamesOther from './pages/Toys and games/ToysAndGamesOther';
+import Maps from './pages/maps';
 emailjs.init('user_92TMg4RqAMZUj3a9Jc5NQ');
+
 
 class App extends Component {
   componentDidMount() {
@@ -469,6 +471,21 @@ class App extends Component {
             />
           </Route>
 
+
+
+          <Route exact path="/maps">
+          <Maps
+            handleLogin={this.handleLogin}
+            allUsers={allUsers}
+            handleLogout={this.handleLogout}
+            activeUser={activeUser}
+            ads={ads}
+            />
+        </Route>
+
+
+
+
           <Route exact path="/zoomInAd">
             <ZoomInAd
               ads={ads}
@@ -480,6 +497,11 @@ class App extends Component {
               handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
               requests={requests}
               searchResults={searchResults}
+            
+              
+
+
+
             />
           </Route>
         </Switch>
