@@ -17,7 +17,7 @@ import {
   dataCategoriess,
 } from '../../data/ddData';
 import Sorry from '../../components/Sorry we didnt find/Sorry';
-import {filtersmartagent} from '../../utiles/filter';
+import { filtersmartagent } from '../../utiles/filter';
 
 class SmartAgent extends Component {
   constructor(props) {
@@ -104,9 +104,9 @@ class SmartAgent extends Component {
       filterdConditions = filteredSubCategories;
 
 
-      //לקחת את הפילטר הזה ולרוץ על המודעות החדשות שהיוזר מכניס
-     // וצריך לעשות עוד פילטר כזה שירוץ על הבקשות של הסמארט אייגנט
-     // להשוות בין 2 התוצאות של שני הפילטרים וכשיש תשובה חייובית אז לשלוח התראה ליוזר (באתר) ליוזר של הרקווסט
+    //לקחת את הפילטר הזה ולרוץ על המודעות החדשות שהיוזר מכניס
+    // וצריך לעשות עוד פילטר כזה שירוץ על הבקשות של הסמארט אייגנט
+    // להשוות בין 2 התוצאות של שני הפילטרים וכשיש תשובה חייובית אז לשלוח התראה ליוזר (באתר) ליוזר של הרקווסט
     const filteredFreeSearch = filterdConditions.filter(
       ad =>
         ad.Details.toLowerCase().includes(searchSelected.toLowerCase()) ||
@@ -131,7 +131,7 @@ class SmartAgent extends Component {
   };
 
   render() {
-   
+
     const { ads, activeUser, allUsers } = this.props;
     const {
       searchSelected,
@@ -145,7 +145,7 @@ class SmartAgent extends Component {
     // console.log(filtersmartagent(ads, 1, "Used", "Pills" ))
 
     const categoryOption = dataCategoriess.map(itencategorys => (
-      <option  value={itencategorys.categoryId}>
+      <option value={itencategorys.categoryId}>
         {itencategorys.categoryName}
       </option>
     ));
@@ -177,113 +177,113 @@ class SmartAgent extends Component {
     return (
       <>
         <div className="lupa">
-          
+
           <Form>
-          <Form.Row>
+            <Form.Row>
 
-            <FormGroup >
-              <Form.Label
-                htmlFor="inlineFormCustomSelectPref">
-                Categories
+              <FormGroup >
+                <Form.Label
+                  htmlFor="inlineFormCustomSelectPref">
+                  Categories
             </Form.Label>
-              <Form.Control
-                // inline
-                // style={{ width: '22rem' }}
-                onChange={this.categoryChange}
-                as="select"
-                id="inlineFormCustomSelectPref"
-                value={this.state.categorySelectedId} >
-                <option value="0">Select A Category</option>
-                {categoryOption}
-              </Form.Control>
-            </FormGroup>
+                <Form.Control
+                  // inline
+                  // style={{ width: '22rem' }}
+                  onChange={this.categoryChange}
+                  as="select"
+                  id="inlineFormCustomSelectPref"
+                  value={this.state.categorySelectedId} >
+                  <option value="0">Select A Category</option>
+                  {categoryOption}
+                </Form.Control>
+              </FormGroup>
 
 
 
-            <FormGroup>
-              <Form.Label
-                htmlFor="inlineFormCustomSelectPref">
-                Sub-Categories
+              <FormGroup>
+                <Form.Label
+                  htmlFor="inlineFormCustomSelectPref">
+                  Sub-Categories
             </Form.Label>
-              <Form.Control
-                // style={{ width: '22rem' }}
-                onChange={this.subCategoryChange}
-                as="select"
-                className=""
-                id="inlineFormCustomSelectPref"
-                value={this.state.subCategorySelectedId} >
-                <option value="0">Select A Sub-Category</option>
-                {subCategoryOption}
-              </Form.Control>
-            </FormGroup>
+                <Form.Control
+                  // style={{ width: '22rem' }}
+                  onChange={this.subCategoryChange}
+                  as="select"
+                  className=""
+                  id="inlineFormCustomSelectPref"
+                  value={this.state.subCategorySelectedId} >
+                  <option value="0">Select A Sub-Category</option>
+                  {subCategoryOption}
+                </Form.Control>
+              </FormGroup>
 
 
 
-            <FormGroup>
-              <Form.Label
-                htmlFor="inlineFormCustomSelectPref">
-                Condition
+              <FormGroup>
+                <Form.Label
+                  htmlFor="inlineFormCustomSelectPref">
+                  Condition
             </Form.Label>
-              <Form.Control
-                // style={{ width: '22rem' }}
-                onChange={this.changeItemConditions}
-                as="select"
-                className=""
-                id="inlineFormCustomSelectPref"
-                value={this.state.conditionSelected} >
-                <option value="0">Select A Condition</option>
-                {itemConditionOption}
-              </Form.Control>
-            </FormGroup>
+                <Form.Control
+                  // style={{ width: '22rem' }}
+                  onChange={this.changeItemConditions}
+                  as="select"
+                  className=""
+                  id="inlineFormCustomSelectPref"
+                  value={this.state.conditionSelected} >
+                  <option value="0">Select A Condition</option>
+                  {itemConditionOption}
+                </Form.Control>
+              </FormGroup>
 
 
 
-            <FormGroup>
-              <Form.Label
-                htmlFor="inlineFormCustomSelectPref">
-                Living Area
+              <FormGroup>
+                <Form.Label
+                  htmlFor="inlineFormCustomSelectPref">
+                  Living Area
             </Form.Label>
-              <Form.Control
-                // style={{ width: '22rem' }}
-                onChange={this.changeItemLivingArea}
-                as="select"
-                className=""
-                id="inlineFormCustomSelectPref"
-                value={this.state.livingAreaSelected} >
-                <option value="0">Select An Area</option>
-                {dataLivingAreasOption}
-              </Form.Control>
-            </FormGroup>
-            
+                <Form.Control
+                  // style={{ width: '22rem' }}
+                  onChange={this.changeItemLivingArea}
+                  as="select"
+                  className=""
+                  id="inlineFormCustomSelectPref"
+                  value={this.state.livingAreaSelected} >
+                  <option value="0">Select An Area</option>
+                  {dataLivingAreasOption}
+                </Form.Control>
+              </FormGroup>
 
 
-            <FormGroup>
-              <Form.Label
-                htmlFor="inlineFormCustomSelectPref">
-                Search
+
+              <FormGroup>
+                <Form.Label
+                  htmlFor="inlineFormCustomSelectPref">
+                  Search
             </Form.Label>
-              <FormControl
-                // style={{ width: '22rem' }}
-                value={searchSelected}
-                onChange={event =>
-                  this.setState({ searchSelected: event.target.value })}
-                type="text"
-                placeholder="Search"
-                className="" />
+                <FormControl
+                  value={searchSelected}
+                  onChange={event =>
+                    this.setState({ searchSelected: event.target.value })}
+                  type="text"
+                  placeholder="Search"
+                  className="" />
+              </FormGroup>
+              <FormGroup>
+                <Button
+                  className="btn-search"
 
-              <Button
-                className="btn-search"
-                
-                onClick={this.search}
-                variant="link">
-                Search
+                  onClick={this.search}
+                  variant="link">
+                  Search
           </Button>
-            </FormGroup>
+              </FormGroup>
             </Form.Row>
-        
+
           </Form>
           <p id="logo">PASS ON</p>
-          </div>
+        </div>
 
         <Container>
           {filteredAds && filteredAds.length > 0 ? (
