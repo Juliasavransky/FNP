@@ -4,7 +4,6 @@ import {
   Button,
   Card,
   Container,
-
   Form, Modal
 } from "react-bootstrap";
 import './ZoomInAd.css';
@@ -18,8 +17,6 @@ class ZoomInAd extends Component {
       showEmailModal: false,
       emailInput: "",
       taitalInput: "",
-      // city = city,
-      // streetNumber = streetNumber
     };
     this.handleSendEmail = this.handleSendEmail.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
@@ -105,11 +102,6 @@ class ZoomInAd extends Component {
     THIS IS THE OLD CODE THAT RETURN AN ARRAY AND NOT AN OBJECT
     WE WOULD LIKE TO GET ONLY THE AD-USER WHICH IS AN OBJECT
     AND THEREFORE, WE USED ower[0].fname AT THE BOTTOM.
-
-    // console.log('activeUser', activeUser);
-    // const owner = this.props.allUsers.filter(
-    //   user => this.props.ad.userId === user.id
-    // );
 
     THE FOLLOWING CODE SOMPLY REPLACE 'filter' WITH 'find' 
     WHICH RETURNS AN OBJECT INSTEAD OF ARRAY SO WE CAN DO
