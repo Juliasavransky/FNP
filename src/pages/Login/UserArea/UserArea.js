@@ -82,13 +82,13 @@ class UserArea extends Component {
                   <CardColumns>
                   
     
-                    <Card
+                    <Card className="shadow item well p-3 mb-5"
                       key={sAgent.agentId}
-                      // className=" shadow item well p-3 mb-5 bg-white rounded card text-center "
+                    
                     >
                       <Card.Body>
-                        <Card.Title> {sAgent.title} </Card.Title>
-                        <Card.Text>
+                        <Card.Title className= "card text-center bg-white rounded"> {sAgent.title} </Card.Title>
+                        <Card.Text className= "card text-center">
                           <Card.Text>Category: {categoryName}</Card.Text>
                           <Card.Text>Sub-Category: {subCategoryName}</Card.Text>
                           <Card.Text>Condition: {sAgent.conditionId}</Card.Text>

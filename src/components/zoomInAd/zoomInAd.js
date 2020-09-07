@@ -9,15 +9,14 @@ import {
 } from "react-bootstrap";
 
 class ZoomInAd extends Component {
-  constructor(props, city, streetNumber) {
+  constructor(props,) {
     super(props);
     this.state = {
       showButton: true,
       showEmailModal: false,
       emailInput: "",
       taitalInput: "",
-      // city = city,
-      // streetNumber = streetNumber
+   
     };
     this.handleSendEmail = this.handleSendEmail.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
@@ -95,9 +94,12 @@ class ZoomInAd extends Component {
   };
 
   render() {
+
+    // const maps = {ad.City}, {ad.StreetNumber};
     const { activeUser, ad, ads, handleLogout, allUsers } = this.props;
 
     const { showEmailModal } = this.state;
+
 
     /*
     THIS IS THE OLD CODE THAT RETURN AN ARRAY AND NOT AN OBJECT
@@ -151,7 +153,18 @@ class ZoomInAd extends Component {
     ) : null;
 
     return (
+      
+
       <>
+{/*       
+ <iframe
+ width="600"
+ height="450"
+ frameborder="0" 
+ src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBGwuk78nvE8sbBxd8xt-tPL1mT1DiwZCY
+   &q={ad.City},{ad.StreetNumber}" allowfullscreen>
+</iframe> */}
+
         <Container className="d-flex ">
           <Card
             className="mx-auto shadow p-3 mt-5 rounded text-muted card "
