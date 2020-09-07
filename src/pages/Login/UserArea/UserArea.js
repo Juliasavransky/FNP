@@ -1,12 +1,19 @@
-import React, { Component } from "react";
-import { CardColumns, Container, Card, Row, Col, } from "react-bootstrap";
-import { Redirect } from "react-router-dom";
-import AdCard from "../../../components/AdCard/AdCard";
-import NewAdModal from "../../../components/New Ad Modal/NewAdModal";
+import React, { Component } from 'react';
+import {
+  CardColumns,
+  Container,
+  Card,
+  Row,
+  Col,
+  Dropdown,
+} from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
+import AdCard from '../../../components/AdCard/AdCard';
+import NewAdModal from '../../../components/New Ad Modal/NewAdModal';
 import {
   dataCategoriess as categories,
   dataSubCategorys as subCategories,
-} from "../../../data/ddData";
+} from '../../../data/ddData';
 
 class UserArea extends Component {
   constructor(props) {
@@ -18,13 +25,13 @@ class UserArea extends Component {
 
   componentDidMount() {
     // Get all the existing smart agents - we don't want to display it to the logged-in user
-    console.log("all smart agents", this.props.requests);
+    console.log('all smart agents', this.props.requests);
 
     //לבדוק האם מבטל רידייקט // Filter only the smart agents belongs to the logged in user - this is what we want to display
     if (this.props.activeUser) {
       this.setState({
         userSmartAgents: this.props.requests.filter(
-          (sAgent) => sAgent.userId === this.props.activeUser.id
+          sAgent => sAgent.userId === this.props.activeUser.id
         ),
       });
     }
@@ -34,7 +41,7 @@ class UserArea extends Component {
     if (!this.props.activeUser) {
       this.setState({ ...this.setState, redirectToHome: true });
     }
-    console.log("only logged-in user smart agents", this.state.userSmartAgents);
+    console.log('only logged-in user smart agents', this.state.userSmartAgents);
   }
 
   render() {
@@ -51,42 +58,41 @@ class UserArea extends Component {
 
     const activeUserAds =
       activeUser &&
-      ads.filter((ad) => {
+      ads.filter(ad => {
         return ad.userId === activeUser.id;
       });
 
     const activeUserAdsUi =
-      activeUser && activeUserAds.map((ad) => <AdCard key={ad.id} ad={ad} />);
+      activeUser && activeUserAds.map(ad => <AdCard key={ad.id} ad={ad} />);
 
-      // const activeUserAgentsUi =
-      // activeUser && activeUserAds.map((ad) => <AdCard key={ad.id} ad={ad} />);
+    // const activeUserAgentsUi =
+    // activeUser && activeUserAds.map((ad) => <AdCard key={ad.id} ad={ad} />);
 
     return (
-     
       <div>
         {redirectToHome ? (
           <Redirect to="/#" />
         ) : (
-            <Container>
-              {userSmartAgents.length > 0 &&
-                userSmartAgents.map((sAgent) => {
-                  const categoryName = categories.find(
-                    (cateogry) => cateogry.categoryId === sAgent.CategoryId
-                  ).categoryName;
+          <Container>
+            {userSmartAgents.length > 0 &&
+              userSmartAgents.map(sAgent => {
+                const categoryName = categories.find(
+                  cateogry => cateogry.categoryId === sAgent.CategoryId
+                ).categoryName;
 
-                  const subCategoryName = subCategories.find(
-                    (subCategory) =>
-                      subCategory.subCategoryId === sAgent.SubCategoryId
-                  ).subCategoryName;
+                const subCategoryName = subCategories.find(
+                  subCategory =>
+                    subCategory.subCategoryId === sAgent.SubCategoryId
+                ).subCategoryName;
 
-                return ( 
-                 
+                return (
                   <Container>
-                     
-                    <Dropdown><br/>
-                    <h2>My Smart Agents</h2><br/>
-                      <Dropdown.Toggle variant='info' id="dropdown-basic">
-                      Stuff I'm Looking For
+                    <Dropdown>
+                      <br />
+                      <h2>My Smart Agents</h2>
+                      <br />
+                      <Dropdown.Toggle variant="info" id="dropdown-basic">
+                        Stuff I'm Looking For
                       </Dropdown.Toggle>
                       <Dropdown.Menu>
                         <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
@@ -98,7 +104,7 @@ class UserArea extends Component {
                         </Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
-                  
+
                     <CardColumns>
                       <Card
                         className="shadow item well p-3 mb-5"
@@ -106,8 +112,8 @@ class UserArea extends Component {
                       >
                         <Card.Body>
                           <Card.Title className="card text-center bg-white rounded">
-                            {" "}
-                            {sAgent.title}{" "}
+                            {' '}
+                            {sAgent.title}{' '}
                           </Card.Title>
                           <Card.Text className="card text-center">
                             <Card.Text>Category: {categoryName}</Card.Text>
@@ -128,17 +134,11 @@ class UserArea extends Component {
                 );
               })}
             <br />
-              
             {/* <CardColumns>{activeUserAgentsUi}</CardColumns> */}
-
-
-                  );
-                })}
-
-
-              <CardColumns>{activeUserAdsUi}</CardColumns>
-            </Container>
-          )}
+            ); })}
+            <CardColumns>{activeUserAdsUi}</CardColumns>
+          </Container>
+        )}
         <NewAdModal
           ads={ads}
           handleLogin={this.props.handleLogin}

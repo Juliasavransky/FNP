@@ -17,7 +17,7 @@ import {
   dataCategoriess,
 } from '../../data/ddData';
 import Sorry from '../../components/Sorry we didnt find/Sorry';
-import {filtersmartagent} from '../../utiles/filter';
+import { filtersmartagent } from '../../utiles/filter';
 
 class SmartAgent extends Component {
   constructor(props) {
@@ -30,7 +30,6 @@ class SmartAgent extends Component {
       livingAreaSelected: null,
       searchSelected: '',
       filteredAds: [],
-      search: false,
     };
 
     this.categoryChange = this.categoryChange.bind(this);
@@ -84,56 +83,89 @@ class SmartAgent extends Component {
       livingAreaSelected,
     } = this.state;
 
-    let filterdcategorys = ads.filter(
-      ad => ad.CategoryId === parseInt(categorySelectedId)
-    );
-    console.log('filterdcategorys', filterdcategorys);
-    if (filterdcategorys.length === 0) filterdcategorys = ads;
+    // initiate vars
+    let filterdcategorys = [...ads];
+    let filteredSubCategories = [];
+    let filterdConditions = [];
+    let filterdLivingArea = [];
+    let filteredFreeSearch = [];
 
-    let filteredSubCategories = filterdcategorys.filter(
-      _category => _category.SubCategoryId === parseInt(subCategorySelectedId)
-    );
-    if (filteredSubCategories.length === 0)
+    // check if the user select a category
+    if (categorySelectedId) {
+      // if the user select a category - filter by category
+      filterdcategorys = ads.filter(
+        ad => ad.CategoryId === parseInt(categorySelectedId)
+      );
+      console.log('filterdcategorys', filterdcategorys);
+    }
+
+    // check if the user select a sub-category
+    if (subCategorySelectedId) {
+      // if the user select a sub-category - filter by sub-category
+      filteredSubCategories = filterdcategorys.filter(
+        _category => _category.SubCategoryId === parseInt(subCategorySelectedId)
+      );
+      console.log('filteredSubCategories', filteredSubCategories);
+    } else {
       filteredSubCategories = filterdcategorys;
+    }
 
-    let filterdConditions = filteredSubCategories.filter(
-      _subCategory => _subCategory.conditionId === parseInt(conditionSelected)
-    );
-
-    if (filterdConditions.length === 0)
+    // check if the user select a condition
+    if (conditionSelected) {
+      // if the user select a condition - filter by condition
+      filterdConditions = filteredSubCategories.filter(
+        _subCategory => _subCategory.conditionId === parseInt(conditionSelected)
+      );
+      console.log('filterdConditions', filterdConditions);
+    } else {
       filterdConditions = filteredSubCategories;
+    }
 
+    // check if the user select a living area
+    if (livingAreaSelected) {
+      // find the living-area id by the living-area name
+      const selectedLivingAreaId = dataLivingAreas.find(
+        lArea =>
+          lArea.livingAreaName?.toLowerCase() ===
+          livingAreaSelected?.toLowerCase()
+      )?.livingAreaId;
 
-      //לקחת את הפילטר הזה ולרוץ על המודעות החדשות שהיוזר מכניס
-     // וצריך לעשות עוד פילטר כזה שירוץ על הבקשות של הסמארט אייגנט
-     // להשוות בין 2 התוצאות של שני הפילטרים
-     // וכשיש תשובה חיובית אז לשלוח התראה ליוזר (באתר) ליוזר של הרקווסט
+      // if the user select a living area - filter by living area
+      filterdLivingArea = filterdConditions.filter(
+        _condition => _condition.livingAreaId === selectedLivingAreaId
+      );
+      console.log('filterdLivingArea', filterdLivingArea);
+    } else {
+      filterdLivingArea = filterdConditions;
+    }
 
-    const filteredFreeSearch = filterdConditions.filter(
-      ad =>
-        ad.Details.toLowerCase().includes(searchSelected.toLowerCase()) ||
-        ad.categoryName.toLowerCase().includes(searchSelected.toLowerCase()) ||
-        ad.subCategoryName
-          .toLowerCase()
-          .includes(searchSelected.toLowerCase()) ||
-        ad.Condition.toLowerCase().includes(searchSelected.toLowerCase())
-    );
+    // check if the user type something in the free-search box
+    if (searchSelected) {
+      // if the user type something in the free-search box - filter by the free-text
+      filteredFreeSearch = filterdLivingArea.filter(
+        ad =>
+          ad.Details.toLowerCase().includes(searchSelected.toLowerCase()) ||
+          ad.categoryName
+            .toLowerCase()
+            .includes(searchSelected.toLowerCase()) ||
+          ad.subCategoryName
+            .toLowerCase()
+            .includes(searchSelected.toLowerCase()) ||
+          ad.Condition.toLowerCase().includes(searchSelected.toLowerCase())
+      );
+      console.log('filteredFreeSearch', filteredFreeSearch);
+    } else {
+      filteredFreeSearch = filterdLivingArea;
+    }
 
     const filteredAds = filteredFreeSearch.map(ad => (
       <AdCard key={ad.id} ad={ad} />
     ));
 
-    this.setState({ filteredAds: filteredAds });
-    this.setState({ search: true });
-
-    const filterdLivingArea = allUsers.filter(
-      allUser => allUser.LivingArea === livingAreaSelected
-    );
-    console.log('filterdLivingArea', filterdLivingArea);
+    this.setState({ filteredAds });
   };
 
   render() {
-   
     const { ads, activeUser, allUsers } = this.props;
     const {
       searchSelected,
@@ -147,7 +179,7 @@ class SmartAgent extends Component {
     // console.log(filtersmartagent(ads, 1, "Used", "Pills" ))
 
     const categoryOption = dataCategoriess.map(itencategorys => (
-      <option  value={itencategorys.categoryId}>
+      <option value={itencategorys.categoryId}>
         {itencategorys.categoryName}
       </option>
     ));
@@ -179,130 +211,120 @@ class SmartAgent extends Component {
     return (
       <>
         <div className="lupa">
-          
           <Form>
-          <Form.Row>
+            <Form.Row>
+              <FormGroup>
+                <Form.Label htmlFor="inlineFormCustomSelectPref">
+                  Categories
+                </Form.Label>
+                <Form.Control
+                  // inline
+                  // style={{ width: '22rem' }}
+                  onChange={this.categoryChange}
+                  as="select"
+                  id="inlineFormCustomSelectPref"
+                  value={this.state.categorySelectedId}
+                >
+                  <option value="0">Select A Category</option>
+                  {categoryOption}
+                </Form.Control>
+              </FormGroup>
 
-            <FormGroup >
-              <Form.Label
-                htmlFor="inlineFormCustomSelectPref">
-                Categories
-            </Form.Label>
-              <Form.Control
-                // inline
-                // style={{ width: '22rem' }}
-                onChange={this.categoryChange}
-                as="select"
-                id="inlineFormCustomSelectPref"
-                value={this.state.categorySelectedId} >
-                <option value="0">Select A Category</option>
-                {categoryOption}
-              </Form.Control>
-            </FormGroup>
+              <FormGroup>
+                <Form.Label htmlFor="inlineFormCustomSelectPref">
+                  Sub-Categories
+                </Form.Label>
+                <Form.Control
+                  // style={{ width: '22rem' }}
+                  onChange={this.subCategoryChange}
+                  as="select"
+                  className=""
+                  id="inlineFormCustomSelectPref"
+                  value={this.state.subCategorySelectedId}
+                >
+                  <option value="0">Select A Sub-Category</option>
+                  {subCategoryOption}
+                </Form.Control>
+              </FormGroup>
 
+              <FormGroup>
+                <Form.Label htmlFor="inlineFormCustomSelectPref">
+                  Condition
+                </Form.Label>
+                <Form.Control
+                  // style={{ width: '22rem' }}
+                  onChange={this.changeItemConditions}
+                  as="select"
+                  className=""
+                  id="inlineFormCustomSelectPref"
+                  value={this.state.conditionSelected}
+                >
+                  <option value="0">Select A Condition</option>
+                  {itemConditionOption}
+                </Form.Control>
+              </FormGroup>
 
+              <FormGroup>
+                <Form.Label htmlFor="inlineFormCustomSelectPref">
+                  Living Area
+                </Form.Label>
+                <Form.Control
+                  // style={{ width: '22rem' }}
+                  onChange={this.changeItemLivingArea}
+                  as="select"
+                  className=""
+                  id="inlineFormCustomSelectPref"
+                  value={this.state.livingAreaSelected}
+                >
+                  <option value="0">Select An Area</option>
+                  {dataLivingAreasOption}
+                </Form.Control>
+              </FormGroup>
 
-            <FormGroup>
-              <Form.Label
-                htmlFor="inlineFormCustomSelectPref">
-                Sub-Categories
-            </Form.Label>
-              <Form.Control
-                // style={{ width: '22rem' }}
-                onChange={this.subCategoryChange}
-                as="select"
-                className=""
-                id="inlineFormCustomSelectPref"
-                value={this.state.subCategorySelectedId} >
-                <option value="0">Select A Sub-Category</option>
-                {subCategoryOption}
-              </Form.Control>
-            </FormGroup>
+              <FormGroup>
+                <Form.Label htmlFor="inlineFormCustomSelectPref">
+                  Search
+                </Form.Label>
+                <FormControl
+                  // style={{ width: '22rem' }}
+                  value={searchSelected}
+                  onChange={event =>
+                    this.setState({ searchSelected: event.target.value })
+                  }
+                  type="text"
+                  placeholder="Search"
+                  className=""
+                />
 
-
-
-            <FormGroup>
-              <Form.Label
-                htmlFor="inlineFormCustomSelectPref">
-                Condition
-            </Form.Label>
-              <Form.Control
-                // style={{ width: '22rem' }}
-                onChange={this.changeItemConditions}
-                as="select"
-                className=""
-                id="inlineFormCustomSelectPref"
-                value={this.state.conditionSelected} >
-                <option value="0">Select A Condition</option>
-                {itemConditionOption}
-              </Form.Control>
-            </FormGroup>
-
-
-
-            <FormGroup>
-              <Form.Label
-                htmlFor="inlineFormCustomSelectPref">
-                Living Area
-            </Form.Label>
-              <Form.Control
-                // style={{ width: '22rem' }}
-                onChange={this.changeItemLivingArea}
-                as="select"
-                className=""
-                id="inlineFormCustomSelectPref"
-                value={this.state.livingAreaSelected} >
-                <option value="0">Select An Area</option>
-                {dataLivingAreasOption}
-              </Form.Control>
-            </FormGroup>
-            
-
-
-            <FormGroup>
-              <Form.Label
-                htmlFor="inlineFormCustomSelectPref">
-                Search
-            </Form.Label>
-              <FormControl
-                // style={{ width: '22rem' }}
-                value={searchSelected}
-                onChange={event =>
-                  this.setState({ searchSelected: event.target.value })}
-                type="text"
-                placeholder="Search"
-                className="" />
-
-              <Button
-                className="btn-search"
-                
-                onClick={this.search}
-                variant="link">
-                Search
-          </Button>
-            </FormGroup>
+                <Button
+                  className="btn-search"
+                  onClick={this.search}
+                  variant="link"
+                >
+                  Search
+                </Button>
+              </FormGroup>
             </Form.Row>
-        
           </Form>
           <p id="logo">PASS ON</p>
-          </div>
+        </div>
 
         <Container>
           {filteredAds && filteredAds.length > 0 ? (
             <CardColumns>{filteredAds}</CardColumns>
           ) : (
-              search && (
-                <Sorry
-                  ads={this.props.ads}
-                  handleLogin={this.props.handleLogin}
-                  allUsers={this.props.allUsers}
-                  handleLogout={this.props.handleLogout}
-                  activeUser={this.props.activeUser}
-                  handleCreatNewAd={this.props.handleCreatNewAd}
-                  handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
-                />
-              )
-            )}
+            search && (
+              <Sorry
+                ads={this.props.ads}
+                handleLogin={this.props.handleLogin}
+                allUsers={this.props.allUsers}
+                handleLogout={this.props.handleLogout}
+                activeUser={this.props.activeUser}
+                handleCreatNewAd={this.props.handleCreatNewAd}
+                handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
+              />
+            )
+          )}
         </Container>
       </>
     );
