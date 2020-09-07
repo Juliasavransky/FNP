@@ -58,7 +58,11 @@ class UserArea extends Component {
     const activeUserAdsUi =
       activeUser && activeUserAds.map((ad) => <AdCard key={ad.id} ad={ad} />);
 
+      // const activeUserAgentsUi =
+      // activeUser && activeUserAds.map((ad) => <AdCard key={ad.id} ad={ad} />);
+
     return (
+     
       <div>
         {redirectToHome ? (
           <Redirect to="/#" />
@@ -75,35 +79,58 @@ class UserArea extends Component {
                       subCategory.subCategoryId === sAgent.SubCategoryId
                   ).subCategoryName;
 
-                return (
-              
-      
-                 <Container>
-                  <CardColumns>
+                return ( 
+                 
+                  <Container>
+                     
+                    <Dropdown><br/>
+                    <h2>My Smart Agents</h2><br/>
+                      <Dropdown.Toggle variant='info' id="dropdown-basic">
+                      Stuff I'm Looking For
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">
+                          Another action
+                        </Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">
+                          Something else
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                   
-    
-                    <Card className="shadow item well p-3 mb-5"
-                      key={sAgent.agentId}
-                    
-                    >
-                      <Card.Body>
-                        <Card.Title className= "card text-center bg-white rounded"> {sAgent.title} </Card.Title>
-                        <Card.Text className= "card text-center">
-                          <Card.Text>Category: {categoryName}</Card.Text>
-                          <Card.Text>Sub-Category: {subCategoryName}</Card.Text>
-                          <Card.Text>Condition: {sAgent.conditionId}</Card.Text>
-                          <Card.Text>
-                            Living-Area: {sAgent.livingAreaId}
+                    <CardColumns>
+                      <Card
+                        className="shadow item well p-3 mb-5"
+                        key={sAgent.agentId}
+                      >
+                        <Card.Body>
+                          <Card.Title className="card text-center bg-white rounded">
+                            {" "}
+                            {sAgent.title}{" "}
+                          </Card.Title>
+                          <Card.Text className="card text-center">
+                            <Card.Text>Category: {categoryName}</Card.Text>
+                            <Card.Text>
+                              Sub-Category: {subCategoryName}
+                            </Card.Text>
+                            <Card.Text>
+                              Condition: {sAgent.conditionId}
+                            </Card.Text>
+                            <Card.Text>
+                              Living-Area: {sAgent.livingAreaId}
+                            </Card.Text>
                           </Card.Text>
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-              
+                        </Card.Body>
+                      </Card>
                     </CardColumns>
-                    </Container>
+                  </Container>
                 );
               })}
             <br />
+              
+            {/* <CardColumns>{activeUserAgentsUi}</CardColumns> */}
+
 
                   );
                 })}

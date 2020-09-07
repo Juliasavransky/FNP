@@ -152,14 +152,14 @@ class ZoomInAd extends Component {
       
 
       <>
-{/*       
+      {/* // maps iframe  */}
  <iframe
  width="600"
  height="450"
  frameborder="0" 
- src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBGwuk78nvE8sbBxd8xt-tPL1mT1DiwZCY
-   &q={ad.City},{ad.StreetNumber}" allowfullscreen>
-</iframe> */}
+ src={"https://www.google.com/maps/embed/v1/place?key=AIzaSyBGwuk78nvE8sbBxd8xt-tPL1mT1DiwZCY&q=" + 
+ owner.StreetNumber + " " + owner.City } allowfullscreen>
+</iframe>
 
         <Container className="d-flex ">
           <Card
@@ -172,12 +172,12 @@ class ZoomInAd extends Component {
               <div>Details: {ad.Details}</div>
               <div>Condition: {ad.Condition}</div>
               <div>
-                Owner name: {owner ? owner.fname + " " + owner.lname : "N/A"}
+                Owner Name: {owner ? owner.fname + " " + owner.lname : "N/A"}
               </div>
               <div>
-                That live in:{" "}
+                That lives In:{" "}
                 {owner
-                  ? owner.livingArea + "  " + "Area  " + "in" + " " + owner.City
+                  ? owner.livingArea + "  " + "Area,  " + " " + " " + owner.City
                   : "N/A"}
               </div>
             </Card.Body>
@@ -205,7 +205,7 @@ class ZoomInAd extends Component {
         <Modal show={showEmailModal} onHide={this.handleModalClose}>
           <Modal.Header closeButton>
             <Modal.Title>
-              Send an email to :
+              Send An Email To :
               <div> {owner ? owner.fname + " " + owner.lname : "N/A"}</div>
             </Modal.Title>
           </Modal.Header>
@@ -241,7 +241,7 @@ class ZoomInAd extends Component {
               onSubmit={this.handleSendEmail}
               onClick={this.handleModalCloseAndClean}
             >
-              Sand an Email
+              Sand An Email
             </Button>
           </Modal.Footer>
         </Modal>
