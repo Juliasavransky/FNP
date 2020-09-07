@@ -75,29 +75,6 @@ class UserArea extends Component {
                       subCategory.subCategoryId === sAgent.SubCategoryId
                   ).subCategoryName;
 
-<<<<<<< HEAD
-                  return (
-                    <div className="cardFlex">
-                    <Col>
-                      <Row>
-                        <Card
-                          key={sAgent.agentId}
-                          className="shadow  p-3 mb-3 rounded"
-                        >
-                          <Card.Body>
-                            <Card.Title> {sAgent.title} </Card.Title>
-                            <Card.Text>
-                              <Card.Text>Category: {categoryName}</Card.Text>
-                              <Card.Text>Sub-Category: {subCategoryName}</Card.Text>
-                              <Card.Text>Condition: {sAgent.conditionId}</Card.Text>
-                              <Card.Text>Living-Area: {sAgent.livingAreaId}</Card.Text>
-                            </Card.Text>
-                          </Card.Body>
-                        </Card>
-                      </Row>
-                    </Col>
-                    </div>
-=======
                 return (
               
       
@@ -127,7 +104,6 @@ class UserArea extends Component {
                 );
               })}
             <br />
->>>>>>> c1f24224f25eac40686dadcd6f1efa746d9bc294
 
                   );
                 })}

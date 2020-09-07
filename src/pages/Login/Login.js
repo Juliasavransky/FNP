@@ -102,7 +102,7 @@ class login extends Component {
         </Form>
         <div id="passon">
               <p>PASS ON</p>
-              <span>All completely free</span>
+              {/* <span>All completely free</span> */}
             </div>
       </div>
     );
