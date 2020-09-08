@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React, { Component } from "react";
-import { CardColumns, Container, Card, Row, Col, Dropdown } from "react-bootstrap";
-import { Redirect } from "react-router-dom";
-import AdCard from "../../../components/AdCard/AdCard";
-import NewAdModal from "../../../components/New Ad Modal/NewAdModal";
-=======
 import React, { Component } from 'react';
 import {
   CardColumns,
@@ -17,7 +10,6 @@ import {
 import { Redirect } from 'react-router-dom';
 import AdCard from '../../../components/AdCard/AdCard';
 import NewAdModal from '../../../components/New Ad Modal/NewAdModal';
->>>>>>> e564fb4b7b4a1c1cf4e5fb9cd269ae6ac029ef45
 import {
   dataCategoriess as categories,
   dataSubCategorys as subCategories,

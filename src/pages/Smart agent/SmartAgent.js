@@ -18,6 +18,7 @@ import {
 } from '../../data/ddData';
 import Sorry from '../../components/Sorry we didnt find/Sorry';
 import { filtersmartagent } from '../../utiles/filter';
+import SearchResults from '../../components/Navbar/SearchResults'
 
 class SmartAgent extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class SmartAgent extends Component {
       livingAreaSelected: null,
       searchSelected: '',
       filteredAds: [],
+      
     };
 
     this.categoryChange = this.categoryChange.bind(this);
@@ -166,11 +168,7 @@ class SmartAgent extends Component {
   };
 
   render() {
-<<<<<<< HEAD
-
-=======
->>>>>>> e564fb4b7b4a1c1cf4e5fb9cd269ae6ac029ef45
-    const { ads, activeUser, allUsers } = this.props;
+    const { ads, activeUser, allUsers,searchResults } = this.props;
     const {
       searchSelected,
       categorySelectedId,
@@ -210,167 +208,80 @@ class SmartAgent extends Component {
       </option>
     ));
 
-    // const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
 
     return (
       <>
         <div className="lupa">
-<<<<<<< HEAD
-
-          <Form>
-            <Form.Row>
-
-              <FormGroup >
-                <Form.Label
-                  htmlFor="inlineFormCustomSelectPref">
-                  Categories
-            </Form.Label>
-=======
           <Form>
             <Form.Row>
               <FormGroup>
                 <Form.Label htmlFor="inlineFormCustomSelectPref">
                   Categories
                 </Form.Label>
->>>>>>> e564fb4b7b4a1c1cf4e5fb9cd269ae6ac029ef45
                 <Form.Control
                   // inline
                   // style={{ width: '22rem' }}
                   onChange={this.categoryChange}
                   as="select"
                   id="inlineFormCustomSelectPref"
-<<<<<<< HEAD
-                  value={this.state.categorySelectedId} >
-=======
                   value={this.state.categorySelectedId}
                 >
->>>>>>> e564fb4b7b4a1c1cf4e5fb9cd269ae6ac029ef45
                   <option value="0">Select A Category</option>
                   {categoryOption}
                 </Form.Control>
               </FormGroup>
 
-<<<<<<< HEAD
-
-
-              <FormGroup>
-                <Form.Label
-                  htmlFor="inlineFormCustomSelectPref">
-                  Sub-Categories
-            </Form.Label>
-=======
               <FormGroup>
                 <Form.Label htmlFor="inlineFormCustomSelectPref">
                   Sub-Categories
                 </Form.Label>
->>>>>>> e564fb4b7b4a1c1cf4e5fb9cd269ae6ac029ef45
                 <Form.Control
                   // style={{ width: '22rem' }}
                   onChange={this.subCategoryChange}
                   as="select"
                   className=""
                   id="inlineFormCustomSelectPref"
-<<<<<<< HEAD
-                  value={this.state.subCategorySelectedId} >
-=======
                   value={this.state.subCategorySelectedId}
                 >
->>>>>>> e564fb4b7b4a1c1cf4e5fb9cd269ae6ac029ef45
                   <option value="0">Select A Sub-Category</option>
                   {subCategoryOption}
                 </Form.Control>
               </FormGroup>
 
-<<<<<<< HEAD
-
-
-              <FormGroup>
-                <Form.Label
-                  htmlFor="inlineFormCustomSelectPref">
-                  Condition
-            </Form.Label>
-=======
               <FormGroup>
                 <Form.Label htmlFor="inlineFormCustomSelectPref">
                   Condition
                 </Form.Label>
->>>>>>> e564fb4b7b4a1c1cf4e5fb9cd269ae6ac029ef45
                 <Form.Control
                   // style={{ width: '22rem' }}
                   onChange={this.changeItemConditions}
                   as="select"
                   className=""
                   id="inlineFormCustomSelectPref"
-<<<<<<< HEAD
-                  value={this.state.conditionSelected} >
-=======
                   value={this.state.conditionSelected}
                 >
->>>>>>> e564fb4b7b4a1c1cf4e5fb9cd269ae6ac029ef45
                   <option value="0">Select A Condition</option>
                   {itemConditionOption}
                 </Form.Control>
               </FormGroup>
 
-<<<<<<< HEAD
-
-
-              <FormGroup>
-                <Form.Label
-                  htmlFor="inlineFormCustomSelectPref">
-                  Living Area
-            </Form.Label>
-=======
               <FormGroup>
                 <Form.Label htmlFor="inlineFormCustomSelectPref">
                   Living Area
                 </Form.Label>
->>>>>>> e564fb4b7b4a1c1cf4e5fb9cd269ae6ac029ef45
                 <Form.Control
                   // style={{ width: '22rem' }}
                   onChange={this.changeItemLivingArea}
                   as="select"
                   className=""
                   id="inlineFormCustomSelectPref"
-<<<<<<< HEAD
-                  value={this.state.livingAreaSelected} >
-=======
                   value={this.state.livingAreaSelected}
                 >
->>>>>>> e564fb4b7b4a1c1cf4e5fb9cd269ae6ac029ef45
                   <option value="0">Select An Area</option>
                   {dataLivingAreasOption}
                 </Form.Control>
               </FormGroup>
 
-<<<<<<< HEAD
-
-
-              <FormGroup>
-                <Form.Label
-                  htmlFor="inlineFormCustomSelectPref">
-                  Search
-            </Form.Label>
-                <FormControl
-                  value={searchSelected}
-                  onChange={event =>
-                    this.setState({ searchSelected: event.target.value })}
-                  type="text"
-                  placeholder="Search"
-                  className="" />
-              </FormGroup>
-              <FormGroup>
-                <Button
-                  className="btn-search"
-
-                  onClick={this.search}
-                  variant="link">
-                  Search
-          </Button>
-              </FormGroup>
-            </Form.Row>
-
-=======
               <FormGroup>
                 <Form.Label htmlFor="inlineFormCustomSelectPref">
                   Search
@@ -395,7 +306,6 @@ class SmartAgent extends Component {
                 </Button>
               </FormGroup>
             </Form.Row>
->>>>>>> e564fb4b7b4a1c1cf4e5fb9cd269ae6ac029ef45
           </Form>
           <p id="logo">PASS ON</p>
         </div>
@@ -405,7 +315,7 @@ class SmartAgent extends Component {
             <CardColumns>{filteredAds}</CardColumns>
           ) : (
             search && (
-              <Sorry
+              < SearchResults
                 ads={this.props.ads}
                 handleLogin={this.props.handleLogin}
                 allUsers={this.props.allUsers}
@@ -413,7 +323,9 @@ class SmartAgent extends Component {
                 activeUser={this.props.activeUser}
                 handleCreatNewAd={this.props.handleCreatNewAd}
                 handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
+                searchResults={filteredAds}
               />
+
             )
           )}
         </Container>

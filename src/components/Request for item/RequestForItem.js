@@ -250,8 +250,9 @@ class RequestForItem extends Component {
 
     return (
       <Container>
-        <Button
-          variant="primary"
+        <Button 
+        className="btnLookingFor"
+          variant="link"
           onClick={() => this.setState({ showNewAgentModal: true })}
         >
           I'm Looking for An Item

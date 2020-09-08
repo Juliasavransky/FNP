@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import RequestForItem from '../Request for item/RequestForItem';
 
 class SearchResults extends Component {
+  
   render() {
     return (
       <Container className="SearchResults">

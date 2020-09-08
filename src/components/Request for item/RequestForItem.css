@@ -22,9 +22,12 @@
 .mfooter > button.btn.btn-link:hover{
     color: black;
 }
-.mheader{
+.mheader, .btnLookingFor{
     color: #FF8118;
     font-family:'Archivo Narrow', sans-serif;
-    font-size: 3rem;
+    font-size: 2rem;
 
+}
+.btnLookingFor:hover{
+    color: black;
 }

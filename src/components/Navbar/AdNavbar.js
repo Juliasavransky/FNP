@@ -78,7 +78,7 @@ class AdNavbar extends Component {
     ) : null;
 
     const UserArea = activeUser ? (
-      <Nav.Link id="hover" href="/#UserArea">
+      <Nav.Link id="hover" href="#/UserArea">
         User Area
       </Nav.Link>
     ) : null;
@@ -90,22 +90,22 @@ class AdNavbar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat navFont">
-              <Nav.Link id="hover"className="mr-2 fas  fa-baby-carriage" href="/#"> 
+              <Nav.Link id="hover"className="mr-2 fas  fa-baby-carriage" href="#/"> 
                 Home
               </Nav.Link>
-              <Nav.Link id="hover" className="mr-2" href="/#Clothing">
+              <Nav.Link id="hover" className="mr-2" href="#/Clothing">
                 Clothing
               </Nav.Link>
-              <Nav.Link id="hover"className="mr-2" href="/#ToysAndGames">
+              <Nav.Link id="hover"className="mr-2" href="#/ToysAndGames">
                 Toys And games
               </Nav.Link>
-              <Nav.Link id="hover"className="mr-2" href="/#ForTheBabys">
+              <Nav.Link id="hover"className="mr-2" href="#/ForTheBabys">
                 Baby Gear
               </Nav.Link>
-              <Nav.Link id="hover"className="mr-2" href="/#ForMoms">
+              <Nav.Link id="hover"className="mr-2" href="#/ForMoms">
                 For Mom
               </Nav.Link>
-              <Nav.Link id="hover"className="mr-2" href="/#SmartAgent">
+              <Nav.Link id="hover"className="mr-2" href="#/SmartAgent">
                 Advanced Search
               </Nav.Link >
               {UserArea}
