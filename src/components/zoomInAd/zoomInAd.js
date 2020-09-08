@@ -153,19 +153,11 @@ class ZoomInAd extends Component {
       
 
       <>
-   
- <iframe
- width="600"
- height="450"
- frameborder="0" 
- src={"https://www.google.com/maps/embed/v1/place?key=AIzaSyBGwuk78nvE8sbBxd8xt-tPL1mT1DiwZCY&q=" + 
- owner.StreetNumber + " " + owner.City } allowfullscreen>
-</iframe>
-
-        <Container className="d-flex ">
+        <Container 
+        className="d-flex "
+        >
           <Card
             className="mx-auto shadow p-3 mt-5 rounded text-muted card "
-            style={{ width: "26rem" }}
           >
             <Card.Title className="m-2 card text-center">{ad.subCategoryName}</Card.Title>
 
@@ -190,7 +182,7 @@ class ZoomInAd extends Component {
                 onSubmit={this.handleSendEmail}
                 onClick={() => this.setState({ showEmailModal: true })}
                 className="btn-login"
-                variant="primary"
+                variant="link"
                 type="submit"
               >
                 Send An Email
@@ -205,15 +197,16 @@ class ZoomInAd extends Component {
 
         <Modal show={showEmailModal} onHide={this.handleModalClose}>
           <Modal.Header closeButton>
-            <Modal.Title>
+            <Modal.Title className="titel">
               Send An Email To :
               <div> {owner ? owner.fname + " " + owner.lname : "N/A"}</div>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body className="pic">
-            <Form.Group controlId="title">
+            <Form.Group 
+            className="titeltext"
+            controlId="title">
               <Form.Control
-                style={{ width: "27rem" }}
                 onChange={this.handleITitleChange}
                 type="text"
                 name="titleInput"
@@ -221,10 +214,11 @@ class ZoomInAd extends Component {
               />
             </Form.Group>
 
-            <Form.Group controlId="emailInput">
+            <Form.Group 
+            className="textarea"
+            controlId="emailInput">
               <Form.Control
                 as="textarea"
-                style={{ width: "27rem" }}
                 rows="5"
                 onChange={this.handleemailInput}
                 type="text"
@@ -233,12 +227,12 @@ class ZoomInAd extends Component {
               />
             </Form.Group>
           </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleModalCloseAndClean}>
+          <Modal.Footer className="mfooter">
+            <Button variant="link" onClick={this.handleModalCloseAndClean}>
               Close
             </Button>
             <Button
-              variant="primary"
+              variant="link"
               onSubmit={this.handleSendEmail}
               onClick={this.handleModalCloseAndClean}
             >

@@ -10,6 +10,8 @@ import {
   Col,
 } from 'react-bootstrap';
 import emailjs from 'emailjs-com';
+import './NewAdModal.css';
+
 
 class NewAdModal extends Component {
   constructor(props) {
@@ -209,15 +211,19 @@ class NewAdModal extends Component {
           show={showNewAdModal}
           onHide={this.handleModalClose}
         >
-          <Modal.Header closeButton>
+          <Modal.Header 
+          className="mheader"
+          closeButton>
             <Modal.Title>New Ad</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <Container className=" d-flex justify-content-center w-50 p-5">
-              <Form className=" p-2">
+          <Modal.Body className="m-body">
+            
+              <Form 
+              >
+                <Form.Row>
                 <Form.Group>
+                  <Form.Label></Form.Label>
                   <Form.Control
-                    style={{ width: '22rem' }}
                     onSubmit={this.handleInputChange}
                     //onChange={this.categoryChange}
                     value={this.state.CategoryId}
@@ -234,7 +240,7 @@ class NewAdModal extends Component {
                 <Form.Group>
                   <Form.Label htmlFor="inlineFormCustomSelectPref"></Form.Label>
                   <Form.Control
-                    style={{ width: '22rem' }}
+                    // style={{ width: '22rem' }}
                     value={this.state.SubCategoryId}
                     //onChange={this.subCategoryChange}
                     onChange={this.handleInputChange}
@@ -249,7 +255,6 @@ class NewAdModal extends Component {
                 <Form.Group>
                   <Form.Label htmlFor="inlineFormCustomSelectPref"></Form.Label>
                   <Form.Control
-                    style={{ width: '22rem' }}
                     //onChange={this.conditionChange}
                     onChange={this.handleInputChange}
                     value={this.state.condition}
@@ -261,10 +266,26 @@ class NewAdModal extends Component {
                   </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId="Details">
-                  <Form.Label> Ad Details</Form.Label>
+
+                <Form.Group 
+                 controlId="img">
+                  <Form.Label>
+                    Img
+                  </Form.Label>
+                    <Form.Control
+                      onChange={this.handleFileChange}
+                      type="file"
+                      accept="image/*"
+                    />
+                </Form.Group>
+                <Image size="sm" src={imgURL} className="preview"></Image>
+
+
+
+                  <Form.Label controlId="Details">
+                     Ad More Details
+                     </Form.Label>
                   <Form.Control
-                    style={{ width: '22rem' }}
                     value={Details}
                     //onChange={this.DetailsInputChange}
                     onChange={this.handleInputChange}
@@ -272,31 +293,17 @@ class NewAdModal extends Component {
                     name="Details"
                     placeholder=" Details...."
                   />
-                </Form.Group>
-
-                <Form.Group as={Row} controlId="img">
-                  <Form.Label column sm={2}>
-                    Img
-                  </Form.Label>
-                  <Col sm={10}>
-                    <Form.Control
-                      style={{ width: '22rem' }}
-                      onChange={this.handleFileChange}
-                      type="file"
-                      accept="image/*"
-                    />
-                  </Col>
-                </Form.Group>
-                <Image size="sm" src={imgURL} className="preview"></Image>
+                </Form.Row>
               </Form>
-            </Container>
+
+         
           </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleCloseAndClean}>
+          <Modal.Footer className="mfooter">
+            <Button variant="link" onClick={this.handleCloseAndClean}>
               Cancel
             </Button>
 
-            <Button variant="primary" onClick={this.handleCreatAd}>
+            <Button variant="link" onClick={this.handleCreatAd}>
               Creat A New Ad
             </Button>
           </Modal.Footer>

@@ -18,6 +18,7 @@ import {
 } from '../../data/ddData';
 import Sorry from '../../components/Sorry we didnt find/Sorry';
 import { filtersmartagent } from '../../utiles/filter';
+import SearchResults from '../../components/Navbar/SearchResults'
 
 class SmartAgent extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class SmartAgent extends Component {
       livingAreaSelected: null,
       searchSelected: '',
       filteredAds: [],
+      
     };
 
     this.categoryChange = this.categoryChange.bind(this);
@@ -166,7 +168,7 @@ class SmartAgent extends Component {
   };
 
   render() {
-    const { ads, activeUser, allUsers } = this.props;
+    const { ads, activeUser, allUsers,searchResults } = this.props;
     const {
       searchSelected,
       categorySelectedId,
@@ -206,7 +208,6 @@ class SmartAgent extends Component {
       </option>
     ));
 
-    // const signupUser = !activeUser ? <Button href="#/signup" variant="secondary">signup</Button> : null
 
     return (
       <>
@@ -314,7 +315,7 @@ class SmartAgent extends Component {
             <CardColumns>{filteredAds}</CardColumns>
           ) : (
             search && (
-              <Sorry
+              < SearchResults
                 ads={this.props.ads}
                 handleLogin={this.props.handleLogin}
                 allUsers={this.props.allUsers}
@@ -322,7 +323,9 @@ class SmartAgent extends Component {
                 activeUser={this.props.activeUser}
                 handleCreatNewAd={this.props.handleCreatNewAd}
                 handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
+                searchResults={filteredAds}
               />
+
             )
           )}
         </Container>

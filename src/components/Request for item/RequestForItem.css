@@ -1,0 +1,33 @@
+.modalAgent{
+    background-image: url("https://images.unsplash.com/photo-1512278753435-c834ff8a597a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80");
+    background-size: 50rem ;
+    background-position: center;
+    background-attachment: fixed;
+    background-Repeat: no-repeat;
+    max-height: 700px;
+    padding-right: 9%;
+    padding-left: 9%;
+    padding-top: 3%;
+    padding-bottom: 6%;
+    font-family:'Archivo Narrow', sans-serif;
+    margin:0;
+  }
+  .mfooter > button.btn.btn-link {
+    font-family:'Archivo Narrow', sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #FF8118;
+}
+
+.mfooter > button.btn.btn-link:hover{
+    color: black;
+}
+.mheader, .btnLookingFor{
+    color: #FF8118;
+    font-family:'Archivo Narrow', sans-serif;
+    font-size: 2rem;
+
+}
+.btnLookingFor:hover{
+    color: black;
+}

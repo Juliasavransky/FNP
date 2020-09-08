@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import RequestForItem from '../Request for item/RequestForItem';
 
 class SearchResults extends Component {
+  
   render() {
     return (
       <Container className="SearchResults">
@@ -40,7 +41,7 @@ class SearchResults extends Component {
                 handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
               />
             ) : (
-              // <Link to="/requestForItem">Try Out Smart Agent</Link>
+              
               <Link to="/Login">Registered Users Login</Link>
             )}
           </div>
