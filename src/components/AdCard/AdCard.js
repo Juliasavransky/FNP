@@ -19,8 +19,8 @@ class AdCard extends Component {
    
     return (
       <Card
-       className=" shadow  p-3 mb-5  card text-center ">
-        <a href={"#/product/" + ad.id}>
+       className=" shadow card p-3   card text-center ">
+        <a href={"/#product/" + ad.id}>
           <Card.Img 
           className="cardImg"
           variant="top" src={ad.img} />
