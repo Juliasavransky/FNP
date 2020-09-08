@@ -40,7 +40,7 @@ class SearchResults extends Component {
                 handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
               />
             ) : (
-              // <Link to="/requestForItem">Try Out Smart Agent</Link>
+              
               <Link to="/Login">Registered Users Login</Link>
             )}
           </div>

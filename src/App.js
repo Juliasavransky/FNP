@@ -138,11 +138,12 @@ class App extends Component {
         <ToastContainer autoClose={3000} />
         <AdNavbar
           ads={ads}
-          searchResults={searchResults}
           allUsers={allUsers}
           handleLogout={this.handleLogout}
           activeUser={activeUser}
           onSearch={this.handleSearch}
+          searchResults={searchResults}
+
         />
 
         <Switch>
@@ -361,6 +362,8 @@ class App extends Component {
               searchResults={searchResults}
               requests={requests}
               handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
+              onSearch={this.handleSearch}
+
             />
           </Route>
 
@@ -454,6 +457,7 @@ class App extends Component {
               handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
               requests={requests}
               searchResults={searchResults}
+              onSearch={this.handleSearch}
             />
           </Route>
 

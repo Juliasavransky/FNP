@@ -8,7 +8,6 @@ import {
 } from 'react-bootstrap';
 import './adNavbar.css';
 import AdCard from '../../components/AdCard/AdCard';
-import Sorry from '../Sorry we didnt find/Sorry';
 import { withRouter } from 'react-router-dom';
 
 class AdNavbar extends Component {
