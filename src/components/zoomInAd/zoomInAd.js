@@ -4,7 +4,7 @@ import {
   Button,
   Card,
   Container,
-  Form, Modal
+  Form, Modal,Row, Col
 } from "react-bootstrap";
 import './ZoomInAd.css';
 
@@ -155,11 +155,11 @@ class ZoomInAd extends Component {
         className="d-flex "
         >
           <Card
-            className="mx-auto shadow p-3 mt-5 rounded text-muted card "
+            className="mx-auto shadow p-3 mt-5 "
           >
-            <Card.Title className="m-2 card text-center">{ad.subCategoryName}</Card.Title>
+            <Card.Title className="cardTitle m-2 text-center">{ad.subCategoryName}</Card.Title>
 
-            <Card.Body className="   ">
+            <Card.Body className="cardBody">
               <div>Details: {ad.Details}</div>
               <div>Condition: {ad.Condition}</div>
               <div>
@@ -175,21 +175,21 @@ class ZoomInAd extends Component {
             <Card.Img variant="bottom" src={ad.img} />
             {signupUser}
             {LogInUser}
+
+
             {activeUser ? (
               <Button
                 onSubmit={this.handleSendEmail}
                 onClick={() => this.setState({ showEmailModal: true })}
-                className="btn-login"
+                className="btnSandEmail"
                 variant="link"
                 type="submit"
               >
                 Send An Email
               </Button>
-            ) : (
-              <></>
-            )}
+            ) : ( <></>)}
 
-            <small className=" m-2 text-muted card text-center">Published Date {ad.Date}</small>
+            <small className=" m-2 text-muted  text-center">Published Date {ad.Date}</small>
           </Card>
         </Container>
 

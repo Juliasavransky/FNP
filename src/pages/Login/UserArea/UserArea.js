@@ -132,13 +132,6 @@ class UserArea extends Component {
                   </Container>
                 );
               })}
-<<<<<<< HEAD
-=======
-            <br />
-            {/* <CardColumns>{activeUserAgentsUi}</CardColumns> */}
-            ); })}
-            <h2>My Ads</h2><br/>
->>>>>>> 3d02ee68ed029207dcc4c65e6d8d9c664fcf0df5
             <CardColumns>{activeUserAdsUi}</CardColumns>
           </Container>
         )}
