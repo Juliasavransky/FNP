@@ -11,7 +11,7 @@
     "Condition": "Good",
     "conditionId": 2,
     "userId": 3,
-    "livingAreaId": 3
+    "livingAreaId": 4
   },
   {
     "id": 2,
@@ -39,7 +39,7 @@
     "Condition": "Used-In A Good Condition",
     "conditionId": 3,
     "userId": 4,
-    "livingAreaId": 5
+    "livingAreaId": 4
   },
   {
     "id": 4,
@@ -67,7 +67,7 @@
     "Condition": "Used, In A Good Condition",
     "conditionId": 3,
     "userId": 6,
-    "livingAreaId": 1
+    "livingAreaId": 2
   },
   {
     "id": 6,
@@ -109,7 +109,7 @@
     "Condition": "Used-In A Good Condition",
     "conditionId": 3,
     "userId": 4,
-    "livingAreaId": 5
+    "livingAreaId": 4
   },
   {
     "id": 9,
@@ -137,7 +137,7 @@
     "Condition": "Used-In A Good Condition",
     "conditionId": 3,
     "userId": 5,
-    "livingAreaId": 3
+    "livingAreaId": 2
   },
   {
     "id": 11,
@@ -291,7 +291,7 @@
   {
     "id": 21,
     "CategoryId": 3,
-    "categoryName": "For The Babys",
+    "categoryName": "Baby Gear",
     "subCategoryName": "Furniture",
     "SubCategoryId": 31,
     "img": "https://img1.ad.co.il/SecondHandImages/3627733-400_0.jpg",
@@ -306,7 +306,7 @@
   {
     "id": 22,
     "CategoryId": 3,
-    "categoryName": "For The Babys",
+    "categoryName": "Baby Gear",
     "subCategoryName": "Furniture",
     "SubCategoryId": 31,
     "img": "https://img2.ad.co.il/SecondHandImages/3565818_1.jpg",
@@ -321,7 +321,7 @@
   {
     "id": 23,
     "CategoryId": 3,
-    "categoryName": "For The Babys",
+    "categoryName": "Baby Gear",
     "subCategoryName": "Safety ",
     "SubCategoryId": 32,
     "img": "https://img4.ad.co.il/SecondHandImages/3628998-400_3.jpg",
@@ -336,7 +336,7 @@
   {
     "id": 24,
     "CategoryId": 3,
-    "categoryName": "For The Babys",
+    "categoryName": "Baby Gear",
     "subCategoryName": "Safety ",
     "SubCategoryId": 32,
     "img": "https://img1.ad.co.il/SecondHandImages/3563953-400_0.jpg",
@@ -351,7 +351,7 @@
   {
     "id": 25,
     "CategoryId": 3,
-    "categoryName": "For The Babys",
+    "categoryName": "Baby Gear",
     "subCategoryName": "Carriage",
     "SubCategoryId": 33,
     "img": "https://img3.ad.co.il/SecondHandImages/3628394_0.jpg?w=260&h=200",
@@ -366,7 +366,7 @@
   {
     "id": 26,
     "CategoryId": 3,
-    "categoryName": "For The Babys",
+    "categoryName": "Baby Gear",
     "subCategoryName": "Carriage",
     "SubCategoryId": 33,
     "img": "https://img3.ad.co.il/SecondHandImages/3332733_2.jpg",
@@ -381,7 +381,7 @@
   {
     "id": 27,
     "CategoryId": 3,
-    "categoryName": "For The Babys",
+    "categoryName": "Baby Gear",
     "subCategoryName": "Playpen Cradle",
     "SubCategoryId": 34,
     "img": "https://img1.ad.co.il/SecondHandImages/2592113-400_0.jpg",
@@ -396,7 +396,7 @@
   {
     "id": 28,
     "CategoryId": 3,
-    "categoryName": "For The Babys",
+    "categoryName": "Baby Gear",
     "subCategoryName": "Playpen Cradle",
     "SubCategoryId": 34,
     "img": "https://img1.ad.co.il/SecondHandImages/2847765-400_0.jpg",
@@ -411,7 +411,7 @@
   {
     "id": 29,
     "CategoryId": 3,
-    "categoryName": "For The Babys",
+    "categoryName": "Baby Gear",
     "subCategoryName": "ForTheBaybys-Other",
     "SubCategoryId": 35,
     "img": "https://img3.ad.co.il/SecondHandImages/3241250-400_2.jpg",
@@ -426,7 +426,7 @@
   {
     "id": 30,
     "CategoryId": 3,
-    "categoryName": "For The Babys",
+    "categoryName": "Baby Gear",
     "subCategoryName": "ForTheBaybys-Other",
     "SubCategoryId": 35,
     "img": "https://img1.ad.co.il/SecondHandImages/3445959-400_0.jpg",

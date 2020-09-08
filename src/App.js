@@ -192,7 +192,6 @@ class App extends Component {
           activeUser={activeUser}
           onSearch={this.handleSearch}
           searchResults={searchResults}
-
         />
 
         <Switch>
@@ -412,7 +411,6 @@ class App extends Component {
               requests={requests}
               handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
               onSearch={this.handleSearch}
-
             />
           </Route>
 

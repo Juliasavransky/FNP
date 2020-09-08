@@ -21,11 +21,11 @@ class Casual extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto cat">
-                            <Nav.Link className="mr-5" id="hover" href="/#CoatsAndJackets">Coats and Jackets</Nav.Link>
-                            <Nav.Link className="mr-5" id="hover" href="/#Casual">Casual</Nav.Link>
-                            <Nav.Link className="mr-5" id="hover" href="/#specialEvents">Special Events</Nav.Link>
-                            <Nav.Link className="mr-5" id="hover" href="/#Shoes">Shoes</Nav.Link>
-                            <Nav.Link className="mr-5" id="hover" href="/#other">Other</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="#/CoatsAndJackets">Coats and Jackets</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="#/Casual">Casual</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="#/specialEvents">Special Events</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="#/Shoes">Shoes</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="#/other">Other</Nav.Link>
                         </Nav>
                         <Form inline>
                         </Form>

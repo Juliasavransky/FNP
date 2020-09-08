@@ -25,16 +25,16 @@ class Clothing extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto cat">
-              <Nav.Link className="mr-5  navFont" id="hover" href="/#CoatsAndJackets">
+              <Nav.Link className="mr-5  navFont" id="hover" href="#/CoatsAndJackets">
                 Coats and Jackets  
               </Nav.Link>  
-              <Nav.Link className="mr-5  navFont"  id="hover"href="/#Casual">
+              <Nav.Link className="mr-5  navFont"  id="hover"href="#/Casual">
                 Casual  
               </Nav.Link>  
-              <Nav.Link className="mr-5  navFont" id="hover" href="/#SpecialEvents">
+              <Nav.Link className="mr-5  navFont" id="hover" href="#/SpecialEvents">
                 Special Events  
               </Nav.Link>  
-              <Nav.Link className="mr-5  navFont" id="hover" href="/#Shoes">
+              <Nav.Link className="mr-5  navFont" id="hover" href="#/Shoes">
                 Shoes  
               </Nav.Link>  
               <Nav.Link className="mr-5  navFont" id="hover" href="/#ClothingOther">

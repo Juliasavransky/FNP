@@ -83,8 +83,8 @@ class ZoomInAd extends Component {
     const template_id = "new_ad";
     emailjs
       .send(service_id, template_id, template_params)
-      .then(alert("Email Has Been Sent Succesfully To The User"))
-      .catch("The Email send Has Been failed");
+      // .then(alert("Email Has Been Sent Succesfully To The User"))
+      // .catch("The Email send Has Been failed");
 
     //toast
     this.setState({
