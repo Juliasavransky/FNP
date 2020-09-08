@@ -19,7 +19,7 @@ class AdCard extends Component {
     const redirectPath = `/maps/${"Yosef Sapir 99 Hulon"}`;
     return (
       <Card
-       className=" shadow  p-3 mb-5  card text-center ">
+       className=" shadow card p-3   card text-center ">
         <a href={"/#product/" + ad.id}>
           <Card.Img 
           className="cardImg"
