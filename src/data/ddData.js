@@ -46,7 +46,7 @@
 const dataCategoriess = [
   { categoryName: 'Clothing', categoryId: 1 },
   { categoryName: 'Toys and Games', categoryId: 2 },
-  { categoryName: 'For The Babys', categoryId: 3 },
+  { categoryName: 'Baby Gear', categoryId: 3 },
   { categoryName: 'For Moms', categoryId: 4 },
 ];
 
@@ -67,7 +67,7 @@ const dataSubCategorys = [
   { subCategoryName: 'Safety', subCategoryId: 32, categoryId: 3 },
   { subCategoryName: 'Carriage', subCategoryId: 33, categoryId: 3 },
   { subCategoryName: 'Playpen Cradle', subCategoryId: 34, categoryId: 3 },
-  { subCategoryName: 'ForTheBaybys-Other', subCategoryId: 35, categoryId: 3 },
+  { subCategoryName: 'BabyGear-Other', subCategoryId: 35, categoryId: 3 },
 
   { subCategoryName: 'pregnancy clothes', subCategoryId: 41, categoryId: 4 },
   { subCategoryName: 'Breast Pumps', subCategoryId: 42, categoryId: 4 },
