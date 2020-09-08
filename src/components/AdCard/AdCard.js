@@ -19,7 +19,7 @@ class AdCard extends Component {
    
     return (
       <Card
-       className=" shadow card p-3   card text-center ">
+       className=" shadow card p-3  text-center ">
         <a href={"/#product/" + ad.id}>
           <Card.Img 
           className="cardImg"
@@ -27,22 +27,29 @@ class AdCard extends Component {
         </a>
 
         <Card.Body>
-          <Card.Title>{ad.Category}</Card.Title>
-          <Card.Link href={"#/product/" + ad.id}>
-            Details- {ad.Details}
+          <Card.Title className="cardTaitle">{ad.Category}</Card.Title>
+          <Card.Link className="cardDetails" 
+          href={"#/product/" + ad.id}
+          >
+             
+            <div> Details - {ad.Details}</div>
           </Card.Link>
-          <Card.Text>Condition- {ad.Condition} </Card.Text>
-          <small className="text-muted card text-center">
-            Published Date {ad.Date}
-          </small>
-          <br />
-          <a className="map" href={redirectPath} target="_blank">
-           See The Address On The Map</a>
+          <Card.Text className="cardDetails">
+          <div>Condition - {ad.Condition}</div>  </Card.Text>
+         
+         
+       
         
-          <br /> <br />
+          
           <FacebookShareButton url="https://www.facebook.com/">
             <FacebookIcon size={32} round={true} />
           </FacebookShareButton>
+          <br /> 
+          <a className="map" href={redirectPath} target="_blank">
+           See The Address On The Map</a>
+          <small className="text-muted card text-center">
+            Published Date {ad.Date}
+          </small>
         </Card.Body>
       </Card>
     );

@@ -1,17 +1,25 @@
-.card{
-    border-radius: 5%; 
-    font-family:'Archivo Narrow', sans-serif;
-
-}
-.cardImg{
-    border-radius: 5%; 
-
+.card {
+    border-radius: 5%;
+    font-family: 'Archivo Narrow', sans-serif;
 }
 
- /* .card{
-    box-shadow: 0 15px 10px #777;
-    /* box-shadow: 0 15px 10px #777; */
-    
- /* } */
+.cardImg {
+    border-radius: 5%;
+}
 
- 
+.cardTaitle {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.cardDetails {
+    font-size: 1.3rem;
+    color: black;
+}
+
+/* .cardDetails:hover {
+    color: #FF8118;
+} */
+
+/* #FacebookShareButton {
+} */

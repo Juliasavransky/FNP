@@ -123,7 +123,7 @@ class ZoomInAd extends Component {
       <Button
         onSubmit={this.handleSendEmail}
         href="#/emailSending"
-        variant="secondary"
+        variant="link"
       >
         Send An Email
       </Button>
@@ -132,8 +132,8 @@ class ZoomInAd extends Component {
     const signupUser = !activeUser && (
       <Button
         href="#/signup"
-        variant="secondary"
-        className="btn-userLogin mr-2 mb-3"
+        variant="link"
+        className="btn-userLogin "
       >
         Sign Up
       </Button>
@@ -142,16 +142,14 @@ class ZoomInAd extends Component {
     const LogInUser = !activeUser ? (
       <Button
         href="#/login"
-        variant="secondary"
-        className="btn-userLogin mr-2 mb-3 "
+        variant="link"
+        className="btn-userLogin "
       >
         Log In
       </Button>
     ) : null;
 
     return (
-      
-
       <>
         <Container 
         className="d-flex "

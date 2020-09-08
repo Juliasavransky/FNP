@@ -64,12 +64,12 @@ class UserArea extends Component {
 
     const activeUserAdsUi =
       activeUser && activeUserAds.map(ad => <AdCard key={ad.id} ad={ad} />);
-
+// const mySmartAgentUi= userSmartAgents.map(sAgent => )
  
     return (
       <div>
         {redirectToHome ? (
-          <Redirect to="/#" />
+          <Redirect to="#/" />
         ) : (
           <Container>
             {userSmartAgents.length > 0 &&
@@ -131,9 +131,6 @@ class UserArea extends Component {
                   </Container>
                 );
               })}
-            <br />
-            {/* <CardColumns>{activeUserAgentsUi}</CardColumns> */}
-            ); })}
             <CardColumns>{activeUserAdsUi}</CardColumns>
           </Container>
         )}
