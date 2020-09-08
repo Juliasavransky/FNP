@@ -2,19 +2,19 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { Card } from "react-bootstrap";
 import { FacebookIcon, FacebookShareButton } from "react-share";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import jsonUsers from "../../data/users.json";
 
 
 class AdCard extends Component {
   render() {
     const { ad } = this.props;
-    const owner = jsonUsers.filter(
+    const owner = jsonUsers.find(
       (user) => this.props.ad.userId === user.id
     );
     console.log("we wanna see owner"+ owner.StreetNumber)
-    // const redirectPath = `/maps/${owner.StreetNumber + " " + owner.City}`;
-    const redirectPath = `/maps/${"Yosef Sapir 99 Hulon"}`;
+    const redirectPath = `https://www.google.com/maps/place/${owner.StreetNumber + " " + owner.City}`;
+   
     return (
       <Card className=" shadow item well p-3 mb-5 bg-white rounded card text-center ">
         <a href={"/#product/" + ad.id}>
@@ -31,9 +31,9 @@ class AdCard extends Component {
             Published Date {ad.Date}
           </small>
           <br />
-          {/* <Link className="map" to={redirectPath} target="blank">
-           See The Address On The Map
-          </Link> */}
+          <a className="map" href={redirectPath} target="_blank">
+           See The Address On The Map</a>
+        
           <br /> <br />
           <FacebookShareButton url="https://www.facebook.com/">
             <FacebookIcon size={32} round={true} />
