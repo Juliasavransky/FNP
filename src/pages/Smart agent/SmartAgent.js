@@ -18,7 +18,7 @@ import {
 } from '../../data/ddData';
 import Sorry from '../../components/Sorry we didnt find/Sorry';
 import { filtersmartagent } from '../../utiles/filter';
-import SearchResults from '../../components/Navbar/SearchResults'
+import SearchResults from '../../components/Navbar/SearchResults';
 
 class SmartAgent extends Component {
   constructor(props) {
@@ -31,7 +31,6 @@ class SmartAgent extends Component {
       livingAreaSelected: null,
       searchSelected: '',
       filteredAds: [],
-      
     };
 
     this.categoryChange = this.categoryChange.bind(this);
@@ -76,6 +75,8 @@ class SmartAgent extends Component {
     });
   }
   search = event => {
+    event.preventDefault();
+
     const { ads, activeUser, allUsers } = this.props;
     const {
       searchSelected,
@@ -168,7 +169,7 @@ class SmartAgent extends Component {
   };
 
   render() {
-    const { ads, activeUser, allUsers,searchResults } = this.props;
+    const { ads, activeUser, allUsers, searchResults } = this.props;
     const {
       searchSelected,
       categorySelectedId,
@@ -208,11 +209,10 @@ class SmartAgent extends Component {
       </option>
     ));
 
-
     return (
       <>
         <div className="lupa">
-          <Form>
+          <Form onSubmit={this.search}>
             <Form.Row>
               <FormGroup>
                 <Form.Label htmlFor="inlineFormCustomSelectPref">
@@ -226,7 +226,7 @@ class SmartAgent extends Component {
                   id="inlineFormCustomSelectPref"
                   value={this.state.categorySelectedId}
                 >
-                  <option value="0">Select A Category</option>
+                  <option value="">Select A Category</option>
                   {categoryOption}
                 </Form.Control>
               </FormGroup>
@@ -243,7 +243,7 @@ class SmartAgent extends Component {
                   id="inlineFormCustomSelectPref"
                   value={this.state.subCategorySelectedId}
                 >
-                  <option value="0">Select A Sub-Category</option>
+                  <option value="">Select A Sub-Category</option>
                   {subCategoryOption}
                 </Form.Control>
               </FormGroup>
@@ -260,7 +260,7 @@ class SmartAgent extends Component {
                   id="inlineFormCustomSelectPref"
                   value={this.state.conditionSelected}
                 >
-                  <option value="0">Select A Condition</option>
+                  <option value="">Select A Condition</option>
                   {itemConditionOption}
                 </Form.Control>
               </FormGroup>
@@ -277,7 +277,7 @@ class SmartAgent extends Component {
                   id="inlineFormCustomSelectPref"
                   value={this.state.livingAreaSelected}
                 >
-                  <option value="0">Select An Area</option>
+                  <option value="">Select An Area</option>
                   {dataLivingAreasOption}
                 </Form.Control>
               </FormGroup>
@@ -297,11 +297,7 @@ class SmartAgent extends Component {
                   className=""
                 />
 
-                <Button
-                  className="btn-search"
-                  onClick={this.search}
-                  variant="link"
-                >
+                <Button className="btn-search" variant="link" type="submit">
                   Search
                 </Button>
               </FormGroup>
@@ -314,19 +310,16 @@ class SmartAgent extends Component {
           {filteredAds && filteredAds.length > 0 ? (
             <CardColumns>{filteredAds}</CardColumns>
           ) : (
-            search && (
-              < SearchResults
-                ads={this.props.ads}
-                handleLogin={this.props.handleLogin}
-                allUsers={this.props.allUsers}
-                handleLogout={this.props.handleLogout}
-                activeUser={this.props.activeUser}
-                handleCreatNewAd={this.props.handleCreatNewAd}
-                handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
-                searchResults={filteredAds}
-              />
-
-            )
+            <SearchResults
+              ads={this.props.ads}
+              handleLogin={this.props.handleLogin}
+              allUsers={this.props.allUsers}
+              handleLogout={this.props.handleLogout}
+              activeUser={this.props.activeUser}
+              handleCreatNewAd={this.props.handleCreatNewAd}
+              handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
+              searchResults={filteredAds}
+            />
           )}
         </Container>
       </>
