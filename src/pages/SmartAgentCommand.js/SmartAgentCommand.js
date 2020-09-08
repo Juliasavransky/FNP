@@ -14,9 +14,9 @@ class SmartAgentCommand extends Component {
               Stuff I'm Looking For
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              <Dropdown.Item href="#/action-1">Info And Notifications</Dropdown.Item>
+              <Dropdown.Item href="#/action-2"> My Smart Agent</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Bounce My Ad</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
 

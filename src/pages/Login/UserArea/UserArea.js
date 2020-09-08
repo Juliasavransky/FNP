@@ -98,7 +98,7 @@ class UserArea extends Component {
                           Smart Agent
                         </Dropdown.Item>
                         <Dropdown.Item href="#/action-3">
-                        Bouncing My Ads
+                        Bounce My Ad
                         </Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
