@@ -30,7 +30,7 @@ class SmartAgent extends Component {
       conditionSelected: null,
       livingAreaSelected: null,
       searchSelected: '',
-      filteredAds: [],
+      filteredAds: null,
     };
 
     this.categoryChange = this.categoryChange.bind(this);
@@ -74,6 +74,7 @@ class SmartAgent extends Component {
       searchSelected: '',
     });
   }
+
   search = event => {
     event.preventDefault();
 
@@ -177,7 +178,6 @@ class SmartAgent extends Component {
       conditionSelected,
       livingAreaSelected,
       filteredAds,
-      search,
     } = this.state;
     // console.log(filtersmartagent(ads, 1, "Used", "Pills" ))
 
@@ -307,20 +307,22 @@ class SmartAgent extends Component {
         </div>
 
         <Container>
-          {filteredAds && filteredAds.length > 0 ? (
-            <CardColumns>{filteredAds}</CardColumns>
-          ) : (
-            <SearchResults
-              ads={this.props.ads}
-              handleLogin={this.props.handleLogin}
-              allUsers={this.props.allUsers}
-              handleLogout={this.props.handleLogout}
-              activeUser={this.props.activeUser}
-              handleCreatNewAd={this.props.handleCreatNewAd}
-              handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
-              searchResults={filteredAds}
-            />
-          )}
+          {console.log('filteredAds', filteredAds)}
+          {filteredAds &&
+            (filteredAds.length > 0 ? (
+              <CardColumns>{filteredAds}</CardColumns>
+            ) : (
+              <SearchResults
+                ads={this.props.ads}
+                handleLogin={this.props.handleLogin}
+                allUsers={this.props.allUsers}
+                handleLogout={this.props.handleLogout}
+                activeUser={this.props.activeUser}
+                handleCreatNewAd={this.props.handleCreatNewAd}
+                handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
+                searchResults={[]}
+              />
+            ))}
         </Container>
       </>
     );
