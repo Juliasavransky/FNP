@@ -8,7 +8,7 @@
     "livingArea": "Jerusalem",
     "livingAreaId": 3,
     "City": "Jerusalem",
-    "StreetNumber": "Balfur St 20",
+    "StreetNumber": "Balfour Street 20, ",
     "Contact": "0976789661"
   },
   {
@@ -20,7 +20,7 @@
     "livingArea": "Center",
     "livingAreaId": 1,
     "City": "Rishon-Le-Zion",
-    "StreetNumber": "Heil Ha Tsanhanim St 6",
+    "StreetNumber": "Heil Ha Tsanhanim 6, ",
     "Contact": "0545679117"
   },
   {
@@ -31,8 +31,8 @@
     "pwd": "456",
     "livingArea": "North",
     "livingAreaId": 2,
-    "City": "Karkur",
-    "StreetNumber": "Nir St 6",
+    "City": "Pardes Hanna-Karkur",
+    "StreetNumber": "Nir Street 6, ",
     "Contact": "055678943"
   },
   {
@@ -44,7 +44,7 @@
     "livingArea": "South",
     "livingAreaId": 4,
     "City": "Ashkelon",
-    "StreetNumber": "Fridan St 5",
+    "StreetNumber": "Fridan Street 5, ",
     "Contact": "055678943"
   },
   {
@@ -56,7 +56,7 @@
     "livingArea": "North",
     "livingAreaId": 2,
     "City": "Metula",
-    "StreetNumber": "HaMorag St 20",
+    "StreetNumber": "HaMorag Street 20, ",
     "Contact": "098345666"
   },
   {
@@ -68,7 +68,7 @@
     "livingArea": "North",
     "livingAreaId": 2,
     "City": "Tiberias",
-    "StreetNumber": "Shitrit 33 St",
+    "StreetNumber": "Shitrit Street 33, ",
     "Contact": "050789543"
   },
   {
@@ -80,7 +80,7 @@
     "livingArea": "Center",
     "livingAreaId": 1,
     "City": "Tel-Aviv",
-    "StreetNumber": " Jaffa St 33",
+    "StreetNumber": "Derech Jaffa 33, ",
     "Contact": "0523274663"
   }
 ]
