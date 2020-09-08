@@ -31,9 +31,9 @@ class AdCard extends Component {
             Published Date {ad.Date}
           </small>
           <br />
-          <Link className="map" to={redirectPath} target="blank">
+          {/* <Link className="map" to={redirectPath} target="blank">
            See The Address On The Map
-          </Link>
+          </Link> */}
           <br /> <br />
           <FacebookShareButton url="https://www.facebook.com/">
             <FacebookIcon size={32} round={true} />
