@@ -11,7 +11,7 @@
     "Condition": "Good",
     "conditionId": 2,
     "userId": 3,
-    "livingAreaId": 3
+    "livingAreaId": 4
   },
   {
     "id": 2,
@@ -39,7 +39,7 @@
     "Condition": "Used-In A Good Condition",
     "conditionId": 3,
     "userId": 4,
-    "livingAreaId": 5
+    "livingAreaId": 4
   },
   {
     "id": 4,
@@ -67,7 +67,7 @@
     "Condition": "Used, In A Good Condition",
     "conditionId": 3,
     "userId": 6,
-    "livingAreaId": 1
+    "livingAreaId": 2
   },
   {
     "id": 6,
@@ -109,7 +109,7 @@
     "Condition": "Used-In A Good Condition",
     "conditionId": 3,
     "userId": 4,
-    "livingAreaId": 5
+    "livingAreaId": 4
   },
   {
     "id": 9,
@@ -137,7 +137,7 @@
     "Condition": "Used-In A Good Condition",
     "conditionId": 3,
     "userId": 5,
-    "livingAreaId": 3
+    "livingAreaId": 2
   },
   {
     "id": 11,

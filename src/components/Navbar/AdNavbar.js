@@ -108,9 +108,9 @@ class AdNavbar extends Component {
               <Nav.Link id="hover"className="mr-2" href="#/SmartAgent">
                 Advanced Search
               </Nav.Link >
-              <Nav.Link id="hover"className="mr-2" href="#/">
+              {/* <Nav.Link id="hover"className="mr-2" href="#/">
                Smart Agent
-              </Nav.Link >
+              </Nav.Link > */}
               {UserArea}
             </Nav>
 

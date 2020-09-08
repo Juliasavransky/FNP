@@ -8,7 +8,7 @@
     "livingArea": "Jerusalem",
     "livingAreaId": 3,
     "City": "Jerusalem",
-    "StreetNumber": " Balfur 20",
+    "StreetNumber": "Balfur St 20",
     "Contact": "0976789661"
   },
   {
@@ -17,10 +17,10 @@
     "lname": "Doe",
     "email": "sara@sara.com",
     "pwd": "321",
-    "livingArea": "North",
-    "livingAreaId": 4,
-    "City": "Carmiel",
-    "StreetNumber": " Smadar 13",
+    "livingArea": "Center",
+    "livingAreaId": 1,
+    "City": "Rishon-Le-Zion",
+    "StreetNumber": "Heil Ha Tsanhanim St 6",
     "Contact": "0545679117"
   },
   {
@@ -29,10 +29,10 @@
     "lname": "Kantor",
     "email": "hannakantor@gmail.com",
     "pwd": "456",
-    "livingArea": "West",
-    "livingAreaId": 5,
-    "City": "Rishon-Le-Zion",
-    "StreetNumber": "Heyl Ha-Tzanhanim 5",
+    "livingArea": "North",
+    "livingAreaId": 2,
+    "City": "Karkur",
+    "StreetNumber": "Nir St 6",
     "Contact": "055678943"
   },
   {
@@ -41,10 +41,10 @@
     "lname": "Choen",
     "email": "yulia@gmail.com",
     "pwd": "876",
-    "livingArea": "North",
-    "livingAreaId": 2,
-    "City": "Carcur",
-    "StreetNumber": "Tavor 5",
+    "livingArea": "South",
+    "livingAreaId": 4,
+    "City": "Ashkelon",
+    "StreetNumber": "Fridan St 5",
     "Contact": "055678943"
   },
   {
@@ -53,10 +53,10 @@
     "lname": "Choen",
     "email": "Tal@gmail.com",
     "pwd": "992",
-    "livingArea": "Center",
-    "livingAreaId": 1,
-    "City": "Hulon",
-    "StreetNumber": "Yosef Sapir 99",
+    "livingArea": "North",
+    "livingAreaId": 2,
+    "City": "Metula",
+    "StreetNumber": "HaMorag St 20",
     "Contact": "098345666"
   },
   {
@@ -65,10 +65,10 @@
     "lname": "Levi",
     "email": "Bar@gmail.com",
     "pwd": "555",
-    "livingArea": "South",
-    "livingAreaId": 4,
-    "City": "Beer-Sheva",
-    "StreetNumber": "Hertsel 44",
+    "livingArea": "North",
+    "livingAreaId": 2,
+    "City": "Tiberias",
+    "StreetNumber": "Shitrit 33 St",
     "Contact": "050789543"
   },
   {

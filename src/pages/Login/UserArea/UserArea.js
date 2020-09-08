@@ -104,7 +104,8 @@ class UserArea extends Component {
                     </Dropdown>
 
                     <CardColumns>
-                      <Card
+                      
+                      <Card 
                         className="shadow item well p-3 mb-5"
                         key={sAgent.agentId}
                       >
@@ -134,6 +135,7 @@ class UserArea extends Component {
             <br />
             {/* <CardColumns>{activeUserAgentsUi}</CardColumns> */}
             ); })}
+            <h2>My Ads</h2><br/>
             <CardColumns>{activeUserAdsUi}</CardColumns>
           </Container>
         )}
