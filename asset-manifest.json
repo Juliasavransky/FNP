@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/FNP/static/css/main.c1c12d25.chunk.css",
+    "main.js": "/FNP/static/js/main.cbc2a5c2.chunk.js",
+    "main.js.map": "/FNP/static/js/main.cbc2a5c2.chunk.js.map",
+    "runtime-main.js": "/FNP/static/js/runtime-main.d357761b.js",
+    "runtime-main.js.map": "/FNP/static/js/runtime-main.d357761b.js.map",
+    "static/css/2.fe7cd3c1.chunk.css": "/FNP/static/css/2.fe7cd3c1.chunk.css",
+    "static/js/2.6554e6ce.chunk.js": "/FNP/static/js/2.6554e6ce.chunk.js",
+    "static/js/2.6554e6ce.chunk.js.map": "/FNP/static/js/2.6554e6ce.chunk.js.map",
+    "index.html": "/FNP/index.html",
+    "precache-manifest.a43bb38d4a3bb304c7601b0d1b77717d.js": "/FNP/precache-manifest.a43bb38d4a3bb304c7601b0d1b77717d.js",
+    "service-worker.js": "/FNP/service-worker.js",
+    "static/css/2.fe7cd3c1.chunk.css.map": "/FNP/static/css/2.fe7cd3c1.chunk.css.map",
+    "static/css/main.c1c12d25.chunk.css.map": "/FNP/static/css/main.c1c12d25.chunk.css.map",
+    "static/js/2.6554e6ce.chunk.js.LICENSE.txt": "/FNP/static/js/2.6554e6ce.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d357761b.js",
+    "static/css/2.fe7cd3c1.chunk.css",
+    "static/js/2.6554e6ce.chunk.js",
+    "static/css/main.c1c12d25.chunk.css",
+    "static/js/main.cbc2a5c2.chunk.js"
+  ]
+}
