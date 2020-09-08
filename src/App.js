@@ -46,13 +46,11 @@ import Lego from './pages/Toys and games/Lego';
 import ToysAndGames from './pages/Toys and games/Toys and games';
 import ToysAndGamesOther from './pages/Toys and games/ToysAndGamesOther';
 import Maps from './pages/maps';
+import { dataLivingAreas } from './data/ddData';
+
 emailjs.init('user_92TMg4RqAMZUj3a9Jc5NQ');
 
-
 class App extends Component {
-  componentDidMount() {
-    console.log('props from app', this.props);
-  }
   constructor(props) {
     super(props);
 
@@ -62,6 +60,7 @@ class App extends Component {
       ads: jsonAds,
       requests: jsonSmartAgent,
       searchResults: [],
+      executeSAgent: false,
     };
     this.handleLogout = this.handleLogout.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
@@ -79,7 +78,17 @@ class App extends Component {
   componentDidUpdate() {
     // Will run every time the component is being updated
     // Everytime you call 'this.setState' the component will render and this function will run again
-    console.log('All Users', this.state.allUsers);
+    //console.log('All Users', this.state.allUsers);
+
+    if (this.state.executeSAgent) {
+      this.executeSmartAgents(
+        this.state.requests,
+        this.state.allUsers,
+        this.state.ads
+      );
+
+      this.setState({ executeSAgent: false });
+    }
   }
 
   handleLogout() {
@@ -115,6 +124,9 @@ class App extends Component {
       ads: [...this.state.ads, newAd],
     });
     toast.success('New ad Added');
+
+    // will trigger the smart agent notification system
+    this.setState({ executeSAgent: true });
   }
 
   handleCreatSmartNewAgent(newAgent) {
@@ -124,11 +136,48 @@ class App extends Component {
       requests: [...this.state.requests, newAgent],
     });
     toast.success('New Smart Agent added');
+
+    // will trigger the smart agent notification system
+    this.setState({ executeSAgent: true });
   }
 
   handleSearch = searchResults => {
     this.setState({ searchResults: searchResults });
   };
+
+  executeSmartAgents(smartAgents, allUsers, ads) {
+    smartAgents.forEach(sAgent => {
+      console.log('sAgent', sAgent);
+
+      const smartAgentAds = ads.filter(ad => {
+        // find the living-area name by the living-area id
+        const currentLivingAreaName = dataLivingAreas.find(
+          lArea => lArea.livingAreaId === ad.livingAreaId
+        )?.livingAreaName;
+
+        return (
+          sAgent.CategoryId === ad.CategoryId &&
+          sAgent.SubCategoryId === ad.SubCategoryId &&
+          sAgent.conditionId.toLowerCase() === ad.Condition.toLowerCase() &&
+          sAgent.livingAreaId.toLowerCase() ===
+            currentLivingAreaName.toLowerCase()
+        );
+      });
+
+      console.log('smartAgentAds', smartAgentAds);
+
+      smartAgentAds.forEach(ad => {
+        const userObject = allUsers.find(user => user.id === ad.userId);
+        if (userObject) {
+          const userEmail = userObject.email;
+
+          if (userEmail) {
+            console.log('send email to ' + userEmail);
+          }
+        }
+      });
+    });
+  }
 
   render() {
     const { activeUser, allUsers, ads, searchResults, requests } = this.state;
@@ -475,20 +524,15 @@ class App extends Component {
             />
           </Route>
 
-
-
           <Route exact path="/maps">
-          <Maps
-            handleLogin={this.handleLogin}
-            allUsers={allUsers}
-            handleLogout={this.handleLogout}
-            activeUser={activeUser}
-            ads={ads}
+            <Maps
+              handleLogin={this.handleLogin}
+              allUsers={allUsers}
+              handleLogout={this.handleLogout}
+              activeUser={activeUser}
+              ads={ads}
             />
-        </Route>
-
-
-
+          </Route>
 
           <Route exact path="/zoomInAd">
             <ZoomInAd
@@ -501,11 +545,6 @@ class App extends Component {
               handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
               requests={requests}
               searchResults={searchResults}
-            
-              
-
-
-
             />
           </Route>
         </Switch>
