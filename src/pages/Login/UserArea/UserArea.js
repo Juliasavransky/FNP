@@ -95,10 +95,10 @@ class UserArea extends Component {
                       <Dropdown.Menu>
                         <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">
-                          Another action
+                          Smart Agent
                         </Dropdown.Item>
                         <Dropdown.Item href="#/action-3">
-                          Something else
+                        Bounce My Ad
                         </Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
