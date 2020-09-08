@@ -44,7 +44,7 @@ class Clothing extends Component {
             <Form inline></Form>
           </Navbar.Collapse>
         </Navbar>
-        <Container>
+        <Container className="container">
           <CardColumns>{clothingAdsUi}</CardColumns>
           <ListGroup variant="flush"></ListGroup>
         </Container>
