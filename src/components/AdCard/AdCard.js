@@ -2,13 +2,19 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { Card } from "react-bootstrap";
 import { FacebookIcon, FacebookShareButton } from "react-share";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import jsonUsers from "../../data/users.json";
+
 
 class AdCard extends Component {
   render() {
     const { ad } = this.props;
-   
-
+    const owner = jsonUsers.filter(
+      (user) => this.props.ad.userId === user.id
+    );
+    console.log("we wanna see owner"+ owner.StreetNumber)
+    // const redirectPath = `/maps/${owner.StreetNumber + " " + owner.City}`;
+    const redirectPath = `/maps/${"Yosef Sapir 99 Hulon"}`;
     return (
       <Card className=" shadow item well p-3 mb-5 bg-white rounded card text-center ">
         <a href={"/#product/" + ad.id}>
@@ -24,25 +30,15 @@ class AdCard extends Component {
           <small className="text-muted card text-center">
             Published Date {ad.Date}
           </small>
-          <br/>
-          <Link to = ''><button>See The address on the map</button></Link>
-          {/* <iframe
- width="600"
- height="450"
- frameborder="0" 
- src={"https://www.google.com/maps/embed/v1/place?key=AIzaSyBGwuk78nvE8sbBxd8xt-tPL1mT1DiwZCY&q=" + 
- owner.StreetNumber + " " + owner.City } allowfullscreen>
-</iframe> */}
-          <br/> <br/>
-          
+          <br />
+          <Link className="map" to={redirectPath} target="blank">
+           See The Address On The Map
+          </Link>
+          <br /> <br />
           <FacebookShareButton url="https://www.facebook.com/">
             <FacebookIcon size={32} round={true} />
           </FacebookShareButton>
-
-        
-
         </Card.Body>
-
       </Card>
     );
   }

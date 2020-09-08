@@ -3,10 +3,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
 
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
 .cat{
     font-family:'Archivo Narrow', sans-serif;
     font-size: 1.2rem;
 }
 #hover:hover{
     color: #FF8118;
+  }
+
+  .map{
+      
   }

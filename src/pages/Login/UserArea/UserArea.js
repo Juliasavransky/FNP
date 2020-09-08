@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CardColumns, Container, Card, Row, Col, } from "react-bootstrap";
+import { CardColumns, Container, Card, Dropdown } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import AdCard from "../../../components/AdCard/AdCard";
 import NewAdModal from "../../../components/New Ad Modal/NewAdModal";
@@ -57,9 +57,6 @@ class UserArea extends Component {
 
     const activeUserAdsUi =
       activeUser && activeUserAds.map((ad) => <AdCard key={ad.id} ad={ad} />);
-
-      // const activeUserAgentsUi =
-      // activeUser && activeUserAds.map((ad) => <AdCard key={ad.id} ad={ad} />);
 
     return (
      
@@ -129,7 +126,7 @@ class UserArea extends Component {
               })}
             <br />
               
-            {/* <CardColumns>{activeUserAgentsUi}</CardColumns> */}
+            
 
 
                   );

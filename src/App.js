@@ -473,13 +473,10 @@ class App extends Component {
 
 
 
-          <Route exact path="/maps">
+          <Route exact path="/maps/:address">
           <Maps
-            handleLogin={this.handleLogin}
-            allUsers={allUsers}
-            handleLogout={this.handleLogout}
-            activeUser={activeUser}
-            ads={ads}
+           
+            
             />
         </Route>
 

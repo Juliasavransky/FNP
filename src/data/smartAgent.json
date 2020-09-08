@@ -12,21 +12,21 @@
   {
     "CategoryId": 1,
     "SubCategoryId": 11,
-    "details": "This is an AD details",
+    "details": "Yellow Shoes",
     "conditionId": "New",
     "userId": 3,
     "livingAreaId": "North",
     "agentId": 101,
-    "title": "This is a new AD Title"
+    "title": "Baby Warm Coat"
   },
   {
     "CategoryId": 2,
     "SubCategoryId": 12,
-    "details": "This is another AD details",
+    "details": "Star Wars Lego",
     "conditionId": "Used",
     "userId": 3,
     "livingAreaId": "Center",
     "agentId": 102,
-    "title": "This is a different AD Title"
+    "title": "Lego"
   }
 ]

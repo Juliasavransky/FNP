@@ -3,6 +3,8 @@ import { Container } from 'react-bootstrap';
 import RequestForItem from '../Request for item/RequestForItem';
 import './Sorry.css';
 
+
+//להוריד
 class Sorry extends Component {
   componentDidMount() {
     console.log('Sorry', this.props);
