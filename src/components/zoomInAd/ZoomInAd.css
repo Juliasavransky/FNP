@@ -35,3 +35,17 @@ width:  400px;
     font-size: 3rem;
 
 }
+.btnSandEmail ,.btn-userLogin{
+    color: #FF8118;
+    font-family:'Archivo Narrow', sans-serif;
+    font-size: 1.5rem;
+}
+.btnSandEmail:hover ,.btn-userLogin:hover{
+color: black;
+}
+.cardTitle{
+    font-size:2rem ;
+}
+.cardBody{
+    font-size: 1.2rem ;
+}

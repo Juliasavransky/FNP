@@ -282,22 +282,20 @@ class SmartAgent extends Component {
                 </Form.Control>
               </FormGroup>
 
-              <FormGroup>
+              <FormGroup className="labelSearch">
                 <Form.Label htmlFor="inlineFormCustomSelectPref">
-                  Search
                 </Form.Label>
                 <FormControl
-                  // style={{ width: '22rem' }}
                   value={searchSelected}
                   onChange={event =>
                     this.setState({ searchSelected: event.target.value })
                   }
                   type="text"
                   placeholder="Search"
-                  className=""
+                  
                 />
 
-                <Button className="btn-search" variant="link" type="submit">
+                <Button className="btn-search" id="btn-search" variant="link" type="submit">
                   Search
                 </Button>
               </FormGroup>
