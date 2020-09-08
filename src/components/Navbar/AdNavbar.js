@@ -62,7 +62,7 @@ class AdNavbar extends Component {
     const { searchSelected, filteredAds, search } = this.state;
 
     const LogOutUser = activeUser ? (
-      <Nav.Link className="btnFont" onClick={() => handleLogout()} href="#" >
+      <Nav.Link className="btnFont" onClick={() => handleLogout()} href="#/" >
         Log Out
       </Nav.Link>
     ) : null;
@@ -107,6 +107,9 @@ class AdNavbar extends Component {
               </Nav.Link>
               <Nav.Link id="hover"className="mr-2" href="#/SmartAgent">
                 Advanced Search
+              </Nav.Link >
+              <Nav.Link id="hover"className="mr-2" href="#/">
+               Smart Agent
               </Nav.Link >
               {UserArea}
             </Nav>

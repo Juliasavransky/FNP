@@ -19,11 +19,11 @@ class Shoes extends Component {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto cat">
-                            <Nav.Link className="mr-5" id="hover" href="/#CoatsAndJackets">Coats and Jackets</Nav.Link>
-                            <Nav.Link className="mr-5" id="hover" href="/#casual">Casual</Nav.Link>
-                            <Nav.Link className="mr-5" id="hover" href="/#SpecialEvents">Special Events</Nav.Link>
-                            <Nav.Link className="mr-5" id="hover" href="/#Shoes">Shoes</Nav.Link>
-                            <Nav.Link className="mr-5" id="hover" href="/#ClothingOther">Other</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="#/CoatsAndJackets">Coats and Jackets</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="#/casual">Casual</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="#/SpecialEvents">Special Events</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="#/Shoes">Shoes</Nav.Link>
+                            <Nav.Link className="mr-5" id="hover" href="#/ClothingOther">Other</Nav.Link>
                         </Nav>
                         <Form inline>
                         </Form>
