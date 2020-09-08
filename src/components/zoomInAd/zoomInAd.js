@@ -119,6 +119,7 @@ class ZoomInAd extends Component {
     console.log("owner", owner);
 
     const sendAnEmail = activeUser && (
+
       <Button
         onSubmit={this.handleSendEmail}
         href="#/emailSending"
@@ -222,7 +223,7 @@ class ZoomInAd extends Component {
                 onChange={this.handleemailInput}
                 type="text"
                 name="emailInput"
-                placeholder="Ask a question...."
+                placeholder="Ask A Question...."
               />
             </Form.Group>
           </Modal.Body>
