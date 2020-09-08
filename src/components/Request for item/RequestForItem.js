@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Button, Modal, Container, Col, Row } from 'react-bootstrap';
 import emailjs from 'emailjs-com';
+import './RequestForItem.css';
+
 
 class RequestForItem extends Component {
   constructor(props) {
@@ -259,10 +261,12 @@ class RequestForItem extends Component {
           show={showNewAgentModal}
           onHide={this.handleModalClose}
         >
-          <Modal.Header closeButton>
+          <Modal.Header 
+          className="mheader"
+          closeButton>
             <Modal.Title> Creat A New Agent</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="modalAgent">
             <Container className=" d-flex justify-content-center w-50 p-5">
               <Form>
                 <Form.Group>
@@ -367,12 +371,12 @@ class RequestForItem extends Component {
               </Form>
             </Container>
           </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.cleanAndHideModalData}>
+          <Modal.Footer className="mfooter">
+            <Button variant="link" onClick={this.cleanAndHideModalData}>
               Cancel
             </Button>
 
-            <Button variant="primary" onClick={this.handleCreatSmartAgent}>
+            <Button variant="link" onClick={this.handleCreatSmartAgent}>
               Creat A New Agent
             </Button>
           </Modal.Footer>
