@@ -37,10 +37,7 @@ class AdCard extends Component {
           <Card.Text className="cardDetails">
           <div>Condition - {ad.Condition}</div>  </Card.Text>
          
-         
-       
         
-          
           <FacebookShareButton url="https://www.facebook.com/">
             <FacebookIcon size={32} round={true} />
           </FacebookShareButton>

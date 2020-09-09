@@ -283,7 +283,8 @@ class SmartAgent extends Component {
               </FormGroup>
 
               <FormGroup className="labelSearch">
-                <Form.Label htmlFor="inlineFormCustomSelectPref">
+                <Form.Label  htmlFor="inlineFormCustomSelectPref">
+                  search
                 </Form.Label>
                 <FormControl
                   value={searchSelected}

@@ -183,7 +183,7 @@ class App extends Component {
     const { activeUser, allUsers, ads, searchResults, requests } = this.state;
 
     return (
-      <div className="App">
+      <  >
         <ToastContainer autoClose={3000} />
         <AdNavbar
           ads={ads}
@@ -546,7 +546,7 @@ class App extends Component {
             />
           </Route>
         </Switch>
-      </div>
+      </>
     );
   }
 }

@@ -3,33 +3,32 @@ import { CardColumns, Container } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import RequestForItem from '../Request for item/RequestForItem';
+import './SearchResults.css';
+
 
 class SearchResults extends Component {
   
   render() {
     return (
-      <Container className="SearchResults">
+      <>
         {this.props.searchResults.length === 0 ? (
-          <div>
-            <br></br>
-            <br></br>
+          <div className="SearchResults">
             <h2>No Results Found :-(</h2>
-            <br></br>
-            Sorry, the item you are interested in is not currently on the site.{' '}
-            <br></br>
-            Our smart agent scans the site for you even when you are not on it,{' '}
-            <br></br>
+           
+           <p> Sorry, the item you are interested in is not currently on the site.</p>
+
+           <p>Our smart agent scans the site for you even when you are not on it,
+            
             and finds for you the ads you are looking for according to
-            predefined criteria. <br></br>
-            How Is This Working? <br></br> <br></br>
+            predefined criteria. 
+            How Is This Working? 
             First click on Add New Agent and define the criteria of the ads you
-            are looking for.<br></br>
-            As soon as you fill in the details, <br></br>
-            the smart agent will wait for new ads to be added to the site,{' '}
-            <br></br>
-            which meet the criteria you have set for him. <br></br>
-            The search results can be obtained by your email. <br></br>{' '}
-            <br></br>
+            are looking for.</p>
+            <p>As soon as you fill in the details, 
+            the smart agent will wait for new ads to be added to the site,
+            which meet the criteria you have set for him. 
+            The search results can be obtained by your email. </p>
+  
             {this.props.activeUser ? (
               <RequestForItem
                 ads={this.props.ads}
@@ -48,7 +47,7 @@ class SearchResults extends Component {
         ) : (
           <CardColumns>{this.props.searchResults}</CardColumns>
         )}
-      </Container>
+      </>
     );
   }
 }

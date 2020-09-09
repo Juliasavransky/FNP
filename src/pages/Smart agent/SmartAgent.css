@@ -30,12 +30,12 @@
     color: #FF8118;
  } 
   .btn-search:hover{
-    color: black;
+    color: white;
   }
-  .labelSearch{
+  /* .labelSearch{
     display: flex;
     align-items: flex-end;
-  }
+  } */
 #btn-search{
     /* padding-top:24px ; */
 
