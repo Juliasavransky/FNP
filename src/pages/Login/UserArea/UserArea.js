@@ -14,6 +14,7 @@ import {
   dataCategoriess as categories,
   dataSubCategorys as subCategories,
 } from '../../../data/ddData';
+// import SmartAgentCommand from '../../SmartAgentCommand.js';
 
 class UserArea extends Component {
   constructor(props) {
@@ -93,7 +94,7 @@ class UserArea extends Component {
                         Stuff I'm Looking For
                       </Dropdown.Toggle>
                       <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                        <Dropdown.Item href="#/action-1">Info And Notifications</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">
                           Smart Agent
                         </Dropdown.Item>
@@ -144,9 +145,22 @@ class UserArea extends Component {
           handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
           activeUser={activeUser}
         />
+          {/* <SmartAgentCommand
+          ads={ads}
+          handleLogin={this.props.handleLogin}
+          allUsers={allUsers}
+          handleLogout={this.props.handleLogout}
+          handleCreatNewAd={this.props.handleCreatNewAd}
+          handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
+          activeUser={activeUser} */}
+        
+
+        {/* /> */}
       </div>
     );
   }
 }
 
 export default UserArea;
+
+
