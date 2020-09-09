@@ -200,8 +200,8 @@ class NewAdModal extends Component {
 
     return (
       <Container>
-        <Button
-          variant="primary"
+        <Button className="placeAnAd"
+          variant="link"
           onClick={() => this.setState({ showNewAdModal: true })}
         >
           Place an Ad

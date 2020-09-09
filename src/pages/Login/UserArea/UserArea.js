@@ -15,6 +15,9 @@ import {
   dataSubCategorys as subCategories,
 } from '../../../data/ddData';
 // import SmartAgentCommand from '../../SmartAgentCommand.js';
+import './UserArea.css';
+import RequestForItem from '../../../components/Request for item/RequestForItem';
+
 
 class UserArea extends Component {
   constructor(props) {
@@ -68,11 +71,32 @@ class UserArea extends Component {
 // const mySmartAgentUi= userSmartAgents.map(sAgent => )
  
     return (
-      <div>
+      <div className="userArea">
+                    <CardColumns>{activeUserAdsUi}</CardColumns>
+                    <NewAdModal
+          ads={ads}
+          handleLogin={this.props.handleLogin}
+          allUsers={allUsers}
+          handleLogout={this.props.handleLogout}
+          handleCreatNewAd={this.props.handleCreatNewAd}
+          handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
+          activeUser={activeUser}
+        />
+        <RequestForItem
+          ads={ads}
+          handleLogin={this.props.handleLogin}
+          allUsers={allUsers}
+          handleLogout={this.props.handleLogout}
+          handleCreatNewAd={this.props.handleCreatNewAd}
+          handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
+          activeUser={activeUser}
+        />
+
         {redirectToHome ? (
           <Redirect to="#/" />
         ) : (
-          <Container>
+          <Container >
+            <h2 className="title text-center" >My Smart Agents</h2>
             {userSmartAgents.length > 0 &&
               userSmartAgents.map(sAgent => {
                 const categoryName = categories.find(
@@ -86,36 +110,20 @@ class UserArea extends Component {
 
                 return (
                   <Container>
-                    <Dropdown>
-                      <br />
-                      <h2>My Smart Agents</h2>
-                      <br />
-                      <Dropdown.Toggle variant="info" id="dropdown-basic">
-                        Stuff I'm Looking For
-                      </Dropdown.Toggle>
-                      <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">Info And Notifications</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">
-                          Smart Agent
-                        </Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">
-                        Bounce My Ad
-                        </Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
+                 
 
                     <CardColumns>
                       
                       <Card 
-                        className="shadow item well p-3 mb-5"
+                        className="shadow  p-3 mb-5"
                         key={sAgent.agentId}
                       >
                         <Card.Body>
-                          <Card.Title className="card text-center bg-white rounded">
+                          <Card.Title className=" cardTitle card text-center bg-white rounded">
                             {' '}
                             {sAgent.title}{' '}
                           </Card.Title>
-                          <Card.Text className="card text-center">
+                          <Card.Text className=" cardBoby text-center">
                             <Card.Text>Category: {categoryName}</Card.Text>
                             <Card.Text>
                               Sub-Category: {subCategoryName}
@@ -133,18 +141,9 @@ class UserArea extends Component {
                   </Container>
                 );
               })}
-            <CardColumns>{activeUserAdsUi}</CardColumns>
           </Container>
         )}
-        <NewAdModal
-          ads={ads}
-          handleLogin={this.props.handleLogin}
-          allUsers={allUsers}
-          handleLogout={this.props.handleLogout}
-          handleCreatNewAd={this.props.handleCreatNewAd}
-          handleCreatSmartNewAgent={this.props.handleCreatSmartNewAgent}
-          activeUser={activeUser}
-        />
+   
           {/* <SmartAgentCommand
           ads={ads}
           handleLogin={this.props.handleLogin}

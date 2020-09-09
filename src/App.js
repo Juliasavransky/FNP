@@ -47,6 +47,7 @@ import ToysAndGames from './pages/Toys and games/Toys and games';
 import ToysAndGamesOther from './pages/Toys and games/ToysAndGamesOther';
 import Maps from './pages/maps';
 import { dataLivingAreas } from './data/ddData';
+import SmartAgentCommand from './pages/SmartAgentCommand.js/SmartAgentCommand';
 
 emailjs.init('user_92TMg4RqAMZUj3a9Jc5NQ');
 
@@ -502,7 +503,6 @@ class App extends Component {
               activeUser={activeUser}
               handleCreatNewAd={this.handleCreatNewAd}
               handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
-              requests={requests}
               searchResults={searchResults}
               onSearch={this.handleSearch}
             />
@@ -522,15 +522,20 @@ class App extends Component {
             />
           </Route>
 
-          <Route exact path="/maps">
-            <Maps
+          <Route exact path="/smartAgentCommand">
+            <SmartAgentCommand
               handleLogin={this.handleLogin}
               allUsers={allUsers}
               handleLogout={this.handleLogout}
               activeUser={activeUser}
               ads={ads}
+              searchResults={searchResults}
+              handleCreatSmartNewAgent={this.handleCreatSmartNewAgent}
+              requests={requests}
             />
           </Route>
+
+          
 
           <Route exact path="/zoomInAd">
             <ZoomInAd

@@ -1,0 +1,38 @@
+.userArea{
+    background-image: url("https://images.unsplash.com/photo-1510284876186-b1a84b94418f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-Repeat: no-repeat;
+    /* max-height: 700px; */
+    padding-right: 9%;
+    padding-left: 9%;
+    padding-top: 3%;
+    padding-bottom: 6%;
+    font-family:'Archivo Narrow', sans-serif;
+    margin:0;
+  }
+
+  .title{
+    /* font-family:'Archivo Narrow', sans-serif; */
+    font-family:'Petit Formal Script', cursive;
+
+    font-size: 4rem;
+    /* color: #FF8118; */
+    font-weight: bold;
+    margin:60px ;
+  }
+  .mfooter > button.btn.btn-link {
+    font-family:'Archivo Narrow', sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #FF8118;
+}
+
+.mfooter > button.btn.btn-link:hover{
+    color: black;
+}
+.cardBoby{
+    font-size: 1.1rem;
+
+}

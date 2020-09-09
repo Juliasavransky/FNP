@@ -33,3 +33,13 @@
 
  
 }
+
+.placeAnAd {
+    font-family:'Archivo Narrow', sans-serif;
+    font-size: 2rem;
+    color: #FF8118;
+}
+
+.placeAnAd:hover{
+    color: black;
+}
