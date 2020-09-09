@@ -3,6 +3,7 @@
     font-size: larger;
     text-align: center;
 }
+
 .SearchResults {
     background-image: url("https://images.unsplash.com/photo-1488998427799-e3362cec87c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
     background-size: cover;
@@ -10,18 +11,36 @@
     background-attachment: fixed;
     background-Repeat: no-repeat;
     max-height: 1700px;
-    /* padding-right: 12%;
+    padding-right: 12%;
     padding-left: 12%;
     padding-top: 5%;
-    padding-bottom: 6%; */
+    padding-bottom: 6%;
     font-family: 'Archivo Narrow', sans-serif;
     margin: 0;
 }
-.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, SearchResults{
-    /* width: 100%;
-  
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important; */
+
+.noResults {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 3rem;
+    padding: 50px;
+    text-align: center;
+}
+
+.sorry, .oursmart, .asSoon {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1.5rem;
+    max-width: 500px;
+    text-align: center;
+    margin-left: 250px;
+}
+
+.registered {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 2rem;
+    color: #FF8118;
+    margin: 30px;
+}
+
+.registered:hover {
+    color: black;
 }

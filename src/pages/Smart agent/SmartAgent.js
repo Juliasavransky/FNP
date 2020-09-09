@@ -220,7 +220,6 @@ class SmartAgent extends Component {
                 </Form.Label>
                 <Form.Control
                   // inline
-                  // style={{ width: '22rem' }}
                   onChange={this.categoryChange}
                   as="select"
                   id="inlineFormCustomSelectPref"
@@ -236,7 +235,6 @@ class SmartAgent extends Component {
                   Sub-Categories
                 </Form.Label>
                 <Form.Control
-                  // style={{ width: '22rem' }}
                   onChange={this.subCategoryChange}
                   as="select"
                   className=""
@@ -305,7 +303,7 @@ class SmartAgent extends Component {
           <p id="logo">PASS ON</p>
         </div>
 
-        <Container>
+        {/* <Container> */}
           {console.log('filteredAds', filteredAds)}
           {filteredAds &&
             (filteredAds.length > 0 ? (
@@ -322,7 +320,7 @@ class SmartAgent extends Component {
                 searchResults={[]}
               />
             ))}
-        </Container>
+        {/* </Container> */}
       </>
     );
   }

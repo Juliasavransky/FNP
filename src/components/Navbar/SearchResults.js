@@ -13,18 +13,18 @@ class SearchResults extends Component {
       <>
         {this.props.searchResults.length === 0 ? (
           <div className="SearchResults">
-            <h2>No Results Found :-(</h2>
+            <h2 className="noResults">No Results Found :-(</h2>
            
-           <p> Sorry, the item you are interested in is not currently on the site.</p>
 
-           <p>Our smart agent scans the site for you even when you are not on it,
+           <p className="oursmart">Sorry, the item you are interested in is not currently on the site.
+             Our smart agent scans the site for you even when you are not on it,
             
             and finds for you the ads you are looking for according to
             predefined criteria. 
             How Is This Working? 
             First click on Add New Agent and define the criteria of the ads you
             are looking for.</p>
-            <p>As soon as you fill in the details, 
+            <p className="asSoon">As soon as you fill in the details, 
             the smart agent will wait for new ads to be added to the site,
             which meet the criteria you have set for him. 
             The search results can be obtained by your email. </p>
@@ -41,7 +41,7 @@ class SearchResults extends Component {
               />
             ) : (
               
-              <Link to="/Login">Registered Users Login</Link>
+              <Link className="registered" to="/Login">Registered Users Login</Link>
             )}
           </div>
         ) : (
