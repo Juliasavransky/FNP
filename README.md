@@ -1,6 +1,6 @@
 <img width="949" alt="pass on" src="https://user-images.githubusercontent.com/63636407/114464597-a2283d80-9bee-11eb-9509-f819f5bbd342.png">
 
-![pass on form](https://user-images.githubusercontent.com/63636407/114501500-c60d7280-9c32-11eb-8809-5363acf8d553.jpg)
+![pass on form ad](https://user-images.githubusercontent.com/63636407/114626460-6c518a80-9cbc-11eb-84a9-b52bb46ec2e1.jpg)
 
 ![pass on cards](https://user-images.githubusercontent.com/63636407/114503247-a88dd800-9c35-11eb-85c6-354337bc999e.jpg)
 
