@@ -4,8 +4,9 @@
 
 ![pass on cards](https://user-images.githubusercontent.com/63636407/114503247-a88dd800-9c35-11eb-85c6-354337bc999e.jpg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [Visit the page](https://juliasavransky.github.io/FNP/#/)
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## Available Scripts
 
 In the project directory, you can run:
