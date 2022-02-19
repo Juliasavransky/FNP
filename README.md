@@ -1,8 +1,13 @@
+# PASS-ON
+### A social media app for sharing second-hand items of children and babies. The app is a bulletin board of items users wish to give away and items the users are looking for. The app allows users: to publish ads about giving away or asking for items; to contact other users by mail and schedule the transfer of the item; to define a smart agent which will notify the user an automated notification once another user publishes that item.
+
 <img width="949" alt="pass on" src="https://user-images.githubusercontent.com/63636407/114464597-a2283d80-9bee-11eb-9509-f819f5bbd342.png">
 
 ![pass on form ad](https://user-images.githubusercontent.com/63636407/114626460-6c518a80-9cbc-11eb-84a9-b52bb46ec2e1.jpg)
 
 ![pass on cards](https://user-images.githubusercontent.com/63636407/114503247-a88dd800-9c35-11eb-85c6-354337bc999e.jpg)
+For building this app I've used react classes component , JSON files css3.
+
 
 # [Visit the page](https://juliasavransky.github.io/FNP/#/)
 
